@@ -1,0 +1,86 @@
+PODS:
+  - 1PasswordExtension (1.8.5)
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - AFWebDAVManager (0.0.1):
+    - AFNetworking (~> 2.4)
+    - Ono (~> 1.1)
+  - GoldRaccoon (1.0.2)
+  - Mantle (2.1.0):
+    - Mantle/extobjc (= 2.1.0)
+  - Mantle/extobjc (2.1.0)
+  - NMSSH (2.2.8)
+  - Ono (1.2.2)
+  - Reachability (3.2)
+  - Realm (3.0.2):
+    - Realm/Headers (= 3.0.2)
+  - Realm/Headers (3.0.2)
+  - TODocumentPickerViewController (0.2.0):
+    - TOSearchBar
+  - TOSearchBar (1.0.3)
+  - TOSMBClient (1.0.8)
+  - UICKeyChainStore (2.1.1)
+  - XLForm (4.0.0)
+
+DEPENDENCIES:
+  - 1PasswordExtension
+  - AFNetworking
+  - AFWebDAVManager
+  - GoldRaccoon (from `https://github.com/iComics/GoldRaccoon.git`)
+  - Mantle
+  - NMSSH
+  - Ono
+  - Reachability
+  - Realm
+  - TODocumentPickerViewController
+  - TOSMBClient
+  - UICKeyChainStore
+  - XLForm
+
+EXTERNAL SOURCES:
+  GoldRaccoon:
+    :git: https://github.com/iComics/GoldRaccoon.git
+
+CHECKOUT OPTIONS:
+  GoldRaccoon:
+    :commit: 0d3c6f06069e9dc90d2783c3db12ccb1e6bb1e59
+    :git: https://github.com/iComics/GoldRaccoon.git
+
+SPEC CHECKSUMS:
+  1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  AFWebDAVManager: b4c89acea9b3ffd63f457c766be2a248802414f3
+  GoldRaccoon: a9143566afe37c2aba38589512aef83566a52573
+  Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
+  NMSSH: b722885a07485a2c03ffa3ea56a7b0308dbdc37c
+  Ono: 80b1c686777d3f6d5d5ce6fcac8a74afef4ca197
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
+  TODocumentPickerViewController: 9deaaf8f431abf11f45e97d769edda43eaa33efe
+  TOSearchBar: ee22b7ade729521b6ace523cea0ce97d23ab3cd9
+  TOSMBClient: 8884ede03ae70e6087962433fda22fb6b4b8c7f8
+  UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
+  XLForm: 04110197c12187dd28a6c7295d3d8b95f4fdb4de
+
+PODFILE CHECKSUM: bf947e42234d1c527eeb1c3ec038b11b9e799343
+
+COCOAPODS: 1.4.0.beta.2
