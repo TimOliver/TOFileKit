@@ -8,11 +8,8 @@ target 'TOFileKitExample' do
   pod 'XLForm'
 
   # Networking
-  pod 'AFNetworking'
-  pod 'AFWebDAVManager'
   pod 'GoldRaccoon', :git => 'https://github.com/iComics/GoldRaccoon.git'
   pod 'NMSSH'
-  pod 'Ono'
   pod 'Reachability'
   pod 'TOSMBClient'
 
