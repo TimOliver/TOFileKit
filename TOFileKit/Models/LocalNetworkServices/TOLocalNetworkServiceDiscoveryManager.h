@@ -10,13 +10,13 @@
 
 @class ICLocalService;
 
-@interface ICLocalServiceDiscoveryManager : NSObject
+@interface TOLocalServiceDiscoveryManager : NSObject
 
 /* The list of services discovered by the manager. */
 @property (nonatomic, readonly) NSMutableArray<ICLocalService *> *services;
 
 /* A block triggered each time the number of items in `services` changes. */
-@property (nonatomic, copy) void (^servicesListUpdatedHandler)();
+@property (nonatomic, copy) void (^servicesListUpdatedHandler)(void);
 
 /* A quick check to see if it's possible to perform discovery (ie WiFi is present) */
 @property (nonatomic, readonly) BOOL discoveryAvailable;

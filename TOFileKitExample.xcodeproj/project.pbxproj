@@ -7,10 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		227ACCFB201C5BC9000E699F /* ICDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACCF8201C5BC9000E699F /* ICDownload.m */; };
-		227ACCFC201C5BC9000E699F /* ICAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACCF9201C5BC9000E699F /* ICAccount.m */; };
 		227ACD00201C5CB8000E699F /* TOFileAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACCFE201C5CB8000E699F /* TOFileAccountsViewController.m */; };
 		227ACD03201C619C000E699F /* TOFileServicePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD02201C619C000E699F /* TOFileServicePickerViewController.m */; };
+		227ACD44201C8765000E699F /* TOLocalNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD1C201C8765000E699F /* TOLocalNetworkService.m */; };
+		227ACD45201C8765000E699F /* TOLocalNetworkServiceDiscoveryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD1F201C8765000E699F /* TOLocalNetworkServiceDiscoveryManager.m */; };
+		227ACD46201C8765000E699F /* TOFileDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD23201C8765000E699F /* TOFileDownload.m */; };
+		227ACD47201C8765000E699F /* TOFileAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD24201C8765000E699F /* TOFileAccount.m */; };
+		227ACD48201C8765000E699F /* ICSMBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD27201C8765000E699F /* ICSMBService.m */; };
+		227ACD49201C8765000E699F /* ICSFTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD28201C8765000E699F /* ICSFTPService.m */; };
+		227ACD4A201C8765000E699F /* ICWebDAVService.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD2B201C8765000E699F /* ICWebDAVService.m */; };
+		227ACD4B201C8765000E699F /* ICFTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD2E201C8765000E699F /* ICFTPService.m */; };
+		227ACD4C201C8765000E699F /* ICNetworkDownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD2F201C8765000E699F /* ICNetworkDownloadService.m */; };
+		227ACD4D201C8765000E699F /* ICDownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD32201C8765000E699F /* ICDownloadService.m */; };
+		227ACD4E201C8765000E699F /* ICDropboxService.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD34201C8765000E699F /* ICDropboxService.m */; };
+		227ACD4F201C8765000E699F /* ICBoxService.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD35201C8765000E699F /* ICBoxService.m */; };
+		227ACD50201C8765000E699F /* ICOAuthDownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD36201C8765000E699F /* ICOAuthDownloadService.m */; };
+		227ACD51201C8765000E699F /* ICGoogleDriveService.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD38201C8765000E699F /* ICGoogleDriveService.m */; };
+		227ACD52201C8765000E699F /* ICOneDriveService.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD3C201C8765000E699F /* ICOneDriveService.m */; };
+		227ACD53201C8765000E699F /* ICOAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD3F201C8765000E699F /* ICOAuthResponse.m */; };
+		227ACD54201C8765000E699F /* TOSystemDocumentProviderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD43201C8765000E699F /* TOSystemDocumentProviderManager.m */; };
 		22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */; };
 		22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C751FF8C4700055FDF5 /* TOViewController.m */; };
 		22FC4C7B1FF8C4700055FDF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22FC4C7A1FF8C4700055FDF5 /* Assets.xcassets */; };
@@ -21,14 +36,44 @@
 
 /* Begin PBXFileReference section */
 		1D38893175A434E7E3F01D5B /* libPods-TOFileKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TOFileKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		227ACCF7201C5BC9000E699F /* ICAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICAccount.h; sourceTree = "<group>"; };
-		227ACCF8201C5BC9000E699F /* ICDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICDownload.m; sourceTree = "<group>"; };
-		227ACCF9201C5BC9000E699F /* ICAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICAccount.m; sourceTree = "<group>"; };
-		227ACCFA201C5BC9000E699F /* ICDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICDownload.h; sourceTree = "<group>"; };
 		227ACCFE201C5CB8000E699F /* TOFileAccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileAccountsViewController.m; sourceTree = "<group>"; };
 		227ACCFF201C5CB8000E699F /* TOFileAccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileAccountsViewController.h; sourceTree = "<group>"; };
 		227ACD01201C619C000E699F /* TOFileServicePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileServicePickerViewController.h; sourceTree = "<group>"; };
 		227ACD02201C619C000E699F /* TOFileServicePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileServicePickerViewController.m; sourceTree = "<group>"; };
+		227ACD1C201C8765000E699F /* TOLocalNetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOLocalNetworkService.m; sourceTree = "<group>"; };
+		227ACD1D201C8765000E699F /* TOLocalNetworkServiceDiscoveryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOLocalNetworkServiceDiscoveryManager.h; sourceTree = "<group>"; };
+		227ACD1E201C8765000E699F /* TOLocalNetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOLocalNetworkService.h; sourceTree = "<group>"; };
+		227ACD1F201C8765000E699F /* TOLocalNetworkServiceDiscoveryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOLocalNetworkServiceDiscoveryManager.m; sourceTree = "<group>"; };
+		227ACD21201C8765000E699F /* TOFileDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileDownload.h; sourceTree = "<group>"; };
+		227ACD22201C8765000E699F /* TOFileAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileAccount.h; sourceTree = "<group>"; };
+		227ACD23201C8765000E699F /* TOFileDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileDownload.m; sourceTree = "<group>"; };
+		227ACD24201C8765000E699F /* TOFileAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileAccount.m; sourceTree = "<group>"; };
+		227ACD27201C8765000E699F /* ICSMBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSMBService.m; sourceTree = "<group>"; };
+		227ACD28201C8765000E699F /* ICSFTPService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSFTPService.m; sourceTree = "<group>"; };
+		227ACD29201C8765000E699F /* ICNetworkDownloadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICNetworkDownloadService.h; sourceTree = "<group>"; };
+		227ACD2A201C8765000E699F /* ICFTPService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICFTPService.h; sourceTree = "<group>"; };
+		227ACD2B201C8765000E699F /* ICWebDAVService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICWebDAVService.m; sourceTree = "<group>"; };
+		227ACD2C201C8765000E699F /* ICSMBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSMBService.h; sourceTree = "<group>"; };
+		227ACD2D201C8765000E699F /* ICSFTPService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSFTPService.h; sourceTree = "<group>"; };
+		227ACD2E201C8765000E699F /* ICFTPService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICFTPService.m; sourceTree = "<group>"; };
+		227ACD2F201C8765000E699F /* ICNetworkDownloadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICNetworkDownloadService.m; sourceTree = "<group>"; };
+		227ACD30201C8765000E699F /* ICWebDAVService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICWebDAVService.h; sourceTree = "<group>"; };
+		227ACD31201C8765000E699F /* ICDownloadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICDownloadService.h; sourceTree = "<group>"; };
+		227ACD32201C8765000E699F /* ICDownloadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICDownloadService.m; sourceTree = "<group>"; };
+		227ACD34201C8765000E699F /* ICDropboxService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICDropboxService.m; sourceTree = "<group>"; };
+		227ACD35201C8765000E699F /* ICBoxService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICBoxService.m; sourceTree = "<group>"; };
+		227ACD36201C8765000E699F /* ICOAuthDownloadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICOAuthDownloadService.m; sourceTree = "<group>"; };
+		227ACD37201C8765000E699F /* ICOneDriveService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICOneDriveService.h; sourceTree = "<group>"; };
+		227ACD38201C8765000E699F /* ICGoogleDriveService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICGoogleDriveService.m; sourceTree = "<group>"; };
+		227ACD39201C8765000E699F /* ICOAuthDownloadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICOAuthDownloadService.h; sourceTree = "<group>"; };
+		227ACD3A201C8765000E699F /* ICBoxService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICBoxService.h; sourceTree = "<group>"; };
+		227ACD3B201C8765000E699F /* ICDropboxService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICDropboxService.h; sourceTree = "<group>"; };
+		227ACD3C201C8765000E699F /* ICOneDriveService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICOneDriveService.m; sourceTree = "<group>"; };
+		227ACD3D201C8765000E699F /* ICGoogleDriveService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICGoogleDriveService.h; sourceTree = "<group>"; };
+		227ACD3F201C8765000E699F /* ICOAuthResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICOAuthResponse.m; sourceTree = "<group>"; };
+		227ACD40201C8765000E699F /* ICOAuthResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICOAuthResponse.h; sourceTree = "<group>"; };
+		227ACD42201C8765000E699F /* TOSystemDocumentProviderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOSystemDocumentProviderManager.h; sourceTree = "<group>"; };
+		227ACD43201C8765000E699F /* TOSystemDocumentProviderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOSystemDocumentProviderManager.m; sourceTree = "<group>"; };
 		22FC4C6E1FF8C4700055FDF5 /* TOFileKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOFileKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FC4C711FF8C4700055FDF5 /* TOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOAppDelegate.h; sourceTree = "<group>"; };
 		22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOAppDelegate.m; sourceTree = "<group>"; };
@@ -54,33 +99,127 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		227ACCF6201C5BC9000E699F /* Models */ = {
+		227ACCFD201C5CB8000E699F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				227ACCF7201C5BC9000E699F /* ICAccount.h */,
-				227ACCF8201C5BC9000E699F /* ICDownload.m */,
-				227ACCF9201C5BC9000E699F /* ICAccount.m */,
-				227ACCFA201C5BC9000E699F /* ICDownload.h */,
+				227ACCFF201C5CB8000E699F /* TOFileAccountsViewController.h */,
+				227ACCFE201C5CB8000E699F /* TOFileAccountsViewController.m */,
+				227ACD01201C619C000E699F /* TOFileServicePickerViewController.h */,
+				227ACD02201C619C000E699F /* TOFileServicePickerViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		227ACD1A201C8765000E699F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				227ACD20201C8765000E699F /* Realm */,
+				227ACD1B201C8765000E699F /* LocalNetworkServices */,
+				227ACD25201C8765000E699F /* FileServices */,
+				227ACD41201C8765000E699F /* SystemDocumentProviders */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		227ACCFD201C5CB8000E699F /* Controllers */ = {
+		227ACD1B201C8765000E699F /* LocalNetworkServices */ = {
 			isa = PBXGroup;
 			children = (
-				227ACD01201C619C000E699F /* TOFileServicePickerViewController.h */,
-				227ACD02201C619C000E699F /* TOFileServicePickerViewController.m */,
-				227ACCFF201C5CB8000E699F /* TOFileAccountsViewController.h */,
-				227ACCFE201C5CB8000E699F /* TOFileAccountsViewController.m */,
+				227ACD1C201C8765000E699F /* TOLocalNetworkService.m */,
+				227ACD1D201C8765000E699F /* TOLocalNetworkServiceDiscoveryManager.h */,
+				227ACD1E201C8765000E699F /* TOLocalNetworkService.h */,
+				227ACD1F201C8765000E699F /* TOLocalNetworkServiceDiscoveryManager.m */,
 			);
-			path = Controllers;
+			path = LocalNetworkServices;
+			sourceTree = "<group>";
+		};
+		227ACD20201C8765000E699F /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				227ACD22201C8765000E699F /* TOFileAccount.h */,
+				227ACD24201C8765000E699F /* TOFileAccount.m */,
+				227ACD21201C8765000E699F /* TOFileDownload.h */,
+				227ACD23201C8765000E699F /* TOFileDownload.m */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		227ACD25201C8765000E699F /* FileServices */ = {
+			isa = PBXGroup;
+			children = (
+				227ACD26201C8765000E699F /* NetworkServices */,
+				227ACD31201C8765000E699F /* ICDownloadService.h */,
+				227ACD32201C8765000E699F /* ICDownloadService.m */,
+				227ACD33201C8765000E699F /* OAuthServices */,
+				227ACD3E201C8765000E699F /* RESTResponses */,
+			);
+			path = FileServices;
+			sourceTree = "<group>";
+		};
+		227ACD26201C8765000E699F /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				227ACD27201C8765000E699F /* ICSMBService.m */,
+				227ACD28201C8765000E699F /* ICSFTPService.m */,
+				227ACD29201C8765000E699F /* ICNetworkDownloadService.h */,
+				227ACD2A201C8765000E699F /* ICFTPService.h */,
+				227ACD2B201C8765000E699F /* ICWebDAVService.m */,
+				227ACD2C201C8765000E699F /* ICSMBService.h */,
+				227ACD2D201C8765000E699F /* ICSFTPService.h */,
+				227ACD2E201C8765000E699F /* ICFTPService.m */,
+				227ACD2F201C8765000E699F /* ICNetworkDownloadService.m */,
+				227ACD30201C8765000E699F /* ICWebDAVService.h */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		227ACD33201C8765000E699F /* OAuthServices */ = {
+			isa = PBXGroup;
+			children = (
+				227ACD34201C8765000E699F /* ICDropboxService.m */,
+				227ACD35201C8765000E699F /* ICBoxService.m */,
+				227ACD36201C8765000E699F /* ICOAuthDownloadService.m */,
+				227ACD37201C8765000E699F /* ICOneDriveService.h */,
+				227ACD38201C8765000E699F /* ICGoogleDriveService.m */,
+				227ACD39201C8765000E699F /* ICOAuthDownloadService.h */,
+				227ACD3A201C8765000E699F /* ICBoxService.h */,
+				227ACD3B201C8765000E699F /* ICDropboxService.h */,
+				227ACD3C201C8765000E699F /* ICOneDriveService.m */,
+				227ACD3D201C8765000E699F /* ICGoogleDriveService.h */,
+			);
+			path = OAuthServices;
+			sourceTree = "<group>";
+		};
+		227ACD3E201C8765000E699F /* RESTResponses */ = {
+			isa = PBXGroup;
+			children = (
+				227ACD3F201C8765000E699F /* ICOAuthResponse.m */,
+				227ACD40201C8765000E699F /* ICOAuthResponse.h */,
+			);
+			path = RESTResponses;
+			sourceTree = "<group>";
+		};
+		227ACD41201C8765000E699F /* SystemDocumentProviders */ = {
+			isa = PBXGroup;
+			children = (
+				227ACD42201C8765000E699F /* TOSystemDocumentProviderManager.h */,
+				227ACD43201C8765000E699F /* TOSystemDocumentProviderManager.m */,
+			);
+			path = SystemDocumentProviders;
+			sourceTree = "<group>";
+		};
+		227ACD55201C8773000E699F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		22E7C17D201C499500AF8BFE /* TOFileKit */ = {
 			isa = PBXGroup;
 			children = (
+				227ACD1A201C8765000E699F /* Models */,
+				227ACD55201C8773000E699F /* Views */,
 				227ACCFD201C5CB8000E699F /* Controllers */,
-				227ACCF6201C5BC9000E699F /* Models */,
 			);
 			path = TOFileKit;
 			sourceTree = "<group>";
@@ -267,13 +406,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				227ACCFC201C5BC9000E699F /* ICAccount.m in Sources */,
+				227ACD45201C8765000E699F /* TOLocalNetworkServiceDiscoveryManager.m in Sources */,
+				227ACD4F201C8765000E699F /* ICBoxService.m in Sources */,
+				227ACD49201C8765000E699F /* ICSFTPService.m in Sources */,
+				227ACD53201C8765000E699F /* ICOAuthResponse.m in Sources */,
+				227ACD4A201C8765000E699F /* ICWebDAVService.m in Sources */,
 				22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */,
+				227ACD48201C8765000E699F /* ICSMBService.m in Sources */,
+				227ACD47201C8765000E699F /* TOFileAccount.m in Sources */,
+				227ACD52201C8765000E699F /* ICOneDriveService.m in Sources */,
+				227ACD54201C8765000E699F /* TOSystemDocumentProviderManager.m in Sources */,
 				22FC4C811FF8C4700055FDF5 /* main.m in Sources */,
 				22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */,
+				227ACD4E201C8765000E699F /* ICDropboxService.m in Sources */,
+				227ACD4C201C8765000E699F /* ICNetworkDownloadService.m in Sources */,
+				227ACD50201C8765000E699F /* ICOAuthDownloadService.m in Sources */,
 				227ACD00201C5CB8000E699F /* TOFileAccountsViewController.m in Sources */,
+				227ACD51201C8765000E699F /* ICGoogleDriveService.m in Sources */,
 				227ACD03201C619C000E699F /* TOFileServicePickerViewController.m in Sources */,
-				227ACCFB201C5BC9000E699F /* ICDownload.m in Sources */,
+				227ACD46201C8765000E699F /* TOFileDownload.m in Sources */,
+				227ACD44201C8765000E699F /* TOLocalNetworkService.m in Sources */,
+				227ACD4B201C8765000E699F /* ICFTPService.m in Sources */,
+				227ACD4D201C8765000E699F /* ICDownloadService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

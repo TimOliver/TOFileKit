@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ICGroupedTableViewController.h"
 
-@interface ICDownloadServicePickerViewController : ICGroupedTableViewController
+@interface TOFileServicePickerViewController : UITableViewController
 
 @property (nonatomic, copy) void (^didAddNewAccountHandler)();
 

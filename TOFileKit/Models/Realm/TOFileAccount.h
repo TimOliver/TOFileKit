@@ -12,7 +12,7 @@
 @class ICOAuthDownloadService;
 @class ICNetworkDownloadService;
 
-@interface ICAccount : RLMObject
+@interface TOFileAccount : RLMObject
 
 /* Base Model Properties */
 @property (nonatomic, copy) NSString *uuid;           /** The primary key of this account entry */

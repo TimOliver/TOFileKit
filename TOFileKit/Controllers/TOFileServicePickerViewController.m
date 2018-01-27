@@ -6,13 +6,13 @@
 //  Copyright © 2015 Timothy Oliver. All rights reserved.
 //
 
-#import "ICDownloadServicePickerViewController.h"
+#import "TOFileServicePickerViewController.h"
 #import "ICDownloadService.h"
 #import "ICDownloadOAuthWebViewController.h"
 #import "ICAccount.h"
 #import "ICEditAccountViewController.h"
 
-@interface ICDownloadServicePickerViewController ()
+@interface TOFileServicePickerViewController ()
 
 @property (nonatomic, strong) NSArray *firstPartyServices;
 @property (nonatomic, strong) NSArray *thirdPartyServices;
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation ICDownloadServicePickerViewController
+@implementation TOFileServicePickerViewController
 
 #pragma mark - View Controller Life Cycle -
 - (instancetype)init

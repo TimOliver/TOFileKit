@@ -15,8 +15,8 @@
 /** The primary key of this download */
 @property (nonatomic, copy) NSString *uuid;
 
-/** The total progress of this downloaded */
-@property (nonatomic, assign) CGFloat progress;
+/** The total progress of this downloaded (0-100) */
+@property (nonatomic, assign) NSInteger progress;
 
 /** The path of this file on the server it's downloaded from */
 @property (nonatomic, copy) NSString *serverFilePath;

@@ -49,26 +49,11 @@ const NSInteger kICAccountsMaximumLocalServices = 6;
 /** Service Discovery Management */
 @property (nonatomic, strong) ICLocalServiceDiscoveryManager *serviceDiscoveryManager;
 
-/** Our parent view controller */
-@property (nonatomic, readonly) ICDownloadsTabBarController *downloadsTabBarController;
-
 /** Explicitly manage the editing state */
 @property (nonatomic, assign) BOOL editingAccounts;
 
 /** Disable Realm automatic updates while we're explicitly editing */
 @property (nonatomic, assign) BOOL inlineEditing;
-
-/* Realm Reload Notification */
-- (void)reloadAccounts;
-
-/* Button Calbacks */
-- (void)cloudButtonTapped:(id)sender;
-- (void)editButtonTapped:(id)sender;
-
-/* Update the services section */
-- (void)updateServicesSection;
-
-- (void)setEditingAccounts:(BOOL)editingAccounts animated:(BOOL)animated;
 
 @end
 
@@ -112,12 +97,10 @@ const NSInteger kICAccountsMaximumLocalServices = 6;
     
     //Edit button for managing user-added accounts
     self.editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButtonTapped:)];
-    [ICThemeManager customizeBarButtonItem:self.editButton withType:ICThemeBarButtonTypeDefault];
     self.navigationItem.rightBarButtonItem = self.editButton;
     
     //Done button for when editing of accounts is complete
     self.doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(editButtonTapped:)];
-    [ICThemeManager customizeBarButtonItem:self.doneButton withType:ICThemeBarButtonTypeDone];
     
     //A helper view to let users know that tapping an editable account will open its settings
     //(Because adding an arrow accessory next to a re-order control looks terrible. :( )
@@ -149,11 +132,6 @@ const NSInteger kICAccountsMaximumLocalServices = 6;
     self.serviceDiscoveryManager.servicesListUpdatedHandler = ^{
         [weakSelf updateServicesSection];
     };
-}
-
-- (ICDownloadsTabBarController *)downloadsTabBarController
-{
-    return (ICDownloadsTabBarController *)self.parentViewController.parentViewController;
 }
 
 #pragma mark - Accounts Management -

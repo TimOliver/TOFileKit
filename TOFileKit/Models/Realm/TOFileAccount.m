@@ -6,7 +6,7 @@
 //  Copyright © 2015 Timothy Oliver. All rights reserved.
 //
 
-#import "ICAccount.h"
+#import "TOFileAccount.h"
 
 #import "ICDownloadService.h"
 #import "ICOAuthDownloadService.h"
@@ -15,15 +15,10 @@
 #import "UICKeyChainStore.h"
 #import "NSFileManager+DirectoryPaths.h"
 
-NSString * const kICAccountFileName          = @"iComicsAccounts.realm";
-NSString * const kICAccountKeychainContainer = @"com.timoliver.icomics";
-NSString * const kICAccountKeychainKey       = @"account-token";
+NSString * const kTOAccountsFileName    = @"files.realm";
+NSString * const kTOAccountsKeychainKey = @"files-key";
 
 @interface ICAccount ()
-
-+ (RLMRealmConfiguration *)accountRealmConfiguration;
-+ (NSURL *)accountRealmFileURL;
-+ (NSData *)encryptionKey;
 
 @end
 
@@ -123,8 +118,10 @@ NSString * const kICAccountKeychainKey       = @"account-token";
 
 + (NSData *)encryptionKey
 {
+    NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+    
     //Check the keychain for an existing key
-    UICKeyChainStore *keychainStore = [UICKeyChainStore keyChainStoreWithService:kICAccountKeychainContainer];
+    UICKeyChainStore *keychainStore = [UICKeyChainStore keyChainStoreWithService:bundleIdentifier];
     NSData *encryptionKey = [keychainStore dataForKey:kICAccountKeychainKey];
     if (encryptionKey) {
         return encryptionKey;
