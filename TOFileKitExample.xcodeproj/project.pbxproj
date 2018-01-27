@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		227ACCFB201C5BC9000E699F /* ICDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACCF8201C5BC9000E699F /* ICDownload.m */; };
+		227ACCFC201C5BC9000E699F /* ICAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACCF9201C5BC9000E699F /* ICAccount.m */; };
+		227ACD00201C5CB8000E699F /* TOFileAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACCFE201C5CB8000E699F /* TOFileAccountsViewController.m */; };
+		227ACD03201C619C000E699F /* TOFileServicePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227ACD02201C619C000E699F /* TOFileServicePickerViewController.m */; };
 		22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */; };
 		22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C751FF8C4700055FDF5 /* TOViewController.m */; };
-		22FC4C791FF8C4700055FDF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FC4C771FF8C4700055FDF5 /* Main.storyboard */; };
 		22FC4C7B1FF8C4700055FDF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22FC4C7A1FF8C4700055FDF5 /* Assets.xcassets */; };
 		22FC4C7E1FF8C4700055FDF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FC4C7C1FF8C4700055FDF5 /* LaunchScreen.storyboard */; };
 		22FC4C811FF8C4700055FDF5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C801FF8C4700055FDF5 /* main.m */; };
@@ -18,12 +21,19 @@
 
 /* Begin PBXFileReference section */
 		1D38893175A434E7E3F01D5B /* libPods-TOFileKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TOFileKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		227ACCF7201C5BC9000E699F /* ICAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICAccount.h; sourceTree = "<group>"; };
+		227ACCF8201C5BC9000E699F /* ICDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICDownload.m; sourceTree = "<group>"; };
+		227ACCF9201C5BC9000E699F /* ICAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICAccount.m; sourceTree = "<group>"; };
+		227ACCFA201C5BC9000E699F /* ICDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICDownload.h; sourceTree = "<group>"; };
+		227ACCFE201C5CB8000E699F /* TOFileAccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileAccountsViewController.m; sourceTree = "<group>"; };
+		227ACCFF201C5CB8000E699F /* TOFileAccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileAccountsViewController.h; sourceTree = "<group>"; };
+		227ACD01201C619C000E699F /* TOFileServicePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileServicePickerViewController.h; sourceTree = "<group>"; };
+		227ACD02201C619C000E699F /* TOFileServicePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileServicePickerViewController.m; sourceTree = "<group>"; };
 		22FC4C6E1FF8C4700055FDF5 /* TOFileKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOFileKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FC4C711FF8C4700055FDF5 /* TOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOAppDelegate.h; sourceTree = "<group>"; };
 		22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOAppDelegate.m; sourceTree = "<group>"; };
 		22FC4C741FF8C4700055FDF5 /* TOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOViewController.h; sourceTree = "<group>"; };
 		22FC4C751FF8C4700055FDF5 /* TOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOViewController.m; sourceTree = "<group>"; };
-		22FC4C781FF8C4700055FDF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22FC4C7A1FF8C4700055FDF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22FC4C7D1FF8C4700055FDF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22FC4C7F1FF8C4700055FDF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,9 +54,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		227ACCF6201C5BC9000E699F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				227ACCF7201C5BC9000E699F /* ICAccount.h */,
+				227ACCF8201C5BC9000E699F /* ICDownload.m */,
+				227ACCF9201C5BC9000E699F /* ICAccount.m */,
+				227ACCFA201C5BC9000E699F /* ICDownload.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		227ACCFD201C5CB8000E699F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				227ACD01201C619C000E699F /* TOFileServicePickerViewController.h */,
+				227ACD02201C619C000E699F /* TOFileServicePickerViewController.m */,
+				227ACCFF201C5CB8000E699F /* TOFileAccountsViewController.h */,
+				227ACCFE201C5CB8000E699F /* TOFileAccountsViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		22E7C17D201C499500AF8BFE /* TOFileKit */ = {
+			isa = PBXGroup;
+			children = (
+				227ACCFD201C5CB8000E699F /* Controllers */,
+				227ACCF6201C5BC9000E699F /* Models */,
+			);
+			path = TOFileKit;
+			sourceTree = "<group>";
+		};
 		22FC4C651FF8C4700055FDF5 = {
 			isa = PBXGroup;
 			children = (
+				22E7C17D201C499500AF8BFE /* TOFileKit */,
 				22FC4C701FF8C4700055FDF5 /* TOFileKitExample */,
 				22FC4C6F1FF8C4700055FDF5 /* Products */,
 				6D12CD4C654C0279A56E1284 /* Pods */,
@@ -69,7 +111,6 @@
 				22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */,
 				22FC4C741FF8C4700055FDF5 /* TOViewController.h */,
 				22FC4C751FF8C4700055FDF5 /* TOViewController.m */,
-				22FC4C771FF8C4700055FDF5 /* Main.storyboard */,
 				22FC4C7A1FF8C4700055FDF5 /* Assets.xcassets */,
 				22FC4C7C1FF8C4700055FDF5 /* LaunchScreen.storyboard */,
 				22FC4C7F1FF8C4700055FDF5 /* Info.plist */,
@@ -158,7 +199,6 @@
 			files = (
 				22FC4C7E1FF8C4700055FDF5 /* LaunchScreen.storyboard in Resources */,
 				22FC4C7B1FF8C4700055FDF5 /* Assets.xcassets in Resources */,
-				22FC4C791FF8C4700055FDF5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,23 +267,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227ACCFC201C5BC9000E699F /* ICAccount.m in Sources */,
 				22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */,
 				22FC4C811FF8C4700055FDF5 /* main.m in Sources */,
 				22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */,
+				227ACD00201C5CB8000E699F /* TOFileAccountsViewController.m in Sources */,
+				227ACD03201C619C000E699F /* TOFileServicePickerViewController.m in Sources */,
+				227ACCFB201C5BC9000E699F /* ICDownload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		22FC4C771FF8C4700055FDF5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				22FC4C781FF8C4700055FDF5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		22FC4C7C1FF8C4700055FDF5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -367,6 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6LF3GMKZAB;
 				INFOPLIST_FILE = TOFileKitExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.timoliver.TOFileKitExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -382,6 +419,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6LF3GMKZAB;
 				INFOPLIST_FILE = TOFileKitExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.timoliver.TOFileKitExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";

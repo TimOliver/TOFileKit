@@ -4,7 +4,7 @@ platform :ios, '9.0'
 target 'TOFileKitExample' do
 
   # UI
-  pod 'TODocumentPickerViewController'
+  pod 'TODocumentPickerViewController', :path => '~/Projects/TODocumentPickerViewController'
   pod 'XLForm'
 
   # Networking

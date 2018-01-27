@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TODocumentPickerViewController/TODocumentPickerViewController.h>
 
-@interface TOViewController : UIViewController
+@interface TOViewController : TODocumentPickerViewController
 
+- (instancetype)init;
 
 @end
 
