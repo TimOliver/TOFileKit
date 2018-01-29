@@ -9,7 +9,7 @@ PODS:
   - Realm (3.0.2):
     - Realm/Headers (= 3.0.2)
   - Realm/Headers (3.0.2)
-  - TODocumentPickerViewController (0.2.0):
+  - TODocumentPickerViewController (0.2.1):
     - TOSearchBar
   - TOSearchBar (1.0.3)
   - TOSMBClient (1.0.8)
@@ -23,7 +23,7 @@ DEPENDENCIES:
   - NMSSH
   - Reachability
   - Realm
-  - TODocumentPickerViewController
+  - TODocumentPickerViewController (from `~/Projects/TODocumentPickerViewController`)
   - TOSMBClient
   - UICKeyChainStore
   - XLForm
@@ -31,6 +31,8 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   GoldRaccoon:
     :git: https://github.com/iComics/GoldRaccoon.git
+  TODocumentPickerViewController:
+    :path: ~/Projects/TODocumentPickerViewController
 
 CHECKOUT OPTIONS:
   GoldRaccoon:
@@ -44,12 +46,12 @@ SPEC CHECKSUMS:
   NMSSH: b722885a07485a2c03ffa3ea56a7b0308dbdc37c
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
-  TODocumentPickerViewController: 9deaaf8f431abf11f45e97d769edda43eaa33efe
+  TODocumentPickerViewController: 1124e548604f9687aa5c1e5c3e2dc9da55fcb092
   TOSearchBar: ee22b7ade729521b6ace523cea0ce97d23ab3cd9
   TOSMBClient: 8884ede03ae70e6087962433fda22fb6b4b8c7f8
   UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
   XLForm: 04110197c12187dd28a6c7295d3d8b95f4fdb4de
 
-PODFILE CHECKSUM: 9f9c69f12f040681fc9079df94e84e8e2645be30
+PODFILE CHECKSUM: 82195e05d68a6b1d34e70fc58f3795dd8c855316
 
-COCOAPODS: 1.4.0.rc.1
+COCOAPODS: 1.4.0
