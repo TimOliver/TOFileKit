@@ -4,17 +4,16 @@ PODS:
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
-  - NMSSH (2.2.8)
+  - NMSSH (2.3.1)
   - Reachability (3.2)
-  - Realm (3.0.2):
-    - Realm/Headers (= 3.0.2)
-  - Realm/Headers (3.0.2)
+  - Realm (3.11.2):
+    - Realm/Headers (= 3.11.2)
+  - Realm/Headers (3.11.2)
   - TODocumentPickerViewController (0.2.1):
     - TOSearchBar
   - TOSearchBar (1.0.3)
   - TOSMBClient (1.0.8)
-  - UICKeyChainStore (2.1.1)
-  - XLForm (4.0.0)
+  - UICKeyChainStore (2.1.2)
 
 DEPENDENCIES:
   - 1PasswordExtension
@@ -26,13 +25,23 @@ DEPENDENCIES:
   - TODocumentPickerViewController (from `~/Projects/TODocumentPickerViewController`)
   - TOSMBClient
   - UICKeyChainStore
-  - XLForm
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - 1PasswordExtension
+    - Mantle
+    - NMSSH
+    - Reachability
+    - Realm
+    - TOSearchBar
+    - TOSMBClient
+    - UICKeyChainStore
 
 EXTERNAL SOURCES:
   GoldRaccoon:
     :git: https://github.com/iComics/GoldRaccoon.git
   TODocumentPickerViewController:
-    :path: ~/Projects/TODocumentPickerViewController
+    :path: "~/Projects/TODocumentPickerViewController"
 
 CHECKOUT OPTIONS:
   GoldRaccoon:
@@ -43,15 +52,14 @@ SPEC CHECKSUMS:
   1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
   GoldRaccoon: a9143566afe37c2aba38589512aef83566a52573
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
-  NMSSH: b722885a07485a2c03ffa3ea56a7b0308dbdc37c
+  NMSSH: cd689ae535a1581a6dd9fd4600ff71247df510a6
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
-  TODocumentPickerViewController: 1124e548604f9687aa5c1e5c3e2dc9da55fcb092
+  Realm: 864477d028db77f7c5a0cba64a4892ad53db128a
+  TODocumentPickerViewController: c2e9a6c8b98323b9339304bb255b0cfc2ec8b56c
   TOSearchBar: ee22b7ade729521b6ace523cea0ce97d23ab3cd9
   TOSMBClient: 8884ede03ae70e6087962433fda22fb6b4b8c7f8
-  UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
-  XLForm: 04110197c12187dd28a6c7295d3d8b95f4fdb4de
+  UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
 
-PODFILE CHECKSUM: 82195e05d68a6b1d34e70fc58f3795dd8c855316
+PODFILE CHECKSUM: bb6d456d7e502c1ad7793cffe9500bbb44db65e7
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.0.beta.2

@@ -5,7 +5,6 @@ target 'TOFileKitExample' do
 
   # UI
   pod 'TODocumentPickerViewController', :path => '~/Projects/TODocumentPickerViewController'
-  pod 'XLForm'
 
   # Networking
   pod 'GoldRaccoon', :git => 'https://github.com/iComics/GoldRaccoon.git'
