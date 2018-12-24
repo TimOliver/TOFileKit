@@ -33,7 +33,6 @@
             };
 }
 
-
 + (BOOL)shouldIncludeInDefaultSchema
 {
     return NO;

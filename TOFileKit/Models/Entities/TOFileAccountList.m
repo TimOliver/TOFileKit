@@ -24,8 +24,6 @@
 
 @implementation TOFileAccountList
 
-
-
 #pragma mark - Realm Configuration -
 + (NSDictionary *)defaultPropertyValues
 {
