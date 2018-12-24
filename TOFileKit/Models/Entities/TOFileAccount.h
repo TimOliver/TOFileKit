@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL temporary;         /** Account is only kept until any downloads assigned to it are complete. */
 
 /* Common Model Properties */
-@property (nonatomic, copy) NSString *name;           /** The convienience name of this account */
+@property (nonatomic, copy) NSString *name;           /** The convenience name of this account */
 @property (nonatomic, copy) NSString *initialPath;    /** The initial file path to start this account at */
 
 /* Network Protocol Properties */
@@ -54,5 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) Class serviceClass;
 
 @end
+
+RLM_ARRAY_TYPE(TOFileAccount)
 
 NS_ASSUME_NONNULL_END
