@@ -20,6 +20,8 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TOFileConstants.h"
+
 #import <Realm/Realm.h>
 #import <UIKit/UIKit.h>
 
@@ -27,7 +29,7 @@
 
 /* Base Model Properties */
 @property (nonatomic, copy) NSString *uuid;           /** The primary key of this account entry */
-@property (nonatomic, assign) NSInteger serviceType;  /** The enum value of these accounts */
+@property (nonatomic, assign) TOFileService serviceType; /** The enum value of these accounts */
 @property (nonatomic, assign) BOOL temporary;         /** Account is only kept until any downloads assigned to it are complete. */
 
 /* Common Model Properties */

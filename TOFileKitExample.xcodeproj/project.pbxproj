@@ -23,6 +23,7 @@
 		2250015421D0D71E007EC4EA /* TOFileAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileAccount.h; sourceTree = "<group>"; };
 		2250015521D0D71E007EC4EA /* TOFileDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileDownload.m; sourceTree = "<group>"; };
 		2250015621D0D71E007EC4EA /* TOFileAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileAccount.m; sourceTree = "<group>"; };
+		2250015A21D0E0D1007EC4EA /* TOFileConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TOFileConstants.h; path = TOFileKit/TOFileConstants.h; sourceTree = SOURCE_ROOT; };
 		22FC4C6E1FF8C4700055FDF5 /* TOFileKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOFileKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FC4C711FF8C4700055FDF5 /* TOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOAppDelegate.h; sourceTree = "<group>"; };
 		22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOAppDelegate.m; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		22E7C17D201C499500AF8BFE /* TOFileKit */ = {
 			isa = PBXGroup;
 			children = (
+				2250015A21D0E0D1007EC4EA /* TOFileConstants.h */,
 				227ACD1A201C8765000E699F /* Models */,
 				227ACCFD201C5CB8000E699F /* Controllers */,
 			);
