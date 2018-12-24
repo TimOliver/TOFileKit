@@ -22,18 +22,22 @@
 
 #import <Realm/Realm.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TOFileDownload : RLMObject
 
 /** The primary key of this download */
 @property (nonatomic, copy) NSString *uuid;
 
-/** The total progress of this downloaded (0-100) */
+/** The date and time in which the download was started. */
+@property (nonatomic, strong) NSDate *startDate;
+
+/** The total progress of this download (0-100) */
 @property (nonatomic, assign) NSInteger progress;
 
 /** The path of this file on the server it's downloaded from */
-@property (nonatomic, copy) NSString *serverFilePath;
-
-/** The parent account of this download */
-@property (nonatomic, readonly) NSString *accountUUID;
+@property (nonatomic, copy) NSString *sourcePath;
 
 @end
+
+NS_ASSUME_NONNULL_END

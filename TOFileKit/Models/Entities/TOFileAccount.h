@@ -25,6 +25,8 @@
 #import <Realm/Realm.h>
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TOFileAccount : RLMObject
 
 /* Base Model Properties */
@@ -52,3 +54,5 @@
 @property (nonatomic, readonly) Class serviceClass;
 
 @end
+
+NS_ASSUME_NONNULL_END

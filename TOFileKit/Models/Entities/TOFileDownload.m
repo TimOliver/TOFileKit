@@ -24,4 +24,19 @@
 
 @implementation TOFileDownload
 
+
+#pragma mark - Realm Properties -
++ (NSDictionary *)defaultPropertyValues
+{
+    return @{@"uuid" : [NSUUID UUID].UUIDString,
+             @"startDate" : [NSDate date]
+            };
+}
+
+
++ (BOOL)shouldIncludeInDefaultSchema
+{
+    return NO;
+}
+
 @end
