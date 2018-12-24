@@ -1,23 +1,33 @@
 //
-//  ICAccount.h
-//  icomics
+//  TOFileAccount.h
 //
-//  Created by Tim Oliver on 26/10/2015.
-//  Copyright © 2015 Timothy Oliver. All rights reserved.
+//  Copyright 2015-2018 Timothy Oliver. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to
+//  deal in the Software without restriction, including without limitation the
+//  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+//  sell copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+//  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+//  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Realm/Realm.h>
-
-@class ICDownloadService;
-@class ICOAuthDownloadService;
-@class ICNetworkDownloadService;
+#import <UIKit/UIKit.h>
 
 @interface TOFileAccount : RLMObject
 
 /* Base Model Properties */
 @property (nonatomic, copy) NSString *uuid;           /** The primary key of this account entry */
 @property (nonatomic, assign) NSInteger serviceType;  /** The enum value of these accounts */
-@property (nonatomic, assign) NSInteger orderedIndex; /** The ordered index this account appears in the list */
 @property (nonatomic, assign) BOOL temporary;         /** Account is only kept until any downloads assigned to it are complete. */
 
 /* Common Model Properties */
@@ -38,16 +48,5 @@
 /* Auxilliary Properties not persisted by Realm */
 @property (nonatomic, readonly) UIImage *icon;
 @property (nonatomic, readonly) Class serviceClass;
-
-/* Realm file for all account objects. */
-+ (RLMRealm *)accountsRealm;
-
-/* Create a new object with OAuth credentials */
-+ (instancetype)accountWithOAuthDownloadService:(ICOAuthDownloadService *)service;
-
-/* Create a new account object with Download credentials */
-+ (instancetype)accountWithNetworkDownloadService:(ICNetworkDownloadService *)service;
-
-- (ICDownloadService *)downloadServiceForAccount;
 
 @end

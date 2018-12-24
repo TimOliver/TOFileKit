@@ -15,10 +15,9 @@ target 'TOFileKitExample' do
   pod 'Reachability'
   pod 'TOSMBClient'
 
-  # Data Persistence
+  # Data Management
   pod 'Realm'
   pod 'Mantle'
-  pod 'UICKeyChainStore'
   pod '1PasswordExtension'
 
 end

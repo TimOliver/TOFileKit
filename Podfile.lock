@@ -13,7 +13,6 @@ PODS:
     - TOSearchBar
   - TOSearchBar (1.0.3)
   - TOSMBClient (1.0.8)
-  - UICKeyChainStore (2.1.2)
 
 DEPENDENCIES:
   - 1PasswordExtension
@@ -24,7 +23,6 @@ DEPENDENCIES:
   - Realm
   - TODocumentPickerViewController (from `~/Projects/TODocumentPickerViewController`)
   - TOSMBClient
-  - UICKeyChainStore
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -35,7 +33,6 @@ SPEC REPOS:
     - Realm
     - TOSearchBar
     - TOSMBClient
-    - UICKeyChainStore
 
 EXTERNAL SOURCES:
   GoldRaccoon:
@@ -58,8 +55,7 @@ SPEC CHECKSUMS:
   TODocumentPickerViewController: c2e9a6c8b98323b9339304bb255b0cfc2ec8b56c
   TOSearchBar: ee22b7ade729521b6ace523cea0ce97d23ab3cd9
   TOSMBClient: 8884ede03ae70e6087962433fda22fb6b4b8c7f8
-  UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
 
-PODFILE CHECKSUM: ed935a1f382e6821abb4bc59bde8cec272e370b8
+PODFILE CHECKSUM: e8caba400cc8c5c5a35ff94d6ee792ac68a9ec7f
 
 COCOAPODS: 1.6.0.beta.2
