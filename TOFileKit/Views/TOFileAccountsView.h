@@ -1,5 +1,5 @@
 //
-//  TOFileAccountsViewController.h
+//  TOFileAccountsView.h
 //
 //  Copyright 2015-2018 Timothy Oliver. All rights reserved.
 //
@@ -22,6 +22,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TOFileAccountsViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
+
+@interface TOFileAccountsView : UIView
+
+/** Bar button items that says 'Edit' */
+@property (nonatomic, readonly) UIBarButtonItem *editButton;
+
+/** Bar button item that says 'Done' */
+@property (nonatomic, readonly) UIBarButtonItem *doneButton;
+
+/** The main content view */
+@property (nonatomic, readonly) UITableView *tableView;
+
+/** Set the state to be editing or not */
+@property (nonatomic, assign) BOOL editing;
+
+/** Animate the transition between editing and default */
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 
 @end
+
+NS_ASSUME_NONNULL_END
