@@ -68,14 +68,21 @@
     // Generate a new stream of data
     uint8_t buffer[64];
     status = SecRandomCopyBytes(kSecRandomDefault, 64, buffer);
-    NSAssert(status == 0, @"Failed to generate random bytes for key");
+    if (status != errSecSuccess) {
+        [self.class convertStatus:status toError:error];
+        return nil;
+    }
+
     NSData *keyData = [[NSData alloc] initWithBytes:buffer length:sizeof(buffer)];
 
     // Create the query object for the keychain
     query[(__bridge id)kSecValueData] = keyData;
 
     status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
-    NSAssert(status == errSecSuccess, @"Failed to insert new key in the keychain");
+    if (status != errSecSuccess) {
+        [self.class convertStatus:status toError:error];
+        return nil;
+    }
 
     return keyData;
 }
@@ -84,6 +91,9 @@
 {
     NSMutableDictionary *query = self.queryDictionary;
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
+    if (status != errSecSuccess) {
+        [self.class convertStatus:status toError:error];
+    }
     return (status == errSecSuccess);
 }
 
@@ -108,6 +118,13 @@
     query[(__bridge id)kSecAttrKeySizeInBits] = @512;
 
     return query;
+}
+
+#pragma mark - Error Handling -
++ (void)convertStatus:(OSStatus)status toError:(NSError **)error
+{
+    if (!error) { return; }
+    *error = [NSError errorWithDomain:NSOSStatusErrorDomain code:status userInfo:nil];
 }
 
 @end

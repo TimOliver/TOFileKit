@@ -19,10 +19,15 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 #import <XCTest/XCTest.h>
 #import "TOFileKeychainAccess.h"
 
 NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
+
+@interface TOFileKeychainAccess (UnitTests)
++ (void)convertStatus:(OSStatus)status toError:(NSError **)error;
+@end
 
 @interface TOFileKeychainAccessTests : XCTestCase
 @end
@@ -96,6 +101,13 @@ NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
 
     [keychainAccess deleteDataFromKeychainWithError:nil];
     XCTAssertFalse(keychainAccess.dataExistsInKeychain);
+}
+
+- (void)testErrorHandling
+{
+    NSError *error = nil;
+    [TOFileKeychainAccess convertStatus:errSecBadReq toError:&error];
+    XCTAssertNotNil(error);
 }
 
 @end
