@@ -9,6 +9,8 @@
 #import "TOViewController.h"
 #import <TODocumentPickerViewController/TODocumentPickerLocalDiskDataSource.h>
 
+#import "TOFileAccountsViewController.h"
+
 @interface TOViewController ()
 
 @end
@@ -31,7 +33,9 @@
 
 - (void)downloadsButtonTapped:(id)sender
 {
-    
+    TOFileAccountsViewController *accountsController = [[TOFileAccountsViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:accountsController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (TODocumentPickerConfiguration *)createPickerConfinguration
