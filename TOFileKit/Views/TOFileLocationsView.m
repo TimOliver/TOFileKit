@@ -64,7 +64,7 @@
 
 - (void)editStateButtonTapped:(id)sender
 {
-    
+    if (self.editButtonTapped) { self.editButtonTapped(); }
 }
 
 @end

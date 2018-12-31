@@ -35,11 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** The main content view */
 @property (nonatomic, readonly) UITableView *tableView;
 
-/** Set the state to be editing or not */
-@property (nonatomic, assign) BOOL editing;
-
-/** Animate the transition between editing and default */
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
+/** Callback from when the edit/done button is tapped */
+@property (nonatomic, copy) void (^editButtonTapped)(void);
 
 @end
 

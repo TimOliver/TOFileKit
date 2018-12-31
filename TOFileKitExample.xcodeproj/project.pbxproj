@@ -16,6 +16,8 @@
 		2250017221D1DE3D007EC4EA /* TOFileKeychainAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250015C21D13EF0007EC4EA /* TOFileKeychainAccess.m */; };
 		2250017521D21AE0007EC4EA /* TOFileLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250017421D21AE0007EC4EA /* TOFileLocationsViewController.m */; };
 		2250017A21D21E25007EC4EA /* TOFileLocationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250017921D21E25007EC4EA /* TOFileLocationsView.m */; };
+		2252F50C21D9C6B800C6607F /* TOFileLocationsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */; };
+		2252F50F21D9CB6100C6607F /* TOFileLocationsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50E21D9CB6100C6607F /* TOFileLocationsProvider.m */; };
 		22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */; };
 		22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C751FF8C4700055FDF5 /* TOViewController.m */; };
 		22FC4C7B1FF8C4700055FDF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22FC4C7A1FF8C4700055FDF5 /* Assets.xcassets */; };
@@ -53,6 +55,10 @@
 		2250017421D21AE0007EC4EA /* TOFileLocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsViewController.m; sourceTree = "<group>"; };
 		2250017821D21E25007EC4EA /* TOFileLocationsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileLocationsView.h; sourceTree = "<group>"; };
 		2250017921D21E25007EC4EA /* TOFileLocationsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsView.m; sourceTree = "<group>"; };
+		2252F50A21D9C6B800C6607F /* TOFileLocationsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationsPresenter.h; sourceTree = "<group>"; };
+		2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsPresenter.m; sourceTree = "<group>"; };
+		2252F50D21D9CB6100C6607F /* TOFileLocationsProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationsProvider.h; sourceTree = "<group>"; };
+		2252F50E21D9CB6100C6607F /* TOFileLocationsProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsProvider.m; sourceTree = "<group>"; };
 		22FC4C6E1FF8C4700055FDF5 /* TOFileKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOFileKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FC4C711FF8C4700055FDF5 /* TOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOAppDelegate.h; sourceTree = "<group>"; };
 		22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOAppDelegate.m; sourceTree = "<group>"; };
@@ -137,6 +143,8 @@
 		2250017B21D22BF4007EC4EA /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				2252F50A21D9C6B800C6607F /* TOFileLocationsPresenter.h */,
+				2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -144,6 +152,8 @@
 		2250017C21D22BF5007EC4EA /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				2252F50D21D9CB6100C6607F /* TOFileLocationsProvider.h */,
+				2252F50E21D9CB6100C6607F /* TOFileLocationsProvider.m */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -390,11 +400,13 @@
 				22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */,
 				2250016021D13F0B007EC4EA /* TOFileAccountList.m in Sources */,
 				2250017521D21AE0007EC4EA /* TOFileLocationsViewController.m in Sources */,
+				2252F50C21D9C6B800C6607F /* TOFileLocationsPresenter.m in Sources */,
 				22FC4C811FF8C4700055FDF5 /* main.m in Sources */,
 				2250015721D0D71E007EC4EA /* TOFileDownload.m in Sources */,
 				2250015D21D13EF0007EC4EA /* TOFileKeychainAccess.m in Sources */,
 				22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */,
 				2250017A21D21E25007EC4EA /* TOFileLocationsView.m in Sources */,
+				2252F50F21D9CB6100C6607F /* TOFileLocationsProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
