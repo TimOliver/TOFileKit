@@ -1,5 +1,5 @@
 //
-//  TOFileAccountsView.h
+//  TOFileLocationsViewController.m
 //
 //  Copyright 2015-2018 Timothy Oliver. All rights reserved.
 //
@@ -20,27 +20,29 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import "TOFileLocationsViewController.h"
+#import "TOFileLocationsView.h"
 
-NS_ASSUME_NONNULL_BEGIN
+const NSInteger kTOFileLocationsMaximumLocalServices = 6;
 
-@interface TOFileAccountsView : UIView
+@interface TOFileLocationsViewController ()
 
-/** Bar button items that says 'Edit' */
-@property (nonatomic, readonly) UIBarButtonItem *editButton;
-
-/** Bar button item that says 'Done' */
-@property (nonatomic, readonly) UIBarButtonItem *doneButton;
-
-/** The main content view */
-@property (nonatomic, readonly) UITableView *tableView;
-
-/** Set the state to be editing or not */
-@property (nonatomic, assign) BOOL editing;
-
-/** Animate the transition between editing and default */
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
+/** Convenience accessor since `self.view` won't access the properties. */
+@property (nonatomic, readonly) TOFileLocationsView *fileLocationsView;
 
 @end
 
-NS_ASSUME_NONNULL_END
+@implementation TOFileLocationsViewController
+
+#pragma mark - Class Creation -
+
+- (void)loadView
+{
+    self.view = [[TOFileLocationsView alloc] initWithFrame:CGRectZero];
+}
+
+#pragma mark - Convenience Accessors -
+
+- (TOFileLocationsView *)fileLocationsView { return (TOFileLocationsView *)self.view; }
+
+@end

@@ -1,5 +1,5 @@
 //
-//  TOFileAccountsViewController.m
+//  TOFileLocationsViewController.h
 //
 //  Copyright 2015-2018 Timothy Oliver. All rights reserved.
 //
@@ -20,28 +20,8 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TOFileAccountsViewController.h"
-#import "TOFileAccountsView.h"
+#import <UIKit/UIKit.h>
 
-const NSInteger kTOFileAccountsMaximumLocalServices = 6;
-
-@interface TOFileAccountsViewController ()
-
-/** Convenience accessor since `self.view` won't access the properties. */
-@property (nonatomic, readonly) TOFileAccountsView *fileAccountsView;
-
-@end
-
-@implementation TOFileAccountsViewController
-
-#pragma mark - Class Creation -
-
-- (void)loadView
-{
-    self.view = [[TOFileAccountsView alloc] initWithFrame:CGRectZero];
-}
-
-#pragma mark - Convenience Accessors -
-- (TOFileAccountsView *)fileAccountsView { return (TOFileAccountsView *)self.view; }
+@interface TOFileLocationsViewController : UIViewController
 
 @end

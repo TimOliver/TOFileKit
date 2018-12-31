@@ -1,5 +1,5 @@
 //
-//  TOFileAccountsView.m
+//  TOFileLocationsView.m
 //
 //  Copyright 2015-2018 Timothy Oliver. All rights reserved.
 //
@@ -20,9 +20,9 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TOFileAccountsView.h"
+#import "TOFileLocationsView.h"
 
-@interface TOFileAccountsView ()
+@interface TOFileLocationsView ()
 
 @property (nonatomic, strong, readwrite) UITableView *tableView;
 @property (nonatomic, strong, readwrite) UIBarButtonItem *editButton;
@@ -30,7 +30,7 @@
 
 @end
 
-@implementation TOFileAccountsView
+@implementation TOFileLocationsView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

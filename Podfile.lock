@@ -12,6 +12,7 @@ PODS:
   - TODocumentPickerViewController (0.2.1):
     - TOSearchBar
   - TOSearchBar (1.0.3)
+  - TOSegmentedTabBarController (0.0.1)
   - TOSMBClient (1.0.8)
 
 DEPENDENCIES:
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - Reachability
   - Realm
   - TODocumentPickerViewController (from `~/Projects/TODocumentPickerViewController`)
+  - TOSegmentedTabBarController (from `~/Projects/TOSegmentedTabBarController`)
   - TOSMBClient
 
 SPEC REPOS:
@@ -39,6 +41,8 @@ EXTERNAL SOURCES:
     :git: https://github.com/iComics/GoldRaccoon.git
   TODocumentPickerViewController:
     :path: "~/Projects/TODocumentPickerViewController"
+  TOSegmentedTabBarController:
+    :path: "~/Projects/TOSegmentedTabBarController"
 
 CHECKOUT OPTIONS:
   GoldRaccoon:
@@ -54,8 +58,9 @@ SPEC CHECKSUMS:
   Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
   TODocumentPickerViewController: c2e9a6c8b98323b9339304bb255b0cfc2ec8b56c
   TOSearchBar: ee22b7ade729521b6ace523cea0ce97d23ab3cd9
+  TOSegmentedTabBarController: e151ac6cf985f9962e3cdfaca3a573a187d7c718
   TOSMBClient: 8884ede03ae70e6087962433fda22fb6b4b8c7f8
 
-PODFILE CHECKSUM: 7e47e5f4fe39781e40db395503842ad6c05fc5af
+PODFILE CHECKSUM: dbd0feb8a521a3edf846b71bfe728419c4ccd143
 
 COCOAPODS: 1.6.0.beta.2

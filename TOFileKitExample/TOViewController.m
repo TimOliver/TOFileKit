@@ -9,7 +9,7 @@
 #import "TOViewController.h"
 #import <TODocumentPickerViewController/TODocumentPickerLocalDiskDataSource.h>
 
-#import "TOFileAccountsViewController.h"
+#import "TOFileLocationsViewController.h"
 
 @interface TOViewController ()
 
@@ -33,7 +33,7 @@
 
 - (void)downloadsButtonTapped:(id)sender
 {
-    TOFileAccountsViewController *accountsController = [[TOFileAccountsViewController alloc] init];
+    TOFileLocationsViewController *accountsController = [[TOFileLocationsViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:accountsController];
     [self presentViewController:navigationController animated:YES completion:nil];
 }
