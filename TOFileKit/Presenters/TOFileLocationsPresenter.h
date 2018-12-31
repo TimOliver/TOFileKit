@@ -23,8 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** Called when the 'Edit' button should be disabled. */
 @property (nonatomic, copy) void (^editingDisabledHandler)(BOOL);
 
-/** Called when the editing state was enabled or disabled. */
-@property (nonatomic, copy) void (^isEditingHandler)(BOOL);
+/** Called when the editing state was enabled or disabled. (Editing, Animated) */
+@property (nonatomic, copy) void (^isEditingHandler)(BOOL, BOOL);
 
 // INPUTS
 

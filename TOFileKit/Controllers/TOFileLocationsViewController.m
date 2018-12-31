@@ -107,9 +107,14 @@ const NSInteger kTOFileLocationsMaximumLocalServices = 6;
                           withRowAnimation:UITableViewRowAnimationFade];
     };
     
-    // When the Edit button is enabled or disabled
-    self.presenter.isEditingHandler = ^(BOOL editing) {
-        [weakSelf setEditing:editing animated:YES];
+    // When the Edit button was tapped
+    self.presenter.isEditingHandler = ^(BOOL editing, BOOL animated) {
+        [weakSelf setEditing:editing animated:animated];
+    };
+    
+    // When the edit button is enabled or disabled
+    self.presenter.editingDisabledHandler = ^(BOOL enabled) {
+        weakSelf.navigationItem.rightBarButtonItem.enabled = enabled;
     };
 }
 

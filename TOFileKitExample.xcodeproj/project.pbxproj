@@ -18,6 +18,7 @@
 		2250017A21D21E25007EC4EA /* TOFileLocationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250017921D21E25007EC4EA /* TOFileLocationsView.m */; };
 		2252F50C21D9C6B800C6607F /* TOFileLocationsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */; };
 		2252F50F21D9CB6100C6607F /* TOFileLocationsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50E21D9CB6100C6607F /* TOFileLocationsProvider.m */; };
+		2252F51621D9E8A000C6607F /* TOFileCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F51521D9E8A000C6607F /* TOFileCoordinator.m */; };
 		22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */; };
 		22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C751FF8C4700055FDF5 /* TOViewController.m */; };
 		22FC4C7B1FF8C4700055FDF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22FC4C7A1FF8C4700055FDF5 /* Assets.xcassets */; };
@@ -59,6 +60,8 @@
 		2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsPresenter.m; sourceTree = "<group>"; };
 		2252F50D21D9CB6100C6607F /* TOFileLocationsProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationsProvider.h; sourceTree = "<group>"; };
 		2252F50E21D9CB6100C6607F /* TOFileLocationsProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsProvider.m; sourceTree = "<group>"; };
+		2252F51421D9E8A000C6607F /* TOFileCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileCoordinator.h; sourceTree = "<group>"; };
+		2252F51521D9E8A000C6607F /* TOFileCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCoordinator.m; sourceTree = "<group>"; };
 		22FC4C6E1FF8C4700055FDF5 /* TOFileKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOFileKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FC4C711FF8C4700055FDF5 /* TOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOAppDelegate.h; sourceTree = "<group>"; };
 		22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOAppDelegate.m; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		2250015921D0D754007EC4EA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2252F51021D9E72600C6607F /* Coordinator */,
 				2250016121D142EA007EC4EA /* Security */,
 			);
 			path = Services;
@@ -156,6 +160,15 @@
 				2252F50E21D9CB6100C6607F /* TOFileLocationsProvider.m */,
 			);
 			path = Providers;
+			sourceTree = "<group>";
+		};
+		2252F51021D9E72600C6607F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				2252F51421D9E8A000C6607F /* TOFileCoordinator.h */,
+				2252F51521D9E8A000C6607F /* TOFileCoordinator.m */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		227ACCFD201C5CB8000E699F /* Controllers */ = {
@@ -405,6 +418,7 @@
 				2250015721D0D71E007EC4EA /* TOFileDownload.m in Sources */,
 				2250015D21D13EF0007EC4EA /* TOFileKeychainAccess.m in Sources */,
 				22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */,
+				2252F51621D9E8A000C6607F /* TOFileCoordinator.m in Sources */,
 				2250017A21D21E25007EC4EA /* TOFileLocationsView.m in Sources */,
 				2252F50F21D9CB6100C6607F /* TOFileLocationsProvider.m in Sources */,
 			);

@@ -15,14 +15,14 @@
 - (void)toggleEditing
 {
     self.editing = !self.editing;
-    if (self.isEditingHandler) { self.isEditingHandler(self.editing); }
+    if (self.isEditingHandler) { self.isEditingHandler(self.editing, YES); }
 }
 
 #pragma mark - Table View Configuration -
 
 - (NSInteger)numberOfSections
 {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)numberOfRowsForSection:(NSInteger)section
