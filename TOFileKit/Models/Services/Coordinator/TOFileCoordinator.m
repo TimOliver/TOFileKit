@@ -8,9 +8,15 @@
 
 #import "TOFileCoordinator.h"
 
+@interface TOFileCoordinator ()
+
+@property (nonatomic, assign, readwrite) BOOL isRunning;
+
+@end
+
 @implementation TOFileCoordinator
 
-#pragma mark - Init -
+#pragma mark - Object Creation/Destruction -
 - (instancetype)init
 {
     if (self = [super init]) {
@@ -27,6 +33,11 @@
     self.temporaryDownloadsFolderURL = nil;
 }
 
+- (void)dealloc
+{
+    [self stop];
+}
+
 #pragma mark - Static Creation -
 
 + (instancetype)sharedCoordinator
@@ -40,10 +51,19 @@
     return _sharedCoordinator;
 }
 
-#pragma mark - Operation -
+#pragma mark - Operation Running -
 - (void)start
 {
+    if (self.isRunning) { return; }
     
+    self.isRunning = YES;
+}
+
+- (void)stop
+{
+    if (self.isRunning == NO) { return; }
+    
+    self.isRunning = NO;
 }
 
 #pragma mark - Accessors -

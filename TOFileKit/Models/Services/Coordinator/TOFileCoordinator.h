@@ -41,14 +41,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Whether the database is encrypted or not. When encrypted, an arbitrary byte stream is generated and
     saved to the device's secure keychain using the relative path of the file as its key. It is *strongly* recommended
-    to leave encryption on in production versions of the app. (Default YES)
+    to leave encryption on in production versions of the app, but may be useful to leave off when debugging. (Default YES)
  */
 @property (nonatomic, assign) BOOL encryptDatabase;
 
-/** Once started and the database is created, this Realm configuration object can be used to establish access
+/** Once started and the database is successfully created, this Realm configuration object can be used to establish access
     to the files database for any objects who need access to that info (such as the downloads UI).
     */
 @property (nonatomic, readonly) RLMRealmConfiguration *databaseConfiguration;
+
+/** Shows whether the file coordinator has been started and is currently running or not. */
+@property (nonatomic, readonly) BOOL isRunning;
 
 /** A singleton object for a whole app. */
 + (instancetype)sharedCoordinator;
@@ -57,6 +60,12 @@ NS_ASSUME_NONNULL_BEGIN
     any initial setup (ie, creating the database), and to then resume any downloads.
  */
 - (void)start;
+
+/**
+    Stops the file coordinator and suspends/releases all active resources.
+    This will be called automatically if the object is deallocated.
+ */
+- (void)stop;
 
 @end
 

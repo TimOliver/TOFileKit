@@ -56,4 +56,15 @@
     XCTAssertEqualObjects(fileCoordinator.temporaryDownloadsFolderURL, tempLocation);
 }
 
+- (void)testFileCoordinatorStartAndStop
+{
+    TOFileCoordinator *fileCoordinator = [[TOFileCoordinator alloc] init];
+    
+    [fileCoordinator start];
+    XCTAssertTrue(fileCoordinator.isRunning);
+    
+    [fileCoordinator stop];
+    XCTAssertFalse(fileCoordinator.isRunning);
+}
+
 @end
