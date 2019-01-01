@@ -48,6 +48,7 @@ NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
 
 #pragma mark - Tests -
 
+/** Test the object can be successfully instantiated, and it holds data properly */
 - (void)testKeychainAccessCreation
 {
     TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainIdentifier];
@@ -55,12 +56,14 @@ NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
     XCTAssertEqual(keychainAccess.identifier, kTOFileKeychainIdentifier);
 }
 
+/** Test that it can detect when the key doesn't already exist */
 - (void)testKeychainItemDoesntExist
 {
     TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainIdentifier];
     XCTAssertFalse(keychainAccess.dataExistsInKeychain);
 }
 
+/** Test that it can save data to the keychain, and that it can get the data back again. */
 - (void)testKeychainSavesDataCorrectly
 {
     NSError *error = nil;
@@ -70,6 +73,7 @@ NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
     XCTAssertNil(error);
 }
 
+/** Test that the data can be accessed from multiple copies and it remains the same. */
 - (void)testKeychainDataRemainsConsistent
 {
     NSError *error = nil;
@@ -93,6 +97,7 @@ NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
     XCTAssertEqualObjects(firstKeychainData, secondKeychainData);
 }
 
+/** Test deleting the keychain data */
 - (void)testDeleteKeychainData
 {
     TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainIdentifier];
@@ -103,6 +108,7 @@ NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
     XCTAssertFalse(keychainAccess.dataExistsInKeychain);
 }
 
+/** Test the error handling API converts error codes properly. */
 - (void)testErrorHandling
 {
     NSError *error = nil;
