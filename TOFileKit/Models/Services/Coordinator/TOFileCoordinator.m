@@ -24,6 +24,7 @@
 {
     self.databaseFileName = nil;
     self.databaseFolderURL = nil;
+    self.temporaryDownloadsFolderURL = nil;
 }
 
 #pragma mark - Static Creation -
