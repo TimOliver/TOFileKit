@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		222B91BC21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B91BB21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m */; };
 		2250015721D0D71E007EC4EA /* TOFileDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250015521D0D71E007EC4EA /* TOFileDownload.m */; };
 		2250015821D0D71E007EC4EA /* TOFileAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250015621D0D71E007EC4EA /* TOFileAccount.m */; };
 		2250015D21D13EF0007EC4EA /* TOFileKeychainAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250015C21D13EF0007EC4EA /* TOFileKeychainAccess.m */; };
@@ -39,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		1D38893175A434E7E3F01D5B /* libPods-TOFileKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TOFileKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		222B91BA21DB2C180057B1D9 /* TOFileDatabaseCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileDatabaseCoordinator.h; sourceTree = "<group>"; };
+		222B91BB21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileDatabaseCoordinator.m; sourceTree = "<group>"; };
 		2250015321D0D71E007EC4EA /* TOFileDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileDownload.h; sourceTree = "<group>"; };
 		2250015421D0D71E007EC4EA /* TOFileAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileAccount.h; sourceTree = "<group>"; };
 		2250015521D0D71E007EC4EA /* TOFileDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileDownload.m; sourceTree = "<group>"; };
@@ -94,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		222B91B921DB2C180057B1D9 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				222B91BA21DB2C180057B1D9 /* TOFileDatabaseCoordinator.h */,
+				222B91BB21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		2250015221D0D71E007EC4EA /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +122,7 @@
 		2250015921D0D754007EC4EA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				222B91B921DB2C180057B1D9 /* Database */,
 				2252F51021D9E72600C6607F /* Coordinator */,
 				2250016121D142EA007EC4EA /* Security */,
 			);
@@ -416,6 +429,7 @@
 				2252F50C21D9C6B800C6607F /* TOFileLocationsPresenter.m in Sources */,
 				22FC4C811FF8C4700055FDF5 /* main.m in Sources */,
 				2250015721D0D71E007EC4EA /* TOFileDownload.m in Sources */,
+				222B91BC21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m in Sources */,
 				2250015D21D13EF0007EC4EA /* TOFileKeychainAccess.m in Sources */,
 				22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */,
 				2252F51621D9E8A000C6607F /* TOFileCoordinator.m in Sources */,

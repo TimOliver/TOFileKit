@@ -20,20 +20,33 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface TOFileCoordinator : NSObject
 
-/** The location of the database file that stores user accounts and active downloads.
-    The value must be inside the app's sandbox, and end with a filename, suffixed with `.realm`.
-    The default value is stored in the 'Application Support' folder with the name `com.bundleidentifier.files.realm`.
-    This cannot be changed once `start()` has been called;
+/** The folder of the database file that stores user accounts and active downloads.
+    The default value is the 'Application Support' folder of the application sandbox.
+    This cannot be changed once `start()` has been called.
  */
-@property (nonatomic, copy) NSURL *databaseFileURL;
+@property (nonatomic, copy, null_resettable) NSURL *databaseFolderURL;
 
-/** Whether the database is encrypted or not. When encrypted, an arbitrary byte stream is genrated and
+/** The name on disk of the Realm database file containing all of the user accounts and active downloads.
+    The default value is the app bundle identifier suffixed with `.files.realm` (eg. `com.app.myapp.files.realm`)
+    This cannot be changed once `start()` has been called.
+ */
+@property (nonatomic, copy, null_resettable) NSString *databaseFileName;
+
+/**
+    The path to the folder that will temporarily buffer the downloading files until they're complete.
+    By default, this is the `tmp` folder of your application's sandbox.
+    This cannot be changed once `start()` has been called.
+ */
+@property (nonatomic, copy, null_resettable) NSURL *temporaryDownloadsFolderURL;
+
+/** Whether the database is encrypted or not. When encrypted, an arbitrary byte stream is generated and
     saved to the device's secure keychain using the relative path of the file as its key. It is *strongly* recommended
-    to leave encryption on in production versions of the app. (Default YES) */
+    to leave encryption on in production versions of the app. (Default YES)
+ */
 @property (nonatomic, assign) BOOL encryptDatabase;
 
 /** Once started and the database is created, this Realm configuration object can be used to establish access
-    to the files database for any objects who need access to that info (such as the downloads UI)
+    to the files database for any objects who need access to that info (such as the downloads UI).
     */
 @property (nonatomic, readonly) RLMRealmConfiguration *databaseConfiguration;
 
