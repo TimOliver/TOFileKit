@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2224768F21DBC1A90006D852 /* TOTestingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224768D21DBC17E0006D852 /* TOTestingAppDelegate.m */; };
 		222B91BC21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B91BB21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m */; };
 		222B91BE21DB31080057B1D9 /* TOFileCoordinatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B91BD21DB31080057B1D9 /* TOFileCoordinatorTests.m */; };
 		222B91BF21DB31670057B1D9 /* TOFileDatabaseCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B91BB21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m */; };
@@ -43,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		1D38893175A434E7E3F01D5B /* libPods-TOFileKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TOFileKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2224768C21DBC17E0006D852 /* TOTestingAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTestingAppDelegate.h; sourceTree = "<group>"; };
+		2224768D21DBC17E0006D852 /* TOTestingAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOTestingAppDelegate.m; sourceTree = "<group>"; };
 		222B91BA21DB2C180057B1D9 /* TOFileDatabaseCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileDatabaseCoordinator.h; sourceTree = "<group>"; };
 		222B91BB21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileDatabaseCoordinator.m; sourceTree = "<group>"; };
 		222B91BD21DB31080057B1D9 /* TOFileCoordinatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCoordinatorTests.m; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				22FC4C7C1FF8C4700055FDF5 /* LaunchScreen.storyboard */,
 				22FC4C7F1FF8C4700055FDF5 /* Info.plist */,
 				22FC4C801FF8C4700055FDF5 /* main.m */,
+				2224768C21DBC17E0006D852 /* TOTestingAppDelegate.h */,
+				2224768D21DBC17E0006D852 /* TOTestingAppDelegate.m */,
 			);
 			path = TOFileKitExample;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 				222B91C021DB31690057B1D9 /* TOFileCoordinator.m in Sources */,
 				2250016921D1DDCD007EC4EA /* TOFileKitTests.m in Sources */,
 				222B91BF21DB31670057B1D9 /* TOFileDatabaseCoordinator.m in Sources */,
+				2224768F21DBC1A90006D852 /* TOTestingAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

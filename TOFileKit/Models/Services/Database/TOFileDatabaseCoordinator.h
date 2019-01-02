@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** The file is (or at least is meant to be) encrypted. */
 @property (nonatomic, readonly) BOOL encrypted;
 
+/** The 
+
 /**
  Create a new instance of the database coordinator, with the location on disk, and
  whether the file is expected to be encrypted.

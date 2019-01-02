@@ -40,4 +40,12 @@ post_install do |installer|
           config.build_settings[deployment_target_key] = minimal_deployment_target
       end
   end
+
+  # Disable Code Coverage for Pods projects
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+        config.build_settings['CLANG_ENABLE_CODE_COVERAGE'] = 'NO'
+    end
+  end
 end
+

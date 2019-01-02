@@ -22,6 +22,22 @@
 
 #import "TOFileDatabaseCoordinator.h"
 
+@interface TOFileDatabaseCoordinator ()
+
+@property (nonatomic, assign, readwrite) BOOL fileExists;
+@property (nonatomic, assign, readwrite) BOOL encrypted;
+
+@end
+
 @implementation TOFileDatabaseCoordinator
+
+- (instancetype)initWithFileURL:(NSURL *)fileURL encrypted:(BOOL)encrypted
+{
+    if (self = [super init]) {
+        
+    }
+    
+    return self;
+}
 
 @end

@@ -37,6 +37,15 @@
     XCTAssertNotNil(fileCoordinator.temporaryDownloadsFolderURL);
 }
 
+/** Test the singleton */
+- (void)testFileCoordinatorSingleton
+{
+    TOFileCoordinator *fileCoordinator1 = [TOFileCoordinator sharedCoordinator];
+    TOFileCoordinator *fileCoordinator2 = [TOFileCoordinator sharedCoordinator];
+    
+    XCTAssertEqual(fileCoordinator1, fileCoordinator2);
+}
+
 /** Test the default properties are what we expect. */
 - (void)testFileCoordinatorPathPropertyDefaultValues
 {
@@ -65,6 +74,16 @@
     
     [fileCoordinator stop];
     XCTAssertFalse(fileCoordinator.isRunning);
+}
+
+- (void)testFileCoordinatorDealloc
+{
+    __weak TOFileCoordinator *weakCoordinator;
+    @autoreleasepool {
+        TOFileCoordinator *weakCoordinator = [[TOFileCoordinator alloc] init];
+        XCTAssertNotNil(weakCoordinator);
+    }
+    XCTAssertNil(weakCoordinator);
 }
 
 @end
