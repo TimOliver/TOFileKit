@@ -22,6 +22,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class RLMRealmConfiguration;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -30,13 +32,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface TOFileDatabaseCoordinator : NSObject
 
+/** The location of the database file on disk */
+@property (nonatomic, readonly) NSURL *fileURL;
+
 /** The database file exists on disk. */
 @property (nonatomic, readonly) BOOL fileExists;
 
 /** The file is (or at least is meant to be) encrypted. */
 @property (nonatomic, readonly) BOOL encrypted;
 
-/** The 
+/** The configuration object that can be used to create thread-specific instances of this database */
+@property (nonatomic, readonly) RLMRealmConfiguration *realmConfiguration;
 
 /**
  Create a new instance of the database coordinator, with the location on disk, and
