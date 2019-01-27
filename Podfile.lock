@@ -6,9 +6,9 @@ PODS:
   - Mantle/extobjc (2.1.0)
   - NMSSH (2.3.1)
   - Reachability (3.2)
-  - Realm (3.13.0):
-    - Realm/Headers (= 3.13.0)
-  - Realm/Headers (3.13.0)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
   - TODocumentPickerViewController (0.2.1):
     - TOSearchBar
   - TOSearchBar (1.0.3)
@@ -55,7 +55,7 @@ SPEC CHECKSUMS:
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   NMSSH: cd689ae535a1581a6dd9fd4600ff71247df510a6
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   TODocumentPickerViewController: c2e9a6c8b98323b9339304bb255b0cfc2ec8b56c
   TOSearchBar: ee22b7ade729521b6ace523cea0ce97d23ab3cd9
   TOSegmentedTabBarController: e151ac6cf985f9962e3cdfaca3a573a187d7c718
