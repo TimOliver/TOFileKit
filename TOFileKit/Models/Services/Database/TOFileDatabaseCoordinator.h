@@ -23,6 +23,7 @@
 #import "TOFileKit.h"
 
 @class RLMRealmConfiguration;
+@class TOFileKeychainAccess;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -48,14 +49,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) RLMRealmConfiguration *realmConfiguration;
 
 /**
- Create a new instance of the database coordinator, with the location on disk, and
- whether the file is expected to be encrypted.
+ Create a new instance of the database coordinator, with the location on disk, and if encryption is desired,
+ the identifier string under which the key will be stored in the keychain.
 
  @param fileURL The location of the file on disk, including the file name.
  @param keychainIdentifier The name that the encryption key for this Realm will be saved under (unencrypted if nil)
  @return A new coordinator instance
  */
 - (instancetype)initWithFileURL:(NSURL *)fileURL keychainIdentifier:(nullable NSString *)keychainIdentifier;
+
+/**
+ Create a new instance of the database coordinator, with the location on disk, and
+ whether the file is expected to be encrypted.
+
+ @param fileURL The location of the file on disk, including the file name.
+ @param keychainAccess If more control is needed, a previously created keychain access object.
+ @return A new coordinator instance
+ */
+- (instancetype)initWithFileURL:(NSURL *)fileURL keychainAccess:(nullable TOFileKeychainAccess *)keychainAccess;
 
 @end
 

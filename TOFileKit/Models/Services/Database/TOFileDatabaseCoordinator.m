@@ -56,6 +56,21 @@
     return self;
 }
 
+- (instancetype)initWithFileURL:(NSURL *)fileURL keychainAccess:(TOFileKeychainAccess *)keychainAccess
+{
+    if (self = [super init]) {
+        _fileURL = fileURL;
+
+        if (_keychainAccess) {
+            _encrypted = YES;
+            _keychainAccess = keychainAccess;
+            _keychainIdentifier = _keychainAccess.identifier;
+        }
+    }
+
+    return self;
+}
+
 #pragma mark - Realm Configuration Accessor
 
 - (RLMRealmConfiguration *)realmConfiguration
