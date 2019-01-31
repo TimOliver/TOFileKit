@@ -21,6 +21,11 @@ target 'TOFileKitExample' do
   pod 'Mantle'
   pod '1PasswordExtension'
 
+  target "TOFileKitTests" do
+    inherit! :search_paths
+
+  end
+
 end
 
 post_install do |installer|

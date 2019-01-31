@@ -31,6 +31,7 @@
 		22FC4C7E1FF8C4700055FDF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FC4C7C1FF8C4700055FDF5 /* LaunchScreen.storyboard */; };
 		22FC4C811FF8C4700055FDF5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C801FF8C4700055FDF5 /* main.m */; };
 		4CA54429991064D3F2C92ACC /* libPods-TOFileKitExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D38893175A434E7E3F01D5B /* libPods-TOFileKitExample.a */; };
+		5576862CBB27452CAD775242 /* libPods-TOFileKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE6C8DBFD589D63E07C3200 /* libPods-TOFileKitTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0004C0D811FA41E75F5D648C /* Pods-TOFileKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TOFileKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TOFileKitTests/Pods-TOFileKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D38893175A434E7E3F01D5B /* libPods-TOFileKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TOFileKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2224768C21DBC17E0006D852 /* TOTestingAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTestingAppDelegate.h; sourceTree = "<group>"; };
 		2224768D21DBC17E0006D852 /* TOTestingAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOTestingAppDelegate.m; sourceTree = "<group>"; };
@@ -85,7 +87,9 @@
 		22FC4C7F1FF8C4700055FDF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22FC4C801FF8C4700055FDF5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3956E121D1B16986653128CE /* Pods-TOFileKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TOFileKitExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample.debug.xcconfig"; sourceTree = "<group>"; };
+		7BE6C8DBFD589D63E07C3200 /* libPods-TOFileKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TOFileKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F712ADB51AA8E4BAD337935 /* Pods-TOFileKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TOFileKitExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample.release.xcconfig"; sourceTree = "<group>"; };
+		85FF22E6F52461A8B2A2B106 /* Pods-TOFileKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TOFileKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TOFileKitTests/Pods-TOFileKitTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5576862CBB27452CAD775242 /* libPods-TOFileKitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				1D38893175A434E7E3F01D5B /* libPods-TOFileKitExample.a */,
+				7BE6C8DBFD589D63E07C3200 /* libPods-TOFileKitTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -279,6 +285,8 @@
 			children = (
 				3956E121D1B16986653128CE /* Pods-TOFileKitExample.debug.xcconfig */,
 				7F712ADB51AA8E4BAD337935 /* Pods-TOFileKitExample.release.xcconfig */,
+				0004C0D811FA41E75F5D648C /* Pods-TOFileKitTests.debug.xcconfig */,
+				85FF22E6F52461A8B2A2B106 /* Pods-TOFileKitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -290,6 +298,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2250016D21D1DDCD007EC4EA /* Build configuration list for PBXNativeTarget "TOFileKitTests" */;
 			buildPhases = (
+				18F2357B378A94A83DE51DCE /* [CP] Check Pods Manifest.lock */,
 				2250016221D1DDCD007EC4EA /* Sources */,
 				2250016321D1DDCD007EC4EA /* Frameworks */,
 				2250016421D1DDCD007EC4EA /* Resources */,
@@ -382,6 +391,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		18F2357B378A94A83DE51DCE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TOFileKitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AF2CDDBA4CE19B66061E0D53 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -482,6 +513,7 @@
 /* Begin XCBuildConfiguration section */
 		2250016E21D1DDCD007EC4EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0004C0D811FA41E75F5D648C /* Pods-TOFileKitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -501,6 +533,7 @@
 		};
 		2250016F21D1DDCD007EC4EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85FF22E6F52461A8B2A2B106 /* Pods-TOFileKitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_OBJC_WEAK = YES;

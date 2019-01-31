@@ -8,30 +8,25 @@
 
 #import <XCTest/XCTest.h>
 
-@interface TOFileDatabaseCoordinatorTests : XCTestCase
+#import "TOFileKit.h"
 
+NSString * const kTOFileDatabaseName = @"net.timoliver.files.realm";
+NSString * const kTOFileKeychainIdentifier = @"net.timoliver.files.test";
+
+@interface TOFileDatabaseCoordinatorTests : XCTestCase
 @end
 
 @implementation TOFileDatabaseCoordinatorTests
 
-- (void)setUp {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+- (void)tearDown
+{
+
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-}
+- (void)testBasicConfigurationCreation
+{
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
 }
 
 @end
