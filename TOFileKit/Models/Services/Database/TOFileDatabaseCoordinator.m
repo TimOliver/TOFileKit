@@ -21,23 +21,41 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TOFileDatabaseCoordinator.h"
+#import "TOFileKeychainAccess.h"
+
+#import "TOF"
 
 @interface TOFileDatabaseCoordinator ()
 
+@property (nonatomic, copy, readwrite) NSURL *fileURL;
 @property (nonatomic, assign, readwrite) BOOL fileExists;
 @property (nonatomic, assign, readwrite) BOOL encrypted;
+@property (nonatomic, copy, readwrite) NSString *keychainIdentifier;
+
+@property (nonatomic, strong) TOFileKeychainAccess *keychainAccess;
 
 @end
 
 @implementation TOFileDatabaseCoordinator
 
-- (instancetype)initWithFileURL:(NSURL *)fileURL encrypted:(BOOL)encrypted
+- (instancetype)initWithFileURL:(NSURL *)fileURL keychainIdentifier:(nullable NSString *)keychainIdentifier;
 {
     if (self = [super init]) {
-        
+        _fileURL = fileURL;
+        _keychainIdentifier = keychainIdentifier;
+
+        if (_keychainIdentifier.length) {
+            _encrypted = YES;
+            _keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:_keychainIdentifier];
+        }
     }
     
     return self;
+}
+
+- (BOOL)fileExists
+{
+    return [[NSFileManager defaultManager] fileExistsAtPath:_fileURL.path];
 }
 
 @end

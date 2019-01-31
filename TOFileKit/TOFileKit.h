@@ -1,5 +1,5 @@
 //
-//  TOFileDownload.h
+//  TOFileKit.h
 //
 //  Copyright 2015-2019 Timothy Oliver. All rights reserved.
 //
@@ -20,24 +20,25 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TOFileKit.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
+#import <Realm/Realm.h>
+#import <Mantle/Mantle.h>
+#import <1PasswordExtension/OnePasswordExtension.h>
+#import <NMSSH/NMSSH.h>
+#import <Reachability/Reachability.h>
+#import <TOSearchBar/TOSearchBar.h>
 
-@interface TOFileDownload : RLMObject
+#import "TOFileConstants.h"
 
-/** The primary key of this download */
-@property (nonatomic, copy) NSString *uuid;
-
-/** The date and time in which the download was started. */
-@property (nonatomic, strong) NSDate *startDate;
-
-/** The total progress of this download (0-100) */
-@property (nonatomic, assign) NSInteger progress;
-
-/** The path of this file on the server it's downloaded from */
-@property (nonatomic, copy) NSString *sourcePath;
-
-@end
-
-NS_ASSUME_NONNULL_END
+#import "TOFileDatabaseCoordinator.h"
+#import "TOFileCoordinator.h"
+#import "TOFileKeychainAccess.h"
+#import "TOFileAccount.h"
+#import "TOFileAccountList.h"
+#import "TOFileDownload.h"
+#import "TOFileLocationsViewController.h"
+#import "TOFileLocationsPresenter.h"
+#import "TOFileLocationsProvider.h"
+#import "TOFileLocationsView.h"
