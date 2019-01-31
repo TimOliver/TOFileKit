@@ -22,6 +22,8 @@
 
 #import "TOFileKit.h"
 
+RLM_ARRAY_TYPE(TOFileAccount)
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileAccountList : RLMObject

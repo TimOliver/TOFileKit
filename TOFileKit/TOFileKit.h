@@ -38,7 +38,9 @@
 #import "TOFileAccount.h"
 #import "TOFileAccountList.h"
 #import "TOFileDownload.h"
-#import "TOFileLocationsViewController.h"
 #import "TOFileLocationsPresenter.h"
 #import "TOFileLocationsProvider.h"
+
 #import "TOFileLocationsView.h"
+
+#import "TOFileLocationsViewController.h"

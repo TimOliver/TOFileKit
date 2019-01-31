@@ -22,6 +22,8 @@
 
 #import "TOFileKit.h"
 
+@class TOFileLocationsPresenter;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileLocationsViewController : UIViewController
