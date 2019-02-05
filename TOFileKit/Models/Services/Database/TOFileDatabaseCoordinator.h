@@ -28,8 +28,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- A small coordinator object that is used to ensure the Realm database file is created correctly on disk.
- If the file cannot be opened (eg, corrupted, or the encryption key was lost), it will delete and recreate it.
+ A small coordinator object that is used to ensure the Realm database
+ file is created correctly on disk, with encryption if desired.
+
+ If the file cannot be opened (eg, corrupted, or the encryption key was lost),
+ it will delete and recreate it.
  */
 @interface TOFileDatabaseCoordinator : NSObject
 
