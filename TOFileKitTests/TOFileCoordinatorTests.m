@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "TOFileCoordinator.h"
+#import "TOFileKit.h"
 
 @interface TOFileCoordinatorTests : XCTestCase
 @end

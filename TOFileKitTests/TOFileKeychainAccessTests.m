@@ -21,9 +21,9 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <XCTest/XCTest.h>
-#import "TOFileKeychainAccess.h"
+#import "TOFileKit.h"
 
-NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
+NSString * const kTOFileKeychainAccessIdentifier = @"net.timoliver.tofilekit.test";
 
 @interface TOFileKeychainAccess (UnitTests)
 + (void)convertStatus:(OSStatus)status toError:(NSError **)error;
@@ -42,7 +42,7 @@ NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
 
 - (void)deleteKeychainData
 {
-    TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainIdentifier];
+    TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainAccessIdentifier];
     [keychainAccess deleteDataFromKeychainWithError:nil];
 }
 
@@ -51,15 +51,15 @@ NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
 /** Test the object can be successfully instantiated, and it holds data properly */
 - (void)testKeychainAccessCreation
 {
-    TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainIdentifier];
+    TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainAccessIdentifier];
     XCTAssertNotNil(keychainAccess);
-    XCTAssertEqual(keychainAccess.identifier, kTOFileKeychainIdentifier);
+    XCTAssertEqual(keychainAccess.identifier, kTOFileKeychainAccessIdentifier);
 }
 
 /** Test that it can detect when the key doesn't already exist */
 - (void)testKeychainItemDoesntExist
 {
-    TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainIdentifier];
+    TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainAccessIdentifier];
     XCTAssertFalse(keychainAccess.dataExistsInKeychain);
 }
 
@@ -67,7 +67,7 @@ NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
 - (void)testKeychainSavesDataCorrectly
 {
     NSError *error = nil;
-    TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainIdentifier];
+    TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainAccessIdentifier];
     NSData *keychainData = [keychainAccess dataFromKeychainWithError:&error];
     XCTAssertNotNil(keychainData);
     XCTAssertNil(error);
@@ -81,14 +81,14 @@ NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
     NSData *secondKeychainData = nil;
 
     @autoreleasepool {
-        TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainIdentifier];
+        TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainAccessIdentifier];
         firstKeychainData = [keychainAccess dataFromKeychainWithError:&error];
         XCTAssertNotNil(firstKeychainData);
         XCTAssertNil(error);
     }
 
     @autoreleasepool {
-        TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainIdentifier];
+        TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainAccessIdentifier];
         secondKeychainData = [keychainAccess dataFromKeychainWithError:&error];
         XCTAssertNotNil(secondKeychainData);
         XCTAssertNil(error);
@@ -100,7 +100,7 @@ NSString * const kTOFileKeychainIdentifier = @"net.timoliver.tofilekit.test";
 /** Test deleting the keychain data */
 - (void)testDeleteKeychainData
 {
-    TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainIdentifier];
+    TOFileKeychainAccess *keychainAccess = [[TOFileKeychainAccess alloc] initWithIdentifier:kTOFileKeychainAccessIdentifier];
     NSData *keychainData = [keychainAccess dataFromKeychainWithError:nil];
     XCTAssertNotNil(keychainData);
 

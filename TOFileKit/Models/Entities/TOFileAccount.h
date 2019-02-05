@@ -20,10 +20,7 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TOFileConstants.h"
-
-#import <Realm/Realm.h>
-#import <UIKit/UIKit.h>
+#import "TOFileKit.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -54,7 +51,5 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) Class serviceClass;
 
 @end
-
-RLM_ARRAY_TYPE(TOFileAccount)
 
 NS_ASSUME_NONNULL_END
