@@ -401,7 +401,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/1PasswordExtension/OnePasswordExtensionResources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/TOSearchBar/TOSearchBarBundle.bundle",
 			);
@@ -412,7 +412,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

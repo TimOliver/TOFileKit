@@ -9,7 +9,7 @@ PODS:
   - Realm (3.13.0):
     - Realm/Headers (= 3.13.0)
   - Realm/Headers (3.13.0)
-  - TODocumentPickerViewController (0.2.1):
+  - TODocumentPickerViewController (0.2.0):
     - TOSearchBar
   - TOSearchBar (1.0.3)
   - TOSegmentedTabBarController (0.0.1)
@@ -22,8 +22,8 @@ DEPENDENCIES:
   - NMSSH
   - Reachability
   - Realm
-  - TODocumentPickerViewController (from `~/Projects/TODocumentPickerViewController`)
-  - TOSegmentedTabBarController (from `~/Projects/TOSegmentedTabBarController`)
+  - TODocumentPickerViewController
+  - TOSegmentedTabBarController
   - TOSMBClient
 
 SPEC REPOS:
@@ -33,16 +33,14 @@ SPEC REPOS:
     - NMSSH
     - Reachability
     - Realm
+    - TODocumentPickerViewController
     - TOSearchBar
+    - TOSegmentedTabBarController
     - TOSMBClient
 
 EXTERNAL SOURCES:
   GoldRaccoon:
     :git: https://github.com/iComics/GoldRaccoon.git
-  TODocumentPickerViewController:
-    :path: "~/Projects/TODocumentPickerViewController"
-  TOSegmentedTabBarController:
-    :path: "~/Projects/TOSegmentedTabBarController"
 
 CHECKOUT OPTIONS:
   GoldRaccoon:
@@ -56,11 +54,11 @@ SPEC CHECKSUMS:
   NMSSH: cd689ae535a1581a6dd9fd4600ff71247df510a6
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
-  TODocumentPickerViewController: c2e9a6c8b98323b9339304bb255b0cfc2ec8b56c
+  TODocumentPickerViewController: 9deaaf8f431abf11f45e97d769edda43eaa33efe
   TOSearchBar: ee22b7ade729521b6ace523cea0ce97d23ab3cd9
   TOSegmentedTabBarController: e151ac6cf985f9962e3cdfaca3a573a187d7c718
   TOSMBClient: 8884ede03ae70e6087962433fda22fb6b4b8c7f8
 
-PODFILE CHECKSUM: 8e457378a75b2f5f6640c520f33972683bb75037
+PODFILE CHECKSUM: feb71d31627a3939ad07f323526bf9a9cd06f9e0
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.5.3
