@@ -7,8 +7,8 @@ inhibit_all_warnings!
 target 'TOFileKitExample' do
 
   # UI
-  pod 'TODocumentPickerViewController', :path => '~/Projects/TODocumentPickerViewController'
-  pod 'TOSegmentedTabBarController', :path => '~/Projects/TOSegmentedTabBarController'
+  pod 'TODocumentPickerViewController'
+  pod 'TOSegmentedTabBarController'
 
   # Networking
   pod 'GoldRaccoon', :git => 'https://github.com/iComics/GoldRaccoon.git'
