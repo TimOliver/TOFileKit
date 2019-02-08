@@ -76,6 +76,7 @@
 		2252F50E21D9CB6100C6607F /* TOFileLocationsProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsProvider.m; sourceTree = "<group>"; };
 		2252F51421D9E8A000C6607F /* TOFileCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileCoordinator.h; sourceTree = "<group>"; };
 		2252F51521D9E8A000C6607F /* TOFileCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCoordinator.m; sourceTree = "<group>"; };
+		225DB28B220DE805003B90D8 /* TOFileCoordinator+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TOFileCoordinator+Private.h"; sourceTree = "<group>"; };
 		22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileDatabaseCoordinatorTests.m; sourceTree = "<group>"; };
 		22FC4C6E1FF8C4700055FDF5 /* TOFileKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOFileKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FC4C711FF8C4700055FDF5 /* TOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOAppDelegate.h; sourceTree = "<group>"; };
@@ -196,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				2252F51421D9E8A000C6607F /* TOFileCoordinator.h */,
+				225DB28B220DE805003B90D8 /* TOFileCoordinator+Private.h */,
 				2252F51521D9E8A000C6607F /* TOFileCoordinator.m */,
 			);
 			path = Coordinator;
