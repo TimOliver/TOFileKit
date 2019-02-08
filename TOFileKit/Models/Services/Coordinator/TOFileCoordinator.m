@@ -59,9 +59,18 @@ static TOFileCoordinator *_sharedCoordinator = nil;
 + (instancetype)sharedCoordinator
 {
     if (!_sharedCoordinator) {
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        void (^newCoordinatorBlock)(void) = ^{
             _sharedCoordinator = [[TOFileCoordinator alloc] init];
-        });
+        };
+
+        // Since we can't use dispatch_once, ensure the coordinator is
+        // created serially on the main queue
+        if ([NSThread isMainThread]) {
+            newCoordinatorBlock();
+        }
+        else {
+            dispatch_sync(dispatch_get_main_queue(), newCoordinatorBlock);
+        }
     }
 
     return _sharedCoordinator;
@@ -70,10 +79,15 @@ static TOFileCoordinator *_sharedCoordinator = nil;
 + (void)setSharedCoordinator:(TOFileCoordinator *)coordinator
 {
     if (_sharedCoordinator) { [_sharedCoordinator stop]; }
-    
-    dispatch_sync(dispatch_get_main_queue(), ^{
+
+    void (^setCoordinatorBlock)(void) = ^{
         _sharedCoordinator = coordinator;
-    });
+    };
+
+    // Since we can't use dispatch_once, ensure the coordinator is
+    // created serially on the main queue
+    if ([NSThread isMainThread]) { setCoordinatorBlock(); }
+    else { dispatch_sync(dispatch_get_main_queue(), setCoordinatorBlock); }
 }
 
 #pragma mark - Operation Running -
