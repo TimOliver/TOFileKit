@@ -22,6 +22,8 @@
 
 #import "TOFileCoordinator.h"
 
+static TOFileCoordinator *_sharedCoordinator = nil;
+
 @interface TOFileCoordinator ()
 
 @property (nonatomic, assign, readwrite) BOOL isRunning;
@@ -56,13 +58,22 @@
 
 + (instancetype)sharedCoordinator
 {
-    static dispatch_once_t onceToken;
-    static TOFileCoordinator *_sharedCoordinator;
-    dispatch_once(&onceToken, ^{
-        _sharedCoordinator = [[TOFileCoordinator alloc] init];
-    });
-    
+    if (!_sharedCoordinator) {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            _sharedCoordinator = [[TOFileCoordinator alloc] init];
+        });
+    }
+
     return _sharedCoordinator;
+}
+
++ (void)setSharedCoordinator:(TOFileCoordinator *)coordinator
+{
+    if (_sharedCoordinator) { [_sharedCoordinator stop]; }
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        _sharedCoordinator = coordinator;
+    });
 }
 
 #pragma mark - Operation Running -
