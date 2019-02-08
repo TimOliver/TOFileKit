@@ -27,9 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileNavigationController : UINavigationController
 
-/** Configures the top navigation bar to the modern or classic design style. */
-@property (nonatomic, assign) TOFileInterfaceStyle interfaceStyle;
-
 @end
 
 NS_ASSUME_NONNULL_END

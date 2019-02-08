@@ -1,7 +1,7 @@
 //
-//  TOFileConstants.h
+//  TOFileTableViewCell.m
 //
-//  Copyright 2015-2019 Timothy Oliver. All rights reserved.
+//  Copyright 2019 Timothy Oliver. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
@@ -20,28 +20,19 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import "TOFileTableViewCell.h"
 
-typedef NS_ENUM(NSInteger, TOFileService) {
-    TOFileServiceDropbox,
-    TOFileServiceGoogleDrive,
-    TOFileServiceBox,
-    TOFileServiceOneDrive,
-    TOFileServiceFTP,
-    TOFileServiceSFTP,
-    TOFileServiceSMB
-};
+@implementation TOFileTableViewCell
 
-typedef NS_ENUM(NSInteger, TOFileCloudService) {
-    TOFileCloudServiceDropbox,
-    TOFileCloudServiceGoogleDrive,
-    TOFileCloudServiceBox,
-    TOFileCloudServiceOneDrive
-};
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
 
-typedef NS_ENUM(NSInteger, TOFileCustomHostService) {
-    TOFileCustomHostServiceFTP,
-    TOFileCustomHostServiceSFTP,
-    TOFileCustomHostServiceSMB,
-    //TOFileCustomHostServiceWebDAV
-};
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end

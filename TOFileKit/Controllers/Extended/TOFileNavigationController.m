@@ -29,26 +29,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configureForInterfaceStyle:_interfaceStyle];
-}
-
-#pragma mark - View Styling -
-- (void)configureForInterfaceStyle:(TOFileInterfaceStyle)style
-{
-    BOOL modern = (style == TOFileInterfaceDesignModern);
 
     UINavigationBar *bar = self.navigationBar;
-    bar.barTintColor = modern ? [UIColor whiteColor] : nil;
-    bar.shadowImage = modern ? [UIImage new] : nil;
+    bar.barTintColor = [UIColor whiteColor];
+    bar.shadowImage = [UIImage new];
 }
 
-#pragma mark - Accessors -
-
-- (void)setInterfaceStyle:(TOFileInterfaceStyle)interfaceStyle
-{
-    if (_interfaceStyle == interfaceStyle) { return; }
-    _interfaceStyle = interfaceStyle;
-
-}
 
 @end
