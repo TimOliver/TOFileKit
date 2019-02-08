@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface TOFileTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) UIView *separatorView;
+
 @end
 
 NS_ASSUME_NONNULL_END

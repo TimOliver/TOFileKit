@@ -24,10 +24,30 @@
 
 @implementation TOFileTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+#pragma mark - View Creation
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier
+{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self commonInit];
+    }
+
+    return self;
 }
+
+- (void)commonInit
+{
+    self.separatorView = [[UIView alloc] initWithFrame:CGRectZero];
+}
+
+#pragma mark - View Layout -
+
+- (void)layoutSubviews
+{
+    
+}
+
+#pragma mark - Interaction -
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

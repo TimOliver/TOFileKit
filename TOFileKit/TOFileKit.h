@@ -41,6 +41,7 @@
 #import "TOFileLocationsPresenter.h"
 #import "TOFileLocationsProvider.h"
 
+#import "TOFileTableViewCell.h"
 #import "TOFileLocationsView.h"
 
 #import "TOFileLocationsViewController.h"
