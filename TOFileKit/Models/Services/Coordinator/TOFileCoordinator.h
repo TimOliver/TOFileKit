@@ -50,11 +50,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy, null_resettable) NSURL *temporaryDownloadsFolderURL;
 
-/** Whether the database is encrypted or not. When encrypted, an arbitrary byte stream is generated and
-    saved to the device's secure keychain using the relative path of the file as its key. It is *strongly* recommended
-    to leave encryption on in production versions of the app, but may be useful to leave off when debugging. (Default YES)
+/**
+ If the database is to be encrypted, this string will be the name under which the encryption
+ key for the database is stored. If `nil`, the database won't be encrypted.
+ (Default is `nil` for debug builds, and `com.appbundle.identifier.files` for release builds)
  */
-@property (nonatomic, assign) BOOL encryptDatabase;
+@property (nonatomic, copy, nullable) NSString *encryptionKeyIdentifier;
 
 /** Once started and the database is successfully created, this Realm configuration object can be used to establish access
     to the files database for any objects who need access to that info (such as the downloads UI).
@@ -66,6 +67,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** A singleton object for a whole app. */
 + (instancetype)sharedCoordinator;
+
+/** Set a custom configured file coordinator to be the singleton for this app. This must be set before `start()` is called. */
++ (void)setSharedCoordinator:(TOFileCoordinator *)coordinator;
 
 /** Once configuration is complete, call start for the coordinator to begin
     any initial setup (ie, creating the database), and to then resume any downloads.

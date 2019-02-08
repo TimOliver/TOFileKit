@@ -22,6 +22,8 @@
 
 #import "TOFileCoordinator.h"
 
+static TOFileCoordinator *_sharedCoordinator = nil;
+
 @interface TOFileCoordinator ()
 
 @property (nonatomic, assign, readwrite) BOOL isRunning;
@@ -56,13 +58,36 @@
 
 + (instancetype)sharedCoordinator
 {
-    static dispatch_once_t onceToken;
-    static TOFileCoordinator *_sharedCoordinator;
-    dispatch_once(&onceToken, ^{
-        _sharedCoordinator = [[TOFileCoordinator alloc] init];
-    });
-    
+    if (!_sharedCoordinator) {
+        void (^newCoordinatorBlock)(void) = ^{
+            _sharedCoordinator = [[TOFileCoordinator alloc] init];
+        };
+
+        // Since we can't use dispatch_once, ensure the coordinator is
+        // created serially on the main queue
+        if ([NSThread isMainThread]) {
+            newCoordinatorBlock();
+        }
+        else {
+            dispatch_sync(dispatch_get_main_queue(), newCoordinatorBlock);
+        }
+    }
+
     return _sharedCoordinator;
+}
+
++ (void)setSharedCoordinator:(TOFileCoordinator *)coordinator
+{
+    if (_sharedCoordinator) { [_sharedCoordinator stop]; }
+
+    void (^setCoordinatorBlock)(void) = ^{
+        _sharedCoordinator = coordinator;
+    };
+
+    // Since we can't use dispatch_once, ensure the coordinator is
+    // created serially on the main queue
+    if ([NSThread isMainThread]) { setCoordinatorBlock(); }
+    else { dispatch_sync(dispatch_get_main_queue(), setCoordinatorBlock); }
 }
 
 #pragma mark - Operation Running -
