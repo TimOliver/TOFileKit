@@ -43,9 +43,14 @@
 
 - (void)commonInit
 {
+    // Configure the view itself
+    self.backgroundColor = [UIColor whiteColor];
+
     // Configure and add table view
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.bounds style:UITableViewStyleGrouped];
     tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    tableView.backgroundColor = [UIColor clearColor];
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self addSubview:tableView];
     self.tableView = tableView;
 

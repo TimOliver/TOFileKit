@@ -1,7 +1,7 @@
 //
-//  TOFileConstants.h
+//  TOFileNavigationController.m
 //
-//  Copyright 2015-2019 Timothy Oliver. All rights reserved.
+//  Copyright 2019 Timothy Oliver. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
@@ -20,33 +20,35 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import "TOFileNavigationController.h"
 
-typedef NS_ENUM(NSInteger, TOFileInterfaceStyle) {
-    TOFileInterfaceDesignModern,
-    TOFileInterfaceDesignClassic
-};
+@implementation TOFileNavigationController
 
-typedef NS_ENUM(NSInteger, TOFileService) {
-    TOFileServiceDropbox,
-    TOFileServiceGoogleDrive,
-    TOFileServiceBox,
-    TOFileServiceOneDrive,
-    TOFileServiceFTP,
-    TOFileServiceSFTP,
-    TOFileServiceSMB
-};
+#pragma mark - View Life Cycle -
 
-typedef NS_ENUM(NSInteger, TOFileCloudService) {
-    TOFileCloudServiceDropbox,
-    TOFileCloudServiceGoogleDrive,
-    TOFileCloudServiceBox,
-    TOFileCloudServiceOneDrive
-};
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self configureForInterfaceStyle:_interfaceStyle];
+}
 
-typedef NS_ENUM(NSInteger, TOFileCustomHostService) {
-    TOFileCustomHostServiceFTP,
-    TOFileCustomHostServiceSFTP,
-    TOFileCustomHostServiceSMB,
-    //TOFileCustomHostServiceWebDAV
-};
+#pragma mark - View Styling -
+- (void)configureForInterfaceStyle:(TOFileInterfaceStyle)style
+{
+    BOOL modern = (style == TOFileInterfaceDesignModern);
+
+    UINavigationBar *bar = self.navigationBar;
+    bar.barTintColor = modern ? [UIColor whiteColor] : nil;
+    bar.shadowImage = modern ? [UIImage new] : nil;
+}
+
+#pragma mark - Accessors -
+
+- (void)setInterfaceStyle:(TOFileInterfaceStyle)interfaceStyle
+{
+    if (_interfaceStyle == interfaceStyle) { return; }
+    _interfaceStyle = interfaceStyle;
+
+}
+
+@end

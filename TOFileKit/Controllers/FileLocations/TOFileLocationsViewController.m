@@ -70,7 +70,7 @@ const NSInteger kTOFileLocationsMaximumLocalServices = 6;
     
     // Configure this view
     self.title = NSLocalizedString(@"Download", @"Title for Downloads Controller");
-    
+
     if (@available(iOS 11.0, *)) {
         self.navigationController.navigationBar.prefersLargeTitles = YES;
     }
