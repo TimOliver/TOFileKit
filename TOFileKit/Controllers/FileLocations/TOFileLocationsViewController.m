@@ -23,6 +23,7 @@
 #import "TOFileLocationsViewController.h"
 #import "TOFileLocationsView.h"
 #import "TOFileLocationsPresenter.h"
+#import "TOFileTableViewCell.h"
 
 const NSInteger kTOFileLocationsMaximumLocalServices = 6;
 
@@ -145,9 +146,9 @@ const NSInteger kTOFileLocationsMaximumLocalServices = 6;
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     static NSString *identifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    TOFileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[TOFileTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     
     return cell;

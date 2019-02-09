@@ -21,12 +21,14 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TOFileLocationsView.h"
+#import "TOFileSeparatorView.h"
 
 @interface TOFileLocationsView ()
 
 @property (nonatomic, strong, readwrite) UITableView *tableView;
 @property (nonatomic, strong, readwrite) UIBarButtonItem *editButton;
 @property (nonatomic, strong, readwrite) UIBarButtonItem *doneButton;
+@property (nonatomic, strong, readwrite) TOFileSeparatorView *separatorView;
 
 @end
 
@@ -65,6 +67,22 @@
                                                                                 target:self
                                                                                 action:@selector(editStateButtonTapped:)];
     self.doneButton = doneButton;
+
+    // Configure the separator view
+    self.separatorView = [[TOFileSeparatorView alloc] initWithFrame:CGRectZero];
+    [self.tableView addSubview:self.separatorView];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+
+    [self.separatorView sizeToFitInView:self];
+    CGRect frame = self.separatorView.frame;
+    frame.origin.x = self.layoutMargins.left;
+    frame.origin.y = 1.0f;
+    self.separatorView.frame = frame;
+
 }
 
 - (void)editStateButtonTapped:(id)sender

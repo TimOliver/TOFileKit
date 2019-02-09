@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2219B388220E80A300A91505 /* TOFileSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2219B387220E80A300A91505 /* TOFileSeparatorView.m */; };
 		2224768F21DBC1A90006D852 /* TOTestingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224768D21DBC17E0006D852 /* TOTestingAppDelegate.m */; };
 		222B91BC21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B91BB21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m */; };
 		222B91BE21DB31080057B1D9 /* TOFileCoordinatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B91BD21DB31080057B1D9 /* TOFileCoordinatorTests.m */; };
@@ -49,6 +50,8 @@
 /* Begin PBXFileReference section */
 		0004C0D811FA41E75F5D648C /* Pods-TOFileKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TOFileKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TOFileKitTests/Pods-TOFileKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D38893175A434E7E3F01D5B /* libPods-TOFileKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TOFileKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2219B386220E80A300A91505 /* TOFileSeparatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileSeparatorView.h; sourceTree = "<group>"; };
+		2219B387220E80A300A91505 /* TOFileSeparatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileSeparatorView.m; sourceTree = "<group>"; };
 		2224768C21DBC17E0006D852 /* TOTestingAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTestingAppDelegate.h; sourceTree = "<group>"; };
 		2224768D21DBC17E0006D852 /* TOTestingAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOTestingAppDelegate.m; sourceTree = "<group>"; };
 		222B91BA21DB2C180057B1D9 /* TOFileDatabaseCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileDatabaseCoordinator.h; sourceTree = "<group>"; };
@@ -175,7 +178,7 @@
 		2250017721D21E25007EC4EA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				225DB292220DF734003B90D8 /* TableCells */,
+				225DB292220DF734003B90D8 /* Common */,
 				225DB291220DF723003B90D8 /* FileLocations */,
 			);
 			path = Views;
@@ -236,13 +239,15 @@
 			path = FileLocations;
 			sourceTree = "<group>";
 		};
-		225DB292220DF734003B90D8 /* TableCells */ = {
+		225DB292220DF734003B90D8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				225DB293220DF7D8003B90D8 /* TOFileTableViewCell.h */,
 				225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */,
+				2219B386220E80A300A91505 /* TOFileSeparatorView.h */,
+				2219B387220E80A300A91505 /* TOFileSeparatorView.m */,
 			);
-			path = TableCells;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		227ACCFD201C5CB8000E699F /* Controllers */ = {
@@ -532,6 +537,7 @@
 				2250017A21D21E25007EC4EA /* TOFileLocationsView.m in Sources */,
 				225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */,
 				2252F50F21D9CB6100C6607F /* TOFileLocationsProvider.m in Sources */,
+				2219B388220E80A300A91505 /* TOFileSeparatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

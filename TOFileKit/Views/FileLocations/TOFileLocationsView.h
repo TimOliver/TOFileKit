@@ -22,6 +22,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class TOFileSeparatorView;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileLocationsView : UIView
@@ -34,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The main content view */
 @property (nonatomic, readonly) UITableView *tableView;
+
+/** The separator view kept under the top header bar */
+@property (nonatomic, readonly) TOFileSeparatorView *separatorView;
 
 /** Callback from when the edit/done button is tapped */
 @property (nonatomic, copy) void (^editButtonTapped)(void);

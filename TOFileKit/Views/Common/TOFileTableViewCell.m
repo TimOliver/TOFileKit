@@ -21,6 +21,7 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TOFileTableViewCell.h"
+#import "TOFileSeparatorView.h"
 
 @implementation TOFileTableViewCell
 
@@ -37,14 +38,20 @@
 
 - (void)commonInit
 {
-    self.separatorView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.separatorView = [[TOFileSeparatorView alloc] initWithFrame:CGRectZero];
+    [self addSubview:self.separatorView];
 }
 
 #pragma mark - View Layout -
 
 - (void)layoutSubviews
 {
-    
+    [(TOFileSeparatorView *)self.separatorView sizeToFitInView:self];
+
+    CGRect frame = self.separatorView.frame;
+    frame.origin.x   = self.layoutMargins.left;
+    frame.origin.y   = self.frame.size.height - frame.size.height;
+    self.separatorView.frame = frame;
 }
 
 #pragma mark - Interaction -
