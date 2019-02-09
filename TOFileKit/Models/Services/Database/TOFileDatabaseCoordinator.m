@@ -128,7 +128,7 @@
     RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
     config.fileURL = self.fileURL;
     config.encryptionKey = self.encryptionKey;
-    config.objectClasses = @[[TOFileAccount class], [TOFileAccount class], [TOFileDownload class]];
+    config.objectClasses = @[[TOFileLocation class], [TOFileLocationList class], [TOFileDownload class]];
     return config;
 }
 

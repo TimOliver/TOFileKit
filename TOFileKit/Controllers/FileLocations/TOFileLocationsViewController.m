@@ -82,7 +82,7 @@ const NSInteger kTOFileLocationsMaximumLocalServices = 6;
     
     // Add bar button items
     self.navigationItem.rightBarButtonItem = self.fileLocationsView.editButton;
-    //self.fileLocationsView.editButton.enabled = NO;
+    self.fileLocationsView.editButton.enabled = NO;
     
     // Now the view is loaded, hook up the interaction logic
     [self bindViewCallbacks];
