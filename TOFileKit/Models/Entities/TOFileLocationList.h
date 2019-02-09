@@ -23,7 +23,7 @@
 #import <Realm/Realm.h>
 #import "TOFileConstants.h"
 
-RLM_ARRAY_TYPE(TOFileAccount)
+RLM_ARRAY_TYPE(TOFileLocation)
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)   NSString *uuid;
 
 /** An array object used to track the ordering of file account objects. */
-@property (nonatomic, strong) RLMArray<TOFileAccount> *accounts;
+@property (nonatomic, strong) RLMArray<TOFileLocation> *locations;
 
 @end
 

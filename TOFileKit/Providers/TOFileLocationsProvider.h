@@ -21,14 +21,34 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
 
-
+@class TOFileLocation;
+@class TOFileCoordinator;
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ A class dedicated to managing the flow of data in and out of the
+ file locations view controller (As opposed to the presenter, which
+ transforms the data here for presentation on the screen).
+ */
 @interface TOFileLocationsProvider : NSObject
 
-@property (nonatomic, readonly) 
+/** A Realm collection of all of the locations saved by the user. */
+@property (nonatomic, readonly) id<RLMCollection> locations;
+
+/** A list of all local devices on the network that may be accessible. */
+@property (nonatomic, readonly) NSArray *localDevices;
+
+/** Create an instance of the file locations provider using the given file coordinator */
+- (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator;
+
+/** Explicitly trigger the provider to start querying for file locations. */
+- (void)loadLocationsFromDisk;
+
+/** A file coordinator is absolutely necessary for this class */
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 

@@ -10,8 +10,8 @@
 #import "TOViewController.h"
 
 #import <Realm/Realm.h>
-#import "TOFileAccount.h"
-#import "TOFileAccountList.h"
+#import "TOFileLocation.h"
+#import "TOFileLocationList.h"
 #import "TOFileDownload.h"
 
 @interface TOAppDelegate ()
@@ -31,7 +31,7 @@
 
     // Spawn a Realm file just to test it for now
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
-    config.objectClasses = @[TOFileAccount.class, TOFileAccountList.class, TOFileDownload.class];
+    config.objectClasses = @[TOFileLocation.class, TOFileLocationList.class, TOFileDownload.class];
 
     NSFileManager *fileManager = NSFileManager.defaultManager;
     [fileManager removeItemAtURL:config.fileURL error:nil];
