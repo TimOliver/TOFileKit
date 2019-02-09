@@ -1,5 +1,5 @@
 //
-//  TOFileAccountList.h
+//  TOFileLocation.m
 //
 //  Copyright 2019 Timothy Oliver. All rights reserved.
 //
@@ -20,21 +20,33 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Realm/Realm.h>
-#import "TOFileConstants.h"
+#import "TOFileLocation.h"
 
-RLM_ARRAY_TYPE(TOFileAccount)
-
-NS_ASSUME_NONNULL_BEGIN
-
-@interface TOFileAccountList : RLMObject
-
-/** A primary key to be able to track this specific object. */
-@property (nonatomic, copy)   NSString *uuid;
-
-/** An array object used to track the ordering of file account objects. */
-@property (nonatomic, strong) RLMArray<TOFileAccount> *accounts;
+@interface TOFileLocation ()
 
 @end
 
-NS_ASSUME_NONNULL_END
+@implementation TOFileLocation
+
+#pragma mark - Realm Configuration -
++ (NSString *)primaryKey
+{
+    return @"uuid";
+}
+
++ (NSDictionary *)defaultPropertyValues
+{
+    return @{@"uuid" : [NSUUID UUID].UUIDString };
+}
+
++ (NSArray *)ignoredProperties
+{
+    return @[@"icon", @"serviceClass"];
+}
+
++ (BOOL)shouldIncludeInDefaultSchema
+{
+    return NO;
+}
+
+@end

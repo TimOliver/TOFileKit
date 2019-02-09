@@ -1,5 +1,5 @@
 //
-//  TOFileAccount.h
+//  TOFileLocation.h
 //
 //  Copyright 2019 Timothy Oliver. All rights reserved.
 //
@@ -26,7 +26,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TOFileAccount : RLMObject
+@interface TOFileLocation : RLMObject
 
 /* Base Model Properties */
 @property (nonatomic, copy) NSString *uuid;           /** The primary key of this account entry */

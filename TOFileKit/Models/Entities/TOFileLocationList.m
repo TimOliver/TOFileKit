@@ -1,5 +1,5 @@
 //
-//  TOFileAccountList.m
+//  TOFileLocationList.m
 //
 //  Copyright 2019 Timothy Oliver. All rights reserved.
 //
@@ -22,7 +22,7 @@
 
 #import "TOFileAccountList.h"
 
-@implementation TOFileAccountList
+@implementation TOFileLocationList
 
 #pragma mark - Realm Configuration -
 + (NSDictionary *)defaultPropertyValues

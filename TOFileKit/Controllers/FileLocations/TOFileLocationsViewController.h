@@ -29,9 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileLocationsViewController : UIViewController
 
-/** The presenter object in charge of driivng the UI of this controller from the business logic */
-@property (nonatomic, readonly) TOFileLocationsPresenter *presenter;
-
 /**
  Creates a new instance of the file locations controller with the provided file coordinator
 
