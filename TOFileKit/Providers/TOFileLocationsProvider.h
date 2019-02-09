@@ -41,6 +41,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** A list of all local devices on the network that may be accessible. */
 @property (nonatomic, readonly) NSArray *localDevices;
 
+/** A block that is called each time the `locations` property is updated by the data store. */
+@property (nonatomic, copy) void (^locationsChangedHandler)(NSArray *insertions,
+                                                            NSArray *changes,
+                                                            NSArray *deletions);
+
+/** A block that is called each time the local devices on the network change. */
+@property (nonatomic, copy) void (^localDevicesChangedHandler)(void);
+
 /** Create an instance of the file locations provider using the given file coordinator */
 - (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator;
 
