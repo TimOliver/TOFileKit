@@ -1,18 +1,18 @@
 //
-//  TOFileKitTests.m
+//  TOFileLocationsProviderTests.m
 //  TOFileKitTests
 //
-//  Created by Tim Oliver on 25/12/18.
-//  Copyright © 2018 Tim Oliver. All rights reserved.
+//  Created by Tim Oliver on 9/2/19.
+//  Copyright © 2019 Tim Oliver. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface TOFileKitTests : XCTestCase
+@interface TOFileLocationsProviderTests : XCTestCase
 
 @end
 
-@implementation TOFileKitTests
+@implementation TOFileLocationsProviderTests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
