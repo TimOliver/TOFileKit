@@ -53,6 +53,8 @@
     tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     tableView.backgroundColor = [UIColor clearColor];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.preservesSuperviewLayoutMargins = YES;
+    tableView.cellLayoutMarginsFollowReadableWidth = NO;
     [self addSubview:tableView];
     self.tableView = tableView;
 

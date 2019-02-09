@@ -9,6 +9,7 @@ PODS:
   - Realm (3.13.1):
     - Realm/Headers (= 3.13.1)
   - Realm/Headers (3.13.1)
+  - Reveal-SDK (20)
   - TODocumentPickerViewController (0.2.2):
     - TOSearchBar
   - TOSearchBar (1.0.3)
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - NMSSH
   - Reachability
   - Realm
+  - Reveal-SDK
   - TODocumentPickerViewController
   - TOSegmentedTabBarController
   - TOSMBClient
@@ -33,6 +35,7 @@ SPEC REPOS:
     - NMSSH
     - Reachability
     - Realm
+    - Reveal-SDK
     - TODocumentPickerViewController
     - TOSearchBar
     - TOSegmentedTabBarController
@@ -54,11 +57,12 @@ SPEC CHECKSUMS:
   NMSSH: cd689ae535a1581a6dd9fd4600ff71247df510a6
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  Reveal-SDK: 43206a57f575632fd304e85385cc259b5d359e32
   TODocumentPickerViewController: 8c0eaf3b72a4f9970f8d82c3069bb71636f6c207
   TOSearchBar: ee22b7ade729521b6ace523cea0ce97d23ab3cd9
   TOSegmentedTabBarController: e151ac6cf985f9962e3cdfaca3a573a187d7c718
   TOSMBClient: 8884ede03ae70e6087962433fda22fb6b4b8c7f8
 
-PODFILE CHECKSUM: e274cf4786cd5a081502df66af3620c888b48930
+PODFILE CHECKSUM: a956d594f0ab404f1b79abf3a35aced031254f2c
 
 COCOAPODS: 1.6.0.beta.2

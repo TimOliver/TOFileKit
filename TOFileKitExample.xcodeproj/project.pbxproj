@@ -395,6 +395,7 @@
 				22FC4C6B1FF8C4700055FDF5 /* Frameworks */,
 				22FC4C6C1FF8C4700055FDF5 /* Resources */,
 				DB420A69A7FFCCF2B988D982 /* [CP] Copy Pods Resources */,
+				28E74CEF7BA13A69D3ED95EB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -484,6 +485,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		28E74CEF7BA13A69D3ED95EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-frameworks.sh",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-20/iOS/RevealServer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AF2CDDBA4CE19B66061E0D53 /* [CP] Check Pods Manifest.lock */ = {

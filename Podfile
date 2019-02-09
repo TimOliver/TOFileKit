@@ -21,6 +21,9 @@ target 'TOFileKitExample' do
   pod 'Mantle'
   pod '1PasswordExtension'
 
+  # Development
+  pod 'Reveal-SDK', :configurations => ['Debug']
+
   target "TOFileKitTests" do
     inherit! :search_paths
 
