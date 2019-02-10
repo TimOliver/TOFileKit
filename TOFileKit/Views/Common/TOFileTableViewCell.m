@@ -46,6 +46,8 @@
 
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
+    
     [(TOFileSeparatorView *)self.separatorView sizeToFitInView:self];
 
     CGRect frame = self.separatorView.frame;

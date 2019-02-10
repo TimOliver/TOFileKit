@@ -12,7 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileTableSectionHeaderView : UITableViewHeaderFooterView
 
++ (CGFloat)height;
 
+@property (nonatomic, readonly) UILabel *titleLabel;
 
 @end
 

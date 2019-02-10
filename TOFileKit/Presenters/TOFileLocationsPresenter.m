@@ -36,7 +36,7 @@
 
 - (NSInteger)numberOfSections
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)numberOfRowsForSection:(NSInteger)section
@@ -50,7 +50,7 @@
         return NSLocalizedString(@"Local Devices", @"File Accounts Title");
     }
     
-    return NSLocalizedString(@"Accounts", @"File Accounts Title");
+    return NSLocalizedString(@"My Locations", @"File Accounts Title");
 }
 
 @end

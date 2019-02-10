@@ -151,26 +151,29 @@ const NSInteger kTOFileLocationsMaximumLocalServices = 6;
     if (cell == nil) {
         cell = [[TOFileTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
-    
+
+    cell.textLabel.text = @"Add a New Location";
+
     return cell;
 }
 
+#pragma mark - Table View Delegate -
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    NSString *title = [self.presenter titleForSection:section];
+    if (!title) { return nil; }
+
     static NSString *identifier = @"Header";
     TOFileTableSectionHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
     if (!headerView) {
         headerView = [[TOFileTableSectionHeaderView alloc] initWithReuseIdentifier:identifier];
     }
+    headerView.titleLabel.text = title;
     return headerView;
 }
 
-#pragma mark - Table View Delegate -
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return [self.presenter titleForSection:section];
-}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section { return [TOFileTableSectionHeaderView height]; }
 
 #pragma mark - Convenience Accessors -
 
