@@ -24,6 +24,7 @@
 #import "TOFileLocationsView.h"
 #import "TOFileLocationsPresenter.h"
 #import "TOFileTableViewCell.h"
+#import "TOFileTableSectionHeaderView.h"
 
 const NSInteger kTOFileLocationsMaximumLocalServices = 6;
 
@@ -152,6 +153,16 @@ const NSInteger kTOFileLocationsMaximumLocalServices = 6;
     }
     
     return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    static NSString *identifier = @"Header";
+    TOFileTableSectionHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    if (!headerView) {
+        headerView = [[TOFileTableSectionHeaderView alloc] initWithReuseIdentifier:identifier];
+    }
+    return headerView;
 }
 
 #pragma mark - Table View Delegate -
