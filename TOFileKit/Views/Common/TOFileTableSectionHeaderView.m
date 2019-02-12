@@ -8,7 +8,8 @@
 
 #import "TOFileTableSectionHeaderView.h"
 
-CGFloat const kTOFileTableHeaderSectionViewVerticalPadding = 15.0f;
+CGFloat const kTOFileTableHeaderSectionViewTopPadding = 14.0f;
+CGFloat const kTOFileTableHeaderSectionViewBottomPadding = 10.0f;
 
 @interface TOFileTableSectionHeaderView ()
 
@@ -43,13 +44,11 @@ CGFloat const kTOFileTableHeaderSectionViewVerticalPadding = 15.0f;
 {
     [super layoutSubviews];
 
-    CGSize boundSize = self.contentView.bounds.size;
-
     [self.titleLabel sizeToFit];
 
     CGRect frame = self.titleLabel.frame;
     frame.origin.x = self.layoutMargins.left;
-    frame.origin.y = (boundSize.height - frame.size.height) * 0.5f;
+    frame.origin.y = kTOFileTableHeaderSectionViewTopPadding;
     self.titleLabel.frame = CGRectIntegral(frame);
 }
 
@@ -65,7 +64,7 @@ CGFloat const kTOFileTableHeaderSectionViewVerticalPadding = 15.0f;
 + (CGFloat)height
 {
     UIFont *titleFont = [TOFileTableSectionHeaderView titleFont];
-    return titleFont.ascender + (kTOFileTableHeaderSectionViewVerticalPadding * 2.0f);
+    return titleFont.ascender + (kTOFileTableHeaderSectionViewTopPadding + kTOFileTableHeaderSectionViewBottomPadding);
 }
 
 @end
