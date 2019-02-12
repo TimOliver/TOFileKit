@@ -22,7 +22,18 @@
 
 #import <Foundation/Foundation.h>
 
+@class TOFileLocation;
+
 NS_ASSUME_NONNULL_BEGIN
+
+/** The types of table cells that this presenter can produce */
+typedef NS_ENUM(NSInteger, TOFileLocationsCellType) {
+    TOFileLocationsCellTypeDefault,     // A single location, added by the user
+    TOFileLocationsCellTypeAddLocation, // An action button to add a new location
+    TOFileLocationsCellTypeLocalDevice, // A local device detected on the network
+    TOFileLocationsCellTypeScanning,    // When scanning for local devices
+    TOFileLocationsCellTypeScanFailure  // When scanning failed (No devices found / no network)
+};
 
 @interface TOFileLocationsPresenter : NSObject
 
@@ -53,9 +64,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 // OUTPUTS
 
-/** Table View Data */
+/** Table View Section Data */
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfRowsForSection:(NSInteger)section;
+
+/** Returns the type of cell to display in this row */
+- (TOFileLocationsCellType)cellTypeForRow:(NSInteger)row inSection:(NSInteger)sectionl;
+
+/** When showing a cell with a location, this will return the location for it */
+- (nullable TOFileLocation *)locationForRow:(NSInteger)row;
+
+/** When showing a cell for a local device on the network */
+- (nullable NSNetService *)localServiceForRow:(NSInteger)row;
+
+/** Table View Configuration */
 - (NSString *)titleForSection:(NSInteger)section;
 
 @end
