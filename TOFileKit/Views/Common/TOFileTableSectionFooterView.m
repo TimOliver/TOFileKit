@@ -61,7 +61,7 @@ CGFloat const kTOFileTableSectionFooterVerticalPadding = 5.0f;
 
 + (CGFloat)height
 {
-    return (kTOFileTableSectionFooterVerticalPadding * 2.0f) + 1.0f;
+    return (kTOFileTableSectionFooterVerticalPadding) + 1.0f;
 }
 
 @end
