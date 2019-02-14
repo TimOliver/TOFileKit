@@ -25,8 +25,11 @@
 #import "TOFileLocationsPresenter.h"
 #import "TOFileTableViewCell.h"
 #import "TOFileTableSectionHeaderView.h"
+#import "TOFileTableSectionFooterView.h"
 
-const NSInteger kTOFileLocationsMaximumLocalServices = 6;
+NSInteger const kTOFileLocationsMaximumLocalServices = 6;
+NSString * const kTOFileLocationsHeaderIdentifier = @"LocationsHeader";
+NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
 @interface TOFileLocationsViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -80,6 +83,12 @@ const NSInteger kTOFileLocationsMaximumLocalServices = 6;
     // Attach table view to us
     self.fileLocationsView.tableView.delegate = self;
     self.fileLocationsView.tableView.dataSource = self;
+
+    // Register the header and footer views for the table view
+    [self.fileLocationsView.tableView registerClass:[TOFileTableSectionHeaderView class]
+                 forHeaderFooterViewReuseIdentifier:kTOFileLocationsHeaderIdentifier];
+    [self.fileLocationsView.tableView registerClass:[TOFileTableSectionFooterView class]
+                 forHeaderFooterViewReuseIdentifier:kTOFileLocationsFooterIdentifier];
     
     // Add bar button items
     self.navigationItem.rightBarButtonItem = self.fileLocationsView.editButton;
@@ -159,21 +168,38 @@ const NSInteger kTOFileLocationsMaximumLocalServices = 6;
 
 #pragma mark - Table View Delegate -
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (void)tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    // Hide the separator view in cells at the bottom of the section
+    TOFileTableViewCell *fileCell = (TOFileTableViewCell *)cell;
+    fileCell.separatorView.hidden = ([self.presenter numberOfRowsForSection:indexPath.section] >= indexPath.row - 1);
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     NSString *title = [self.presenter titleForSection:section];
     if (!title) { return nil; }
 
-    static NSString *identifier = @"Header";
-    TOFileTableSectionHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-    if (!headerView) {
-        headerView = [[TOFileTableSectionHeaderView alloc] initWithReuseIdentifier:identifier];
-    }
+    TOFileTableSectionHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kTOFileLocationsHeaderIdentifier];
     headerView.titleLabel.text = title;
     return headerView;
 }
 
+- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [tableView dequeueReusableHeaderFooterViewWithIdentifier:kTOFileLocationsFooterIdentifier];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section { return [TOFileTableSectionHeaderView height]; }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section >= [self.presenter numberOfSections] - 1) {
+        return 0.0f;
+    }
+
+    return [TOFileTableSectionFooterView height];
+}
 
 #pragma mark - Convenience Accessors -
 

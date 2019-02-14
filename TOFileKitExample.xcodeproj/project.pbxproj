@@ -24,6 +24,7 @@
 		2252F50C21D9C6B800C6607F /* TOFileLocationsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */; };
 		2252F50F21D9CB6100C6607F /* TOFileLocationsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50E21D9CB6100C6607F /* TOFileLocationsProvider.m */; };
 		2252F51621D9E8A000C6607F /* TOFileCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F51521D9E8A000C6607F /* TOFileCoordinator.m */; };
+		2253F3BC2215D13F006171C6 /* TOFileTableSectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */; };
 		225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */; };
 		225DB295220DF7D8003B90D8 /* TOFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */; };
 		228D2D4F220EC9430033EDEC /* TOFileLocationsProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D2D4E220EC9430033EDEC /* TOFileLocationsProviderTests.m */; };
@@ -81,6 +82,8 @@
 		2252F50E21D9CB6100C6607F /* TOFileLocationsProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsProvider.m; sourceTree = "<group>"; };
 		2252F51421D9E8A000C6607F /* TOFileCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileCoordinator.h; sourceTree = "<group>"; };
 		2252F51521D9E8A000C6607F /* TOFileCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCoordinator.m; sourceTree = "<group>"; };
+		2253F3BA2215D13F006171C6 /* TOFileTableSectionFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableSectionFooterView.h; sourceTree = "<group>"; };
+		2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableSectionFooterView.m; sourceTree = "<group>"; };
 		225DB28B220DE805003B90D8 /* TOFileCoordinator+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TOFileCoordinator+Private.h"; sourceTree = "<group>"; };
 		225DB28E220DF2F2003B90D8 /* TOFileNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileNavigationController.h; sourceTree = "<group>"; };
 		225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileNavigationController.m; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 				2219B387220E80A300A91505 /* TOFileSeparatorView.m */,
 				22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */,
 				22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */,
+				2253F3BA2215D13F006171C6 /* TOFileTableSectionFooterView.h */,
+				2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -591,6 +596,7 @@
 				225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */,
 				2252F50F21D9CB6100C6607F /* TOFileLocationsProvider.m in Sources */,
 				2219B388220E80A300A91505 /* TOFileSeparatorView.m in Sources */,
+				2253F3BC2215D13F006171C6 /* TOFileTableSectionFooterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
