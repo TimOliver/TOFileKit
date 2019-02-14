@@ -50,7 +50,7 @@
         return NSLocalizedString(@"Local Devices", @"File Accounts Title");
     }
     
-    return NSLocalizedString(@"My Locations", @"File Accounts Title");
+    return NSLocalizedString(@"Locations", @"File Accounts Title");
 }
 
 @end
