@@ -57,7 +57,7 @@ CGFloat const kTOFileTableHeaderSectionViewBottomPadding = 10.0f;
 + (UIFont *)titleFont
 {
     // Get the current system font size for this preset, then use that to create a bold version
-    UIFont *titleFont = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
+    UIFont *titleFont = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle2];
     return [UIFont systemFontOfSize:titleFont.pointSize weight:UIFontWeightBold];
 }
 

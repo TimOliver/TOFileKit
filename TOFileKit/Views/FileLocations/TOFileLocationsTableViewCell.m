@@ -51,8 +51,6 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellTypeDefault);
-    self.textLabel.textColor = darkMode ? [UIColor whiteColor] : [UIColor blackColor];
     [self.indicatorView stopAnimating];
     self.selectionStyle = UITableViewCellSelectionStyleDefault;
 }
@@ -62,6 +60,9 @@
 - (void)configureForType:(TOFileLocationsTableViewCellType)type
 {
     switch (type) {
+        case TOFileLocationsTableViewCellTypeDefault:
+            [self configureDefaultType];
+            break;
         case TOFileLocationsTableViewCellTypeAdd:
             [self configureAddType];
             break;
@@ -76,11 +77,16 @@
     }
 }
 
+- (void)configureDefaultType
+{
+    BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellTypeDefault);
+    self.textLabel.textColor = darkMode ? [UIColor whiteColor] : [UIColor blackColor];
+}
+
 - (void)configureAddType
 {
     self.textLabel.textColor = self.tintColor;
     self.textLabel.text = NSLocalizedString(@"Add New Location", "");
-    self.selectionStyle = UITableViewCellSelectionStyleDefault;
 }
 
 - (void)configureScanningType
