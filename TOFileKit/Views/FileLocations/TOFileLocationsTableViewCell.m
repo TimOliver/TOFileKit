@@ -30,14 +30,23 @@
 
 @implementation TOFileLocationsTableViewCell
 
+#pragma mark - View Creation -
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-
+        [self commonInit];
     }
 
     return self;
 }
+
+- (void)commonInit
+{
+    [self prepareForReuse];
+}
+
+#pragma mark - Cell Life Cycle -
 
 - (void)prepareForReuse
 {
@@ -45,8 +54,10 @@
     BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellStyleDefault);
     self.textLabel.textColor = darkMode ? [UIColor whiteColor] : [UIColor blackColor];
     [self.indicatorView stopAnimating];
-     self.selectionStyle = UITableViewCellSelectionStyleDefault;
+    self.selectionStyle = UITableViewCellSelectionStyleDefault;
 }
+
+#pragma mark - Configure View Content for Style -
 
 - (void)configureForStyle:(TOFileLocationsTableViewCellStyle)style
 {
@@ -94,18 +105,20 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (void)setCellStyle:(TOFileLocationsTableViewCellStyle)cellStyle
+#pragma mark - Accessors -
+
+- (void)setStyle:(TOFileLocationsTableViewCellStyle)cellStyle
 {
-    if (_cellStyle == cellStyle) { return; }
-    _cellStyle = cellStyle;
-    [self configureForStyle:_cellStyle];
+    if (_style == cellStyle) { return; }
+    _style = cellStyle;
+    [self configureForStyle:_style];
 }
 
 - (void)setThemeStyle:(TOFileLocationsTableViewThemeStyle)themeStyle
 {
     if (_themeStyle == themeStyle) { return; }
     _themeStyle = themeStyle;
-    [self configureForStyle:self.cellStyle];
+    [self configureForStyle:self.style];
 }
 
 @end

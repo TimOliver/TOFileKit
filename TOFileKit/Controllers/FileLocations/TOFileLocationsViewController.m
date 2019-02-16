@@ -23,7 +23,7 @@
 #import "TOFileLocationsViewController.h"
 #import "TOFileLocationsView.h"
 #import "TOFileLocationsPresenter.h"
-#import "TOFileTableViewCell.h"
+#import "TOFileLocationsTableViewCell.h"
 #import "TOFileTableSectionHeaderView.h"
 #import "TOFileTableSectionFooterView.h"
 
@@ -156,11 +156,12 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     static NSString *identifier = @"Cell";
-    TOFileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    TOFileLocationsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[TOFileTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[TOFileLocationsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
 
+    cell.style = TOFileLocationsTableViewCellStyleAdd;
     cell.textLabel.text = @"Add a New Location";
 
     return cell;
@@ -199,6 +200,11 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     }
 
     return [TOFileTableSectionFooterView height];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Convenience Accessors -

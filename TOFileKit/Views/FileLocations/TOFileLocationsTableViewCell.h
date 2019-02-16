@@ -21,6 +21,7 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "TOFileTableViewCell.h"
 
 typedef NS_ENUM(NSInteger, TOFileLocationsTableViewThemeStyle) {
     TOFileLocationsTableViewThemeStyleDefault,
@@ -36,10 +37,10 @@ typedef NS_ENUM(NSInteger, TOFileLocationsTableViewCellStyle) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TOFileLocationsTableViewCell : UITableViewCell
+@interface TOFileLocationsTableViewCell : TOFileTableViewCell
 
 @property (nonatomic, assign) TOFileLocationsTableViewThemeStyle themeStyle;
-@property (nonatomic, assign) TOFileLocationsTableViewCellStyle cellStyle;
+@property (nonatomic, assign) TOFileLocationsTableViewCellStyle style;
 
 @end
 
