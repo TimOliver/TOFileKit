@@ -39,7 +39,7 @@
 #import "TOFileLocationList.h"
 #import "TOFileDownload.h"
 #import "TOFileLocationsPresenter.h"
-#import "TOFileLocationsProvider.h"
+#import "TOFileSavedLocationsProvider.h"
 
 #import "TOFileTableViewCell.h"
 #import "TOFileLocationsView.h"
