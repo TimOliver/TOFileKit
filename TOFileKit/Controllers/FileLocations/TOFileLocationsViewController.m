@@ -150,7 +150,7 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.presenter numberOfRowsForSection:section];
+    return [self.presenter numberOfItemsForSection:section];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
@@ -161,8 +161,24 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
         cell = [[TOFileLocationsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
 
-    cell.style = TOFileLocationsTableViewCellStyleAdd;
-    cell.textLabel.text = @"Add a New Location";
+    // Get the type of cell we are supposed to show from the presenter, and map it to the types the table cell supports
+    TOFileLocationsPresenterItemType itemType = [self.presenter itemTypeForIndex:indexPath.row inSection:indexPath.section];
+    switch (itemType) {
+        default:
+        case TOFileLocationsPresenterItemTypeDefault:
+        case TOFileLocationsPresenterItemTypeLocalDevice:
+            cell.type = TOFileLocationsTableViewCellTypeDefault;
+            break;
+        case TOFileLocationsPresenterItemTypeScanning:
+            cell.type = TOFileLocationsTableViewCellTypeScanning;
+            break;
+        case TOFileLocationsPresenterItemTypeAddLocation:
+            cell.type = TOFileLocationsTableViewCellTypeAdd;
+            break;
+        case TOFileLocationsPresenterItemTypeScanFailure:
+            cell.type = TOFileLocationsTableViewCellTypeFailed;
+            break;
+    }
 
     return cell;
 }
@@ -173,7 +189,7 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 {
     // Hide the separator view in cells at the bottom of the section
     TOFileTableViewCell *fileCell = (TOFileTableViewCell *)cell;
-    fileCell.separatorView.hidden = ([self.presenter numberOfRowsForSection:indexPath.section] >= indexPath.row - 1);
+    fileCell.separatorView.hidden = ([self.presenter numberOfItemsForSection:indexPath.section] >= indexPath.row - 1);
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

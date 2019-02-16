@@ -23,16 +23,17 @@
 #import <Foundation/Foundation.h>
 
 @class TOFileLocation;
+@class TOFileCoordinator;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** The types of table cells that this presenter can produce */
-typedef NS_ENUM(NSInteger, TOFileLocationsCellType) {
-    TOFileLocationsCellTypeDefault,     // A single location, added by the user
-    TOFileLocationsCellTypeAddLocation, // An action button to add a new location
-    TOFileLocationsCellTypeLocalDevice, // A local device detected on the network
-    TOFileLocationsCellTypeScanning,    // When scanning for local devices
-    TOFileLocationsCellTypeScanFailure  // When scanning failed (No devices found / no network)
+typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
+    TOFileLocationsPresenterItemTypeDefault,     // A single location, added by the user
+    TOFileLocationsPresenterItemTypeAddLocation, // An action button to add a new location
+    TOFileLocationsPresenterItemTypeLocalDevice, // A local device detected on the network
+    TOFileLocationsPresenterItemTypeScanning,    // When scanning for local devices
+    TOFileLocationsPresenterItemTypeScanFailure  // When scanning failed (No devices found / no network)
 };
 
 @interface TOFileLocationsPresenter : NSObject
@@ -51,7 +52,12 @@ typedef NS_ENUM(NSInteger, TOFileLocationsCellType) {
 /** Called when the editing state was enabled or disabled. (Editing, Animated) */
 @property (nonatomic, copy) void (^isEditingHandler)(BOOL, BOOL);
 
-// INPUTS
+/** Create a new instance with the following */
+- (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator;
+
+/*********************************************
+ Inputs
+ *********************************************/
 
 /** Load the accounts from disk */
 - (void)fetchAccountsList;
@@ -62,20 +68,22 @@ typedef NS_ENUM(NSInteger, TOFileLocationsCellType) {
 /** Edit Button was tapped */
 - (void)toggleEditing;
 
-// OUTPUTS
+/*********************************************
+ Outputs
+ *********************************************/
 
 /** Table View Section Data */
 - (NSInteger)numberOfSections;
-- (NSInteger)numberOfRowsForSection:(NSInteger)section;
+- (NSInteger)numberOfItemsForSection:(NSInteger)section;
 
 /** Returns the type of cell to display in this row */
-- (TOFileLocationsCellType)cellTypeForRow:(NSInteger)row inSection:(NSInteger)sectionl;
+- (TOFileLocationsPresenterItemType)itemTypeForIndex:(NSInteger)index inSection:(NSInteger)section;
 
 /** When showing a cell with a location, this will return the location for it */
-- (nullable TOFileLocation *)locationForRow:(NSInteger)row;
+- (nullable TOFileLocation *)locationForItem:(NSInteger)item;
 
 /** When showing a cell for a local device on the network */
-- (nullable NSNetService *)localServiceForRow:(NSInteger)row;
+- (nullable NSNetService *)localServiceForItem:(NSInteger)item;
 
 /** Table View Configuration */
 - (NSString *)titleForSection:(NSInteger)section;

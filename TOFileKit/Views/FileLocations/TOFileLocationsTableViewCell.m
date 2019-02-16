@@ -51,7 +51,7 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellStyleDefault);
+    BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellTypeDefault);
     self.textLabel.textColor = darkMode ? [UIColor whiteColor] : [UIColor blackColor];
     [self.indicatorView stopAnimating];
     self.selectionStyle = UITableViewCellSelectionStyleDefault;
@@ -59,31 +59,31 @@
 
 #pragma mark - Configure View Content for Style -
 
-- (void)configureForStyle:(TOFileLocationsTableViewCellStyle)style
+- (void)configureForType:(TOFileLocationsTableViewCellType)type
 {
-    switch (style) {
-        case TOFileLocationsTableViewCellStyleAdd:
-            [self configureAddStyle];
+    switch (type) {
+        case TOFileLocationsTableViewCellTypeAdd:
+            [self configureAddType];
             break;
-        case TOFileLocationsTableViewCellStyleScanning:
-            [self configureScanningStyle];
+        case TOFileLocationsTableViewCellTypeScanning:
+            [self configureScanningType];
             break;
-        case TOFileLocationsTableViewCellStyleFailed:
-            [self configureFailedStyle];
+        case TOFileLocationsTableViewCellTypeFailed:
+            [self configureFailedType];
             break;
         default:
             break;
     }
 }
 
-- (void)configureAddStyle
+- (void)configureAddType
 {
     self.textLabel.textColor = self.tintColor;
     self.textLabel.text = NSLocalizedString(@"Add New Location", "");
     self.selectionStyle = UITableViewCellSelectionStyleDefault;
 }
 
-- (void)configureScanningStyle
+- (void)configureScanningType
 {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     if (self.indicatorView == nil) {
@@ -92,33 +92,54 @@
         [self.contentView addSubview:self.indicatorView];
     }
 
-    BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellStyleDefault);
+    BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellTypeDefault);
     self.indicatorView.tintColor = darkMode ? [UIColor whiteColor] : [UIColor grayColor];
     [self.indicatorView startAnimating];
+
+    CGFloat white = darkMode ? 0.8f : 0.5f;
+    self.textLabel.textColor = [UIColor colorWithWhite:white alpha:1.0f];
+    self.textLabel.text = NSLocalizedString(@"Scanning...", "");
 }
 
-- (void)configureFailedStyle
+- (void)configureFailedType
 {
-    BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellStyleDefault);
+    BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellTypeDefault);
     CGFloat white = darkMode ? 0.8f : 0.4f;
     self.textLabel.textColor = [UIColor colorWithWhite:white alpha:1.0f];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
+#pragma mark - View Layout -
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    if (_type != TOFileLocationsTableViewCellTypeScanning) { return; }
+
+    CGSize bounds = self.contentView.bounds.size;
+    CGRect frame = self.indicatorView.frame;
+    frame.origin.x = self.layoutMargins.left;
+    frame.origin.y = floorf((bounds.height - frame.size.height) * 0.5f);
+    self.indicatorView.frame = frame;
+
+    frame = self.textLabel.frame;
+    frame.origin.x = CGRectGetMaxX(self.indicatorView.frame) + 7.0f;
+    self.textLabel.frame = frame;
+}
+
 #pragma mark - Accessors -
 
-- (void)setStyle:(TOFileLocationsTableViewCellStyle)cellStyle
+- (void)setType:(TOFileLocationsTableViewCellType)type
 {
-    if (_style == cellStyle) { return; }
-    _style = cellStyle;
-    [self configureForStyle:_style];
+    if (_type == type) { return; }
+    _type = type;
+    [self configureForType:_type];
 }
 
 - (void)setThemeStyle:(TOFileLocationsTableViewThemeStyle)themeStyle
 {
     if (_themeStyle == themeStyle) { return; }
     _themeStyle = themeStyle;
-    [self configureForStyle:self.style];
+    [self configureForType:self.type];
 }
 
 @end

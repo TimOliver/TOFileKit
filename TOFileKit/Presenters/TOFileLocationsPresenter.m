@@ -21,8 +21,29 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TOFileLocationsPresenter.h"
+#import "TOFileCoordinator.h"
+
+typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
+    TOFileLocationsPresenterSectionLocations = 0,
+    TOFileLocationsPresenterSectionLocalDevices = 1
+};
+
+@interface TOFileLocationsPresenter ()
+
+@property (nonatomic, strong) TOFileCoordinator *fileCoordinator;
+
+@end
 
 @implementation TOFileLocationsPresenter
+
+- (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator
+{
+    if (self = [super init]) {
+        _fileCoordinator = fileCoordinator;
+    }
+
+    return self;
+}
 
 #pragma mark - User Interaction -
 
@@ -32,14 +53,14 @@
     if (self.isEditingHandler) { self.isEditingHandler(self.editing, YES); }
 }
 
-#pragma mark - Table View Configuration -
+#pragma mark - Collection View Configuration -
 
 - (NSInteger)numberOfSections
 {
     return 2;
 }
 
-- (NSInteger)numberOfRowsForSection:(NSInteger)section
+- (NSInteger)numberOfItemsForSection:(NSInteger)section
 {
     return 1;
 }
@@ -51,6 +72,18 @@
     }
     
     return NSLocalizedString(@"Locations", @"File Accounts Title");
+}
+
+#pragma mark - Collection View Data -
+- (TOFileLocationsPresenterItemType)itemTypeForIndex:(NSInteger)index inSection:(NSInteger)section
+{
+    // For displaying the accounts the user saved
+    if (section == TOFileLocationsPresenterSectionLocations) {
+        return TOFileLocationsPresenterItemTypeAddLocation;
+    }
+
+    // For scanning for local devices
+    return TOFileLocationsPresenterItemTypeScanning;
 }
 
 @end
