@@ -22,26 +22,27 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, TOFileService) {
-    TOFileServiceDropbox,
-    TOFileServiceGoogleDrive,
-    TOFileServiceBox,
-    TOFileServiceOneDrive,
-    TOFileServiceFTP,
-    TOFileServiceSFTP,
-    TOFileServiceSMB
+typedef NS_ENUM(NSInteger, TOFileServiceType) {
+    TOFileServiceTypeNone = 0,
+    TOFileServiceTypeDropbox,
+    TOFileServiceTypeGoogleDrive,
+    TOFileServiceTypeBox,
+    TOFileServiceTypeOneDrive,
+    TOFileServiceTypeFTP,
+    TOFileServiceTypeSFTP,
+    TOFileServiceTypeSMB
 };
 
-typedef NS_ENUM(NSInteger, TOFileCloudService) {
-    TOFileCloudServiceDropbox,
-    TOFileCloudServiceGoogleDrive,
-    TOFileCloudServiceBox,
-    TOFileCloudServiceOneDrive
+typedef NS_ENUM(NSInteger, TOFileCloudServiceType) {
+    TOFileCloudServiceTypeDropbox,
+    TOFileCloudServiceTypeGoogleDrive,
+    TOFileCloudServiceTypeBox,
+    TOFileCloudServiceTypeOneDrive
 };
 
-typedef NS_ENUM(NSInteger, TOFileCustomHostService) {
-    TOFileCustomHostServiceFTP,
-    TOFileCustomHostServiceSFTP,
-    TOFileCustomHostServiceSMB,
+typedef NS_ENUM(NSInteger, TOFileCustomHostServiceType) {
+    TOFileCustomHostServiceTypeFTP,
+    TOFileCustomHostServiceTypeSFTP,
+    TOFileCustomHostServiceTypeSMB,
     //TOFileCustomHostServiceWebDAV
 };

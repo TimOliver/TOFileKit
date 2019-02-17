@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		220366A0221911CD0070E21A /* ICDownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2203668C221911CD0070E21A /* ICDownloadService.m */; };
+		220366A0221911CD0070E21A /* TOFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2203668C221911CD0070E21A /* TOFileService.m */; };
 		220366BD2219126C0070E21A /* ICDropboxService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366A82219126C0070E21A /* ICDropboxService.m */; };
 		220366BE2219126C0070E21A /* ICBoxService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366A92219126C0070E21A /* ICBoxService.m */; };
 		220366BF2219126C0070E21A /* ICOAuthDownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366AA2219126C0070E21A /* ICOAuthDownloadService.m */; };
@@ -65,8 +65,8 @@
 /* Begin PBXFileReference section */
 		0004C0D811FA41E75F5D648C /* Pods-TOFileKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TOFileKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TOFileKitTests/Pods-TOFileKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D38893175A434E7E3F01D5B /* libPods-TOFileKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TOFileKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2203668B221911CD0070E21A /* ICDownloadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICDownloadService.h; sourceTree = "<group>"; };
-		2203668C221911CD0070E21A /* ICDownloadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICDownloadService.m; sourceTree = "<group>"; };
+		2203668B221911CD0070E21A /* TOFileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileService.h; sourceTree = "<group>"; };
+		2203668C221911CD0070E21A /* TOFileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileService.m; sourceTree = "<group>"; };
 		220366A82219126C0070E21A /* ICDropboxService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICDropboxService.m; sourceTree = "<group>"; };
 		220366A92219126C0070E21A /* ICBoxService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICBoxService.m; sourceTree = "<group>"; };
 		220366AA2219126C0070E21A /* ICOAuthDownloadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICOAuthDownloadService.m; sourceTree = "<group>"; };
@@ -167,15 +167,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2203667F221911CD0070E21A /* Files */ = {
+		2203667F221911CD0070E21A /* File */ = {
 			isa = PBXGroup;
 			children = (
-				2203668B221911CD0070E21A /* ICDownloadService.h */,
-				2203668C221911CD0070E21A /* ICDownloadService.m */,
+				2203668B221911CD0070E21A /* TOFileService.h */,
+				2203668C221911CD0070E21A /* TOFileService.m */,
 				220366A72219126C0070E21A /* CloudServices */,
 				220366B22219126C0070E21A /* CustomHostedServices */,
 			);
-			path = Files;
+			path = File;
 			sourceTree = "<group>";
 		};
 		220366A72219126C0070E21A /* CloudServices */ = {
@@ -246,7 +246,7 @@
 			children = (
 				2252F51021D9E72600C6607F /* Coordinator */,
 				222B91B921DB2C180057B1D9 /* Database */,
-				2203667F221911CD0070E21A /* Files */,
+				2203667F221911CD0070E21A /* File */,
 				2250016121D142EA007EC4EA /* Security */,
 			);
 			path = Services;
@@ -700,7 +700,7 @@
 				220366C12219126C0070E21A /* ICOneDriveService.m in Sources */,
 				220366C02219126C0070E21A /* ICGoogleDriveService.m in Sources */,
 				220366BF2219126C0070E21A /* ICOAuthDownloadService.m in Sources */,
-				220366A0221911CD0070E21A /* ICDownloadService.m in Sources */,
+				220366A0221911CD0070E21A /* TOFileService.m in Sources */,
 				2250017A21D21E25007EC4EA /* TOFileLocationsView.m in Sources */,
 				225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */,
 				2252F50F21D9CB6100C6607F /* TOFileSavedLocationsProvider.m in Sources */,

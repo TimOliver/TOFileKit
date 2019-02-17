@@ -1,22 +1,39 @@
 //
-//  ICDownloadService.h
-//  icomics
+//  TOFileService.h
 //
-//  Created by Tim Oliver on 27/10/2015.
-//  Copyright © 2015 Timothy Oliver. All rights reserved.
+//  Copyright 2015-2019 Timothy Oliver. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to
+//  deal in the Software without restriction, including without limitation the
+//  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+//  sell copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+//  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+//  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#import "TOFileConstants.h"
 
 /*******************************************************************************/
 
-@interface ICDownloadService : NSObject
+@interface TOFileService : NSObject
 
 /* Retrieve the class of the specified service */
-+ (Class)classOfServiceForType:(ICDownloadServiceType)type;
++ (Class)classOfServiceForType:(TOFileServiceType)type;
 
 /* Create a new instance based off a specific service */
-+ (instancetype)downloadServiceForType:(ICDownloadServiceType)type;
++ (instancetype)fileServiceForType:(TOFileServiceType)type;
 
 /************************************************************/
 /* Convenience Methods to expose the available services. */
@@ -25,16 +42,16 @@
 + (NSDictionary *)allServices;
 
 /* An array of the service classes based on third party file hosting services (Dropbox, etc) */
-+ (NSArray *)fileHostingServices;
++ (NSArray *)cloudHostedServices;
 
 /* An array of the service classes based on local network protocol services (SMB, FTP, etc) */
-+ (NSArray *)networkProtocolServices;
++ (NSArray *)customHostedServices;
 
 /************************************************************/
 /* General Information for this service */
 
 /* The type of this particular service */
-+ (ICDownloadServiceType)serviceType;
++ (TOFileServiceType)serviceType;
 
 /* The name of the service */
 + (NSString *)name;
@@ -57,7 +74,7 @@
 @property (nonatomic, strong) NSString *initialFilePath;
 
 /* Instance version of `serviceType` class method */
-@property (nonatomic, readonly) ICDownloadServiceType serviceType;
+@property (nonatomic, readonly) TOFileServiceType serviceType;
 
 /* Given a user name, create a formatted name for this service including it. */
 - (NSString *)personalizedNameOfServiceWithUserName:(NSString *)userName;
