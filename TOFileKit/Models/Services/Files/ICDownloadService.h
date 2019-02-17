@@ -8,34 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class ICDownloadServiceProfile;
-@class XLFormDescriptor;
-@class XLFormRowDescriptor;
-
-typedef NS_ENUM(NSInteger, ICDownloadServiceType) {
-    ICDownloadServiceTypeNone = 0,
-    
-    //Third Party Services
-    ICDownloadServiceTypeDropbox = 1,
-    ICDownloadServiceTypeGoogleDrive = 2,
-    ICDownloadServiceTypeOneDrive = 3,
-    ICDownloadServiceTypeBox = 4,
-    
-    //Self-hosted Services
-    ICDownloadServiceTypeSMB = 11,
-    ICDownloadServiceTypeFTP = 12,
-    ICDownloadServiceTypeSFTP = 13,
-    ICDownloadServiceTypeWebDAV = 14
-};
-
-static inline BOOL ICDownloadServiceIsOAuth(ICDownloadServiceType type) {
-    return type >= ICDownloadServiceTypeDropbox && type <= ICDownloadServiceTypeBox;
-}
-
-static inline BOOL ICDownloadServiceIsProtocol(ICDownloadServiceType type) {
-    return type >= ICDownloadServiceTypeSMB && type <= ICDownloadServiceTypeWebDAV;
-}
-
 /*******************************************************************************/
 
 @interface ICDownloadService : NSObject
@@ -89,11 +61,6 @@ static inline BOOL ICDownloadServiceIsProtocol(ICDownloadServiceType type) {
 
 /* Given a user name, create a formatted name for this service including it. */
 - (NSString *)personalizedNameOfServiceWithUserName:(NSString *)userName;
-
-/************************************************************/
-
-/* Builds a form descriptor for editing the parameters of this service */
-- (XLFormDescriptor *)formDescriptorForEditingService;
 
 /************************************************************/
 

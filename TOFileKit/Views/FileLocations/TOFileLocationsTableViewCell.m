@@ -24,8 +24,6 @@
 
 @interface TOFileLocationsTableViewCell ()
 
-@property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
-
 @end
 
 @implementation TOFileLocationsTableViewCell
@@ -51,7 +49,6 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    [self.indicatorView stopAnimating];
     self.selectionStyle = UITableViewCellSelectionStyleDefault;
 }
 
@@ -92,15 +89,8 @@
 - (void)configureScanningType
 {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    if (self.indicatorView == nil) {
-        self.indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        self.indicatorView.hidesWhenStopped = YES;
-        [self.contentView addSubview:self.indicatorView];
-    }
 
     BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellTypeDefault);
-    self.indicatorView.tintColor = darkMode ? [UIColor whiteColor] : [UIColor grayColor];
-    [self.indicatorView startAnimating];
 
     CGFloat white = darkMode ? 0.8f : 0.5f;
     self.textLabel.textColor = [UIColor colorWithWhite:white alpha:1.0f];
@@ -110,26 +100,9 @@
 - (void)configureFailedType
 {
     BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellTypeDefault);
-    CGFloat white = darkMode ? 0.8f : 0.4f;
+    CGFloat white = darkMode ? 0.8f : 0.5f;
     self.textLabel.textColor = [UIColor colorWithWhite:white alpha:1.0f];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-}
-
-#pragma mark - View Layout -
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    if (_type != TOFileLocationsTableViewCellTypeScanning) { return; }
-
-    CGSize bounds = self.contentView.bounds.size;
-    CGRect frame = self.indicatorView.frame;
-    frame.origin.x = self.layoutMargins.left;
-    frame.origin.y = floorf((bounds.height - frame.size.height) * 0.5f);
-    self.indicatorView.frame = frame;
-
-    frame = self.textLabel.frame;
-    frame.origin.x = CGRectGetMaxX(self.indicatorView.frame) + 7.0f;
-    self.textLabel.frame = frame;
 }
 
 #pragma mark - Accessors -
