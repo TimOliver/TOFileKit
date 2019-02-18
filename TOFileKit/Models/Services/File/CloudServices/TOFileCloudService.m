@@ -1,5 +1,5 @@
 //
-//  TOFileCloudService.h
+//  TOFileCloudService.m
 //
 //  Copyright 2015-2019 Timothy Oliver. All rights reserved.
 //
@@ -29,7 +29,9 @@ NSString * const kICOAuthCSRFCodeKey = @"state";
 //******************************************************************
 
 @interface TOFileCloudService ()
+
 @property (nonatomic, copy, readwrite) NSString *CSRFToken;
+
 @end
 
 //******************************************************************
@@ -123,7 +125,7 @@ NSString * const kICOAuthCSRFCodeKey = @"state";
 - (NSURLRequest *)URLRequestForAccessTokenConversionWithCallbackURL:(NSURL *)callbackURL { return nil; }
 - (NSURLRequest *)URLRequestForUserInfoWithAccessToken:(NSString *)accessToken { return nil; }
 - (NSString *)userNameFromUserInfoRequestData:(NSData *)data error:(NSError **)error { return nil; }
-- (BOOL)parseAccessCredentialsFromRequestResponseWithData:(NSData *)data { return NO; }
+- (BOOL)parseAccessCredentialsFromRequestResponseWithData:(NSData *)data error:(NSError **)error { return NO; }
 - (BOOL)providesCSRFChecking { return YES; }
 - (BOOL)requiresTokenExchange { return YES; }
 - (BOOL)canProvideUserInfo { return NO; }

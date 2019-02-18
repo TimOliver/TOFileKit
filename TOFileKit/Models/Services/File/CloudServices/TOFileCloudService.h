@@ -1,5 +1,5 @@
 //
-//  TOFileService.h
+//  TOFileCloudService.h
 //
 //  Copyright 2015-2019 Timothy Oliver. All rights reserved.
 //
@@ -22,14 +22,12 @@
 
 #import "TOFileService.h"
 
-@class UIImage;
-
 @interface TOFileCloudService : TOFileService
 
-@property (nonatomic, copy, readonly) NSString *CSRFToken;    //A random string to be used to validate callbacks
-@property (nonatomic, readonly) BOOL providesCSRFChecking;    //Allows the exchange of a 'state' token to prevent CSRF attacks
-@property (nonatomic, readonly) BOOL requiresTokenExchange;   //Requires an additional REST call to convert an auth code into an access token
-@property (nonatomic, readonly) BOOL canProvideUserInfo;      //For the purpose of giving it a custom name, whether the API can give the user's name
+@property (nonatomic, copy, readonly) NSString *CSRFToken;    // A random string to be used to validate callbacks
+@property (nonatomic, readonly) BOOL providesCSRFChecking;    // Allows the exchange of a 'state' token to prevent CSRF attacks
+@property (nonatomic, readonly) BOOL requiresTokenExchange;   // Requires an additional REST call to convert an auth code into an access token
+@property (nonatomic, readonly) BOOL canProvideUserInfo;      // For the purpose of giving it a custom name, whether the API can give the user's name
 
 /* The URL that will present the OAuth authorization page to the user */
 - (NSURL *)authorizationURL;
