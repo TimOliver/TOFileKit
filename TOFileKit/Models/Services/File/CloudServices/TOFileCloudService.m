@@ -45,7 +45,7 @@ NSString * const kICOAuthServiceNameKey = @"name";
     return [URL.scheme isEqualToString:kICOAuthAppScheme] || [URL.host isEqualToString:@"localhost"];
 }
 
-- (BOOL)verifyCallbackURLWithURL:(NSURL *)callbackURL
+- (BOOL)isValidCallbackURL:(NSURL *)callbackURL
 {
     //Sadly, if the service doesn't provide CSRF checking, just assume it passed
     if (self.providesCSRFChecking == NO) {
@@ -69,7 +69,7 @@ NSString * const kICOAuthServiceNameKey = @"name";
 #pragma mark - CSRF Token -
 - (NSString *)CSRFToken
 {
-    //Generate an new CSRF string that 
+    //Generate an new CSRF string that can be used to verify further responses
     if (_CSRFToken == nil) {
         _CSRFToken = [[NSUUID UUID] UUIDString];
     }
@@ -121,45 +121,14 @@ NSString * const kICOAuthServiceNameKey = @"name";
 }
 
 #pragma mark - Stub Subclass Methods -
-- (NSURL *)oauthPageURL
-{
-    return nil;
-}
 
-- (NSURLRequest *)URLRequestForAccessTokenConversionWithCallbackURL:(NSURL *)callbackURL
-{
-    return nil;
-}
-
-- (NSURLRequest *)URLRequestForUserInfoWithAccessToken:(NSString *)accessToken
-{
-    return nil;
-}
-
-- (NSString *)userNameFromUserInfoRequestData:(NSData *)data error:(NSError **)error
-{
-    return nil;
-}
-
-- (BOOL)parseAccessCredentialsFromRequestResponseWithData:(NSData *)data
-{
-    return NO;
-}
-
-- (BOOL)providesCSRFChecking
-{
-    return YES;
-}
-
-- (BOOL)requiresTokenExchange
-{
-    return YES;
-}
-
-- (BOOL)canProvideUserInfo
-{
-    return NO;
-}
-
+- (NSURL *)authorizationURL { return nil; }
+- (NSURLRequest *)URLRequestForAccessTokenConversionWithCallbackURL:(NSURL *)callbackURL { return nil; }
+- (NSURLRequest *)URLRequestForUserInfoWithAccessToken:(NSString *)accessToken { return nil; }
+- (NSString *)userNameFromUserInfoRequestData:(NSData *)data error:(NSError **)error { return nil; }
+- (BOOL)parseAccessCredentialsFromRequestResponseWithData:(NSData *)data { return NO; }
+- (BOOL)providesCSRFChecking { return YES; }
+- (BOOL)requiresTokenExchange { return YES; }
+- (BOOL)canProvideUserInfo { return NO; }
 
 @end
