@@ -22,12 +22,9 @@
 
 #import "TOFileCloudService.h"
 
-NSString * const kICOAuthAppScheme = @"icomics";
 NSString * const kICOAuthRequestCodeKey = @"code";
 NSString * const kICOAccessTokenKey = @"access_token";
 NSString * const kICOAuthCSRFCodeKey = @"state";
-
-NSString * const kICOAuthServiceNameKey = @"name";
 
 //******************************************************************
 
@@ -42,7 +39,7 @@ NSString * const kICOAuthServiceNameKey = @"name";
 #pragma mark - Base Class Verifications -
 - (BOOL)isExpectedCallbackURL:(NSURL *)URL
 {
-    return [URL.scheme isEqualToString:kICOAuthAppScheme] || [URL.host isEqualToString:@"localhost"];
+    return [URL.scheme isEqualToString:@""] || [URL.host isEqualToString:@"localhost"];
 }
 
 - (BOOL)isValidCallbackURL:(NSURL *)callbackURL
