@@ -1,37 +1,44 @@
 //
-//  ICOAuthDownloadService.h
-//  iComics
+//  TOFileService.h
 //
-//  Created by Tim Oliver on 31/12/2015.
-//  Copyright © 2015 Timothy Oliver. All rights reserved.
+//  Copyright 2015-2019 Timothy Oliver. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to
+//  deal in the Software without restriction, including without limitation the
+//  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+//  sell copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+//  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+//  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "ICDownloadService.h"
-#import "NSDictionary+URLEncodedString.h"
+#import "TOFileService.h"
 
-@interface ICOAuthDownloadService : ICDownloadService
+@class UIImage;
 
-/* Input Information */
-@property (nonatomic, readonly) UIImage *serviceLogo;         //A large version of the service logo
+@interface TOFileCloudService : TOFileService
+
 @property (nonatomic, copy, readonly) NSString *CSRFToken;    //A random string to be used to validate callbacks
-@property (nonatomic, readonly) BOOL forceMobilePage;         //Force the page to render as a mobile
 @property (nonatomic, readonly) BOOL providesCSRFChecking;    //Allows the exchange of a 'state' token to prevent CSRF attacks
 @property (nonatomic, readonly) BOOL requiresTokenExchange;   //Requires an additional REST call to convert an auth code into an access token
 @property (nonatomic, readonly) BOOL canProvideUserInfo;      //For the purpose of giving it a custom name, whether the API can give the user's name
 
-/** Output Information */
-@property (nonatomic, copy) NSString *accessToken;
-@property (nonatomic, copy) NSString *refreshToken;
-@property (nonatomic, strong) NSDate *accessTokenExpirationDate;
-
-/* Input steps for authorization */
-- (NSURL *)oauthPageURL;
+/* The URL that will present the OAuth authorization page to the user */
+- (NSURL *)authorizationURL;
 
 /* Check the URL pattern to see if it's the one we specified */
-- (BOOL)isCallbackURLWithURL:(NSURL *)URL;
+- (BOOL)isExpectedCallbackURL:(NSURL *)URL;
 
 /* Where possible, check the nonce to ensure this is our callback URL */
-- (BOOL)verifyCallbackURLWithURL:(NSURL *)callbackURL;
+- (BOOL)isValidCallbackURL:(NSURL *)callbackURL;
 
 /* Use the callback URL to request the final acces token */
 - (NSURLRequest *)URLRequestForAccessTokenConversionWithCallbackURL:(NSURL *)callbackURL;

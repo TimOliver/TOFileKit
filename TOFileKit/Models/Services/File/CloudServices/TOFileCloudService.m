@@ -1,15 +1,26 @@
 //
-//  ICOAuthDownloadService.m
-//  iComics
+//  TOFileCloudService.h
 //
-//  Created by Tim Oliver on 31/12/2015.
-//  Copyright © 2015 Timothy Oliver. All rights reserved.
+//  Copyright 2015-2019 Timothy Oliver. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to
+//  deal in the Software without restriction, including without limitation the
+//  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+//  sell copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+//  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+//  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "ICOAuthDownloadService.h"
-#import "NSURLComponents+FragmentItems.h"
-
-#import "XLForm.h"
+#import "TOFileCloudService.h"
 
 NSString * const kICOAuthAppScheme = @"icomics";
 NSString * const kICOAuthRequestCodeKey = @"code";
@@ -20,18 +31,18 @@ NSString * const kICOAuthServiceNameKey = @"name";
 
 //******************************************************************
 
-@interface ICOAuthDownloadService ()
+@interface TOFileCloudService ()
 @property (nonatomic, copy, readwrite) NSString *CSRFToken;
 @end
 
 //******************************************************************
 
-@implementation ICOAuthDownloadService
+@implementation TOFileCloudService
 
 #pragma mark - Base Class Verifications -
-- (BOOL)isCallbackURLWithURL:(NSURL *)callbackURL
+- (BOOL)isExpectedCallbackURL:(NSURL *)URL
 {
-    return [callbackURL.scheme isEqualToString:kICOAuthAppScheme] || [callbackURL.host isEqualToString:@"localhost"];
+    return [URL.scheme isEqualToString:kICOAuthAppScheme] || [URL.host isEqualToString:@"localhost"];
 }
 
 - (BOOL)verifyCallbackURLWithURL:(NSURL *)callbackURL
@@ -84,7 +95,7 @@ NSString * const kICOAuthServiceNameKey = @"name";
 {
     //Loop through each URL component and verify there is a valid CSRF nonce
     NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
-    for (NSURLQueryItem *item in components.fragmentItems) {
+    for (NSURLQueryItem *item in components.queryItems) {
         if ([item.name caseInsensitiveCompare:name] == NSOrderedSame) {
             return item.value;
         }
@@ -148,28 +159,6 @@ NSString * const kICOAuthServiceNameKey = @"name";
 - (BOOL)canProvideUserInfo
 {
     return NO;
-}
-
-#pragma mark - Form Editing -
-- (XLFormDescriptor *)formDescriptorForEditingService
-{
-    XLFormDescriptor *form = [XLFormDescriptor formDescriptor];
-    XLFormSectionDescriptor *section = [XLFormSectionDescriptor formSectionWithTitle:NSLocalizedString(@"ACCOUNT NAME", @"Account Name")];
-
-    id<ICTheme> theme = [ICThemeManager sharedTheme];
-    XLFormRowDescriptor *nameRow = [XLFormRowDescriptor formRowDescriptorWithTag:kICOAuthServiceNameKey rowType:XLFormRowDescriptorTypeText];
-    [nameRow.cellConfig setObject:[UIColor whiteColor] forKey:@"textField.textColor"];
-    
-    NSDictionary *attributes = @{NSForegroundColorAttributeName:[theme placeholderTextColorForTextFieldOfType:ICThemeTextFieldTypeSettingsTableView]};
-    NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:[self.class name] attributes:attributes];
-    [nameRow.cellConfig setObject:placeholder forKey:@"textField.attributedPlaceholder"];
-    
-    nameRow.value = self.name;
-    [section addFormRow:nameRow];
-    
-    [form addFormSection:section];
-    
-    return form;
 }
 
 

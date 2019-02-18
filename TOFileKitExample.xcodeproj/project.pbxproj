@@ -10,7 +10,7 @@
 		220366A0221911CD0070E21A /* TOFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2203668C221911CD0070E21A /* TOFileService.m */; };
 		220366BD2219126C0070E21A /* ICDropboxService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366A82219126C0070E21A /* ICDropboxService.m */; };
 		220366BE2219126C0070E21A /* ICBoxService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366A92219126C0070E21A /* ICBoxService.m */; };
-		220366BF2219126C0070E21A /* ICOAuthDownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366AA2219126C0070E21A /* ICOAuthDownloadService.m */; };
+		220366BF2219126C0070E21A /* TOFileCloudService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366AA2219126C0070E21A /* TOFileCloudService.m */; };
 		220366C02219126C0070E21A /* ICGoogleDriveService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366AC2219126C0070E21A /* ICGoogleDriveService.m */; };
 		220366C12219126C0070E21A /* ICOneDriveService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366B02219126C0070E21A /* ICOneDriveService.m */; };
 		220366C22219126C0070E21A /* ICSMBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366B32219126C0070E21A /* ICSMBService.m */; };
@@ -69,10 +69,10 @@
 		2203668C221911CD0070E21A /* TOFileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileService.m; sourceTree = "<group>"; };
 		220366A82219126C0070E21A /* ICDropboxService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICDropboxService.m; sourceTree = "<group>"; };
 		220366A92219126C0070E21A /* ICBoxService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICBoxService.m; sourceTree = "<group>"; };
-		220366AA2219126C0070E21A /* ICOAuthDownloadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICOAuthDownloadService.m; sourceTree = "<group>"; };
+		220366AA2219126C0070E21A /* TOFileCloudService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCloudService.m; sourceTree = "<group>"; };
 		220366AB2219126C0070E21A /* ICOneDriveService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICOneDriveService.h; sourceTree = "<group>"; };
 		220366AC2219126C0070E21A /* ICGoogleDriveService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICGoogleDriveService.m; sourceTree = "<group>"; };
-		220366AD2219126C0070E21A /* ICOAuthDownloadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICOAuthDownloadService.h; sourceTree = "<group>"; };
+		220366AD2219126C0070E21A /* TOFileCloudService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileCloudService.h; sourceTree = "<group>"; };
 		220366AE2219126C0070E21A /* ICBoxService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICBoxService.h; sourceTree = "<group>"; };
 		220366AF2219126C0070E21A /* ICDropboxService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICDropboxService.h; sourceTree = "<group>"; };
 		220366B02219126C0070E21A /* ICOneDriveService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICOneDriveService.m; sourceTree = "<group>"; };
@@ -181,6 +181,8 @@
 		220366A72219126C0070E21A /* CloudServices */ = {
 			isa = PBXGroup;
 			children = (
+				220366AD2219126C0070E21A /* TOFileCloudService.h */,
+				220366AA2219126C0070E21A /* TOFileCloudService.m */,
 				220366AE2219126C0070E21A /* ICBoxService.h */,
 				220366A92219126C0070E21A /* ICBoxService.m */,
 				220366AF2219126C0070E21A /* ICDropboxService.h */,
@@ -189,8 +191,6 @@
 				220366B02219126C0070E21A /* ICOneDriveService.m */,
 				220366B12219126C0070E21A /* ICGoogleDriveService.h */,
 				220366AC2219126C0070E21A /* ICGoogleDriveService.m */,
-				220366AD2219126C0070E21A /* ICOAuthDownloadService.h */,
-				220366AA2219126C0070E21A /* ICOAuthDownloadService.m */,
 			);
 			path = CloudServices;
 			sourceTree = "<group>";
@@ -198,14 +198,14 @@
 		220366B22219126C0070E21A /* CustomHostedServices */ = {
 			isa = PBXGroup;
 			children = (
+				220366B52219126C0070E21A /* ICNetworkDownloadService.h */,
+				220366BB2219126C0070E21A /* ICNetworkDownloadService.m */,
 				220366B82219126C0070E21A /* ICSMBService.h */,
 				220366B32219126C0070E21A /* ICSMBService.m */,
 				220366B62219126C0070E21A /* ICFTPService.h */,
 				220366BA2219126C0070E21A /* ICFTPService.m */,
 				220366B92219126C0070E21A /* ICSFTPService.h */,
 				220366B42219126C0070E21A /* ICSFTPService.m */,
-				220366B52219126C0070E21A /* ICNetworkDownloadService.h */,
-				220366BB2219126C0070E21A /* ICNetworkDownloadService.m */,
 			);
 			path = CustomHostedServices;
 			sourceTree = "<group>";
@@ -699,7 +699,7 @@
 				220366C62219126C0070E21A /* ICNetworkDownloadService.m in Sources */,
 				220366C12219126C0070E21A /* ICOneDriveService.m in Sources */,
 				220366C02219126C0070E21A /* ICGoogleDriveService.m in Sources */,
-				220366BF2219126C0070E21A /* ICOAuthDownloadService.m in Sources */,
+				220366BF2219126C0070E21A /* TOFileCloudService.m in Sources */,
 				220366A0221911CD0070E21A /* TOFileService.m in Sources */,
 				2250017A21D21E25007EC4EA /* TOFileLocationsView.m in Sources */,
 				225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */,
