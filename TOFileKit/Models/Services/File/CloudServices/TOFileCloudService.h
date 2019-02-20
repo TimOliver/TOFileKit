@@ -22,12 +22,17 @@
 
 #import "TOFileService.h"
 
+@class TOFileCloudServiceCredentials;
+
 @interface TOFileCloudService : TOFileService
 
 @property (nonatomic, copy, readonly) NSString *CSRFToken;    // A random string to be used to validate callbacks
 @property (nonatomic, readonly) BOOL providesCSRFChecking;    // Allows the exchange of a 'state' token to prevent CSRF attacks
 @property (nonatomic, readonly) BOOL requiresTokenExchange;   // Requires an additional REST call to convert an auth code into an access token
 @property (nonatomic, readonly) BOOL canProvideUserInfo;      // For the purpose of giving it a custom name, whether the API can give the user's name
+
+/** Create a new instance of this service with the necessary credentials */
+- (instancetype)initWithCredentials:(TOFileCloudServiceCredentials *)credentials;
 
 /* The URL that will present the OAuth authorization page to the user */
 - (NSURL *)authorizationURL;

@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class TONetBIOSNameServiceEntry;
-
-@interface ICLocalService : NSObject
+@interface TOFileLocalDevice : NSObject
 
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) NSString *serviceType;
@@ -20,6 +18,5 @@
 @property (nonatomic, readonly) TONetBIOSNameServiceEntry *netBIOSEntry;
 
 - (instancetype)initWithNetService:(NSNetService *)service;
-- (instancetype)initWithNetBIOSEntry:(TONetBIOSNameServiceEntry *)entry;
 
 @end

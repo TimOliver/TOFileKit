@@ -1,7 +1,7 @@
 //
-//  TOFileCloudServiceCredentials.h
+//  TOReachability.m
 //
-//  Copyright 2015-2019 Timothy Oliver. All rights reserved.
+//  Copyright 2019 Timothy Oliver. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
@@ -20,26 +20,8 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import "TOReachability.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface TOFileCloudServiceCredentials : NSObject
-
-/** The OAuth 2 app key value for this service. */
-@property (nonatomic, copy) NSString *appKey;
-
-/** The OAuth 2 app secrect for this service. */
-@property (nonatomic, copy) NSString *appSecret;
-
-/** The URIs registered to this app that can be used as a browser callback */
-@property (nonatomic, copy) NSArray<NSString *> *redirectURIs;
-
-/**
- Create a new instance of the credentials object
- */
-- (instancetype)initWithAppKey:(NSString *)appKey appSecret:(NSString *)appSecret redirectURIs:(NSArray *)redirectURIs;
+@implementation TOReachability
 
 @end
-
-NS_ASSUME_NONNULL_END

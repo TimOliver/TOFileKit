@@ -1,7 +1,7 @@
 //
-//  TOFileCloudServiceCredentials.h
+//  TOFileLocalDeviceDiscovery.h
 //
-//  Copyright 2015-2019 Timothy Oliver. All rights reserved.
+//  Copyright 2016-2019 Timothy Oliver. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
@@ -22,24 +22,23 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+@class TOFileLocalDevice;
 
-@interface TOFileCloudServiceCredentials : NSObject
+@interface TOFileLocalDeviceDiscovery : NSObject
 
-/** The OAuth 2 app key value for this service. */
-@property (nonatomic, copy) NSString *appKey;
+/* The list of services discovered by the manager. */
+@property (nonatomic, readonly) NSMutableArray<TOFileLocalDevice *> *devices;
 
-/** The OAuth 2 app secrect for this service. */
-@property (nonatomic, copy) NSString *appSecret;
+/* A block triggered each time the number of items in `devices` changes. */
+@property (nonatomic, copy) void (^deviceListUpdatedHandler)(void);
 
-/** The URIs registered to this app that can be used as a browser callback */
-@property (nonatomic, copy) NSArray<NSString *> *redirectURIs;
+/* A quick check to see if it's possible to perform discovery (ie WiFi is present) */
+@property (nonatomic, readonly) BOOL discoveryAvailable;
 
-/**
- Create a new instance of the credentials object
- */
-- (instancetype)initWithAppKey:(NSString *)appKey appSecret:(NSString *)appSecret redirectURIs:(NSArray *)redirectURIs;
+/* Begin device discovery */
+- (void)startDiscovery;
+
+/* Stop device discovery and completely deallocate everything */
+- (void)endDiscovery;
 
 @end
-
-NS_ASSUME_NONNULL_END

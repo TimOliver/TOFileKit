@@ -41,6 +41,9 @@
 		225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */; };
 		225DB295220DF7D8003B90D8 /* TOFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */; };
 		226F316F221D943E006C2CCD /* TOFileCloudServiceCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */; };
+		226F3175221DA2ED006C2CCD /* TOFileLocalDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F3171221DA2ED006C2CCD /* TOFileLocalDevice.m */; };
+		226F3176221DA2ED006C2CCD /* TOFileLocalDeviceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F3174221DA2ED006C2CCD /* TOFileLocalDeviceDiscovery.m */; };
+		226F317A221DAA57006C2CCD /* TOReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F3179221DAA57006C2CCD /* TOReachability.m */; };
 		228D2D4F220EC9430033EDEC /* TOFileLocationsProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D2D4E220EC9430033EDEC /* TOFileLocationsProviderTests.m */; };
 		22C765FF220FEEBE00A2695B /* TOFileTableSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */; };
 		22FB5D9721FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */; };
@@ -131,6 +134,12 @@
 		225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableViewCell.m; sourceTree = "<group>"; };
 		226F316D221D943E006C2CCD /* TOFileCloudServiceCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileCloudServiceCredentials.h; sourceTree = "<group>"; };
 		226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCloudServiceCredentials.m; sourceTree = "<group>"; };
+		226F3171221DA2ED006C2CCD /* TOFileLocalDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalDevice.m; sourceTree = "<group>"; };
+		226F3172221DA2ED006C2CCD /* TOFileLocalDeviceDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileLocalDeviceDiscovery.h; sourceTree = "<group>"; };
+		226F3173221DA2ED006C2CCD /* TOFileLocalDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileLocalDevice.h; sourceTree = "<group>"; };
+		226F3174221DA2ED006C2CCD /* TOFileLocalDeviceDiscovery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalDeviceDiscovery.m; sourceTree = "<group>"; };
+		226F3178221DAA57006C2CCD /* TOReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOReachability.h; sourceTree = "<group>"; };
+		226F3179221DAA57006C2CCD /* TOReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOReachability.m; sourceTree = "<group>"; };
 		228D2D4E220EC9430033EDEC /* TOFileLocationsProviderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsProviderTests.m; sourceTree = "<group>"; };
 		22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableSectionHeaderView.h; sourceTree = "<group>"; };
 		22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableSectionHeaderView.m; sourceTree = "<group>"; };
@@ -252,6 +261,8 @@
 				2252F51021D9E72600C6607F /* Coordinator */,
 				222B91B921DB2C180057B1D9 /* Database */,
 				2203667F221911CD0070E21A /* File */,
+				226F3170221DA2ED006C2CCD /* LocalDevice */,
+				226F3177221DAA40006C2CCD /* Reachability */,
 				2250016121D142EA007EC4EA /* Security */,
 			);
 			path = Services;
@@ -357,6 +368,26 @@
 				2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		226F3170221DA2ED006C2CCD /* LocalDevice */ = {
+			isa = PBXGroup;
+			children = (
+				226F3172221DA2ED006C2CCD /* TOFileLocalDeviceDiscovery.h */,
+				226F3174221DA2ED006C2CCD /* TOFileLocalDeviceDiscovery.m */,
+				226F3173221DA2ED006C2CCD /* TOFileLocalDevice.h */,
+				226F3171221DA2ED006C2CCD /* TOFileLocalDevice.m */,
+			);
+			path = LocalDevice;
+			sourceTree = "<group>";
+		};
+		226F3177221DAA40006C2CCD /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				226F3178221DAA57006C2CCD /* TOReachability.h */,
+				226F3179221DAA57006C2CCD /* TOReachability.m */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		227ACCFD201C5CB8000E699F /* Controllers */ = {
@@ -695,7 +726,9 @@
 				2250015721D0D71E007EC4EA /* TOFileDownload.m in Sources */,
 				22C765FF220FEEBE00A2695B /* TOFileTableSectionHeaderView.m in Sources */,
 				222B91BC21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m in Sources */,
+				226F3175221DA2ED006C2CCD /* TOFileLocalDevice.m in Sources */,
 				2250015D21D13EF0007EC4EA /* TOFileKeychainAccess.m in Sources */,
+				226F3176221DA2ED006C2CCD /* TOFileLocalDeviceDiscovery.m in Sources */,
 				223EEE9C2217C6F600BF85B5 /* TOFileLocationsTableViewCell.m in Sources */,
 				22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */,
 				223EEE992217C40B00BF85B5 /* TOFileLocationImage.m in Sources */,
@@ -704,6 +737,7 @@
 				2252F51621D9E8A000C6607F /* TOFileCoordinator.m in Sources */,
 				220366C62219126C0070E21A /* TOFileCustomService.m in Sources */,
 				220366C12219126C0070E21A /* TOFileCloudServiceOneDrive.m in Sources */,
+				226F317A221DAA57006C2CCD /* TOReachability.m in Sources */,
 				220366C02219126C0070E21A /* TOFileCloudServiceGoogleDrive.m in Sources */,
 				220366BF2219126C0070E21A /* TOFileCloudService.m in Sources */,
 				220366A0221911CD0070E21A /* TOFileService.m in Sources */,
