@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /* Base Model Properties */
 @property (nonatomic, copy) NSString *uuid;           /** The primary key of this account entry */
-@property (nonatomic, assign) TOFileService serviceType; /** The enum value of these accounts */
+@property (nonatomic, assign) TOFileServiceType serviceType; /** The enum value of these accounts */
 @property (nonatomic, assign) BOOL temporary;         /** Account is only kept until any downloads assigned to it are complete. */
 
 /* Common Model Properties */
