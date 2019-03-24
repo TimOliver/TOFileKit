@@ -5,13 +5,13 @@ PODS:
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
   - NMSSH (2.3.1)
-  - Reachability (3.2)
   - Realm (3.13.1):
     - Realm/Headers (= 3.13.1)
   - Realm/Headers (3.13.1)
-  - Reveal-SDK (20)
+  - Reveal-SDK (21)
   - TODocumentPickerViewController (0.2.2):
     - TOSearchBar
+  - TOReachability (0.1.0)
   - TOSearchBar (1.0.3)
   - TOSegmentedTabBarController (0.0.1)
   - TOSMBClient (1.0.8)
@@ -21,10 +21,10 @@ DEPENDENCIES:
   - GoldRaccoon (from `https://github.com/iComics/GoldRaccoon.git`)
   - Mantle
   - NMSSH
-  - Reachability
   - Realm
   - Reveal-SDK
   - TODocumentPickerViewController
+  - TOReachability
   - TOSegmentedTabBarController
   - TOSMBClient
 
@@ -33,10 +33,10 @@ SPEC REPOS:
     - 1PasswordExtension
     - Mantle
     - NMSSH
-    - Reachability
     - Realm
     - Reveal-SDK
     - TODocumentPickerViewController
+    - TOReachability
     - TOSearchBar
     - TOSegmentedTabBarController
     - TOSMBClient
@@ -55,14 +55,14 @@ SPEC CHECKSUMS:
   GoldRaccoon: a9143566afe37c2aba38589512aef83566a52573
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   NMSSH: cd689ae535a1581a6dd9fd4600ff71247df510a6
-  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
-  Reveal-SDK: 43206a57f575632fd304e85385cc259b5d359e32
+  Reveal-SDK: 3523e0eb7c562811c51bb71da6e523a6373702c8
   TODocumentPickerViewController: 8c0eaf3b72a4f9970f8d82c3069bb71636f6c207
+  TOReachability: 456e737aa1457a880a90762293f55737517168d0
   TOSearchBar: ee22b7ade729521b6ace523cea0ce97d23ab3cd9
   TOSegmentedTabBarController: e151ac6cf985f9962e3cdfaca3a573a187d7c718
   TOSMBClient: 8884ede03ae70e6087962433fda22fb6b4b8c7f8
 
-PODFILE CHECKSUM: a956d594f0ab404f1b79abf3a35aced031254f2c
+PODFILE CHECKSUM: cbdd2d650b4c84bdce96531193de78f10d29ade0
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.6.1

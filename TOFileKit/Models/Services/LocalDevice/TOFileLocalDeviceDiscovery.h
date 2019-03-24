@@ -21,8 +21,11 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class TOFileLocalDevice;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileLocalDeviceDiscovery : NSObject
 
@@ -42,3 +45,5 @@
 - (void)endDiscovery;
 
 @end
+
+NS_ASSUME_NONNULL_END

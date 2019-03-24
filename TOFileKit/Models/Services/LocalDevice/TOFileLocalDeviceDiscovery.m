@@ -22,16 +22,16 @@
 
 #import "TOFileLocalDeviceDiscovery.h"
 #import "TOFileLocalDevice.h"
-#import "Reachability.h"
+#import <TOReachability/TOReachability.h>
 
 const CGFloat kICServiceUpdateDelay = 0.5f;
 
-@interface ICLocalServiceDiscoveryManager () <NSNetServiceBrowserDelegate>
+@interface TOFileLocalDeviceDiscovery () <NSNetServiceBrowserDelegate>
 
 @property (nonatomic, strong, readwrite) NSMutableArray *services;
 @property (nonatomic, strong) NSMutableArray *pendingAddedServices;
 @property (nonatomic, strong) NSMutableArray *pendingRemovedServices;
-@property (nonatomic, strong) Reachability *reachability;
+@property (nonatomic, strong) TOReachability *reachability;
 
 @property (nonatomic, strong) NSMutableArray *serviceBrowsers;
 @property (nonatomic, strong) TONetBIOSNameService *netBIOSService;
@@ -40,12 +40,12 @@ const CGFloat kICServiceUpdateDelay = 0.5f;
 
 @end
 
-@implementation ICLocalServiceDiscoveryManager
+@implementation TOFileLocalDeviceDiscovery
 
 - (instancetype)init
 {
     if (self = [super init]) {
-        _reachability = [Reachability reachabilityForLocalWiFi];
+        _reachability = [TOReachability reachabilityForWifiConnection];
     }
     
     return self;

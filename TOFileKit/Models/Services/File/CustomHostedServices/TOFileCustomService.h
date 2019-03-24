@@ -28,6 +28,8 @@ extern NSString * const kICNetworkServicePortNumberKey;
 extern NSString * const kICNetworkServiceUserNameKey;
 extern NSString * const kICNetworkServicePasswordKey;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TOFileCustomService : TOFileService
 
 /* The properties related to the credentials for this account. */
@@ -46,3 +48,5 @@ extern NSString * const kICNetworkServicePasswordKey;
 + (NSString *)netServiceType;
 
 @end
+
+NS_ASSUME_NONNULL_END

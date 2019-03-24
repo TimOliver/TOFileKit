@@ -27,6 +27,8 @@
 
 /*******************************************************************************/
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TOFileService : NSObject
 
 /* Retrieve the class of the specified service */
@@ -88,3 +90,5 @@
 - (void)stopConnectionTest;
 
 @end
+
+NS_ASSUME_NONNULL_END

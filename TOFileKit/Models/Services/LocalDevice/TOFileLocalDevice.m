@@ -6,9 +6,9 @@
 //  Copyright © 2016 Timothy Oliver. All rights reserved.
 //
 
-#import "ICLocalService.h"
+#import "TOFileLocalDevice.h"
 
-@interface ICLocalService ()
+@interface TOFileLocalDevice ()
 
 @property (nonatomic, strong, readwrite) NSNetService *netService;
 @property (nonatomic, strong, readwrite) TONetBIOSNameServiceEntry *netBIOSEntry;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation ICLocalService
+@implementation TOFileLocalDevice
 
 #pragma mark - Object Creation -
 - (instancetype)initWithNetService:(NSNetService *)service

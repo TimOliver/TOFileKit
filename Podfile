@@ -13,7 +13,7 @@ target 'TOFileKitExample' do
   # Networking
   pod 'GoldRaccoon', :git => 'https://github.com/iComics/GoldRaccoon.git'
   pod 'NMSSH'
-  pod 'Reachability'
+  pod 'TOReachability'
   pod 'TOSMBClient'
 
   # Data Management
