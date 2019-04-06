@@ -32,8 +32,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** A list of all of the services discovered so far. */
 @property (nonatomic, readonly) NSArray<NSNetService *> *services;
 
-/** A block triggered each time the number of items in `services` changes. */
-@property (nonatomic, copy) void (^serviceListUpdatedHandler)(void);
+/** A block triggered whenever a new service is detected and was added to the array. */
+@property (nonatomic, copy) void (^newServiceAddedHandler)(NSNetService *service, NSInteger index);
+
+/** A block triggered whenever a service was removed from the array */
+@property (nonatomic, copy) void (^serviceRemovedHandler)(NSInteger index);
 
 /** Whether the discovery object is currently running or not. */
 @property (nonatomic, readonly) BOOL isRunning;

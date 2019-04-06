@@ -33,7 +33,7 @@ NSString * const kDropboxAPIRUL = @"https://api.dropboxapi.com/1/";
 #pragma mark - Service Information -
 + (TOFileServiceType)serviceType
 {
-    return TOFileCloudServiceTypeDropbox;
+    return TOFileServiceTypeDropbox;
 }
 
 + (NSString *)name

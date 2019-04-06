@@ -56,9 +56,6 @@
 
     // Clear out any previous service records
     self.serviceBrowsers = nil;
-    if (self.serviceListUpdatedHandler) {
-        self.serviceListUpdatedHandler();
-    }
 
     // Start scanning for local services
     [self prepareAndStartServiceBrowsers];
@@ -111,9 +108,9 @@
     // Add the service to the list
     [(NSMutableArray *)self.services addObject:service];
 
-    // Alert the refresh handler block
-    if (self.serviceListUpdatedHandler) {
-        self.serviceListUpdatedHandler();
+    // Alert the added handler block
+    if (self.newServiceAddedHandler) {
+        self.newServiceAddedHandler(service, self.services.count - 1);
     }
 }
 
@@ -122,14 +119,15 @@
     if (!self.services) { return; }
 
     // Skip if we never added this service to begin
-    if ([self.services indexOfObject:service] == NSNotFound) { return; }
+    NSUInteger index = [self.services indexOfObject:service];
+    if (index == NSNotFound) { return; }
 
     // Remove the object from our list
     [(NSMutableArray *)self.services removeObject:service];
 
     // Alert the refresh handler block
-    if (self.serviceListUpdatedHandler) {
-        self.serviceListUpdatedHandler();
+    if (self.serviceRemovedHandler) {
+        self.serviceRemovedHandler(index);
     }
 }
 

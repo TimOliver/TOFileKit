@@ -22,9 +22,28 @@
 
 #import <Foundation/Foundation.h>
 
+@class TOFileCustomService;
+@class TOFileLocation;
+
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ This class manages scanning for local compatible devices on the network,
+ and delivering them as potentially persistable location model objects.
+*/
 @interface TOFileLocalDevicesProvider : NSObject
+
+/** An array of the `TOFileCustomService` classes representing the services we will scan for */
+@property (nonatomic, strong) NSArray<Class> *serviceClasses;
+
+/** An array of `TOFileLocation` objects representing the services that were found */
+@property (nonatomic, readonly) NSArray<TOFileLocation *> *discoveredLocations;
+
+/** A callback block called whenever a new location is discovered */
+@property (nonatomic, copy) void (^newLocationAddedHandler)(TOFileLocation *location, NSInteger index);
+
+/** A callback block called whenever an existing location was removed. */
+@property (nonatomic, copy) void (^locationWasRemovedHandler)(NSInteger index);
 
 @end
 

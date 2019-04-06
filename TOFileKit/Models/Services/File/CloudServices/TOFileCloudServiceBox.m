@@ -32,7 +32,7 @@ NSString * kBoxAPIURL = @"https://api.box.com/2.0/";
 
 + (TOFileServiceType)serviceType
 {
-    return TOFileCloudServiceTypeBox;
+    return TOFileServiceTypeBox;
 }
 
 + (NSString *)name
