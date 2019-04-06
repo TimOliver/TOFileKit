@@ -21,7 +21,9 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <XCTest/XCTest.h>
-#import "TOFileKit.h"
+#import "TOFileDatabaseCoordinator.h"
+#import "TOFileKeychainAccess.h"
+#import <Realm/Realm.h>
 
 NSString * const kTOFileDatabaseCoordinatorFileName = @"net.timoliver.files.realm";
 NSString * const kTOFileDatabaseCoordinatorKeychainIdentifier = @"net.timoliver.files.test";
