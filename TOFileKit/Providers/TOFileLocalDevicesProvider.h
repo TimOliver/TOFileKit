@@ -45,6 +45,15 @@ NS_ASSUME_NONNULL_BEGIN
 /** A callback block called whenever an existing location was removed. */
 @property (nonatomic, copy) void (^locationWasRemovedHandler)(NSInteger index);
 
+/** Create a new instance of the provider object, with the service classes of the types we will scan for. */
+- (instancetype)initWithServiceClasses:(NSArray<Class> *)serviceClasses;
+
+/** Start scanning for local devices */
+- (void)start;
+
+/** Stop scanning */
+- (void)stop;
+
 @end
 
 NS_ASSUME_NONNULL_END
