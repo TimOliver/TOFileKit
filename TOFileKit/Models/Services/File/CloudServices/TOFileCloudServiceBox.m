@@ -30,9 +30,9 @@ NSString * kBoxAPIURL = @"https://api.box.com/2.0/";
 
 @implementation TOFileCloudServiceBox
 
-+ (ICDownloadServiceType)serviceType
++ (TOFileServiceType)serviceType
 {
-    return ICDownloadServiceTypeBox;
+    return TOFileCloudServiceTypeBox;
 }
 
 + (NSString *)name
@@ -92,7 +92,7 @@ NSString * kBoxAPIURL = @"https://api.box.com/2.0/";
     parameters[@"redirect_uri"] = kBoxOauth2CallbackURL;
 
     request.HTTPMethod = @"POST";
-    request.HTTPBody = [parameters.URLEncodedString dataUsingEncoding:NSUTF8StringEncoding];
+    //request.HTTPBody = [parameters.URLEncodedString dataUsingEncoding:NSUTF8StringEncoding];
     
     return request;
 }
@@ -106,11 +106,11 @@ NSString * kBoxAPIURL = @"https://api.box.com/2.0/";
         return NO;
     }
     
-    self.accessToken = jsonDictionary[@"access_token"];
-    self.refreshToken = jsonDictionary[@"refresh_token"];
-    
-    NSInteger expirationSeconds = [jsonDictionary[@"expires_in"] integerValue];
-    self.accessTokenExpirationDate = [NSDate dateWithTimeIntervalSinceNow:expirationSeconds];
+//    self.accessToken = jsonDictionary[@"access_token"];
+//    self.refreshToken = jsonDictionary[@"refresh_token"];
+//    
+//    NSInteger expirationSeconds = [jsonDictionary[@"expires_in"] integerValue];
+//    self.accessTokenExpirationDate = [NSDate dateWithTimeIntervalSinceNow:expirationSeconds];
     
     return YES;
 }

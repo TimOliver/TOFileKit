@@ -51,9 +51,9 @@
     return @"_ftp._tcp.";
 }
 
-+ (ICDownloadServiceType)serviceType
++ (TOFileServiceType)serviceType
 {
-    return ICDownloadServiceTypeFTP;
+    return TOFileServiceTypeFTP;
 }
 
 - (NSString *)placeholderServerAddress

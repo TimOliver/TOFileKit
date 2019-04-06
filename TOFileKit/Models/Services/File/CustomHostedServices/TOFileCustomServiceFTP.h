@@ -22,6 +22,6 @@
 
 #import "TOFileCustomService.h"
 
-@interface TOFileCustomServiceFTP : ICNetworkDownloadService
+@interface TOFileCustomServiceFTP : TOFileCustomService
 
 @end

@@ -22,15 +22,14 @@
 
 #import "TOFileCustomServiceSMB.h"
 #import <TOSMBClient/TOSMBClient.h>
-#import "NSString+ValidIPAddress.h"
 
-@interface ICSMBService ()
+@interface TOFileCustomServiceSMB ()
 
 @property (nonatomic, strong) TOSMBSession *testSession;
 
 @end
 
-@implementation ICSMBService
+@implementation TOFileCustomServiceSMB
 
 + (NSString *)name
 {
@@ -52,9 +51,9 @@
     return @"HostName";
 }
 
-+ (ICDownloadServiceType)serviceType
++ (TOFileServiceType)serviceType
 {
-    return ICDownloadServiceTypeSMB;
+    return TOFileServiceTypeSMB;
 }
 
 - (void)testConnectionWithSuccessHandler:(void (^)(void))successHandler failHandler:(void (^)(NSString *))failHandler
@@ -65,12 +64,12 @@
     
     //Set up the session
     self.testSession = [[TOSMBSession alloc] init];
-    if ([self.serverAddress isValidIPAddress]) {
-        self.testSession.ipAddress = self.serverAddress;
-    }
-    else {
-        self.testSession.hostName = self.serverAddress;
-    }
+//    if ([self.serverAddress isValidIPAddress]) {
+//        self.testSession.ipAddress = self.serverAddress;
+//    }
+//    else {
+//        self.testSession.hostName = self.serverAddress;
+//    }
     
     //Input credentials
     [self.testSession setLoginCredentialsWithUserName:self.userName password:self.password];

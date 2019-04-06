@@ -20,7 +20,14 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TOFileKit.h"
+#import "TOFileDatabaseCoordinator.h"
+#import "TOFileKeychainAccess.h"
+
+#import "TOFileLocation.h"
+#import "TOFileLocationList.h"
+#import "TOFileDownload.h"
+
+#import <Realm/Realm.h>
 
 @interface TOFileDatabaseCoordinator ()
 

@@ -1,7 +1,7 @@
 //
-//  TOReachability.m
+//  TOLocalServiceDiscovery.h
 //
-//  Copyright 2019 Timothy Oliver. All rights reserved.
+//  Copyright 2016-2019 Timothy Oliver. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
@@ -20,8 +20,33 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TOReachability.h"
+#import <Foundation/Foundation.h>
 
-@implementation TOReachability
+NS_ASSUME_NONNULL_BEGIN
+
+@interface TOLocalServiceDiscovery : NSObject
+
+/** All of the service types the discovery service will look for (Must be formatted like "_http._tcp.") */
+@property (nonatomic, copy) NSArray<NSString *> *searchServiceTypes;
+
+/** A list of all of the services discovered so far. */
+@property (nonatomic, readonly) NSArray<NSNetService *> *services;
+
+/** A block triggered each time the number of items in `services` changes. */
+@property (nonatomic, copy) void (^serviceListUpdatedHandler)(void);
+
+/** Whether the discovery object is currently running or not. */
+@property (nonatomic, readonly) BOOL isRunning;
+
+/** Create a new discovery object, and prefill it with the types to search for. */
+- (instancetype)initWithSearchServiceTypes:(NSArray<NSString *> *)searchServiceTypes;
+
+/** Begin service discovery. */
+- (void)startDiscovery;
+
+/** Stop service discovery. */
+- (void)endDiscovery;
 
 @end
+
+NS_ASSUME_NONNULL_END

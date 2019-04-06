@@ -30,9 +30,9 @@ NSString * const kOneDriveAPIURL = @"https://api.onedrive.com/v1.0/";
 
 @implementation TOFileCloudServiceOneDrive
 
-+ (ICDownloadServiceType)serviceType
++ (TOFileServiceType)serviceType
 {
-    return ICDownloadServiceTypeOneDrive;
+    return TOFileServiceTypeOneDrive;
 }
 
 + (NSString *)name
@@ -108,7 +108,7 @@ NSString * const kOneDriveAPIURL = @"https://api.onedrive.com/v1.0/";
     parameters[@"grant_type"] = @"authorization_code";
     
     request.HTTPMethod = @"POST";
-    request.HTTPBody = [parameters.URLEncodedString dataUsingEncoding:NSUTF8StringEncoding];
+//    request.HTTPBody = [parameters.URLEncodedString dataUsingEncoding:NSUTF8StringEncoding];
     
     return request;
 }
@@ -122,12 +122,12 @@ NSString * const kOneDriveAPIURL = @"https://api.onedrive.com/v1.0/";
         return NO;
     }
     
-    self.accessToken = jsonDictionary[@"access_token"];
-    self.refreshToken = jsonDictionary[@"refresh_token"];
-    
-    NSInteger expirationSeconds = [jsonDictionary[@"expires_in"] integerValue];
-    self.accessTokenExpirationDate = [NSDate dateWithTimeIntervalSinceNow:expirationSeconds];
-    
+//    self.accessToken = jsonDictionary[@"access_token"];
+//    self.refreshToken = jsonDictionary[@"refresh_token"];
+//
+//    NSInteger expirationSeconds = [jsonDictionary[@"expires_in"] integerValue];
+//    self.accessTokenExpirationDate = [NSDate dateWithTimeIntervalSinceNow:expirationSeconds];
+
     return YES;
 }
 

@@ -30,9 +30,9 @@ NSString * const kGoogleAPIURL = @"https://www.googleapis.com/oauth2/v1/";
 
 @implementation TOFileCloudServiceGoogleDrive
 
-+ (ICDownloadServiceType)serviceType
++ (TOFileServiceType)serviceType
 {
-    return ICDownloadServiceTypeGoogleDrive;
+    return TOFileServiceTypeGoogleDrive;
 }
 
 + (NSString *)name
@@ -96,9 +96,9 @@ NSString * const kGoogleAPIURL = @"https://www.googleapis.com/oauth2/v1/";
     parameters[@"client_secret"] = kGoogleDriveAppSecret;
     parameters[@"redirect_uri"] = kGoogleDriveOauth2CallbackURL;
     
-    NSLog(@"%@", parameters.URLEncodedString);
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = [parameters.URLEncodedString dataUsingEncoding:NSUTF8StringEncoding];
+//    NSLog(@"%@", parameters.URLEncodedString);
+//    request.HTTPMethod = @"POST";
+//    request.HTTPBody = [parameters.URLEncodedString dataUsingEncoding:NSUTF8StringEncoding];
     
     return request;
 }
@@ -112,12 +112,12 @@ NSString * const kGoogleAPIURL = @"https://www.googleapis.com/oauth2/v1/";
         return NO;
     }
     
-    self.accessToken = jsonDictionary[@"access_token"];
-    self.refreshToken = jsonDictionary[@"id_token"];
-    
-    NSInteger expirationSeconds = [jsonDictionary[@"expires_in"] integerValue];
-    self.accessTokenExpirationDate = [NSDate dateWithTimeIntervalSinceNow:expirationSeconds];
-    
+//    self.accessToken = jsonDictionary[@"access_token"];
+//    self.refreshToken = jsonDictionary[@"id_token"];
+//
+//    NSInteger expirationSeconds = [jsonDictionary[@"expires_in"] integerValue];
+//    self.accessTokenExpirationDate = [NSDate dateWithTimeIntervalSinceNow:expirationSeconds];
+
     return YES;
 }
 

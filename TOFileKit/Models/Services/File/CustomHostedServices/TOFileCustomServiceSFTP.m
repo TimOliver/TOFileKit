@@ -56,9 +56,9 @@
     return 22;
 }
 
-+ (ICDownloadServiceType)serviceType
++ (TOFileServiceType)serviceType
 {
-    return ICDownloadServiceTypeSFTP;
+    return TOFileServiceTypeSFTP;
 }
 
 - (void)testConnectionWithSuccessHandler:(void (^)(void))successHandler failHandler:(void (^)(NSString *))failHandler
