@@ -24,7 +24,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TOLocalServiceDiscovery : NSObject
+@interface TOFileLocalServiceDiscovery : NSObject
 
 /** All of the service types the discovery service will look for (Must be formatted like "_http._tcp.") */
 @property (nonatomic, copy) NSArray<NSString *> *searchServiceTypes;

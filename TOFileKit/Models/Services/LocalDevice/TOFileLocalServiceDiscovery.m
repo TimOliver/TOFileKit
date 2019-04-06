@@ -22,7 +22,7 @@
 
 #import "TOLocalServiceDiscovery.h"
 
-@interface TOLocalServiceDiscovery () <NSNetServiceBrowserDelegate>
+@interface TOFileLocalServiceDiscovery () <NSNetServiceBrowserDelegate>
 
 // One service browser per the type we want to scan for.
 @property (nonatomic, strong) NSArray<NSNetServiceBrowser *> *serviceBrowsers;
@@ -35,7 +35,7 @@
 
 @end
 
-@implementation TOLocalServiceDiscovery
+@implementation TOFileLocalServiceDiscovery
 
 #pragma mark - Class Creation -
 
