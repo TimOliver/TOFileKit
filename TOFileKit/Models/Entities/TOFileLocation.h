@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *name;           /** The convenience name of this account */
 @property (nonatomic, copy) NSString *initialPath;    /** The initial file path to start this account at */
 
-/* Network Protocol Properties */
+/* Custom Host Properties */
 @property (nonatomic, copy) NSString *serverAddress;  /** The IP address / hostname of the server */
 @property (nonatomic, copy) NSNumber<RLMInt> *portNumber;   /** Optionally, the port number to connect to the server */
 @property (nonatomic, copy) NSString *userName;       /** For authentication purposes, the username of the account */
@@ -47,10 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *accessToken;    /** The access token used to make authorized API calls */
 @property (nonatomic, copy) NSString *refreshToken;   /** Where necessary, a token that can be used to refresh the access token */
 @property (nonatomic, strong) NSDate *accessTokenExpirationDate; /** Where necessary, the date when the access token will expire */
-
-/* Auxilliary Properties not persisted by Realm */
-@property (nonatomic, readonly) UIImage *icon;
-@property (nonatomic, readonly) Class serviceClass;
 
 @end
 
