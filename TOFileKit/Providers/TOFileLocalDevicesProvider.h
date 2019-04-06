@@ -34,10 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TOFileLocalDevicesProvider : NSObject
 
 /** An array of the `TOFileCustomService` classes representing the services we will scan for */
-@property (nonatomic, strong) NSArray<Class> *serviceClasses;
+@property (nonatomic, copy) NSArray<Class> *serviceClasses;
 
 /** An array of `TOFileLocation` objects representing the services that were found */
 @property (nonatomic, readonly) NSArray<TOFileLocation *> *discoveredLocations;
+
+/** Whether the provider is actively scanning for devices or not */
+@property (nonatomic, readonly) BOOL isRunning;
 
 /** A callback block called whenever a new location is discovered */
 @property (nonatomic, copy) void (^newLocationAddedHandler)(TOFileLocation *location, NSInteger index);
