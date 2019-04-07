@@ -33,27 +33,14 @@
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
     {
         switch (type) {
-            case TOFileLocationImageTypeDropbox:
-                [TOFileLocationImage drawDropboxIcon];
-                break;
-            case TOFileLocationImageTypeGoogleDrive:
-                [TOFileLocationImage drawGoogleDriveIcon];
-                break;
-            case TOFileLocationImageTypeBox:
-                [TOFileLocationImage drawBoxIcon];
-                break;
-            case TOFileLocationImageTypeOneDrive:
-                [TOFileLocationImage drawOneDriveIcon];
-                break;
-            case TOFileLocationImageTypeSMB:
-                [TOFileLocationImage drawSMBIcon];
-                break;
-            case TOFileLocationImageTypeFTP:
-                [TOFileLocationImage drawFTPIcon];
-                break;
-            case TOFileLocationImageTypeSFTP:
-                [TOFileLocationImage drawSFTPIcon];
-                break;
+            case TOFileLocationImageTypeDropbox: [TOFileLocationImage drawDropboxIcon]; break;
+            case TOFileLocationImageTypeGoogleDrive: [TOFileLocationImage drawGoogleDriveIcon]; break;
+            case TOFileLocationImageTypeBox: [TOFileLocationImage drawBoxIcon]; break;
+            case TOFileLocationImageTypeOneDrive: [TOFileLocationImage drawOneDriveIcon]; break;
+            case TOFileLocationImageTypeSMB: [TOFileLocationImage drawSMBIcon]; break;
+            case TOFileLocationImageTypeFTP: [TOFileLocationImage drawFTPIcon]; break;
+            case TOFileLocationImageTypeSFTP: [TOFileLocationImage drawSFTPIcon]; break;
+            default: break;
         }
 
         image = UIGraphicsGetImageFromCurrentImageContext();
