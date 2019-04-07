@@ -22,6 +22,8 @@
 
 #import "TOFileLocationsPresenter.h"
 #import "TOFileCoordinator.h"
+#import <TOReachability/TOReachability.h>
+#import "TOFileLocalServiceDiscovery.h"
 
 typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
     TOFileLocationsPresenterSectionLocations = 0,
@@ -31,6 +33,8 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 @interface TOFileLocationsPresenter ()
 
 @property (nonatomic, strong) TOFileCoordinator *fileCoordinator;
+@property (nonatomic, strong) TOFileLocalServiceDiscovery *serviceDiscovery;
+@property (nonatomic, strong) TOReachability *reachability;
 
 @end
 
@@ -40,12 +44,28 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 {
     if (self = [super init]) {
         _fileCoordinator = fileCoordinator;
+        _reachability = [TOReachability reachabilityForWifiConnection];
     }
 
     return self;
 }
 
-#pragma mark - User Interaction -
+#pragma mark - User Initiated Input Events -
+
+- (void)fetchAccountsList
+{
+
+}
+
+- (void)startScanningForLocalDevices
+{
+
+}
+
+- (void)stopScanningForLocalDevices
+{
+
+}
 
 - (void)toggleEditing
 {
@@ -53,11 +73,15 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
     if (self.isEditingHandler) { self.isEditingHandler(self.editing, YES); }
 }
 
+#pragma mark - Input Handling -
+
+
 #pragma mark - Collection View Configuration -
 
 - (NSInteger)numberOfSections
 {
-    return 2;
+    BOOL noWifiConnection = (self.reachability.status != TOReachabilityStatusWiFi);
+    return noWifiConnection ? 1 : 2;
 }
 
 - (NSInteger)numberOfItemsForSection:(NSInteger)section
@@ -83,7 +107,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
     }
 
     // For scanning for local devices
-    return TOFileLocationsPresenterItemTypeScanning;
+    return TOFileLocationsPresenterItemTypeDefault;
 }
 
 @end

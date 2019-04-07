@@ -22,6 +22,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "TOFileConstants.h"
+
 @class TOFileLocation;
 @class TOFileCoordinator;
 
@@ -29,22 +31,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The types of table cells that this presenter can produce */
 typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
-    TOFileLocationsPresenterItemTypeDefault,     // A single location, added by the user
+    TOFileLocationsPresenterItemTypeDefault,     // A single location, added by the user or a local device
     TOFileLocationsPresenterItemTypeAddLocation, // An action button to add a new location
-    TOFileLocationsPresenterItemTypeLocalDevice, // A local device detected on the network
-    TOFileLocationsPresenterItemTypeScanning,    // When scanning for local devices
-    TOFileLocationsPresenterItemTypeScanFailure  // When scanning failed (No devices found / no network)
 };
 
 @interface TOFileLocationsPresenter : NSObject
 
-/** State Management */
+#pragma mark - State Management -
+
+/** If we're currently editing */
 @property (nonatomic, assign) BOOL editing;
 
-/** Callbacks from the presenter */
+#pragma mark - State Change Alert Handlers -
 
-/** Called when it is time to refresh the table view */
-@property (nonatomic, copy) void (^refreshSectionHandler)(NSInteger);
+/** Called when it is time to refresh a section of the table view */
+@property (nonatomic, copy) void (^refreshSectionHandler)(NSInteger section);
+
+/** Called when the visiblity of the local devices section needs to be updated. */
+@property (nonatomic, copy) void (^localDevicesSectionHiddenHandler)(BOOL hidden);
 
 /** Called when the 'Edit' button should be disabled. */
 @property (nonatomic, copy) void (^editingDisabledHandler)(BOOL);
@@ -52,12 +56,12 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
 /** Called when the editing state was enabled or disabled. (Editing, Animated) */
 @property (nonatomic, copy) void (^isEditingHandler)(BOOL, BOOL);
 
+#pragma mark - Instance Creation -
+
 /** Create a new instance with the following */
 - (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator;
 
-/*********************************************
- Inputs
- *********************************************/
+#pragma mark - User-Initiated Input Events -
 
 /** Load the accounts from disk */
 - (void)fetchAccountsList;
@@ -65,25 +69,31 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
 /** Start scanning for local devices */
 - (void)startScanningForLocalDevices;
 
+/** Stop scanning for local devices when not needed */
+- (void)stopScanningForLocalDevices;
+
 /** Edit Button was tapped */
 - (void)toggleEditing;
 
-/*********************************************
- Outputs
- *********************************************/
+#pragma mark - Current View State Outputs -
 
-/** Table View Section Data */
+/** The number of visible sections (Should be 1 or 2) */
 - (NSInteger)numberOfSections;
+
+/** The number of items in a given section */
 - (NSInteger)numberOfItemsForSection:(NSInteger)section;
 
 /** Returns the type of cell to display in this row */
 - (TOFileLocationsPresenterItemType)itemTypeForIndex:(NSInteger)index inSection:(NSInteger)section;
 
-/** When showing a cell with a location, this will return the location for it */
-- (nullable TOFileLocation *)locationForItem:(NSInteger)item;
+/** Returns the name of the location for the given item */
+- (NSString *)nameOfItemInIndex:(NSInteger)index section:(NSInteger)section;
 
-/** When showing a cell for a local device on the network */
-- (nullable NSNetService *)localServiceForItem:(NSInteger)item;
+/** If desired, a subtitle for the location at the given index */
+- (nullable NSString *)descriptionOfItemInIndex:(NSInteger)index section:(NSInteger)section;
+
+/** Returns the service type of the location for the given item */
+- (TOFileServiceType)typeOfItemInIndex:(NSInteger)index section:(NSInteger)section;
 
 /** Table View Configuration */
 - (NSString *)titleForSection:(NSInteger)section;

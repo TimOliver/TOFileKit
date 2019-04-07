@@ -166,17 +166,10 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     switch (itemType) {
         default:
         case TOFileLocationsPresenterItemTypeDefault:
-        case TOFileLocationsPresenterItemTypeLocalDevice:
             cell.type = TOFileLocationsTableViewCellTypeDefault;
-            break;
-        case TOFileLocationsPresenterItemTypeScanning:
-            cell.type = TOFileLocationsTableViewCellTypeScanning;
             break;
         case TOFileLocationsPresenterItemTypeAddLocation:
             cell.type = TOFileLocationsTableViewCellTypeAdd;
-            break;
-        case TOFileLocationsPresenterItemTypeScanFailure:
-            cell.type = TOFileLocationsTableViewCellTypeFailed;
             break;
     }
 
