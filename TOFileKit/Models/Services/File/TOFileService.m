@@ -21,6 +21,16 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TOFileService.h"
+#import "TOFileConstants.h"
+
+#import "TOFileCloudServiceDropbox.h"
+#import "TOFileCloudServiceBox.h"
+#import "TOFileCloudServiceOneDrive.h"
+#import "TOFileCloudServiceGoogleDrive.h"
+
+#import "TOFileCustomServiceFTP.h"
+#import "TOFileCustomServiceSFTP.h"
+#import "TOFileCustomServiceSMB.h"
 
 @implementation TOFileService
 
@@ -42,28 +52,30 @@
 #pragma mark - Listing All Services -
 + (NSDictionary *)allServices
 {
-    return @{};
-    //    return @{@(ICDownloadServiceTypeDropbox)     : [ICDropboxService class],
-//             @(ICDownloadServiceTypeGoogleDrive) : [ICGoogleDriveService class],
-//             @(ICDownloadServiceTypeOneDrive)    : [ICOneDriveService class],
-//             @(ICDownloadServiceTypeBox)         : [ICBoxService class],
-//             @(ICDownloadServiceTypeSMB)         : [ICSMBService class],
-//             @(ICDownloadServiceTypeFTP)         : [ICFTPService class],
-//             @(ICDownloadServiceTypeSFTP)        : [ICSFTPService class],
-//             @(ICDownloadServiceTypeWebDAV)      : [ICWebDAVService class]
-//    };
+    return @{
+        @(TOFileServiceTypeDropbox)     : [TOFileCloudServiceDropbox class],
+        @(TOFileServiceTypeGoogleDrive) : [TOFileCloudServiceGoogleDrive class],
+        @(TOFileServiceTypeOneDrive)    : [TOFileCloudServiceOneDrive class],
+        @(TOFileServiceTypeBox)         : [TOFileCloudServiceBox class],
+        @(TOFileServiceTypeSMB)         : [TOFileCustomServiceSMB class],
+        @(TOFileServiceTypeSFTP)        : [TOFileCustomServiceSFTP class],
+        @(TOFileServiceTypeFTP)         : [TOFileCustomServiceFTP class]
+    };
 }
 
-+ (NSArray *)fileHostingServices
++ (NSArray *)cloudHostedServices
 {
-    return @[];
-    //return @[[ICDropboxService class], [ICGoogleDriveService class], [ICOneDriveService class], [ICBoxService class]];
+    return @[[TOFileCloudServiceDropbox class],
+             [TOFileCloudServiceGoogleDrive class],
+             [TOFileCloudServiceOneDrive class],
+             [TOFileCloudServiceBox class]];
 }
 
-+ (NSArray *)networkProtocolServices
++ (NSArray *)customHostedServices
 {
-    return @[];
-    //return @[[ICSMBService class], [ICFTPService class], [ICSFTPService class], [ICWebDAVService class]];
+    return @[[TOFileCustomServiceSMB class],
+             [TOFileCustomServiceSFTP class],
+             [TOFileCustomServiceFTP class]];
 }
 
 - (TOFileServiceType)serviceType

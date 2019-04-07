@@ -50,18 +50,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray *)customHostedServices;
 
 /************************************************************/
-/* General Information for this service */
+/* General Information for this service class */
 
-/* The type of this particular service */
+/* The specific type of this service */
 + (TOFileServiceType)serviceType;
 
 /* The name of the service */
 + (NSString *)name;
 
-/* The icon of the service */
-+ (UIImage *)icon;
-
-/* Validates if there is an app on device that can authorize for us. */
+/* Validates if there is an app on device that can authorize for us. (eg, like Dropbox) */
 + (BOOL)nativeAppServiceAvailable;
 
 /************************************************************/
