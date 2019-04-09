@@ -113,7 +113,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 
     // Trigger handler to hide the section
     if (self.localDevicesSectionHiddenHandler) {
-        self.localDevicesSectionHiddenHandler(YES);
+        self.localDevicesSectionHiddenHandler(TOFileLocationsPresenterSectionLocalDevices, YES);
     }
 }
 
@@ -121,13 +121,17 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 {
     // The first time a device is added, trigger a separate handler to show the section
     if (firstTime) {
-        if (self.self.localDevicesSectionHiddenHandler) { self.localDevicesSectionHiddenHandler(NO); }
+        if (self.self.localDevicesSectionHiddenHandler) {
+            self.localDevicesSectionHiddenHandler(TOFileLocationsPresenterSectionLocalDevices, NO);
+        }
         return;
     }
 
     // If the refresh event indicated the number of devices went to 0, send another event to hide the section
     if (self.serviceDiscovery.services.count == 0) {
-        if (self.self.localDevicesSectionHiddenHandler) { self.localDevicesSectionHiddenHandler(YES); }
+        if (self.self.localDevicesSectionHiddenHandler) {
+            self.localDevicesSectionHiddenHandler(TOFileLocationsPresenterSectionLocalDevices, YES);
+        }
         return;
     }
 
@@ -181,7 +185,9 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 
     for (Class service in hostedServices) {
         TOFileServiceType type = [service serviceType];
-        if ([disallowedServices indexOfObject:@(type)] != NSNotFound) { continue; }
+        if (disallowedServices && [disallowedServices indexOfObject:@(type)] != NSNotFound) {
+            continue;
+        }
         [types addObject:[service netServiceType]];
     }
 

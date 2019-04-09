@@ -51,7 +51,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
 @property (nonatomic, copy) void (^refreshSectionHandler)(NSInteger section);
 
 /** Called when the visiblity of the local devices section needs to be updated. */
-@property (nonatomic, copy) void (^localDevicesSectionHiddenHandler)(BOOL hidden);
+@property (nonatomic, copy) void (^localDevicesSectionHiddenHandler)(NSInteger section, BOOL hidden);
 
 /** Called when the 'Edit' button should be disabled. */
 @property (nonatomic, copy) void (^editingDisabledHandler)(BOOL);
