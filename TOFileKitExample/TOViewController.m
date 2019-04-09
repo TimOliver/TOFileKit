@@ -9,10 +9,14 @@
 #import "TOViewController.h"
 #import <TODocumentPickerViewController/TODocumentPickerLocalDiskDataSource.h>
 
+#import "TOFileCoordinator.h"
+
 #import "TOFileLocationsViewController.h"
 #import "TOFileNavigationController.h"
 
 @interface TOViewController ()
+
+@property (nonatomic, strong) TOFileCoordinator *fileCoordinator;
 
 @end
 
@@ -22,6 +26,7 @@
 {
     if (self = [super initWithConfiguration:[self createPickerConfinguration] filePath:nil]) {
         self.dataSource = [[TODocumentPickerLocalDiskDataSource alloc] initWithBaseFolderPath:@"Documents"];
+        _fileCoordinator = [[TOFileCoordinator alloc] init];
     }
     
     return self;
@@ -34,7 +39,7 @@
 
 - (void)downloadsButtonTapped:(id)sender
 {
-    TOFileLocationsViewController *accountsController = [[TOFileLocationsViewController alloc] init];
+    TOFileLocationsViewController *accountsController = [[TOFileLocationsViewController alloc] initWithFileCoordinator:_fileCoordinator];
     TOFileNavigationController *navigationController = [[TOFileNavigationController alloc] initWithRootViewController:accountsController];
     [self presentViewController:navigationController animated:YES completion:nil];
 }
