@@ -20,10 +20,13 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TOFileLocationsPresenter.h"
 #import "TOFileCoordinator.h"
-#import <TOReachability/TOReachability.h>
+#import "TOFileLocationsPresenter.h"
 #import "TOFileLocalServiceDiscovery.h"
+#import "TOFileService.h"
+#import "TOFileCustomService.h"
+
+#import <TOReachability/TOReachability.h>
 
 typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
     TOFileLocationsPresenterSectionLocations = 0,
@@ -44,10 +47,29 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 {
     if (self = [super init]) {
         _fileCoordinator = fileCoordinator;
-        _reachability = [TOReachability reachabilityForWifiConnection];
+        [self commonInit];
     }
 
     return self;
+}
+
+- (void)commonInit
+{
+    __weak typeof(self) weakSelf = self;
+
+    // Configure reachability
+    _reachability = [TOReachability reachabilityForWifiConnection];
+    _reachability.statusChangedHandler = ^(TOReachabilityStatus newStatus) {
+        BOOL wifiEnabled = (newStatus == TOReachabilityStatusWiFi);
+        [weakSelf wifiStatusChanged:wifiEnabled];
+    };
+
+    // Configure the service discovery
+    NSArray *bonjourServiceTypes = [self bonjourServiceTypesForFileCoordinator];
+    _serviceDiscovery = [[TOFileLocalServiceDiscovery alloc] initWithSearchServiceTypes:bonjourServiceTypes];
+    _serviceDiscovery.servicesListChangedHandler = ^(BOOL firstTime) {
+        [weakSelf localDevicesDiscoveredWithFirstTime:firstTime];
+    };
 }
 
 #pragma mark - User Initiated Input Events -
@@ -59,18 +81,58 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 
 - (void)startScanningForLocalDevices
 {
-
+    // Start the reachability object, which will then drive the service discovery
+    [self.reachability start];
 }
 
 - (void)stopScanningForLocalDevices
 {
-
+    // Stop scanning (but don't clear the visible list)
+    [self.reachability stop];
 }
 
 - (void)toggleEditing
 {
     self.editing = !self.editing;
     if (self.isEditingHandler) { self.isEditingHandler(self.editing, YES); }
+}
+
+#pragma mark - Local Device Discovery -
+
+- (void)wifiStatusChanged:(BOOL)wifiEnabled
+{
+    // WiFi was enabled
+    if (wifiEnabled) {
+        [self.serviceDiscovery start];
+        return;
+    }
+
+    // WiFi disabled
+    [self.serviceDiscovery stop];
+    [self.serviceDiscovery reset];
+
+    // Trigger handler to hide the section
+    if (self.localDevicesSectionHiddenHandler) {
+        self.localDevicesSectionHiddenHandler(YES);
+    }
+}
+
+- (void)localDevicesDiscoveredWithFirstTime:(BOOL)firstTime
+{
+    // The first time a device is added, trigger a separate handler to show the section
+    if (firstTime) {
+        if (self.self.localDevicesSectionHiddenHandler) { self.localDevicesSectionHiddenHandler(NO); }
+        return;
+    }
+
+    // If the refresh event indicated the number of devices went to 0, send another event to hide the section
+    if (self.serviceDiscovery.services.count == 0) {
+        if (self.self.localDevicesSectionHiddenHandler) { self.localDevicesSectionHiddenHandler(YES); }
+        return;
+    }
+
+    // For every other time, call a handler to refresh the visible section
+    if (self.refreshSectionHandler) { self.refreshSectionHandler(TOFileLocationsPresenterSectionLocalDevices); }
 }
 
 #pragma mark - Input Handling -
@@ -80,8 +142,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 
 - (NSInteger)numberOfSections
 {
-    BOOL noWifiConnection = (self.reachability.status != TOReachabilityStatusWiFi);
-    return noWifiConnection ? 1 : 2;
+    return self.showLocalDevicesSection ? 2 : 1;
 }
 
 - (NSInteger)numberOfItemsForSection:(NSInteger)section
@@ -99,6 +160,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 }
 
 #pragma mark - Collection View Data -
+
 - (TOFileLocationsPresenterItemType)itemTypeForIndex:(NSInteger)index inSection:(NSInteger)section
 {
     // For displaying the accounts the user saved
@@ -108,6 +170,30 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 
     // For scanning for local devices
     return TOFileLocationsPresenterItemTypeDefault;
+}
+
+#pragma mark - Convenience Methods -
+- (NSArray *)bonjourServiceTypesForFileCoordinator
+{
+    NSMutableArray *types = [NSMutableArray array];
+    NSArray *hostedServices = [TOFileService customHostedServices];
+    NSArray *disallowedServices = self.fileCoordinator.disallowedFileServiceTypes;
+
+    for (Class service in hostedServices) {
+        TOFileServiceType type = [service serviceType];
+        if ([disallowedServices indexOfObject:@(type)] != NSNotFound) { continue; }
+        [types addObject:[service netServiceType]];
+    }
+
+    return [NSArray arrayWithArray:types];
+}
+
+#pragma mark - Accessors -
+- (BOOL)showLocalDevicesSection
+{
+    BOOL wifiOn = (self.reachability.status == TOReachabilityStatusWiFi);
+    BOOL devicesFound = (self.serviceDiscovery.services.count > 0);
+    return wifiOn && devicesFound;
 }
 
 @end
