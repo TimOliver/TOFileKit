@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileLocationsViewController : UIViewController
 
+@property (nonatomic, strong, readonly) TOFileCoordinator *fileCoordinator;
+
 /**
  Creates a new instance of the file locations controller with the provided file coordinator
 

@@ -33,6 +33,10 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
 @interface TOFileLocationsViewController () <UITableViewDelegate, UITableViewDataSource>
 
+/** The file coordinator in charge of managing state for the whole network. */
+@property (nonatomic, strong, readwrite) TOFileCoordinator *fileCoordinator;
+
+/** The presenter object in charge of managing view data to be displayed. */
 @property (nonatomic, strong, readwrite) TOFileLocationsPresenter *presenter;
 
 /** Convenience accessor since `self.view` won't access the properties. */
@@ -44,21 +48,13 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
 #pragma mark - Class Creation -
 
-- (instancetype)init
+- (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator
 {
     if (self = [super init]) {
-        _presenter = [[TOFileLocationsPresenter alloc] init];
+        _fileCoordinator = fileCoordinator;
+        _presenter = [[TOFileLocationsPresenter alloc] initWithFileCoordinator:_fileCoordinator];
     }
-    
-    return self;
-}
 
-- (instancetype)initWithPresenter:(TOFileLocationsPresenter *)presenter
-{
-    if (self = [super init]) {
-        _presenter = presenter;
-    }
-    
     return self;
 }
 
@@ -97,6 +93,9 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     // Now the view is loaded, hook up the interaction logic
     [self bindViewCallbacks];
     [self bindPresenterCallbacks];
+
+    // Trigger the presenter to start loading saved locations now
+    [self.presenter fetchAccountsList];
 }
 
 - (void)bindViewCallbacks
@@ -130,6 +129,22 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 }
 
 #pragma mark - View State Management -
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    // Perform device discovery while we are on screen
+    [self.presenter startScanningForLocalDevices];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+
+    // Disable device discovery whenever we are off screen
+    [self.presenter stopScanningForLocalDevices];
+}
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
