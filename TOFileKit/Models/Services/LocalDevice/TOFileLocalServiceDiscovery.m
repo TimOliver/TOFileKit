@@ -50,7 +50,7 @@
 
 #pragma mark - Discovery Control -
 
-- (void)startDiscovery
+- (void)start
 {
     if (self.isRunning) { return; }
 
@@ -61,10 +61,15 @@
     [self prepareAndStartServiceBrowsers];
 }
 
-- (void)endDiscovery
+- (void)stop
 {
     if (!self.isRunning) { return; }
     [self removeAllServiceBrowsers];
+}
+
+- (void)reset
+{
+    self.services = nil;
 }
 
 #pragma mark - Internal Browser Management -
@@ -99,8 +104,13 @@
 #pragma mark - Net Service Browser Delegate -
 - (void)netServiceBrowser:(NSNetServiceBrowser *)browser didFindService:(NSNetService *)service moreComing:(BOOL)moreComing
 {
+    BOOL firstTime = NO;
+
     // Create an array to store these services on the first time.
-    if (!self.services) { self.services = [NSMutableArray array]; }
+    if (!self.services) {
+        self.services = [NSMutableArray array];
+        firstTime = YES;
+    }
 
     // Skip this service if it's already in the list
     if ([self.services indexOfObject:service] != NSNotFound) { return; }
@@ -109,8 +119,8 @@
     [(NSMutableArray *)self.services addObject:service];
 
     // Alert the added handler block
-    if (self.newServiceAddedHandler) {
-        self.newServiceAddedHandler(service, self.services.count - 1);
+    if (self.servicesListChangedHandler) {
+        self.servicesListChangedHandler(firstTime);
     }
 }
 
@@ -125,9 +135,14 @@
     // Remove the object from our list
     [(NSMutableArray *)self.services removeObject:service];
 
+    // If that was the final item, deallocate the array
+    if (self.services.count == 0) {
+        self.services = nil;
+    }
+
     // Alert the refresh handler block
-    if (self.serviceRemovedHandler) {
-        self.serviceRemovedHandler(index);
+    if (self.servicesListChangedHandler) {
+        self.servicesListChangedHandler(NO);
     }
 }
 

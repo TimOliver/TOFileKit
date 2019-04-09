@@ -33,10 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSArray<NSNetService *> *services;
 
 /** A block triggered whenever a new service is detected and was added to the array. */
-@property (nonatomic, copy) void (^newServiceAddedHandler)(NSNetService *service, NSInteger index);
-
-/** A block triggered whenever a service was removed from the array */
-@property (nonatomic, copy) void (^serviceRemovedHandler)(NSInteger index);
+@property (nonatomic, copy) void (^servicesListChangedHandler)(BOOL firstTime);
 
 /** Whether the discovery object is currently running or not. */
 @property (nonatomic, readonly) BOOL isRunning;
@@ -45,10 +42,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithSearchServiceTypes:(NSArray<NSString *> *)searchServiceTypes;
 
 /** Begin service discovery. */
-- (void)startDiscovery;
+- (void)start;
 
-/** Stop service discovery. */
-- (void)endDiscovery;
+/** Stops discovery, but keeps all discovered devices */
+- (void)stop;
+
+/** Resets the instance to default, removing all discovered devices. */
+- (void)reset;
 
 @end
 
