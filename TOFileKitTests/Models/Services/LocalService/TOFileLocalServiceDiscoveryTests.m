@@ -24,8 +24,8 @@
     TOFileLocalServiceDiscovery *discovery = [[TOFileLocalServiceDiscovery alloc] initWithSearchServiceTypes:serviceTypes];
     XCTAssertNotNil(discovery);
 
-    discovery.newServiceAddedHandler = ^(NSNetService *service, NSInteger index) {
-        XCTAssertNotNil(service);
+    discovery.servicesListChangedHandler = ^(BOOL firstTime) {
+        XCTAssertTrue(firstTime);
     };
 
     // Create a dummy service

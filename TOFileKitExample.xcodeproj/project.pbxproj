@@ -17,6 +17,7 @@
 		220366C32219126C0070E21A /* TOFileCustomServiceSFTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366B42219126C0070E21A /* TOFileCustomServiceSFTP.m */; };
 		220366C52219126C0070E21A /* TOFileCustomServiceFTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366BA2219126C0070E21A /* TOFileCustomServiceFTP.m */; };
 		220366C62219126C0070E21A /* TOFileCustomService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366BB2219126C0070E21A /* TOFileCustomService.m */; };
+		2207B1FE225E43A600025763 /* TOReachabilityMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 2207B1FD225E43A600025763 /* TOReachabilityMock.m */; };
 		2219B388220E80A300A91505 /* TOFileSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2219B387220E80A300A91505 /* TOFileSeparatorView.m */; };
 		2224768F21DBC1A90006D852 /* TOTestingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224768D21DBC17E0006D852 /* TOTestingAppDelegate.m */; };
 		222B91BC21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B91BB21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m */; };
@@ -88,6 +89,8 @@
 		220366B92219126C0070E21A /* TOFileCustomServiceSFTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileCustomServiceSFTP.h; sourceTree = "<group>"; };
 		220366BA2219126C0070E21A /* TOFileCustomServiceFTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCustomServiceFTP.m; sourceTree = "<group>"; };
 		220366BB2219126C0070E21A /* TOFileCustomService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCustomService.m; sourceTree = "<group>"; };
+		2207B1FC225E43A600025763 /* TOReachabilityMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOReachabilityMock.h; sourceTree = "<group>"; };
+		2207B1FD225E43A600025763 /* TOReachabilityMock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOReachabilityMock.m; sourceTree = "<group>"; };
 		2219B386220E80A300A91505 /* TOFileSeparatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileSeparatorView.h; sourceTree = "<group>"; };
 		2219B387220E80A300A91505 /* TOFileSeparatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileSeparatorView.m; sourceTree = "<group>"; };
 		2224768C21DBC17E0006D852 /* TOTestingAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTestingAppDelegate.h; sourceTree = "<group>"; };
@@ -218,6 +221,47 @@
 			path = CustomHostedServices;
 			sourceTree = "<group>";
 		};
+		2207B1F7225E3C8E00025763 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				222B91BD21DB31080057B1D9 /* TOFileCoordinatorTests.m */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		2207B1F8225E3C9F00025763 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		2207B1F9225E3CA800025763 /* LocalService */ = {
+			isa = PBXGroup;
+			children = (
+				22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */,
+			);
+			path = LocalService;
+			sourceTree = "<group>";
+		};
+		2207B1FA225E3CC600025763 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				2250017021D1DDEB007EC4EA /* TOFileKeychainAccessTests.m */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		2207B1FB225E422800025763 /* LibraryMocks */ = {
+			isa = PBXGroup;
+			children = (
+				2207B1FC225E43A600025763 /* TOReachabilityMock.h */,
+				2207B1FD225E43A600025763 /* TOReachabilityMock.m */,
+			);
+			path = LibraryMocks;
+			sourceTree = "<group>";
+		};
 		222B91B921DB2C180057B1D9 /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,7 +299,7 @@
 				2252F51021D9E72600C6607F /* Coordinator */,
 				222B91B921DB2C180057B1D9 /* Database */,
 				2203667F221911CD0070E21A /* File */,
-				22992FEE2258BC11004AEF16 /* LocalDevice */,
+				22992FEE2258BC11004AEF16 /* LocalService */,
 				2250016121D142EA007EC4EA /* Security */,
 			);
 			path = Services;
@@ -273,6 +317,7 @@
 		2250016721D1DDCD007EC4EA /* TOFileKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				2207B1FB225E422800025763 /* LibraryMocks */,
 				228D2D4D220EC91E0033EDEC /* Providers */,
 				228D2D4B220EC8E20033EDEC /* Models */,
 				2250016A21D1DDCD007EC4EA /* Info.plist */,
@@ -391,10 +436,10 @@
 		228D2D4C220EC8FB0033EDEC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */,
-				22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */,
-				2250017021D1DDEB007EC4EA /* TOFileKeychainAccessTests.m */,
-				222B91BD21DB31080057B1D9 /* TOFileCoordinatorTests.m */,
+				2207B1FA225E3CC600025763 /* Security */,
+				2207B1F9225E3CA800025763 /* LocalService */,
+				2207B1F8225E3C9F00025763 /* Database */,
+				2207B1F7225E3C8E00025763 /* Coordinator */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -407,13 +452,13 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
-		22992FEE2258BC11004AEF16 /* LocalDevice */ = {
+		22992FEE2258BC11004AEF16 /* LocalService */ = {
 			isa = PBXGroup;
 			children = (
 				22992FF02258BC11004AEF16 /* TOFileLocalServiceDiscovery.h */,
 				22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */,
 			);
-			path = LocalDevice;
+			path = LocalService;
 			sourceTree = "<group>";
 		};
 		22E7C17D201C499500AF8BFE /* TOFileKit */ = {
@@ -683,6 +728,7 @@
 				2250017221D1DE3D007EC4EA /* TOFileKeychainAccess.m in Sources */,
 				222B91C021DB31690057B1D9 /* TOFileCoordinator.m in Sources */,
 				22FB5D9721FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m in Sources */,
+				2207B1FE225E43A600025763 /* TOReachabilityMock.m in Sources */,
 				22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */,
 				222B91BF21DB31670057B1D9 /* TOFileDatabaseCoordinator.m in Sources */,
 				228D2D4F220EC9430033EDEC /* TOFileLocationsProviderTests.m in Sources */,
