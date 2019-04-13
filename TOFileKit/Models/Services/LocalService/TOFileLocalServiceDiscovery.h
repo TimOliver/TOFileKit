@@ -29,11 +29,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** All of the service types the discovery service will look for (Must be formatted like "_http._tcp.") */
 @property (nonatomic, copy) NSArray<NSString *> *searchServiceTypes;
 
-/** A list of all of the services discovered so far. */
+/** A list of all of the services discovered. Dynamically updated alongside the service handlers. */
 @property (nonatomic, readonly) NSArray<NSNetService *> *services;
 
 /** A block triggered whenever a new service is detected and was added to the array. */
-@property (nonatomic, copy) void (^servicesListChangedHandler)(BOOL firstTime);
+@property (nonatomic, copy) void (^servicesListAddedHandler)(NSNetService * _Nullable service);
+
+/** A block triggered whenever a service is removed from the services array */
+@property (nonatomic, copy) void (^servicesListRemovedHandler)(NSNetService * _Nullable service);
 
 /** Whether the discovery object is currently running or not. */
 @property (nonatomic, readonly) BOOL isRunning;

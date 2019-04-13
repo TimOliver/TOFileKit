@@ -130,12 +130,9 @@
 #pragma mark - Net Service Browser Delegate -
 - (void)netServiceBrowser:(NSNetServiceBrowser *)browser didFindService:(NSNetService *)service moreComing:(BOOL)moreComing
 {
-    BOOL firstTime = NO;
-
     // Create an array to store these services on the first time.
     if (!self.services) {
         self.services = [NSMutableArray array];
-        firstTime = YES;
     }
 
     // Skip this service if it's already in the list
@@ -145,8 +142,8 @@
     [(NSMutableArray *)self.services addObject:service];
 
     // Alert the added handler block
-    if (self.servicesListChangedHandler) {
-        self.servicesListChangedHandler(firstTime);
+    if (self.servicesListAddedHandler) {
+        self.servicesListAddedHandler(service);
     }
 }
 
@@ -167,8 +164,8 @@
     }
 
     // Alert the refresh handler block
-    if (self.servicesListChangedHandler) {
-        self.servicesListChangedHandler(NO);
+    if (self.servicesListRemovedHandler) {
+        self.servicesListRemovedHandler(service);
     }
 }
 
