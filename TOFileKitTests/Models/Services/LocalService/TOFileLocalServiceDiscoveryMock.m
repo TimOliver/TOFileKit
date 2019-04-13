@@ -22,35 +22,46 @@
 
 #import "TOFileLocalServiceDiscoveryMock.h"
 
+@interface TOFileLocalServiceDiscoveryMock ()
+
+@property (nonatomic, strong) NSMutableArray *mockedServices;
+
+@end
+
 @implementation TOFileLocalServiceDiscoveryMock
+
+- (void)triggerServicesFoundWithNumber:(NSInteger)serviceCount
+{
+    // Reset the array
+    self.mockedServices = [NSMutableArray array];
+
+    // Trigger the removed block
+    if (self.servicesListRemovedHandler) {
+        self.servicesListRemovedHandler(nil);
+    }
+
+    // Fill the array with the number of services
+    for (NSInteger i = 0; i < serviceCount; i++) {
+        NSString *name = [NSString stringWithFormat:@"Test %d", i+1];
+        NSNetService *service = [[NSNetService alloc] initWithDomain:@"" type:@"_smb._tcp." name:name];
+        [self.mockedServices addObject:service];
+    }
+
+    if (self.servicesListAddedHandler) {
+        self.servicesListAddedHandler(self.mockedServices.lastObject);
+    }
+}
+
+- (NSArray *)services
+{
+    return _mockedServices;
+}
+
+- (BOOL)isRunning { return YES; }
 
 // Override these methods so they don't touch the real code
 - (void)start { }
 - (void)stop { }
 - (void)reset { }
-
-///** All of the service types the discovery service will look for (Must be formatted like "_http._tcp.") */
-//@property (nonatomic, copy) NSArray<NSString *> *searchServiceTypes;
-//
-///** A list of all of the services discovered so far. */
-//@property (nonatomic, readonly) NSArray<NSNetService *> *services;
-//
-///** A block triggered whenever a new service is detected and was added to the array. */
-//@property (nonatomic, copy) void (^servicesListChangedHandler)(BOOL firstTime);
-//
-///** Whether the discovery object is currently running or not. */
-//@property (nonatomic, readonly) BOOL isRunning;
-//
-///** Create a new discovery object, and prefill it with the types to search for. */
-//- (instancetype)initWithSearchServiceTypes:(NSArray<NSString *> *)searchServiceTypes;
-//
-///** Begin service discovery. */
-//- (void)start;
-//
-///** Stops discovery, but keeps all discovered devices */
-//- (void)stop;
-//
-///** Resets the instance to default, removing all discovered devices. */
-//- (void)reset;
 
 @end
