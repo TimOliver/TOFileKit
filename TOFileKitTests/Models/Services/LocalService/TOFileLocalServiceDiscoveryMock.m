@@ -24,11 +24,8 @@
 
 @implementation TOFileLocalServiceDiscoveryMock
 
-- (void)start
-{
-
-}
-
+// Override these methods so they don't touch the real code
+- (void)start { }
 - (void)stop { }
 - (void)reset { }
 

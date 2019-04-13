@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileLocalServiceDiscoveryMock : TOFileLocalServiceDiscovery
 
+- (void)triggerServicesFoundWithNumber:(NSInteger)serviceCount;
+
 @end
 
 NS_ASSUME_NONNULL_END
