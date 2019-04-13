@@ -42,7 +42,7 @@
 
     // Fill the array with the number of services
     for (NSInteger i = 0; i < serviceCount; i++) {
-        NSString *name = [NSString stringWithFormat:@"Test %d", i+1];
+        NSString *name = [NSString stringWithFormat:@"Test %ld", i+1];
         NSNetService *service = [[NSNetService alloc] initWithDomain:@"" type:@"_smb._tcp." name:name];
         [self.mockedServices addObject:service];
     }
