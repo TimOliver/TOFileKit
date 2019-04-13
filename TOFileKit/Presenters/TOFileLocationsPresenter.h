@@ -26,6 +26,8 @@
 
 @class TOFileLocation;
 @class TOFileCoordinator;
+@class TOFileLocalServiceDiscovery;
+@class TOReachability;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -61,8 +63,14 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
 
 #pragma mark - Instance Creation -
 
-/** Create a new instance with the following */
+/** Create a new instance with the provided file coordinator */
 - (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator;
+
+/** In instances where more explicit access is needed, this constructor allows
+    manual specification of reachability and service discovery classes. */
+- (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator
+                  localServiceDiscovery:(nullable TOFileLocalServiceDiscovery *)serviceDiscovery
+                           reachability:(nullable TOReachability *)reachability;
 
 #pragma mark - User-Initiated Input Events -
 

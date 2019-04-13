@@ -53,20 +53,39 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
     return self;
 }
 
+- (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator
+                  localServiceDiscovery:(TOFileLocalServiceDiscovery *)serviceDiscovery
+                           reachability:(TOReachability *)reachability
+{
+    if (self = [super init]) {
+        _fileCoordinator = fileCoordinator;
+        _serviceDiscovery = serviceDiscovery;
+        _reachability = reachability;
+        [self commonInit];
+    }
+
+    return self;
+}
+
 - (void)commonInit
 {
     __weak typeof(self) weakSelf = self;
 
     // Configure reachability
-    _reachability = [TOReachability reachabilityForWifiConnection];
+    if (_reachability == nil) {
+        _reachability = [TOReachability reachabilityForWifiConnection];
+    }
+
     _reachability.statusChangedHandler = ^(TOReachabilityStatus newStatus) {
         BOOL wifiEnabled = (newStatus == TOReachabilityStatusWiFi);
         [weakSelf wifiStatusChanged:wifiEnabled];
     };
 
     // Configure the service discovery
-    NSArray *bonjourServiceTypes = [self bonjourServiceTypesForFileCoordinator];
-    _serviceDiscovery = [[TOFileLocalServiceDiscovery alloc] initWithSearchServiceTypes:bonjourServiceTypes];
+    if (_serviceDiscovery == nil) {
+        NSArray *bonjourServiceTypes = [self bonjourServiceTypesForCoordinator:self.fileCoordinator];
+        _serviceDiscovery = [[TOFileLocalServiceDiscovery alloc] initWithSearchServiceTypes:bonjourServiceTypes];
+    }
     _serviceDiscovery.servicesListChangedHandler = ^(BOOL firstTime) {
         [weakSelf localDevicesDiscoveredWithFirstTime:firstTime];
     };
@@ -177,7 +196,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 }
 
 #pragma mark - Convenience Methods -
-- (NSArray *)bonjourServiceTypesForFileCoordinator
+- (NSArray *)bonjourServiceTypesForCoordinator:(TOFileCoordinator *)coordinator
 {
     NSMutableArray *types = [NSMutableArray array];
     NSArray *hostedServices = [TOFileService customHostedServices];
