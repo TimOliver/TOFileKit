@@ -44,9 +44,6 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
 /** If we're currently editing */
 @property (nonatomic, assign) BOOL editing;
 
-/** If the local devices section should be shown or not */
-@property (nonatomic, readonly) BOOL showLocalDevicesSection;
-
 #pragma mark - State Change Alert Handlers -
 
 /** Called when it is time to refresh a section of the table view */
