@@ -39,6 +39,9 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 @property (nonatomic, strong) TOFileLocalServiceDiscovery *serviceDiscovery;
 @property (nonatomic, strong) TOReachability *reachability;
 
+/** Used to ensure calls to the table view are done in the right order/number */
+@property (nonatomic, assign) BOOL localDevicesSectionHidden;
+
 @end
 
 @implementation TOFileLocationsPresenter
@@ -71,6 +74,9 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 {
     __weak typeof(self) weakSelf = self;
 
+    // Set to hidden by default
+    _localDevicesSectionHidden = YES;
+
     // Configure reachability
     if (_reachability == nil) {
         _reachability = [TOReachability reachabilityForWifiConnection];
@@ -86,9 +92,12 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
         NSArray *bonjourServiceTypes = [self bonjourServiceTypesForCoordinator:self.fileCoordinator];
         _serviceDiscovery = [[TOFileLocalServiceDiscovery alloc] initWithSearchServiceTypes:bonjourServiceTypes];
     }
-    _serviceDiscovery.servicesListChangedHandler = ^(BOOL firstTime) {
-        [weakSelf localDevicesDiscoveredWithFirstTime:firstTime];
+
+    id servicesListChangedHandler = ^(NSNetService *service) {
+        [weakSelf localDevicesListDidUpdate];
     };
+    _serviceDiscovery.servicesListAddedHandler = servicesListChangedHandler;
+    _serviceDiscovery.servicesListRemovedHandler = servicesListChangedHandler;
 }
 
 #pragma mark - User Initiated Input Events -
@@ -126,31 +135,50 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
         return;
     }
 
-    // WiFi disabled
+    // WiFi was disabled, completely reset the service discovery
     [self.serviceDiscovery stop];
     [self.serviceDiscovery reset];
 
-    // Trigger handler to hide the section
-    if (self.localDevicesSectionHiddenHandler) {
-        self.localDevicesSectionHiddenHandler(TOFileLocationsPresenterSectionLocalDevices, YES);
+    // Reset section visibility to hidden
+    if (!self.localDevicesSectionHidden) {
+        self.localDevicesSectionHidden = YES;
+
+        // Trigger handler to hide the section if it was available
+        if (self.localDevicesSectionHiddenHandler) {
+            self.localDevicesSectionHiddenHandler(TOFileLocationsPresenterSectionLocalDevices, YES);
+        }
     }
 }
 
-- (void)localDevicesDiscoveredWithFirstTime:(BOOL)firstTime
+- (void)localDevicesListDidUpdate
 {
-    // The first time a device is added, trigger a separate handler to show the section
-    if (firstTime) {
+    // If an item was added, but the section is currently set as hidden
+    if (self.serviceDiscovery.services.count > 0 && self.localDevicesSectionHidden) {
+
+        // Unhide the section
+        self.localDevicesSectionHidden = NO;
+
+        // Trigger the handler to refresh the list
         if (self.self.localDevicesSectionHiddenHandler) {
             self.localDevicesSectionHiddenHandler(TOFileLocationsPresenterSectionLocalDevices, NO);
         }
+
+        // This also refreshes the data source at the same time, so no need to continue
         return;
     }
 
-    // If the refresh event indicated the number of devices went to 0, send another event to hide the section
-    if (self.serviceDiscovery.services.count == 0) {
+    // If the number of devices became 0 and the local devices section was visible
+    if (self.serviceDiscovery.services.count == 0 && self.localDevicesSectionHidden) {
+
+        // Set the state to hide the section
+        self.localDevicesSectionHidden = YES;
+
+        // Trigger the handler
         if (self.self.localDevicesSectionHiddenHandler) {
             self.localDevicesSectionHiddenHandler(TOFileLocationsPresenterSectionLocalDevices, YES);
         }
+
+        // Again, the insertion call also refreshes the data source
         return;
     }
 
@@ -165,7 +193,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 
 - (NSInteger)numberOfSections
 {
-    return self.showLocalDevicesSection ? 2 : 1;
+    return self.localDevicesSectionHidden ? 1 : 2;
 }
 
 - (NSInteger)numberOfItemsForSection:(NSInteger)section
@@ -211,14 +239,6 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
     }
 
     return [NSArray arrayWithArray:types];
-}
-
-#pragma mark - Accessors -
-- (BOOL)showLocalDevicesSection
-{
-    BOOL wifiOn = (self.reachability.status == TOReachabilityStatusWiFi);
-    BOOL devicesFound = (self.serviceDiscovery.services.count > 0);
-    return wifiOn && devicesFound;
 }
 
 @end
