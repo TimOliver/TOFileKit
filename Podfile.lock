@@ -5,9 +5,9 @@ PODS:
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
   - NMSSH (2.3.1)
-  - Realm (3.13.1):
-    - Realm/Headers (= 3.13.1)
-  - Realm/Headers (3.13.1)
+  - Realm (3.14.1):
+    - Realm/Headers (= 3.14.1)
+  - Realm/Headers (3.14.1)
   - Reveal-SDK (21)
   - TODocumentPickerViewController (0.2.2):
     - TOSearchBar
@@ -55,7 +55,7 @@ SPEC CHECKSUMS:
   GoldRaccoon: a9143566afe37c2aba38589512aef83566a52573
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   NMSSH: cd689ae535a1581a6dd9fd4600ff71247df510a6
-  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
   Reveal-SDK: 3523e0eb7c562811c51bb71da6e523a6373702c8
   TODocumentPickerViewController: 8c0eaf3b72a4f9970f8d82c3069bb71636f6c207
   TOReachability: 456e737aa1457a880a90762293f55737517168d0
