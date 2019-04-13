@@ -76,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) TOFileServiceType serviceType;
 
 /* Given a user name, create a formatted name for this service including it. */
-- (NSString *)personalizedNameOfServiceWithUserName:(NSString *)userName;
+- (NSString *)personalizedNameOfServiceWithUserName:(nullable NSString *)userName;
 
 /************************************************************/
 
