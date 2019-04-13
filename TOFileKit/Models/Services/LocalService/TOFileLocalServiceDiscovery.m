@@ -57,47 +57,73 @@
     // Clear out any previous service records
     self.serviceBrowsers = nil;
 
-    // Start scanning for local services
-    [self prepareAndStartServiceBrowsers];
+    // Set up all of the service browsers
+    [self prepareServiceBrowsers];
+
+    // Start running all of the service browsers
+    [self startAllServiceBrowsers];
+
+    // Set running flag
+    self.isRunning = YES;
 }
 
 - (void)stop
 {
     if (!self.isRunning) { return; }
-    [self removeAllServiceBrowsers];
+
+    // Stop all of the browsers
+    [self stopAllServiceBrowsers];
+
+    // Set no running flag
+    self.isRunning = NO;
 }
 
 - (void)reset
 {
+    [self removeAllServiceBrowsers];
     self.services = nil;
 }
 
 #pragma mark - Internal Browser Management -
 
-- (void)prepareAndStartServiceBrowsers
+- (void)prepareServiceBrowsers
 {
     if (self.serviceBrowsers.count > 0) { return; }
 
     NSMutableArray *browsers = [NSMutableArray array];
 
-    for (NSString *serviceType in self.searchServiceTypes) {
+    for (NSInteger i = 0; i < self.searchServiceTypes.count; i++) {
         NSNetServiceBrowser *browser = [[NSNetServiceBrowser alloc] init];
         browser.delegate = self;
-        [browser searchForServicesOfType:serviceType inDomain:@""];
         [browsers addObject:browser];
     }
 
     self.serviceBrowsers = [browsers copy];
 }
 
-- (void)removeAllServiceBrowsers
+- (void)startAllServiceBrowsers
+{
+    if (self.serviceBrowsers.count == 0) { return; }
+
+    NSInteger i = 0;
+    for (NSString *serviceType in self.searchServiceTypes) {
+        [self.serviceBrowsers[i] searchForServicesOfType:serviceType inDomain:@""];
+        i++;
+    }
+}
+
+- (void)stopAllServiceBrowsers
 {
     if (self.serviceBrowsers.count <= 0) { return; }
 
     for (NSNetServiceBrowser *browser in self.serviceBrowsers) {
         [browser stop];
     }
+}
 
+- (void)removeAllServiceBrowsers
+{
+    [self stopAllServiceBrowsers];
     self.serviceBrowsers = nil;
 }
 
@@ -158,7 +184,8 @@
     _searchServiceTypes = [searchServiceTypes copy];
 
     if (running) {
-        [self prepareAndStartServiceBrowsers];
+        [self prepareServiceBrowsers];
+        [self startAllServiceBrowsers];
     }
 }
 
