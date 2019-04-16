@@ -52,7 +52,7 @@ NSString * const kICNetworkServicePasswordKey       = @"password";
 
 #pragma mark - Convenience Methods -
 
-+ (Class)hostedServiceForNetServiceType:(NSString *)serviceType;
++ (Class)customServiceClassForNetServiceType:(NSString *)serviceType;
 {
     if (serviceType == nil) { return nil; }
 

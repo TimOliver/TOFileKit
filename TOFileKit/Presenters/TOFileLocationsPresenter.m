@@ -246,11 +246,31 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 
 - (nullable NSString *)descriptionOfItemInIndex:(NSInteger)index section:(NSInteger)section
 {
+    if (section == TOFileLocationsPresenterSectionLocalDevices) {
+        NSNetService *service = self.serviceDiscovery.services[index];
+        Class serviceClass = [TOFileCustomService customServiceClassForNetServiceType:service.type];
+        if (serviceClass == nil) {
+            return nil;
+        }
+
+        return [serviceClass name];
+    }
+
     return nil;
 }
 
 - (TOFileServiceType)typeOfItemInIndex:(NSInteger)index section:(NSInteger)section
 {
+    if (section == TOFileLocationsPresenterSectionLocalDevices) {
+        NSNetService *service = self.serviceDiscovery.services[index];
+        Class serviceClass = [TOFileCustomService customServiceClassForNetServiceType:service.type];
+        if (serviceClass == nil) {
+            return TOFileServiceTypeNone;
+        }
+
+        return [serviceClass serviceType];
+    }
+
     return TOFileServiceTypeNone;
 }
 

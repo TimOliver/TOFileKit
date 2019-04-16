@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSInteger defaultPort;
 
 /** Returns a service class based on its Bonjour service type */
-+ (Class)hostedServiceForNetServiceType:(nullable NSString *)serviceType;
++ (Class)customServiceClassForNetServiceType:(nullable NSString *)serviceType;
 
 /** Returns a list of Bonjour service type strings from all of the supported services */
 + (NSArray *)allNetServiceTypes;
