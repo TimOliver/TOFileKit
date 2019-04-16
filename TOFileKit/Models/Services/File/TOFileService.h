@@ -40,14 +40,17 @@ NS_ASSUME_NONNULL_BEGIN
 /************************************************************/
 /* Convenience Methods to expose the available services. */
 
-/* A dictionary of each service class with its enum value as the key. */
-+ (NSDictionary *)allServices;
+/* An array of the service classes based on third party file hosting services (Dropbox, etc) */
++ (NSArray *)allServices;
 
 /* An array of the service classes based on third party file hosting services (Dropbox, etc) */
 + (NSArray *)cloudHostedServices;
 
 /* An array of the service classes based on local network protocol services (SMB, FTP, etc) */
 + (NSArray *)customHostedServices;
+
+/* A dictionary of each service class with its enum value as the key. */
++ (NSDictionary *)allServicesDictionary;
 
 /************************************************************/
 /* General Information for this service class */

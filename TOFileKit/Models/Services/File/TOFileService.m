@@ -36,7 +36,7 @@
 
 + (Class)classOfServiceForType:(TOFileServiceType)type
 {
-    return [[TOFileService allServices] objectForKey:@(type)];
+    return [TOFileService allServicesDictionary][@(type)];
 }
 
 + (instancetype)fileServiceForType:(TOFileServiceType)type
@@ -50,17 +50,16 @@
 }
 
 #pragma mark - Listing All Services -
-+ (NSDictionary *)allServices
+
++ (NSArray *)allServices
 {
-    return @{
-        @(TOFileServiceTypeDropbox)     : [TOFileCloudServiceDropbox class],
-        @(TOFileServiceTypeGoogleDrive) : [TOFileCloudServiceGoogleDrive class],
-        @(TOFileServiceTypeOneDrive)    : [TOFileCloudServiceOneDrive class],
-        @(TOFileServiceTypeBox)         : [TOFileCloudServiceBox class],
-        @(TOFileServiceTypeSMB)         : [TOFileCustomServiceSMB class],
-        @(TOFileServiceTypeSFTP)        : [TOFileCustomServiceSFTP class],
-        @(TOFileServiceTypeFTP)         : [TOFileCustomServiceFTP class]
-    };
+    return @[[TOFileCloudServiceDropbox class],
+             [TOFileCloudServiceGoogleDrive class],
+             [TOFileCloudServiceOneDrive class],
+             [TOFileCloudServiceBox class],
+             [TOFileCustomServiceSMB class],
+             [TOFileCustomServiceSFTP class],
+             [TOFileCustomServiceFTP class]];
 }
 
 + (NSArray *)cloudHostedServices
@@ -76,6 +75,19 @@
     return @[[TOFileCustomServiceSMB class],
              [TOFileCustomServiceSFTP class],
              [TOFileCustomServiceFTP class]];
+}
+
++ (NSDictionary *)allServicesDictionary
+{
+    return @{
+             @(TOFileServiceTypeDropbox)     : [TOFileCloudServiceDropbox class],
+             @(TOFileServiceTypeGoogleDrive) : [TOFileCloudServiceGoogleDrive class],
+             @(TOFileServiceTypeOneDrive)    : [TOFileCloudServiceOneDrive class],
+             @(TOFileServiceTypeBox)         : [TOFileCloudServiceBox class],
+             @(TOFileServiceTypeSMB)         : [TOFileCustomServiceSMB class],
+             @(TOFileServiceTypeSFTP)        : [TOFileCustomServiceSFTP class],
+             @(TOFileServiceTypeFTP)         : [TOFileCustomServiceFTP class]
+            };
 }
 
 - (TOFileServiceType)serviceType
