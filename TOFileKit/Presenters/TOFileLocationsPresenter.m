@@ -35,6 +35,10 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 
 @interface TOFileLocationsPresenter ()
 
+/** The file service types that we support */
+@property (nonatomic, strong) NSDictionary *allFileServices;
+
+/** Objects that maintain the state of this presenter */
 @property (nonatomic, strong, readwrite) TOFileCoordinator *fileCoordinator;
 @property (nonatomic, strong) TOFileLocalServiceDiscovery *serviceDiscovery;
 @property (nonatomic, strong) TOReachability *reachability;
@@ -76,6 +80,9 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 
     // Set to hidden by default
     _localDevicesSectionHidden = YES;
+
+    // Get all of the file services
+    _allFileServices = [TOFileService allServices];
 
     // Configure reachability
     if (_reachability == nil) {
