@@ -147,4 +147,23 @@
     [self waitForExpectations:@[expectation] timeout:1.0f];
 }
 
+// After devices were detected, check that the table view data source returns consistent state
+- (void)testDetectionOfLocalDevicesDataSource
+{
+    // Start the state for scanning
+    [self.locationsPresenter startScanningForLocalDevices];
+
+    // Simulate the reachability detect WiFi
+    [self.reachability triggerStatusChange:TOReachabilityStatusWiFi];
+
+    // Trigger we then detected some devices
+    [self.serviceDiscovery triggerServicesFoundWithNumber:3];
+
+    // Section should be visible
+    XCTAssert(self.locationsPresenter.numberOfSections == 2);
+
+    // There should be 3 rows in the second section
+    XCTAssert([self.locationsPresenter numberOfItemsForSection:1] == 3);
+}
+
 @end
