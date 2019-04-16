@@ -198,6 +198,10 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 
 - (NSInteger)numberOfItemsForSection:(NSInteger)section
 {
+    // For locally discovered locations
+    if (section == TOFileLocationsPresenterSectionLocalDevices) { return self.serviceDiscovery.services.count; }
+
+    // For saved locations
     return 1;
 }
 
