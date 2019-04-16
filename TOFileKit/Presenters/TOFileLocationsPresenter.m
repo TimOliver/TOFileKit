@@ -96,7 +96,8 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 
     // Configure the service discovery
     if (_serviceDiscovery == nil) {
-        NSArray *bonjourServiceTypes = [self bonjourServiceTypesForCoordinator:self.fileCoordinator];
+        NSArray *disallowedTypes = self.fileCoordinator.disallowedFileServiceTypes;
+        NSArray *bonjourServiceTypes = [TOFileCustomService filteredNetServiceTypesWithDisallowedTypes:disallowedTypes];
         _serviceDiscovery = [[TOFileLocalServiceDiscovery alloc] initWithSearchServiceTypes:bonjourServiceTypes];
     }
 
@@ -254,21 +255,6 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 }
 
 #pragma mark - Convenience Methods -
-- (NSArray *)bonjourServiceTypesForCoordinator:(TOFileCoordinator *)coordinator
-{
-    NSMutableArray *types = [NSMutableArray array];
-    NSArray *hostedServices = [TOFileService customHostedServices];
-    NSArray *disallowedServices = self.fileCoordinator.disallowedFileServiceTypes;
 
-    for (Class service in hostedServices) {
-        TOFileServiceType type = [service serviceType];
-        if (disallowedServices && [disallowedServices indexOfObject:@(type)] != NSNotFound) {
-            continue;
-        }
-        [types addObject:[service netServiceType]];
-    }
-
-    return [NSArray arrayWithArray:types];
-}
 
 @end

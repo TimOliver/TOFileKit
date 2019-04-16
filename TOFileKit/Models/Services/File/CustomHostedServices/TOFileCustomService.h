@@ -50,6 +50,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** Returns a service class based on its Bonjour service type */
 + (Class)hostedServiceForNetServiceType:(nullable NSString *)serviceType;
 
+/** Returns a list of Bonjour service type strings from all of the supported services */
++ (NSArray *)allNetServiceTypes;
+
+/** Returns a list of all Bonjor service strings, except the ones explicitly disallowed */
++ (NSArray *)filteredNetServiceTypesWithDisallowedTypes:(nullable NSArray *)disallowedTypes;
+
 @end
 
 NS_ASSUME_NONNULL_END

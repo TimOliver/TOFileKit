@@ -70,4 +70,25 @@ NSString * const kICNetworkServicePasswordKey       = @"password";
     return services[serviceType];
 }
 
++ (NSArray *)allNetServiceTypes
+{
+    return [[self class] filteredNetServiceTypesWithDisallowedTypes:nil];
+}
+
++ (NSArray *)filteredNetServiceTypesWithDisallowedTypes:(nullable NSArray *)disallowedTypes
+{
+    NSMutableArray *types = [NSMutableArray array];
+    NSArray *hostedServices = [[self class] customHostedServices];
+
+    for (Class service in hostedServices) {
+        TOFileServiceType type = [service serviceType];
+        if (disallowedTypes && [disallowedTypes indexOfObject:@(type)] != NSNotFound) {
+            continue;
+        }
+        [types addObject:[service netServiceType]];
+    }
+
+    return [NSArray arrayWithArray:types];
+}
+
 @end
