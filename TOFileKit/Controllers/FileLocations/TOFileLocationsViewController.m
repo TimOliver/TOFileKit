@@ -26,6 +26,7 @@
 #import "TOFileLocationsTableViewCell.h"
 #import "TOFileTableSectionHeaderView.h"
 #import "TOFileTableSectionFooterView.h"
+#import "TOFileLocationImage.h"
 
 NSInteger const kTOFileLocationsMaximumLocalServices = 6;
 NSString * const kTOFileLocationsHeaderIdentifier = @"LocationsHeader";
@@ -41,6 +42,9 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
 /** Convenience accessor since `self.view` won't access the properties. */
 @property (nonatomic, readonly) TOFileLocationsView *fileLocationsView;
+
+/** A dictionary of all of the icons for the file services */
+@property (nonatomic, strong) NSDictionary *serviceIcons;
 
 @end
 
@@ -75,7 +79,10 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     if (@available(iOS 11.0, *)) {
         self.navigationController.navigationBar.prefersLargeTitles = YES;
     }
-    
+
+    // Load all of the service icons
+    self.serviceIcons = [TOFileLocationImage allImagesDictionary];
+
     // Attach table view to us
     self.fileLocationsView.tableView.delegate = self;
     self.fileLocationsView.tableView.dataSource = self;
@@ -166,7 +173,7 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     [self.navigationItem setRightBarButtonItem:editingButton animated:animated];
 }
 
-#pragma mark - Table View DataSource -
+#pragma mark - Table View Data Source -
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return self.presenter.numberOfSections; }
 
@@ -188,7 +195,7 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     switch (itemType) {
         default:
         case TOFileLocationsPresenterItemTypeDefault:
-            cell.type = TOFileLocationsTableViewCellTypeDefault;
+            [self configureDefaultCell:cell forIndexPath:indexPath];
             break;
         case TOFileLocationsPresenterItemTypeAddLocation:
             cell.type = TOFileLocationsTableViewCellTypeAdd;
@@ -196,6 +203,26 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     }
 
     return cell;
+}
+
+- (void)configureDefaultCell:(TOFileLocationsTableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = indexPath.section;
+    NSInteger index = indexPath.row;
+
+    cell.type = TOFileLocationsTableViewCellTypeDefault;
+
+    // Set the title of the cell to the name of the item
+    NSString *name = [self.presenter nameOfItemInIndex:index section:section];
+    cell.textLabel.text = name;
+
+    // Set the detail text item to optionall a description
+    NSString *description = [self.presenter descriptionOfItemInIndex:index section:section];
+    cell.detailTextLabel.text = description;
+
+    // Set the image view to the service icon
+    TOFileServiceType serviceType = [self.presenter typeOfItemInIndex:index section:section];
+    cell.imageView.image = self.serviceIcons[@(serviceType)];
 }
 
 #pragma mark - Table View Delegate -
@@ -209,9 +236,11 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    // Exit out if this section doesn't have a title
     NSString *title = [self.presenter titleForSection:section];
     if (!title) { return nil; }
 
+    // Show a large title label as the header view for this section
     TOFileTableSectionHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kTOFileLocationsHeaderIdentifier];
     headerView.titleLabel.text = title;
     return headerView;
@@ -219,6 +248,7 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
+    // Return a section footer view in charge of showing a separator view separating the next section
     return [tableView dequeueReusableHeaderFooterViewWithIdentifier:kTOFileLocationsFooterIdentifier];
 }
 
@@ -226,10 +256,6 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (section >= [self.presenter numberOfSections] - 1) {
-        return 0.0f;
-    }
-
     return [TOFileTableSectionFooterView height];
 }
 
