@@ -38,6 +38,8 @@
 
 - (void)commonInit
 {
+    self.detailTextLabel.textColor = [UIColor colorWithWhite:0.5f alpha:1.0f];
+
     self.separatorView = [[TOFileSeparatorView alloc] initWithFrame:CGRectZero];
     [self addSubview:self.separatorView];
 }
@@ -54,14 +56,25 @@
     frame.origin.x   = self.layoutMargins.left;
     frame.origin.y   = self.frame.size.height - frame.size.height;
     self.separatorView.frame = frame;
-}
 
-#pragma mark - Interaction -
+    // Don't bother centering the labels if the detail label is hidden
+    if (self.detailTextLabel.text.length == 0) { return; }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+    CGFloat halfCellHeight = (self.contentView.frame.size.height * 0.5f);
+    CGFloat lineSpacing = 1.0f;
 
-    // Configure the view for the selected state
+    // Work out the total height the centered content will be
+    CGFloat totalHeight = self.textLabel.frame.size.height +
+                            self.detailTextLabel.frame.size.height +
+                            lineSpacing;
+
+    frame = self.textLabel.frame;
+    frame.origin.y = halfCellHeight - (totalHeight * 0.5f);
+    self.textLabel.frame = CGRectIntegral(frame);
+
+    frame = self.detailTextLabel.frame;
+    frame.origin.y = CGRectGetMaxY(self.textLabel.frame) + lineSpacing;
+    self.detailTextLabel.frame = CGRectIntegral(frame);
 }
 
 @end
