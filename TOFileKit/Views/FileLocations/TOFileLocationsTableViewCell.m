@@ -33,15 +33,10 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        [self commonInit];
+        
     }
 
     return self;
-}
-
-- (void)commonInit
-{
-    [self prepareForReuse];
 }
 
 #pragma mark - Cell Life Cycle -
@@ -49,7 +44,11 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
+    self.accessoryType = UITableViewCellAccessoryNone;
     self.selectionStyle = UITableViewCellSelectionStyleDefault;
+    self.imageView.image = nil;
+    self.textLabel.text = nil;
+    self.detailTextLabel.text = nil;
 }
 
 #pragma mark - Configure View Content for Style -
@@ -78,6 +77,7 @@
 {
     BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellTypeDefault);
     self.textLabel.textColor = darkMode ? [UIColor whiteColor] : [UIColor blackColor];
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
 - (void)configureAddType
@@ -109,7 +109,6 @@
 
 - (void)setType:(TOFileLocationsTableViewCellType)type
 {
-    if (_type == type) { return; }
     _type = type;
     [self configureForType:_type];
 }
