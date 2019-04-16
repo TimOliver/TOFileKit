@@ -23,14 +23,16 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, TOFileServiceType) {
-    TOFileServiceTypeNone = 0,
-    TOFileServiceTypeDropbox,
-    TOFileServiceTypeGoogleDrive,
-    TOFileServiceTypeBox,
-    TOFileServiceTypeOneDrive,
-    TOFileServiceTypeFTP,
-    TOFileServiceTypeSFTP,
-    TOFileServiceTypeSMB
+    TOFileServiceTypeDropbox     = 0,
+    TOFileServiceTypeGoogleDrive = 1,
+    TOFileServiceTypeBox         = 2,
+    TOFileServiceTypeOneDrive    = 3,
+    TOFileServiceTypeFTP         = 4,
+    TOFileServiceTypeSFTP        = 5,
+    TOFileServiceTypeSMB         = 6,
+
+    TOFileServiceTypeNone        = -1,
+    TOFileServiceTypeCount       = 7
 };
 
 typedef NS_ENUM(NSInteger, TOFileCloudServiceType) {
