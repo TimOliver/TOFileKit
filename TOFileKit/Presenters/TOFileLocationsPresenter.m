@@ -227,6 +227,25 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
     return TOFileLocationsPresenterItemTypeDefault;
 }
 
+- (NSString *)nameOfItemInIndex:(NSInteger)index section:(NSInteger)section
+{
+    if (section == TOFileLocationsPresenterSectionLocalDevices) {
+        return self.serviceDiscovery.services[index].name;
+    }
+
+    return @"";
+}
+
+- (nullable NSString *)descriptionOfItemInIndex:(NSInteger)index section:(NSInteger)section
+{
+    return nil;
+}
+
+- (TOFileServiceType)typeOfItemInIndex:(NSInteger)index section:(NSInteger)section
+{
+    return TOFileServiceTypeNone;
+}
+
 #pragma mark - Convenience Methods -
 - (NSArray *)bonjourServiceTypesForCoordinator:(TOFileCoordinator *)coordinator
 {
