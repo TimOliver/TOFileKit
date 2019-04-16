@@ -25,9 +25,25 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** A class that dynamically generates icon art for file service types. */
 @interface TOFileLocationImage : UIView
 
+/**
+ Dynamically generates an icon for a specific file service type.
+
+ @param type The type of file service for which to create the icon
+ @return A new image instance of the file service icon
+ */
 + (UIImage *)imageOfType:(TOFileServiceType)type;
+
+
+/**
+ Generates a dictionary of all of the service icons, with the
+ key being the relative `TOFileServiceType` value.
+
+ @return A dictionary containing all images
+ */
++ (NSDictionary *)allImagesDictionary;
 
 @end
 

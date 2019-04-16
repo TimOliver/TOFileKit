@@ -25,8 +25,19 @@
 
 @implementation TOFileLocationImage
 
++ (NSDictionary *)allImagesDictionary
+{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    for (TOFileServiceType type = 0; type < TOFileServiceTypeCount; type++) {
+        dictionary[@(type)] = [TOFileLocationImage imageOfType:type];
+    }
+    return [NSDictionary dictionaryWithDictionary:dictionary];
+}
+
 + (UIImage *)imageOfType:(TOFileServiceType)type
 {
+    if (type < 0 || type >= TOFileServiceTypeCount) { return nil; }
+
     CGSize size = (CGSize){29.0f, 29.0f};
     UIImage *image = nil;
 
@@ -40,7 +51,7 @@
             case TOFileServiceTypeSMB: [TOFileLocationImage drawSMBIcon]; break;
             case TOFileServiceTypeFTP: [TOFileLocationImage drawFTPIcon]; break;
             case TOFileServiceTypeSFTP: [TOFileLocationImage drawSFTPIcon]; break;
-            default: break;
+            default: UIGraphicsEndImageContext(); return nil;
         }
 
         image = UIGraphicsGetImageFromCurrentImageContext();
