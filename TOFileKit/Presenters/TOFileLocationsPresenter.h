@@ -41,6 +41,9 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
 
 #pragma mark - State Management -
 
+/** The file coordinator powering the presenter */
+@property (nonatomic, readonly) TOFileCoordinator *fileCoordinator;
+
 /** If we're currently editing */
 @property (nonatomic, assign) BOOL editing;
 

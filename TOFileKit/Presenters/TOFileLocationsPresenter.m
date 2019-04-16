@@ -35,7 +35,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 
 @interface TOFileLocationsPresenter ()
 
-@property (nonatomic, strong) TOFileCoordinator *fileCoordinator;
+@property (nonatomic, strong, readwrite) TOFileCoordinator *fileCoordinator;
 @property (nonatomic, strong) TOFileLocalServiceDiscovery *serviceDiscovery;
 @property (nonatomic, strong) TOReachability *reachability;
 
@@ -168,7 +168,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
     }
 
     // If the number of devices became 0 and the local devices section was visible
-    if (self.serviceDiscovery.services.count == 0 && self.localDevicesSectionHidden) {
+    if (self.serviceDiscovery.services.count == 0 && !self.localDevicesSectionHidden) {
 
         // Set the state to hide the section
         self.localDevicesSectionHidden = YES;
@@ -183,7 +183,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
     }
 
     // For every other time, call a handler to refresh the visible section
-    if (self.refreshSectionHandler) { self.refreshSectionHandler(TOFileLocationsPresenterSectionLocalDevices); }
+    if (!self.localDevicesSectionHidden && self.refreshSectionHandler) { self.refreshSectionHandler(TOFileLocationsPresenterSectionLocalDevices); }
 }
 
 #pragma mark - Input Handling -
