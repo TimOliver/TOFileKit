@@ -164,6 +164,9 @@
 
     // There should be 3 rows in the second section
     XCTAssert([self.locationsPresenter numberOfItemsForSection:1] == 3);
+
+    // Check the service has a name
+    XCTAssert([self.locationsPresenter nameOfItemInIndex:0 section:1].length > 0);
 }
 
 @end
