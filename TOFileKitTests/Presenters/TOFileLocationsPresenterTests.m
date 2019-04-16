@@ -25,11 +25,17 @@
 #import "TOReachabilityMock.h"
 #import "TOFileLocalServiceDiscoveryMock.h"
 #import "TOFileLocationsPresenter.h"
-
+#import "TOFileCoordinator.h"
 
 @interface TOFileLocationsPresenterTests : XCTestCase
 
+// Configuration
+@property (nonatomic, strong) TOFileCoordinator *coordinator;
+
+// Test object
 @property (nonatomic, strong) TOFileLocationsPresenter *locationsPresenter;
+
+// Mock objects
 @property (nonatomic, strong) TOFileLocalServiceDiscoveryMock *serviceDiscovery;
 @property (nonatomic, strong) TOReachabilityMock *reachability;
 
@@ -39,7 +45,106 @@
 
 - (void)setUp
 {
+    self.coordinator = [[TOFileCoordinator alloc] init];
+    self.serviceDiscovery = [[TOFileLocalServiceDiscoveryMock alloc] init];
+    self.reachability = [[TOReachabilityMock alloc] init];
 
+    self.locationsPresenter = [[TOFileLocationsPresenter alloc] initWithFileCoordinator:self.coordinator
+                                                                  localServiceDiscovery:self.serviceDiscovery
+                                                                           reachability:self.reachability];
+}
+
+// Sanity check to make sure the object was created properly
+- (void)testLocationsPresenterObject
+{
+    XCTAssertNotNil(self.locationsPresenter);
+    XCTAssertNotNil(self.locationsPresenter.fileCoordinator);
+}
+
+// Test that the correct condition of WiFi enabling, and devices detected triggers the "show" block
+- (void)testDetectionOfLocalDevicesAppeared
+{
+    XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"The appearence of devices was successfully detected"];
+
+    __weak id weakSelf = self;
+    self.locationsPresenter.localDevicesSectionHiddenHandler = ^(NSInteger section, BOOL hidden) {
+        id self = weakSelf;
+        XCTAssertEqual(section, 1);
+        XCTAssertEqual(hidden, NO);
+        [expectation fulfill];
+    };
+
+    // Start the state for scanning
+    [self.locationsPresenter startScanningForLocalDevices];
+
+    // Simulate the reachability detect WiFi
+    [self.reachability triggerStatusChange:TOReachabilityStatusWiFi];
+
+    // Trigger we then detected some devices
+    [self.serviceDiscovery triggerServicesFoundWithNumber:3];
+
+    // Ensure the expectation is fulfilled
+    [self waitForExpectations:@[expectation] timeout:1.0f];
+}
+
+// Test that after devices were detected, if the devices are removed, the "hide" block triggers
+- (void)testDetectionOfLocalDevicesDisappeared
+{
+    // Start the state for scanning
+    [self.locationsPresenter startScanningForLocalDevices];
+
+    // Simulate the reachability detect WiFi
+    [self.reachability triggerStatusChange:TOReachabilityStatusWiFi];
+
+    // Trigger we then detected some devices
+    [self.serviceDiscovery triggerServicesFoundWithNumber:3];
+
+    XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"All of the devices disappeared"];
+
+    // Set the block now after setting the mock data so we can capture when it disappeares
+    __weak id weakSelf = self;
+    self.locationsPresenter.localDevicesSectionHiddenHandler = ^(NSInteger section, BOOL hidden) {
+        id self = weakSelf;
+        XCTAssertEqual(section, 1);
+        XCTAssertEqual(hidden, YES);
+        [expectation fulfill];
+    };
+
+    // Trigger that Bonjour suddenly lost all of the devices
+    [self.serviceDiscovery triggerServicesFoundWithNumber:0];
+
+    // Ensure the expectation is fulfilled
+    [self waitForExpectations:@[expectation] timeout:1.0f];
+}
+
+// Test that after devices were detected, WiFi suddenly terminating will trigger the hide block
+- (void)testDetectionOfLocalDevicesWiFiTerminated
+{
+    // Start the state for scanning
+    [self.locationsPresenter startScanningForLocalDevices];
+
+    // Simulate the reachability detect WiFi
+    [self.reachability triggerStatusChange:TOReachabilityStatusWiFi];
+
+    // Trigger we then detected some devices
+    [self.serviceDiscovery triggerServicesFoundWithNumber:3];
+
+    XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"All of the devices disappeared"];
+
+    // Set the block now after setting the mock data so we can capture when it disappeares
+    __weak id weakSelf = self;
+    self.locationsPresenter.localDevicesSectionHiddenHandler = ^(NSInteger section, BOOL hidden) {
+        id self = weakSelf;
+        XCTAssertEqual(section, 1);
+        XCTAssertEqual(hidden, YES);
+        [expectation fulfill];
+    };
+
+    // Trigger that WiFi was terminated
+    [self.reachability triggerStatusChange:TOReachabilityStatusNotAvailable];
+
+    // Ensure the expectation is fulfilled
+    [self waitForExpectations:@[expectation] timeout:1.0f];
 }
 
 @end
