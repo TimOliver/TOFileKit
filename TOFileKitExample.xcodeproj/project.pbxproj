@@ -43,7 +43,6 @@
 		225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */; };
 		225DB295220DF7D8003B90D8 /* TOFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */; };
 		226F316F221D943E006C2CCD /* TOFileCloudServiceCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */; };
-		228D2D4F220EC9430033EDEC /* TOFileLocationsProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D2D4E220EC9430033EDEC /* TOFileLocationsProviderTests.m */; };
 		22992FF12258BC11004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
 		22992FF32258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */; };
 		22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
@@ -139,7 +138,6 @@
 		225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableViewCell.m; sourceTree = "<group>"; };
 		226F316D221D943E006C2CCD /* TOFileCloudServiceCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileCloudServiceCredentials.h; sourceTree = "<group>"; };
 		226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCloudServiceCredentials.m; sourceTree = "<group>"; };
-		228D2D4E220EC9430033EDEC /* TOFileLocationsProviderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsProviderTests.m; sourceTree = "<group>"; };
 		22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscovery.m; sourceTree = "<group>"; };
 		22992FF02258BC11004AEF16 /* TOFileLocalServiceDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileLocalServiceDiscovery.h; sourceTree = "<group>"; };
 		22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscoveryTests.m; sourceTree = "<group>"; };
@@ -463,7 +461,6 @@
 		228D2D4D220EC91E0033EDEC /* Providers */ = {
 			isa = PBXGroup;
 			children = (
-				228D2D4E220EC9430033EDEC /* TOFileLocationsProviderTests.m */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -748,7 +745,6 @@
 				2207B1FE225E43A600025763 /* TOReachabilityMock.m in Sources */,
 				22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */,
 				222B91BF21DB31670057B1D9 /* TOFileDatabaseCoordinator.m in Sources */,
-				228D2D4F220EC9430033EDEC /* TOFileLocationsProviderTests.m in Sources */,
 				22992FF32258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m in Sources */,
 				223F44242261A8540055D268 /* TOFileLocalServiceDiscoveryMock.m in Sources */,
 				2224768F21DBC1A90006D852 /* TOTestingAppDelegate.m in Sources */,
