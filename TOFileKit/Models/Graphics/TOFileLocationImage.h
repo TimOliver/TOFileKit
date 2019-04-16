@@ -21,22 +21,13 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
-
-typedef NS_ENUM(NSInteger, TOFileLocationImageType) {
-    TOFileLocationImageTypeDropbox,
-    TOFileLocationImageTypeGoogleDrive,
-    TOFileLocationImageTypeBox,
-    TOFileLocationImageTypeOneDrive,
-    TOFileLocationImageTypeSMB,
-    TOFileLocationImageTypeFTP,
-    TOFileLocationImageTypeSFTP
-};
+#import "TOFileConstants.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileLocationImage : UIView
 
-+ (UIImage *)imageOfType:(TOFileLocationImageType)type;
++ (UIImage *)imageOfType:(TOFileServiceType)type;
 
 @end
 

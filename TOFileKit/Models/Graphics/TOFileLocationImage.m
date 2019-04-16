@@ -25,7 +25,7 @@
 
 @implementation TOFileLocationImage
 
-+ (UIImage *)imageOfType:(TOFileLocationImageType)type
++ (UIImage *)imageOfType:(TOFileServiceType)type
 {
     CGSize size = (CGSize){29.0f, 29.0f};
     UIImage *image = nil;
@@ -33,13 +33,13 @@
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
     {
         switch (type) {
-            case TOFileLocationImageTypeDropbox: [TOFileLocationImage drawDropboxIcon]; break;
-            case TOFileLocationImageTypeGoogleDrive: [TOFileLocationImage drawGoogleDriveIcon]; break;
-            case TOFileLocationImageTypeBox: [TOFileLocationImage drawBoxIcon]; break;
-            case TOFileLocationImageTypeOneDrive: [TOFileLocationImage drawOneDriveIcon]; break;
-            case TOFileLocationImageTypeSMB: [TOFileLocationImage drawSMBIcon]; break;
-            case TOFileLocationImageTypeFTP: [TOFileLocationImage drawFTPIcon]; break;
-            case TOFileLocationImageTypeSFTP: [TOFileLocationImage drawSFTPIcon]; break;
+            case TOFileServiceTypeDropbox: [TOFileLocationImage drawDropboxIcon]; break;
+            case TOFileServiceTypeGoogleDrive: [TOFileLocationImage drawGoogleDriveIcon]; break;
+            case TOFileServiceTypeBox: [TOFileLocationImage drawBoxIcon]; break;
+            case TOFileServiceTypeOneDrive: [TOFileLocationImage drawOneDriveIcon]; break;
+            case TOFileServiceTypeSMB: [TOFileLocationImage drawSMBIcon]; break;
+            case TOFileServiceTypeFTP: [TOFileLocationImage drawFTPIcon]; break;
+            case TOFileServiceTypeSFTP: [TOFileLocationImage drawSFTPIcon]; break;
             default: break;
         }
 
