@@ -32,20 +32,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileCustomService : TOFileService
 
-/* The properties related to the credentials for this account. */
+/** Returns the Bonjour type name for this service */
+@property (nonatomic, readonly, class) NSString *netServiceType;
+
+/** The properties related to the credentials for this account. */
 @property (nonatomic, copy) NSString *serverAddress;
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, copy) NSNumber *portNumber;
 
-/* A placeholder value for the server name */
+/** A placeholder value for the server name */
 @property (nonatomic, readonly) NSString *placeholderServerAddress;
 
-/* The default port number for this service (Or -1 if this service doesn't need ports) */
+/** The default port number for this service (Or -1 if this service doesn't need ports) */
 @property (nonatomic, readonly) NSInteger defaultPort;
 
-/* Returns the Bonjour type name for this service */
-+ (NSString *)netServiceType;
+/** Returns a service class based on its Bonjour service type */
++ (Class)hostedServiceForNetServiceType:(nullable NSString *)serviceType;
 
 @end
 

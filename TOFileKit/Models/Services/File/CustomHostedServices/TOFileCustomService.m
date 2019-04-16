@@ -50,4 +50,24 @@ NSString * const kICNetworkServicePasswordKey       = @"password";
     return -1;
 }
 
+#pragma mark - Convenience Methods -
+
++ (Class)hostedServiceForNetServiceType:(NSString *)serviceType;
+{
+    if (serviceType == nil) { return nil; }
+
+    static dispatch_once_t onceToken;
+    static NSDictionary *services = nil;
+    dispatch_once(&onceToken, ^{
+        NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+        NSArray *customHostedServices = [TOFileService customHostedServices];
+        for (Class service in customHostedServices) {
+            dictionary[[service netServiceType]] = service;
+        }
+        services = [NSDictionary dictionaryWithDictionary:dictionary];
+    });
+
+    return services[serviceType];
+}
+
 @end
