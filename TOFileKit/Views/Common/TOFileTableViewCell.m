@@ -50,10 +50,11 @@
 {
     [super layoutSubviews];
     
-    [(TOFileSeparatorView *)self.separatorView sizeToFitInView:self];
+    CGFloat textHorizontalOrigin = CGRectGetMinX(self.textLabel.frame);
+    [(TOFileSeparatorView *)self.separatorView sizeToFitInView:self horizontalOrigin:textHorizontalOrigin];
 
     CGRect frame = self.separatorView.frame;
-    frame.origin.x   = self.layoutMargins.left;
+    frame.origin.x   = textHorizontalOrigin;
     frame.origin.y   = self.frame.size.height - frame.size.height;
     self.separatorView.frame = frame;
 

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TOFileSeparatorView : UIView
 
 - (void)sizeToFitInView:(UIView *)view;
+- (void)sizeToFitInView:(UIView *)view horizontalOrigin:(CGFloat)horizontalOrigin;
 
 @end
 

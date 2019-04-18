@@ -30,12 +30,17 @@
 
 - (void)sizeToFitInView:(UIView *)view
 {
+    [self sizeToFitInView:view horizontalOrigin:view.layoutMargins.left];
+}
+
+- (void)sizeToFitInView:(UIView *)view horizontalOrigin:(CGFloat)horizontalOrigin
+{
     CGRect frame = CGRectZero;
     frame.size.height = 1.0f / [UIScreen mainScreen].nativeScale;
-
+    
     UIEdgeInsets margins = view.layoutMargins;
     frame.size.width = view.frame.size.width;
-    frame.size.width -= (margins.left + margins.right);
+    frame.size.width -= (horizontalOrigin + margins.right);
     self.frame = frame;
 }
 
