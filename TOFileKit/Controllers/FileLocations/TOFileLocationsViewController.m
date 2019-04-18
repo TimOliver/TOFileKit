@@ -231,7 +231,7 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 {
     // Hide the separator view in cells at the bottom of the section
     TOFileTableViewCell *fileCell = (TOFileTableViewCell *)cell;
-    fileCell.separatorView.hidden = ([self.presenter numberOfItemsForSection:indexPath.section] >= indexPath.row - 1);
+    fileCell.separatorView.hidden = (indexPath.row >= [self.presenter numberOfItemsForSection:indexPath.section] - 1 );
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
