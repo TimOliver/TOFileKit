@@ -47,6 +47,7 @@
 		22992FF32258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */; };
 		22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
 		22BEB30F22C4F8BB000BCB1A /* TOFileOnboardingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BEB30D22C4F8BB000BCB1A /* TOFileOnboardingView.m */; };
+		22BEB31722C50A10000BCB1A /* TOFileKitLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22BEB31922C50A10000BCB1A /* TOFileKitLocalizable.strings */; };
 		22C765FF220FEEBE00A2695B /* TOFileTableSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */; };
 		22FB5D9721FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */; };
 		22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */; };
@@ -144,6 +145,8 @@
 		22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscoveryTests.m; sourceTree = "<group>"; };
 		22BEB30D22C4F8BB000BCB1A /* TOFileOnboardingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileOnboardingView.m; sourceTree = "<group>"; };
 		22BEB30E22C4F8BB000BCB1A /* TOFileOnboardingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileOnboardingView.h; sourceTree = "<group>"; };
+		22BEB31822C50A10000BCB1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TOFileKitLocalizable.strings; sourceTree = "<group>"; };
+		22BEB31B22C50D24000BCB1A /* TOFileUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileUtilities.h; sourceTree = "<group>"; };
 		22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableSectionHeaderView.h; sourceTree = "<group>"; };
 		22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableSectionHeaderView.m; sourceTree = "<group>"; };
 		22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileDatabaseCoordinatorTests.m; sourceTree = "<group>"; };
@@ -487,15 +490,25 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
+		22BEB31422C509F7000BCB1A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				22BEB31922C50A10000BCB1A /* TOFileKitLocalizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		22E7C17D201C499500AF8BFE /* TOFileKit */ = {
 			isa = PBXGroup;
 			children = (
 				22457E542203495E000F19EA /* TOFileKit.h */,
 				2250015A21D0E0D1007EC4EA /* TOFileConstants.h */,
+				22BEB31B22C50D24000BCB1A /* TOFileUtilities.h */,
 				227ACD1A201C8765000E699F /* Models */,
 				227ACCFD201C5CB8000E699F /* Controllers */,
 				2250017B21D22BF4007EC4EA /* Presenters */,
 				2250017C21D22BF5007EC4EA /* Providers */,
+				22BEB31422C509F7000BCB1A /* Resources */,
 				2250017721D21E25007EC4EA /* Views */,
 			);
 			path = TOFileKit;
@@ -653,6 +666,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22FC4C7E1FF8C4700055FDF5 /* LaunchScreen.storyboard in Resources */,
+				22BEB31722C50A10000BCB1A /* TOFileKitLocalizable.strings in Resources */,
 				22FC4C7B1FF8C4700055FDF5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -811,6 +825,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		22BEB31922C50A10000BCB1A /* TOFileKitLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22BEB31822C50A10000BCB1A /* en */,
+			);
+			name = TOFileKitLocalizable.strings;
+			sourceTree = "<group>";
+		};
 		22FC4C7C1FF8C4700055FDF5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
