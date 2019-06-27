@@ -125,9 +125,9 @@
 
     CGRect frame = self.onboardView.frame;
     frame.origin.x = margin.left;
-    frame.origin.y = margin.top;
+    frame.origin.y = 0.0f;
     frame.size.width = bounds.size.width - (margin.left + margin.right);
-    frame.size.height = bounds.size.height - (margin.top + margin.bottom);
+    frame.size.height = bounds.size.height;
     self.onboardView.frame = frame;
 }
 

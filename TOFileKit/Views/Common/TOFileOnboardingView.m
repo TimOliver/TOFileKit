@@ -55,8 +55,9 @@
 {
     __weak typeof(self) weakSelf = self;
     _textColor = [UIColor blackColor];
-    _textSpacing = 5.0f;
-    _buttonSpacing = 8.0f;
+    _textSpacing = 6.0f;
+    _buttonSpacing = 15.0f;
+    self.layoutMargins = (UIEdgeInsets){20.0f, 30.0f, 20.0f, 30.0f};
 
     self.backgroundColor = [UIColor clearColor];
 
@@ -99,8 +100,8 @@
     [self addSubview:self.messageLabel];
 
     // Add the button
-    self.button = [[TORoundedButton alloc] initWithFrame:(CGRect){0,0,300,44}];
-    self.button.cornerRadius = 6.0f;
+    self.button = [[TORoundedButton alloc] initWithFrame:(CGRect){0,0,300,40}];
+    self.button.cornerRadius = 8.0f;
     self.button.tappedHandler = ^{
         if (weakSelf.buttonTappedHandler) { weakSelf.buttonTappedHandler(); }
     };
@@ -153,10 +154,9 @@
 - (void)sizeToFitWidth:(CGFloat)width
 {
     UIEdgeInsets margins = self.layoutMargins;
-
-    CGSize contentSize = (CGSize){width, CGFLOAT_MAX};
     width -= (margins.left + margins.right);
 
+    CGSize contentSize = (CGSize){width, CGFLOAT_MAX};
     CGRect bounds = (CGRect){CGPointZero, contentSize};
 
     // Get base height
@@ -184,7 +184,7 @@
     CGRect frame = self.frame;
     frame.size.height = height;
     frame.size.width = width;
-    self.frame = frame;
+    self.frame = CGRectIntegral(frame);
 }
 
 #pragma mark - Accessors -
