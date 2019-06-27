@@ -27,6 +27,7 @@
 
 @property (nonatomic, assign) CGFloat textSpacing;
 @property (nonatomic, assign) CGFloat buttonSpacing;
+@property (nonatomic, assign) CGFloat buttonHeight;
 
 // Views
 @property (nonatomic, strong) UIView *backgroundView;
@@ -57,6 +58,7 @@
     _textColor = [UIColor blackColor];
     _textSpacing = 6.0f;
     _buttonSpacing = 15.0f;
+    _buttonHeight = 40.0f;
     self.layoutMargins = (UIEdgeInsets){20.0f, 30.0f, 20.0f, 30.0f};
 
     self.backgroundColor = [UIColor clearColor];
@@ -100,7 +102,7 @@
     [self addSubview:self.messageLabel];
 
     // Add the button
-    self.button = [[TORoundedButton alloc] initWithFrame:(CGRect){0,0,300,40}];
+    self.button = [[TORoundedButton alloc] initWithFrame:(CGRect){0,0,300,_buttonHeight}];
     self.button.cornerRadius = 8.0f;
     self.button.tappedHandler = ^{
         if (weakSelf.buttonTappedHandler) { weakSelf.buttonTappedHandler(); }
@@ -146,6 +148,7 @@
     // Layout the button
     frame = self.button.frame;
     frame.size.width = MIN(contentSize.width, self.button.minimumWidth + 80);
+    frame.size.height = _buttonHeight;
     frame.origin.y = y;
     frame.origin.x = CGRectGetMidX(bounds) - (frame.size.width * 0.5f);
     self.button.frame = CGRectIntegral(frame);
@@ -175,7 +178,7 @@
     height += _buttonSpacing;
 
     // Add the height of the button
-    height += self.button.frame.size.height;
+    height += _buttonHeight;
 
     // Add the bottom margin
     height += margins.bottom;
