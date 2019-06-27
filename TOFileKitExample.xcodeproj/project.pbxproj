@@ -46,6 +46,7 @@
 		22992FF12258BC11004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
 		22992FF32258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */; };
 		22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
+		22BEB30F22C4F8BB000BCB1A /* TOFileOnboardingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BEB30D22C4F8BB000BCB1A /* TOFileOnboardingView.m */; };
 		22C765FF220FEEBE00A2695B /* TOFileTableSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */; };
 		22FB5D9721FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */; };
 		22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */; };
@@ -141,6 +142,8 @@
 		22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscovery.m; sourceTree = "<group>"; };
 		22992FF02258BC11004AEF16 /* TOFileLocalServiceDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileLocalServiceDiscovery.h; sourceTree = "<group>"; };
 		22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscoveryTests.m; sourceTree = "<group>"; };
+		22BEB30D22C4F8BB000BCB1A /* TOFileOnboardingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileOnboardingView.m; sourceTree = "<group>"; };
+		22BEB30E22C4F8BB000BCB1A /* TOFileOnboardingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileOnboardingView.h; sourceTree = "<group>"; };
 		22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableSectionHeaderView.h; sourceTree = "<group>"; };
 		22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableSectionHeaderView.m; sourceTree = "<group>"; };
 		22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileDatabaseCoordinatorTests.m; sourceTree = "<group>"; };
@@ -408,14 +411,9 @@
 		225DB292220DF734003B90D8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				225DB293220DF7D8003B90D8 /* TOFileTableViewCell.h */,
-				225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */,
-				2219B386220E80A300A91505 /* TOFileSeparatorView.h */,
-				2219B387220E80A300A91505 /* TOFileSeparatorView.m */,
-				22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */,
-				22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */,
-				2253F3BA2215D13F006171C6 /* TOFileTableSectionFooterView.h */,
-				2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */,
+				22BEB31022C4F8C0000BCB1A /* TableView */,
+				22BEB30E22C4F8BB000BCB1A /* TOFileOnboardingView.h */,
+				22BEB30D22C4F8BB000BCB1A /* TOFileOnboardingView.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -472,6 +470,21 @@
 				22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */,
 			);
 			path = LocalService;
+			sourceTree = "<group>";
+		};
+		22BEB31022C4F8C0000BCB1A /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				2219B386220E80A300A91505 /* TOFileSeparatorView.h */,
+				2219B387220E80A300A91505 /* TOFileSeparatorView.m */,
+				225DB293220DF7D8003B90D8 /* TOFileTableViewCell.h */,
+				225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */,
+				22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */,
+				22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */,
+				2253F3BA2215D13F006171C6 /* TOFileTableSectionFooterView.h */,
+				2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		22E7C17D201C499500AF8BFE /* TOFileKit */ = {
@@ -654,7 +667,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-frameworks.sh",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer-21/iOS/RevealServer.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer/iOS/RevealServer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -753,6 +766,7 @@
 			files = (
 				220366C52219126C0070E21A /* TOFileCustomServiceFTP.m in Sources */,
 				225DB295220DF7D8003B90D8 /* TOFileTableViewCell.m in Sources */,
+				22BEB30F22C4F8BB000BCB1A /* TOFileOnboardingView.m in Sources */,
 				220366C32219126C0070E21A /* TOFileCustomServiceSFTP.m in Sources */,
 				2250015821D0D71E007EC4EA /* TOFileLocation.m in Sources */,
 				22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */,
