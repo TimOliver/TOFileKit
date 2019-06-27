@@ -100,6 +100,7 @@
 
     // Add the button
     self.button = [[TORoundedButton alloc] initWithFrame:(CGRect){0,0,300,44}];
+    self.button.cornerRadius = 6.0f;
     self.button.tappedHandler = ^{
         if (weakSelf.buttonTappedHandler) { weakSelf.buttonTappedHandler(); }
     };

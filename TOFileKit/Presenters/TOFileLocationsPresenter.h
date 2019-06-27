@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
     TOFileLocationsPresenterItemTypeDefault,     // A single location, added by the user or a local device
     TOFileLocationsPresenterItemTypeAddLocation, // An action button to add a new location
+    TOFileLocationsPresenterItemTypeAddLocationOnboard // A large special view used for the first time
 };
 
 @interface TOFileLocationsPresenter : NSObject

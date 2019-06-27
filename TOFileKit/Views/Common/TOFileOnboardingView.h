@@ -46,6 +46,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** Set the color of the title and the message text */
 @property (nonatomic, strong) UIColor *textColor;
 
+/** Create a new instance of an onboarding view with the provided title and message */
+- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message;
+
+/** Resize the onboarding view vertically to accomodate the content given the provided width. */
+- (void)sizeToFitWidth:(CGFloat)width;
+
 @end
 
 NS_ASSUME_NONNULL_END

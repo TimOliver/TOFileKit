@@ -27,6 +27,7 @@
 #import "TOFileTableSectionHeaderView.h"
 #import "TOFileTableSectionFooterView.h"
 #import "TOFileLocationImage.h"
+#import "TOFileOnboardingView.h"
 
 NSInteger const kTOFileLocationsMaximumLocalServices = 6;
 NSString * const kTOFileLocationsHeaderIdentifier = @"LocationsHeader";
@@ -197,6 +198,9 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
         case TOFileLocationsPresenterItemTypeDefault:
             [self configureDefaultCell:cell forIndexPath:indexPath];
             break;
+        case TOFileLocationsPresenterItemTypeAddLocationOnboard:
+            [self configureOnboardingCell:cell forIndexPath:indexPath];
+            break;
         case TOFileLocationsPresenterItemTypeAddLocation:
             cell.type = TOFileLocationsTableViewCellTypeAdd;
             break;
@@ -225,13 +229,22 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     cell.imageView.image = self.serviceIcons[@(serviceType)];
 }
 
+- (void)configureOnboardingCell:(TOFileLocationsTableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath
+{
+    // Set the cell to be empty
+    cell.type = TOFileLocationsTableViewCellTypeOnboard;
+
+    // Add the onboarding view
+    cell.onboardView = self.fileLocationsView.onboardingView;
+}
+
 #pragma mark - Table View Delegate -
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     // Hide the separator view in cells at the bottom of the section
     TOFileTableViewCell *fileCell = (TOFileTableViewCell *)cell;
-    fileCell.separatorView.hidden = (indexPath.row >= [self.presenter numberOfItemsForSection:indexPath.section] - 1 );
+    fileCell.separatorView.hidden = (indexPath.row >= [self.presenter numberOfItemsForSection:indexPath.section] - 1);
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -246,17 +259,22 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     return headerView;
 }
 
-- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    // Return a section footer view in charge of showing a separator view separating the next section
-    return [tableView dequeueReusableHeaderFooterViewWithIdentifier:kTOFileLocationsFooterIdentifier];
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section { return [TOFileTableSectionHeaderView height]; }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section { return [TOFileTableSectionFooterView height]; }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [TOFileTableSectionFooterView height];
+    TOFileLocationsPresenterItemType itemType = [self.presenter itemTypeForIndex:indexPath.row inSection:indexPath.section];
+
+    if (itemType == TOFileLocationsPresenterItemTypeAddLocationOnboard) {
+        UIEdgeInsets margins = tableView.layoutMargins;
+        CGFloat width = tableView.frame.size.width - (margins.left + margins.right);
+        [self.fileLocationsView.onboardingView sizeToFitWidth:width];
+        return self.fileLocationsView.onboardingView.frame.size.height;
+    }
+
+    return 44.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

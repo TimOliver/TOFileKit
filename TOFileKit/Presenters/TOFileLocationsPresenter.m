@@ -228,7 +228,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 {
     // For displaying the accounts the user saved
     if (section == TOFileLocationsPresenterSectionLocations) {
-        return TOFileLocationsPresenterItemTypeAddLocation;
+        return TOFileLocationsPresenterItemTypeAddLocationOnboard;
     }
 
     // For scanning for local devices

@@ -20,8 +20,11 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TOFileUtilities.h"
+
 #import "TOFileLocationsView.h"
 #import "TOFileSeparatorView.h"
+#import "TOFileOnboardingView.h"
 
 @interface TOFileLocationsView ()
 
@@ -29,6 +32,7 @@
 @property (nonatomic, strong, readwrite) UIBarButtonItem *editButton;
 @property (nonatomic, strong, readwrite) UIBarButtonItem *doneButton;
 @property (nonatomic, strong, readwrite) TOFileSeparatorView *separatorView;
+@property (nonatomic, strong, readwrite) TOFileOnboardingView *onboardingView;
 
 @end
 
@@ -84,12 +88,24 @@
     frame.origin.x = self.layoutMargins.left;
     frame.origin.y = 1.0f;
     self.separatorView.frame = frame;
-
 }
 
 - (void)editStateButtonTapped:(id)sender
 {
     if (self.editButtonTapped) { self.editButtonTapped(); }
+}
+
+- (TOFileOnboardingView *)onboardingView
+{
+    if (_onboardingView) { return _onboardingView; }
+
+    NSBundle *bundle    = TOFileKitBundleForObject(self);
+    NSString *title     = TOFileKitLocalized(@"FileLocations.Empty.Title", bundle);
+    NSString *message   = TOFileKitLocalized(@"FileLocations.Empty.Message", bundle);
+
+    _onboardingView = [[TOFileOnboardingView alloc] initWithTitle:title message:message];
+    _onboardingView.buttonTitle = TOFileKitLocalized(@"FileLocations.AddNewLocation", bundle);
+    return _onboardingView;
 }
 
 @end

@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsTableViewThemeStyle) {
 
 typedef NS_ENUM(NSInteger, TOFileLocationsTableViewCellType) {
     TOFileLocationsTableViewCellTypeDefault,   // Image and title which optional subtitle
+    TOFileLocationsTableViewCellTypeOnboard,   // Completely empty
     TOFileLocationsTableViewCellTypeAdd,       // Add new location
     TOFileLocationsTableViewCellTypeScanning,  // Scanning for devices
     TOFileLocationsTableViewCellTypeFailed     // Error message display
@@ -39,6 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileLocationsTableViewCell : TOFileTableViewCell
 
+@property (nonatomic, strong, nullable) UIView *onboardView;
 @property (nonatomic, assign) TOFileLocationsTableViewThemeStyle themeStyle;
 @property (nonatomic, assign) TOFileLocationsTableViewCellType type;
 

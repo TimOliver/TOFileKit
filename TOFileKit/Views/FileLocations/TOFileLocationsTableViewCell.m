@@ -49,6 +49,8 @@
     self.imageView.image = nil;
     self.textLabel.text = nil;
     self.detailTextLabel.text = nil;
+    [self.onboardView removeFromSuperview];
+    self.onboardView = nil;
 }
 
 #pragma mark - Configure View Content for Style -
@@ -58,6 +60,9 @@
     switch (type) {
         case TOFileLocationsTableViewCellTypeDefault:
             [self configureDefaultType];
+            break;
+        case TOFileLocationsTableViewCellTypeOnboard:
+            [self configureOnboardType];
             break;
         case TOFileLocationsTableViewCellTypeAdd:
             [self configureAddType];
@@ -78,6 +83,11 @@
     BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellTypeDefault);
     self.textLabel.textColor = darkMode ? [UIColor whiteColor] : [UIColor blackColor];
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+}
+
+- (void)configureOnboardType
+{
+    self.accessoryType = UITableViewCellAccessoryNone;
 }
 
 - (void)configureAddType
@@ -105,6 +115,22 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
+#pragma mark - View Layout -
+- (void)setNeedsLayout
+{
+    [super setNeedsLayout];
+
+    UIEdgeInsets margin = self.layoutMargins;
+    CGRect bounds = self.bounds;
+
+    CGRect frame = self.onboardView.frame;
+    frame.origin.x = margin.left;
+    frame.origin.y = margin.top;
+    frame.size.width = bounds.size.width - (margin.left + margin.right);
+    frame.size.height = bounds.size.height - (margin.top + margin.bottom);
+    self.onboardView.frame = frame;
+}
+
 #pragma mark - Accessors -
 
 - (void)setType:(TOFileLocationsTableViewCellType)type
@@ -118,6 +144,13 @@
     if (_themeStyle == themeStyle) { return; }
     _themeStyle = themeStyle;
     [self configureForType:self.type];
+}
+
+- (void)setOnboardView:(UIView *)onboardView
+{
+    _onboardView = onboardView;
+    [self addSubview:_onboardView];
+    [self setNeedsLayout];
 }
 
 @end

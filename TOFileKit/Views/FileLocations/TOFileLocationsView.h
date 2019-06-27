@@ -22,6 +22,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class TOFileOnboardingView;
 @class TOFileSeparatorView;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -39,6 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The separator view kept under the top header bar */
 @property (nonatomic, readonly) TOFileSeparatorView *separatorView;
+
+/** The onboarding view shown when there are no file locations */
+@property (nonatomic, readonly) TOFileOnboardingView *onboardingView;
 
 /** Callback from when the edit/done button is tapped */
 @property (nonatomic, copy) void (^editButtonTapped)(void);
