@@ -1,0 +1,5 @@
+
+/* The File Locations View Controller */
+"FileLocations.Empty.Title"     = "No Added Locations Yet";
+"FileLocations.Empty.Message"   = "Start adding locations, such as your Dropbox account, or an SMB server to start downloading files.";
+"FileLocations.AddNewLocation"  = "Add New Location";
