@@ -68,9 +68,11 @@
     self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.backgroundView.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
     self.backgroundView.layer.cornerRadius = 10.0f;
+#ifdef __IPHONE_13_0
     if (@available(iOS 13.0, *)) {
         self.backgroundView.layer.cornerCurve = kCACornerCurveContinuous;
     }
+#endif
     [self addSubview:self.backgroundView];
 
 
