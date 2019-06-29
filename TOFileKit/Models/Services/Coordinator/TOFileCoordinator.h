@@ -20,12 +20,14 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TOFileKit.h"
+#import <Foundation/Foundation.h>
+
+@class RLMRealmConfiguration;
+@class TOFileCoordinator;
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- The file coordinator serves as the main source of truth for
+/** The file coordinator serves as the main source of truth for
  managing files as they are queued up and downloaded. It may
  be used as a global singleton, or as separate instances as needed
  */
@@ -43,15 +45,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy, null_resettable) NSString *databaseFileName;
 
-/**
-    The path to the folder that will temporarily buffer the downloading files until they're complete.
+/** The path to the folder that will temporarily buffer the downloading files until they're complete.
     By default, this is the `tmp` folder of your application's sandbox.
     This cannot be changed once `start()` has been called.
  */
 @property (nonatomic, copy, null_resettable) NSURL *temporaryDownloadsFolderURL;
 
-/**
- If the database is to be encrypted, this string will be the name under which the encryption
+/** If the database is to be encrypted, this string will be the name under which the encryption
  key for the database is stored. If `nil`, the database won't be encrypted.
  (Default is `nil` for debug builds, and `com.appbundle.identifier.files` for release builds)
  */
@@ -61,6 +61,9 @@ NS_ASSUME_NONNULL_BEGIN
     to the files database for any objects who need access to that info (such as the downloads UI).
     */
 @property (nonatomic, readonly) RLMRealmConfiguration *databaseConfiguration;
+
+/** By default, all file service types are on by default, but any of them may be disabled by providing their `TOFileServiceType` value to this array. */
+@property (nonatomic, copy, nullable) NSArray<NSNumber *> *disallowedFileServiceTypes;
 
 /** Shows whether the file coordinator has been started and is currently running or not. */
 @property (nonatomic, readonly) BOOL isRunning;

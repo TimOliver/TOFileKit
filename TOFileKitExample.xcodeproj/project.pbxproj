@@ -7,23 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220366A0221911CD0070E21A /* TOFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2203668C221911CD0070E21A /* TOFileService.m */; };
+		220366BD2219126C0070E21A /* TOFileCloudServiceDropbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366A82219126C0070E21A /* TOFileCloudServiceDropbox.m */; };
+		220366BE2219126C0070E21A /* TOFileCloudServiceBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366A92219126C0070E21A /* TOFileCloudServiceBox.m */; };
+		220366BF2219126C0070E21A /* TOFileCloudService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366AA2219126C0070E21A /* TOFileCloudService.m */; };
+		220366C02219126C0070E21A /* TOFileCloudServiceGoogleDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366AC2219126C0070E21A /* TOFileCloudServiceGoogleDrive.m */; };
+		220366C12219126C0070E21A /* TOFileCloudServiceOneDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366B02219126C0070E21A /* TOFileCloudServiceOneDrive.m */; };
+		220366C22219126C0070E21A /* TOFileCustomServiceSMB.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366B32219126C0070E21A /* TOFileCustomServiceSMB.m */; };
+		220366C32219126C0070E21A /* TOFileCustomServiceSFTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366B42219126C0070E21A /* TOFileCustomServiceSFTP.m */; };
+		220366C52219126C0070E21A /* TOFileCustomServiceFTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366BA2219126C0070E21A /* TOFileCustomServiceFTP.m */; };
+		220366C62219126C0070E21A /* TOFileCustomService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366BB2219126C0070E21A /* TOFileCustomService.m */; };
+		2207B1FE225E43A600025763 /* TOReachabilityMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 2207B1FD225E43A600025763 /* TOReachabilityMock.m */; };
+		2219B388220E80A300A91505 /* TOFileSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2219B387220E80A300A91505 /* TOFileSeparatorView.m */; };
 		2224768F21DBC1A90006D852 /* TOTestingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224768D21DBC17E0006D852 /* TOTestingAppDelegate.m */; };
 		222B91BC21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B91BB21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m */; };
 		222B91BE21DB31080057B1D9 /* TOFileCoordinatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B91BD21DB31080057B1D9 /* TOFileCoordinatorTests.m */; };
 		222B91BF21DB31670057B1D9 /* TOFileDatabaseCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B91BB21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m */; };
 		222B91C021DB31690057B1D9 /* TOFileCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F51521D9E8A000C6607F /* TOFileCoordinator.m */; };
+		223EEE992217C40B00BF85B5 /* TOFileLocationImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 223EEE982217C40B00BF85B5 /* TOFileLocationImage.m */; };
+		223EEE9C2217C6F600BF85B5 /* TOFileLocationsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 223EEE9B2217C6F600BF85B5 /* TOFileLocationsTableViewCell.m */; };
+		223F442122619EC20055D268 /* TOFileLocationsPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223F442022619EC20055D268 /* TOFileLocationsPresenterTests.m */; };
+		223F44242261A8540055D268 /* TOFileLocalServiceDiscoveryMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 223F44232261A8540055D268 /* TOFileLocalServiceDiscoveryMock.m */; };
 		2250015721D0D71E007EC4EA /* TOFileDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250015521D0D71E007EC4EA /* TOFileDownload.m */; };
-		2250015821D0D71E007EC4EA /* TOFileAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250015621D0D71E007EC4EA /* TOFileAccount.m */; };
+		2250015821D0D71E007EC4EA /* TOFileLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250015621D0D71E007EC4EA /* TOFileLocation.m */; };
 		2250015D21D13EF0007EC4EA /* TOFileKeychainAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250015C21D13EF0007EC4EA /* TOFileKeychainAccess.m */; };
-		2250016021D13F0B007EC4EA /* TOFileAccountList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250015F21D13F0B007EC4EA /* TOFileAccountList.m */; };
-		2250016921D1DDCD007EC4EA /* TOFileKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250016821D1DDCD007EC4EA /* TOFileKitTests.m */; };
+		2250016021D13F0B007EC4EA /* TOFileLocationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250015F21D13F0B007EC4EA /* TOFileLocationList.m */; };
 		2250017121D1DDEB007EC4EA /* TOFileKeychainAccessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250017021D1DDEB007EC4EA /* TOFileKeychainAccessTests.m */; };
 		2250017221D1DE3D007EC4EA /* TOFileKeychainAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250015C21D13EF0007EC4EA /* TOFileKeychainAccess.m */; };
 		2250017521D21AE0007EC4EA /* TOFileLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250017421D21AE0007EC4EA /* TOFileLocationsViewController.m */; };
 		2250017A21D21E25007EC4EA /* TOFileLocationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250017921D21E25007EC4EA /* TOFileLocationsView.m */; };
 		2252F50C21D9C6B800C6607F /* TOFileLocationsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */; };
-		2252F50F21D9CB6100C6607F /* TOFileLocationsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50E21D9CB6100C6607F /* TOFileLocationsProvider.m */; };
+		2252F50F21D9CB6100C6607F /* TOFileSavedLocationsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50E21D9CB6100C6607F /* TOFileSavedLocationsProvider.m */; };
 		2252F51621D9E8A000C6607F /* TOFileCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F51521D9E8A000C6607F /* TOFileCoordinator.m */; };
+		2253F3BC2215D13F006171C6 /* TOFileTableSectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */; };
+		225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */; };
+		225DB295220DF7D8003B90D8 /* TOFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */; };
+		226F316F221D943E006C2CCD /* TOFileCloudServiceCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */; };
+		22992FF12258BC11004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
+		22992FF32258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */; };
+		22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
+		22BEB30F22C4F8BB000BCB1A /* TOFileOnboardingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BEB30D22C4F8BB000BCB1A /* TOFileOnboardingView.m */; };
+		22BEB31722C50A10000BCB1A /* TOFileKitLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22BEB31922C50A10000BCB1A /* TOFileKitLocalizable.strings */; };
+		22C765FF220FEEBE00A2695B /* TOFileTableSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */; };
 		22FB5D9721FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */; };
 		22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */; };
 		22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C751FF8C4700055FDF5 /* TOViewController.m */; };
@@ -47,23 +72,53 @@
 /* Begin PBXFileReference section */
 		0004C0D811FA41E75F5D648C /* Pods-TOFileKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TOFileKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TOFileKitTests/Pods-TOFileKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D38893175A434E7E3F01D5B /* libPods-TOFileKitExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TOFileKitExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2203668B221911CD0070E21A /* TOFileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileService.h; sourceTree = "<group>"; };
+		2203668C221911CD0070E21A /* TOFileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileService.m; sourceTree = "<group>"; };
+		220366A82219126C0070E21A /* TOFileCloudServiceDropbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCloudServiceDropbox.m; sourceTree = "<group>"; };
+		220366A92219126C0070E21A /* TOFileCloudServiceBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCloudServiceBox.m; sourceTree = "<group>"; };
+		220366AA2219126C0070E21A /* TOFileCloudService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCloudService.m; sourceTree = "<group>"; };
+		220366AB2219126C0070E21A /* TOFileCloudServiceOneDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileCloudServiceOneDrive.h; sourceTree = "<group>"; };
+		220366AC2219126C0070E21A /* TOFileCloudServiceGoogleDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCloudServiceGoogleDrive.m; sourceTree = "<group>"; };
+		220366AD2219126C0070E21A /* TOFileCloudService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileCloudService.h; sourceTree = "<group>"; };
+		220366AE2219126C0070E21A /* TOFileCloudServiceBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileCloudServiceBox.h; sourceTree = "<group>"; };
+		220366AF2219126C0070E21A /* TOFileCloudServiceDropbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileCloudServiceDropbox.h; sourceTree = "<group>"; };
+		220366B02219126C0070E21A /* TOFileCloudServiceOneDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCloudServiceOneDrive.m; sourceTree = "<group>"; };
+		220366B12219126C0070E21A /* TOFileCloudServiceGoogleDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileCloudServiceGoogleDrive.h; sourceTree = "<group>"; };
+		220366B32219126C0070E21A /* TOFileCustomServiceSMB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCustomServiceSMB.m; sourceTree = "<group>"; };
+		220366B42219126C0070E21A /* TOFileCustomServiceSFTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCustomServiceSFTP.m; sourceTree = "<group>"; };
+		220366B52219126C0070E21A /* TOFileCustomService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileCustomService.h; sourceTree = "<group>"; };
+		220366B62219126C0070E21A /* TOFileCustomServiceFTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileCustomServiceFTP.h; sourceTree = "<group>"; };
+		220366B82219126C0070E21A /* TOFileCustomServiceSMB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileCustomServiceSMB.h; sourceTree = "<group>"; };
+		220366B92219126C0070E21A /* TOFileCustomServiceSFTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileCustomServiceSFTP.h; sourceTree = "<group>"; };
+		220366BA2219126C0070E21A /* TOFileCustomServiceFTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCustomServiceFTP.m; sourceTree = "<group>"; };
+		220366BB2219126C0070E21A /* TOFileCustomService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCustomService.m; sourceTree = "<group>"; };
+		2207B1FC225E43A600025763 /* TOReachabilityMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOReachabilityMock.h; sourceTree = "<group>"; };
+		2207B1FD225E43A600025763 /* TOReachabilityMock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOReachabilityMock.m; sourceTree = "<group>"; };
+		2219B386220E80A300A91505 /* TOFileSeparatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileSeparatorView.h; sourceTree = "<group>"; };
+		2219B387220E80A300A91505 /* TOFileSeparatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileSeparatorView.m; sourceTree = "<group>"; };
 		2224768C21DBC17E0006D852 /* TOTestingAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTestingAppDelegate.h; sourceTree = "<group>"; };
 		2224768D21DBC17E0006D852 /* TOTestingAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOTestingAppDelegate.m; sourceTree = "<group>"; };
 		222B91BA21DB2C180057B1D9 /* TOFileDatabaseCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileDatabaseCoordinator.h; sourceTree = "<group>"; };
 		222B91BB21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileDatabaseCoordinator.m; sourceTree = "<group>"; };
 		222B91BD21DB31080057B1D9 /* TOFileCoordinatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCoordinatorTests.m; sourceTree = "<group>"; };
+		223EEE972217C40B00BF85B5 /* TOFileLocationImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationImage.h; sourceTree = "<group>"; };
+		223EEE982217C40B00BF85B5 /* TOFileLocationImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationImage.m; sourceTree = "<group>"; };
+		223EEE9A2217C6F600BF85B5 /* TOFileLocationsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationsTableViewCell.h; sourceTree = "<group>"; };
+		223EEE9B2217C6F600BF85B5 /* TOFileLocationsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsTableViewCell.m; sourceTree = "<group>"; };
+		223F442022619EC20055D268 /* TOFileLocationsPresenterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsPresenterTests.m; sourceTree = "<group>"; };
+		223F44222261A8540055D268 /* TOFileLocalServiceDiscoveryMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocalServiceDiscoveryMock.h; sourceTree = "<group>"; };
+		223F44232261A8540055D268 /* TOFileLocalServiceDiscoveryMock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscoveryMock.m; sourceTree = "<group>"; };
 		22457E542203495E000F19EA /* TOFileKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileKit.h; sourceTree = "<group>"; };
 		2250015321D0D71E007EC4EA /* TOFileDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileDownload.h; sourceTree = "<group>"; };
-		2250015421D0D71E007EC4EA /* TOFileAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileAccount.h; sourceTree = "<group>"; };
+		2250015421D0D71E007EC4EA /* TOFileLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileLocation.h; sourceTree = "<group>"; };
 		2250015521D0D71E007EC4EA /* TOFileDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileDownload.m; sourceTree = "<group>"; };
-		2250015621D0D71E007EC4EA /* TOFileAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileAccount.m; sourceTree = "<group>"; };
+		2250015621D0D71E007EC4EA /* TOFileLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocation.m; sourceTree = "<group>"; };
 		2250015A21D0E0D1007EC4EA /* TOFileConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TOFileConstants.h; path = TOFileKit/TOFileConstants.h; sourceTree = SOURCE_ROOT; };
 		2250015B21D13EF0007EC4EA /* TOFileKeychainAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileKeychainAccess.h; sourceTree = "<group>"; };
 		2250015C21D13EF0007EC4EA /* TOFileKeychainAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileKeychainAccess.m; sourceTree = "<group>"; };
-		2250015E21D13F0B007EC4EA /* TOFileAccountList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileAccountList.h; sourceTree = "<group>"; };
-		2250015F21D13F0B007EC4EA /* TOFileAccountList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileAccountList.m; sourceTree = "<group>"; };
+		2250015E21D13F0B007EC4EA /* TOFileLocationList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationList.h; sourceTree = "<group>"; };
+		2250015F21D13F0B007EC4EA /* TOFileLocationList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationList.m; sourceTree = "<group>"; };
 		2250016621D1DDCD007EC4EA /* TOFileKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOFileKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2250016821D1DDCD007EC4EA /* TOFileKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileKitTests.m; sourceTree = "<group>"; };
 		2250016A21D1DDCD007EC4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2250017021D1DDEB007EC4EA /* TOFileKeychainAccessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileKeychainAccessTests.m; sourceTree = "<group>"; };
 		2250017321D21AE0007EC4EA /* TOFileLocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileLocationsViewController.h; sourceTree = "<group>"; };
@@ -72,11 +127,28 @@
 		2250017921D21E25007EC4EA /* TOFileLocationsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsView.m; sourceTree = "<group>"; };
 		2252F50A21D9C6B800C6607F /* TOFileLocationsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationsPresenter.h; sourceTree = "<group>"; };
 		2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsPresenter.m; sourceTree = "<group>"; };
-		2252F50D21D9CB6100C6607F /* TOFileLocationsProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationsProvider.h; sourceTree = "<group>"; };
-		2252F50E21D9CB6100C6607F /* TOFileLocationsProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationsProvider.m; sourceTree = "<group>"; };
+		2252F50D21D9CB6100C6607F /* TOFileSavedLocationsProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileSavedLocationsProvider.h; sourceTree = "<group>"; };
+		2252F50E21D9CB6100C6607F /* TOFileSavedLocationsProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileSavedLocationsProvider.m; sourceTree = "<group>"; };
 		2252F51421D9E8A000C6607F /* TOFileCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileCoordinator.h; sourceTree = "<group>"; };
 		2252F51521D9E8A000C6607F /* TOFileCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCoordinator.m; sourceTree = "<group>"; };
+		2253F3BA2215D13F006171C6 /* TOFileTableSectionFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableSectionFooterView.h; sourceTree = "<group>"; };
+		2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableSectionFooterView.m; sourceTree = "<group>"; };
 		225DB28B220DE805003B90D8 /* TOFileCoordinator+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TOFileCoordinator+Private.h"; sourceTree = "<group>"; };
+		225DB28E220DF2F2003B90D8 /* TOFileNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileNavigationController.h; sourceTree = "<group>"; };
+		225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileNavigationController.m; sourceTree = "<group>"; };
+		225DB293220DF7D8003B90D8 /* TOFileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableViewCell.h; sourceTree = "<group>"; };
+		225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableViewCell.m; sourceTree = "<group>"; };
+		226F316D221D943E006C2CCD /* TOFileCloudServiceCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileCloudServiceCredentials.h; sourceTree = "<group>"; };
+		226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCloudServiceCredentials.m; sourceTree = "<group>"; };
+		22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscovery.m; sourceTree = "<group>"; };
+		22992FF02258BC11004AEF16 /* TOFileLocalServiceDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileLocalServiceDiscovery.h; sourceTree = "<group>"; };
+		22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscoveryTests.m; sourceTree = "<group>"; };
+		22BEB30D22C4F8BB000BCB1A /* TOFileOnboardingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileOnboardingView.m; sourceTree = "<group>"; };
+		22BEB30E22C4F8BB000BCB1A /* TOFileOnboardingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileOnboardingView.h; sourceTree = "<group>"; };
+		22BEB31822C50A10000BCB1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TOFileKitLocalizable.strings; sourceTree = "<group>"; };
+		22BEB31B22C50D24000BCB1A /* TOFileUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileUtilities.h; sourceTree = "<group>"; };
+		22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableSectionHeaderView.h; sourceTree = "<group>"; };
+		22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableSectionHeaderView.m; sourceTree = "<group>"; };
 		22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileDatabaseCoordinatorTests.m; sourceTree = "<group>"; };
 		22FC4C6E1FF8C4700055FDF5 /* TOFileKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOFileKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FC4C711FF8C4700055FDF5 /* TOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOAppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +185,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2203667F221911CD0070E21A /* File */ = {
+			isa = PBXGroup;
+			children = (
+				2203668B221911CD0070E21A /* TOFileService.h */,
+				2203668C221911CD0070E21A /* TOFileService.m */,
+				220366A72219126C0070E21A /* CloudServices */,
+				220366B22219126C0070E21A /* CustomHostedServices */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		220366A72219126C0070E21A /* CloudServices */ = {
+			isa = PBXGroup;
+			children = (
+				220366AD2219126C0070E21A /* TOFileCloudService.h */,
+				220366AA2219126C0070E21A /* TOFileCloudService.m */,
+				226F316D221D943E006C2CCD /* TOFileCloudServiceCredentials.h */,
+				226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */,
+				220366AE2219126C0070E21A /* TOFileCloudServiceBox.h */,
+				220366A92219126C0070E21A /* TOFileCloudServiceBox.m */,
+				220366AF2219126C0070E21A /* TOFileCloudServiceDropbox.h */,
+				220366A82219126C0070E21A /* TOFileCloudServiceDropbox.m */,
+				220366AB2219126C0070E21A /* TOFileCloudServiceOneDrive.h */,
+				220366B02219126C0070E21A /* TOFileCloudServiceOneDrive.m */,
+				220366B12219126C0070E21A /* TOFileCloudServiceGoogleDrive.h */,
+				220366AC2219126C0070E21A /* TOFileCloudServiceGoogleDrive.m */,
+			);
+			path = CloudServices;
+			sourceTree = "<group>";
+		};
+		220366B22219126C0070E21A /* CustomHostedServices */ = {
+			isa = PBXGroup;
+			children = (
+				220366B52219126C0070E21A /* TOFileCustomService.h */,
+				220366BB2219126C0070E21A /* TOFileCustomService.m */,
+				220366B82219126C0070E21A /* TOFileCustomServiceSMB.h */,
+				220366B32219126C0070E21A /* TOFileCustomServiceSMB.m */,
+				220366B62219126C0070E21A /* TOFileCustomServiceFTP.h */,
+				220366BA2219126C0070E21A /* TOFileCustomServiceFTP.m */,
+				220366B92219126C0070E21A /* TOFileCustomServiceSFTP.h */,
+				220366B42219126C0070E21A /* TOFileCustomServiceSFTP.m */,
+			);
+			path = CustomHostedServices;
+			sourceTree = "<group>";
+		};
+		2207B1F7225E3C8E00025763 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				222B91BD21DB31080057B1D9 /* TOFileCoordinatorTests.m */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		2207B1F8225E3C9F00025763 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		2207B1F9225E3CA800025763 /* LocalService */ = {
+			isa = PBXGroup;
+			children = (
+				223F44222261A8540055D268 /* TOFileLocalServiceDiscoveryMock.h */,
+				223F44232261A8540055D268 /* TOFileLocalServiceDiscoveryMock.m */,
+				22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */,
+			);
+			path = LocalService;
+			sourceTree = "<group>";
+		};
+		2207B1FA225E3CC600025763 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				2250017021D1DDEB007EC4EA /* TOFileKeychainAccessTests.m */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		2207B1FB225E422800025763 /* LibraryMocks */ = {
+			isa = PBXGroup;
+			children = (
+				2207B1FC225E43A600025763 /* TOReachabilityMock.h */,
+				2207B1FD225E43A600025763 /* TOReachabilityMock.m */,
+			);
+			path = LibraryMocks;
+			sourceTree = "<group>";
+		};
 		222B91B921DB2C180057B1D9 /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,13 +282,30 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		223EEE962217C3DA00BF85B5 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				223EEE972217C40B00BF85B5 /* TOFileLocationImage.h */,
+				223EEE982217C40B00BF85B5 /* TOFileLocationImage.m */,
+			);
+			path = Graphics;
+			sourceTree = "<group>";
+		};
+		223F441F22619E480055D268 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				223F442022619EC20055D268 /* TOFileLocationsPresenterTests.m */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
 		2250015221D0D71E007EC4EA /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				2250015421D0D71E007EC4EA /* TOFileAccount.h */,
-				2250015621D0D71E007EC4EA /* TOFileAccount.m */,
-				2250015E21D13F0B007EC4EA /* TOFileAccountList.h */,
-				2250015F21D13F0B007EC4EA /* TOFileAccountList.m */,
+				2250015421D0D71E007EC4EA /* TOFileLocation.h */,
+				2250015621D0D71E007EC4EA /* TOFileLocation.m */,
+				2250015E21D13F0B007EC4EA /* TOFileLocationList.h */,
+				2250015F21D13F0B007EC4EA /* TOFileLocationList.m */,
 				2250015321D0D71E007EC4EA /* TOFileDownload.h */,
 				2250015521D0D71E007EC4EA /* TOFileDownload.m */,
 			);
@@ -138,8 +315,10 @@
 		2250015921D0D754007EC4EA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				222B91B921DB2C180057B1D9 /* Database */,
 				2252F51021D9E72600C6607F /* Coordinator */,
+				222B91B921DB2C180057B1D9 /* Database */,
+				2203667F221911CD0070E21A /* File */,
+				22992FEE2258BC11004AEF16 /* LocalService */,
 				2250016121D142EA007EC4EA /* Security */,
 			);
 			path = Services;
@@ -157,10 +336,10 @@
 		2250016721D1DDCD007EC4EA /* TOFileKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */,
-				2250017021D1DDEB007EC4EA /* TOFileKeychainAccessTests.m */,
-				222B91BD21DB31080057B1D9 /* TOFileCoordinatorTests.m */,
-				2250016821D1DDCD007EC4EA /* TOFileKitTests.m */,
+				2207B1FB225E422800025763 /* LibraryMocks */,
+				228D2D4B220EC8E20033EDEC /* Models */,
+				228D2D4D220EC91E0033EDEC /* Providers */,
+				223F441F22619E480055D268 /* Presenters */,
 				2250016A21D1DDCD007EC4EA /* Info.plist */,
 			);
 			path = TOFileKitTests;
@@ -169,8 +348,8 @@
 		2250017721D21E25007EC4EA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2250017821D21E25007EC4EA /* TOFileLocationsView.h */,
-				2250017921D21E25007EC4EA /* TOFileLocationsView.m */,
+				225DB292220DF734003B90D8 /* Common */,
+				225DB291220DF723003B90D8 /* FileLocations */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,8 +366,8 @@
 		2250017C21D22BF5007EC4EA /* Providers */ = {
 			isa = PBXGroup;
 			children = (
-				2252F50D21D9CB6100C6607F /* TOFileLocationsProvider.h */,
-				2252F50E21D9CB6100C6607F /* TOFileLocationsProvider.m */,
+				2252F50D21D9CB6100C6607F /* TOFileSavedLocationsProvider.h */,
+				2252F50E21D9CB6100C6607F /* TOFileSavedLocationsProvider.m */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -203,11 +382,50 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		227ACCFD201C5CB8000E699F /* Controllers */ = {
+		225DB28C220DF2CC003B90D8 /* Extended */ = {
+			isa = PBXGroup;
+			children = (
+				225DB28E220DF2F2003B90D8 /* TOFileNavigationController.h */,
+				225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */,
+			);
+			path = Extended;
+			sourceTree = "<group>";
+		};
+		225DB28D220DF2D9003B90D8 /* FileLocations */ = {
 			isa = PBXGroup;
 			children = (
 				2250017321D21AE0007EC4EA /* TOFileLocationsViewController.h */,
 				2250017421D21AE0007EC4EA /* TOFileLocationsViewController.m */,
+			);
+			path = FileLocations;
+			sourceTree = "<group>";
+		};
+		225DB291220DF723003B90D8 /* FileLocations */ = {
+			isa = PBXGroup;
+			children = (
+				2250017821D21E25007EC4EA /* TOFileLocationsView.h */,
+				2250017921D21E25007EC4EA /* TOFileLocationsView.m */,
+				223EEE9A2217C6F600BF85B5 /* TOFileLocationsTableViewCell.h */,
+				223EEE9B2217C6F600BF85B5 /* TOFileLocationsTableViewCell.m */,
+			);
+			path = FileLocations;
+			sourceTree = "<group>";
+		};
+		225DB292220DF734003B90D8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				22BEB31022C4F8C0000BCB1A /* TableView */,
+				22BEB30E22C4F8BB000BCB1A /* TOFileOnboardingView.h */,
+				22BEB30D22C4F8BB000BCB1A /* TOFileOnboardingView.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		227ACCFD201C5CB8000E699F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				225DB28D220DF2D9003B90D8 /* FileLocations */,
+				225DB28C220DF2CC003B90D8 /* Extended */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -215,10 +433,69 @@
 		227ACD1A201C8765000E699F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				223EEE962217C3DA00BF85B5 /* Graphics */,
 				2250015921D0D754007EC4EA /* Services */,
 				2250015221D0D71E007EC4EA /* Entities */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		228D2D4B220EC8E20033EDEC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				228D2D4C220EC8FB0033EDEC /* Services */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		228D2D4C220EC8FB0033EDEC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2207B1FA225E3CC600025763 /* Security */,
+				2207B1F9225E3CA800025763 /* LocalService */,
+				2207B1F8225E3C9F00025763 /* Database */,
+				2207B1F7225E3C8E00025763 /* Coordinator */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		228D2D4D220EC91E0033EDEC /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		22992FEE2258BC11004AEF16 /* LocalService */ = {
+			isa = PBXGroup;
+			children = (
+				22992FF02258BC11004AEF16 /* TOFileLocalServiceDiscovery.h */,
+				22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */,
+			);
+			path = LocalService;
+			sourceTree = "<group>";
+		};
+		22BEB31022C4F8C0000BCB1A /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				2219B386220E80A300A91505 /* TOFileSeparatorView.h */,
+				2219B387220E80A300A91505 /* TOFileSeparatorView.m */,
+				225DB293220DF7D8003B90D8 /* TOFileTableViewCell.h */,
+				225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */,
+				22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */,
+				22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */,
+				2253F3BA2215D13F006171C6 /* TOFileTableSectionFooterView.h */,
+				2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		22BEB31422C509F7000BCB1A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				22BEB31922C50A10000BCB1A /* TOFileKitLocalizable.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		22E7C17D201C499500AF8BFE /* TOFileKit */ = {
@@ -226,10 +503,12 @@
 			children = (
 				22457E542203495E000F19EA /* TOFileKit.h */,
 				2250015A21D0E0D1007EC4EA /* TOFileConstants.h */,
+				22BEB31B22C50D24000BCB1A /* TOFileUtilities.h */,
 				227ACD1A201C8765000E699F /* Models */,
 				227ACCFD201C5CB8000E699F /* Controllers */,
 				2250017B21D22BF4007EC4EA /* Presenters */,
 				2250017C21D22BF5007EC4EA /* Providers */,
+				22BEB31422C509F7000BCB1A /* Resources */,
 				2250017721D21E25007EC4EA /* Views */,
 			);
 			path = TOFileKit;
@@ -324,6 +603,7 @@
 				22FC4C6B1FF8C4700055FDF5 /* Frameworks */,
 				22FC4C6C1FF8C4700055FDF5 /* Resources */,
 				DB420A69A7FFCCF2B988D982 /* [CP] Copy Pods Resources */,
+				08D85EF7DA56BD5B71AC8E73 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -386,6 +666,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22FC4C7E1FF8C4700055FDF5 /* LaunchScreen.storyboard in Resources */,
+				22BEB31722C50A10000BCB1A /* TOFileKitLocalizable.strings in Resources */,
 				22FC4C7B1FF8C4700055FDF5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +674,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		08D85EF7DA56BD5B71AC8E73 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-frameworks.sh",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer/iOS/RevealServer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		18F2357B378A94A83DE51DCE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -464,9 +763,13 @@
 				222B91BE21DB31080057B1D9 /* TOFileCoordinatorTests.m in Sources */,
 				2250017221D1DE3D007EC4EA /* TOFileKeychainAccess.m in Sources */,
 				222B91C021DB31690057B1D9 /* TOFileCoordinator.m in Sources */,
+				223F442122619EC20055D268 /* TOFileLocationsPresenterTests.m in Sources */,
 				22FB5D9721FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m in Sources */,
-				2250016921D1DDCD007EC4EA /* TOFileKitTests.m in Sources */,
+				2207B1FE225E43A600025763 /* TOReachabilityMock.m in Sources */,
+				22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */,
 				222B91BF21DB31670057B1D9 /* TOFileDatabaseCoordinator.m in Sources */,
+				22992FF32258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m in Sources */,
+				223F44242261A8540055D268 /* TOFileLocalServiceDiscoveryMock.m in Sources */,
 				2224768F21DBC1A90006D852 /* TOTestingAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,19 +778,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2250015821D0D71E007EC4EA /* TOFileAccount.m in Sources */,
+				220366C52219126C0070E21A /* TOFileCustomServiceFTP.m in Sources */,
+				225DB295220DF7D8003B90D8 /* TOFileTableViewCell.m in Sources */,
+				22BEB30F22C4F8BB000BCB1A /* TOFileOnboardingView.m in Sources */,
+				220366C32219126C0070E21A /* TOFileCustomServiceSFTP.m in Sources */,
+				2250015821D0D71E007EC4EA /* TOFileLocation.m in Sources */,
 				22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */,
-				2250016021D13F0B007EC4EA /* TOFileAccountList.m in Sources */,
+				220366C22219126C0070E21A /* TOFileCustomServiceSMB.m in Sources */,
+				2250016021D13F0B007EC4EA /* TOFileLocationList.m in Sources */,
 				2250017521D21AE0007EC4EA /* TOFileLocationsViewController.m in Sources */,
 				2252F50C21D9C6B800C6607F /* TOFileLocationsPresenter.m in Sources */,
 				22FC4C811FF8C4700055FDF5 /* main.m in Sources */,
 				2250015721D0D71E007EC4EA /* TOFileDownload.m in Sources */,
+				22C765FF220FEEBE00A2695B /* TOFileTableSectionHeaderView.m in Sources */,
 				222B91BC21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m in Sources */,
 				2250015D21D13EF0007EC4EA /* TOFileKeychainAccess.m in Sources */,
+				223EEE9C2217C6F600BF85B5 /* TOFileLocationsTableViewCell.m in Sources */,
 				22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */,
+				223EEE992217C40B00BF85B5 /* TOFileLocationImage.m in Sources */,
+				220366BE2219126C0070E21A /* TOFileCloudServiceBox.m in Sources */,
+				226F316F221D943E006C2CCD /* TOFileCloudServiceCredentials.m in Sources */,
 				2252F51621D9E8A000C6607F /* TOFileCoordinator.m in Sources */,
+				220366C62219126C0070E21A /* TOFileCustomService.m in Sources */,
+				220366C12219126C0070E21A /* TOFileCloudServiceOneDrive.m in Sources */,
+				220366C02219126C0070E21A /* TOFileCloudServiceGoogleDrive.m in Sources */,
+				220366BF2219126C0070E21A /* TOFileCloudService.m in Sources */,
+				220366A0221911CD0070E21A /* TOFileService.m in Sources */,
 				2250017A21D21E25007EC4EA /* TOFileLocationsView.m in Sources */,
-				2252F50F21D9CB6100C6607F /* TOFileLocationsProvider.m in Sources */,
+				225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */,
+				2252F50F21D9CB6100C6607F /* TOFileSavedLocationsProvider.m in Sources */,
+				220366BD2219126C0070E21A /* TOFileCloudServiceDropbox.m in Sources */,
+				22992FF12258BC11004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */,
+				2219B388220E80A300A91505 /* TOFileSeparatorView.m in Sources */,
+				2253F3BC2215D13F006171C6 /* TOFileTableSectionFooterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +825,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		22BEB31922C50A10000BCB1A /* TOFileKitLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22BEB31822C50A10000BCB1A /* en */,
+			);
+			name = TOFileKitLocalizable.strings;
+			sourceTree = "<group>";
+		};
 		22FC4C7C1FF8C4700055FDF5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

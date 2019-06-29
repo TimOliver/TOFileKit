@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 # ignore all warnings from all pods
 inhibit_all_warnings!
@@ -9,17 +9,21 @@ target 'TOFileKitExample' do
   # UI
   pod 'TODocumentPickerViewController'
   pod 'TOSegmentedTabBarController'
+  pod 'TORoundedButton'
 
   # Networking
   pod 'GoldRaccoon', :git => 'https://github.com/iComics/GoldRaccoon.git'
   pod 'NMSSH'
-  pod 'Reachability'
+  pod 'TOReachability'
   pod 'TOSMBClient'
 
   # Data Management
   pod 'Realm'
   pod 'Mantle'
   pod '1PasswordExtension'
+
+  # Development
+  pod 'Reveal-SDK', :configurations => ['Debug']
 
   target "TOFileKitTests" do
     inherit! :search_paths

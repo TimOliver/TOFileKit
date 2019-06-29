@@ -1,7 +1,7 @@
 //
 //  TOFileConstants.h
 //
-//  Copyright 2015-2019 Timothy Oliver. All rights reserved.
+//  Copyright 2019 Timothy Oliver. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
@@ -22,26 +22,30 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, TOFileService) {
-    TOFileServiceDropbox,
-    TOFileServiceGoogleDrive,
-    TOFileServiceBox,
-    TOFileServiceOneDrive,
-    TOFileServiceFTP,
-    TOFileServiceSFTP,
-    TOFileServiceSMB
+typedef NS_ENUM(NSInteger, TOFileServiceType) {
+    TOFileServiceTypeDropbox     = 0,
+    TOFileServiceTypeGoogleDrive = 1,
+    TOFileServiceTypeBox         = 2,
+    TOFileServiceTypeOneDrive    = 3,
+    TOFileServiceTypeFTP         = 4,
+    TOFileServiceTypeSFTP        = 5,
+    TOFileServiceTypeSMB         = 6,
+
+    TOFileServiceTypeNone        = -1,
+    TOFileServiceTypeCount       = 7
 };
 
-typedef NS_ENUM(NSInteger, TOFileCloudService) {
-    TOFileCloudServiceDropbox,
-    TOFileCloudServiceGoogleDrive,
-    TOFileCloudServiceBox,
-    TOFileCloudServiceOneDrive
+typedef NS_ENUM(NSInteger, TOFileCloudServiceType) {
+    TOFileCloudServiceTypeDropbox,
+    TOFileCloudServiceTypeGoogleDrive,
+    TOFileCloudServiceTypeBox,
+    TOFileCloudServiceTypeOneDrive
 };
 
-typedef NS_ENUM(NSInteger, TOFileCustomHostService) {
-    TOFileCustomHostServiceFTP,
-    TOFileCustomHostServiceSFTP,
-    TOFileCustomHostServiceSMB,
+typedef NS_ENUM(NSInteger, TOFileCustomHostServiceType) {
+    TOFileCustomHostServiceTypeFTP,
+    TOFileCustomHostServiceTypeSFTP,
+    TOFileCustomHostServiceTypeSMB,
     //TOFileCustomHostServiceWebDAV
 };
+

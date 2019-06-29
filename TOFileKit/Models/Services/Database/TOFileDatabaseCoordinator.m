@@ -20,7 +20,14 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TOFileKit.h"
+#import "TOFileDatabaseCoordinator.h"
+#import "TOFileKeychainAccess.h"
+
+#import "TOFileLocation.h"
+#import "TOFileLocationList.h"
+#import "TOFileDownload.h"
+
+#import <Realm/Realm.h>
 
 @interface TOFileDatabaseCoordinator ()
 
@@ -128,7 +135,7 @@
     RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
     config.fileURL = self.fileURL;
     config.encryptionKey = self.encryptionKey;
-    config.objectClasses = @[[TOFileAccount class], [TOFileAccount class], [TOFileDownload class]];
+    config.objectClasses = @[[TOFileLocation class], [TOFileLocationList class], [TOFileDownload class]];
     return config;
 }
 

@@ -1,7 +1,7 @@
 //
 //  TOFileKit.h
 //
-//  Copyright 2015-2019 Timothy Oliver. All rights reserved.
+//  Copyright 2019 Timothy Oliver. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
@@ -22,25 +22,5 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-#import <Realm/Realm.h>
-#import <Mantle/Mantle.h>
-#import <1PasswordExtension/OnePasswordExtension.h>
-#import <NMSSH/NMSSH.h>
-#import <Reachability/Reachability.h>
-#import <TOSearchBar/TOSearchBar.h>
-
-#import "TOFileConstants.h"
-
-#import "TOFileDatabaseCoordinator.h"
-#import "TOFileCoordinator.h"
-#import "TOFileKeychainAccess.h"
-#import "TOFileAccount.h"
-#import "TOFileAccountList.h"
-#import "TOFileDownload.h"
-#import "TOFileLocationsPresenter.h"
-#import "TOFileLocationsProvider.h"
-
-#import "TOFileLocationsView.h"
 
 #import "TOFileLocationsViewController.h"
