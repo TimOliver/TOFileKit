@@ -101,11 +101,10 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
         _serviceDiscovery = [[TOFileLocalServiceDiscovery alloc] initWithSearchServiceTypes:bonjourServiceTypes];
     }
 
-    id servicesListChangedHandler = ^(NSNetService *service) {
+    id servicesListChangedHandler = ^{
         [weakSelf localDevicesListDidUpdate];
     };
-    _serviceDiscovery.servicesListAddedHandler = servicesListChangedHandler;
-    _serviceDiscovery.servicesListRemovedHandler = servicesListChangedHandler;
+    _serviceDiscovery.servicesListChangedHandler = servicesListChangedHandler;
 }
 
 #pragma mark - User Initiated Input Events -

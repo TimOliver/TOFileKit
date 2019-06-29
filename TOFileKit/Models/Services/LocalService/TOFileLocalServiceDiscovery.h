@@ -32,14 +32,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** A list of all of the services discovered. Dynamically updated alongside the service handlers. */
 @property (nonatomic, readonly) NSArray<NSNetService *> *services;
 
-/** A block triggered whenever a new service is detected and was added to the array. */
-@property (nonatomic, copy) void (^servicesListAddedHandler)(NSNetService * _Nullable service);
-
-/** A block triggered whenever a service is removed from the services array */
-@property (nonatomic, copy) void (^servicesListRemovedHandler)(NSNetService * _Nullable service);
+/** A block triggered whenever the services array has changed. */
+@property (nonatomic, copy) void (^servicesListChangedHandler)(void);
 
 /** Whether the discovery object is currently running or not. */
 @property (nonatomic, readonly) BOOL isRunning;
+
+/** A rate limiting value of the time interval between how often the services list updates (Defualt is 0.25f) */
+@property (nonatomic, assign) CFTimeInterval rateTimeLimit;
 
 /** Create a new discovery object, and prefill it with the types to search for. */
 - (instancetype)initWithSearchServiceTypes:(NSArray<NSString *> *)searchServiceTypes;

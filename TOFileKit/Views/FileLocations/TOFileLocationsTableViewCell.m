@@ -82,6 +82,7 @@
 {
     BOOL darkMode = (_themeStyle != TOFileLocationsTableViewCellTypeDefault);
     self.textLabel.textColor = darkMode ? [UIColor whiteColor] : [UIColor blackColor];
+    self.detailTextLabel.textColor = [UIColor grayColor];
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 

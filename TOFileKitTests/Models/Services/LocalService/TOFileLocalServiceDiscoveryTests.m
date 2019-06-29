@@ -30,16 +30,15 @@
 @implementation TOFileLocalServiceDiscoveryTests
 
 // Do a basic test to see that the class will properly handle services sent from Bonjour
-- (void)testLocalDiscovery
+- (void)testLocalDiscoveryServiceAdded
 {
-    NSArray *serviceTypes = @[@"_smb._tcp."];
-
-    // Allocation
-    TOFileLocalServiceDiscovery *discovery = [[TOFileLocalServiceDiscovery alloc] initWithSearchServiceTypes:serviceTypes];
+    // Create the object and test to make sure creation succeeded
+    TOFileLocalServiceDiscovery *discovery = [[TOFileLocalServiceDiscovery alloc] initWithSearchServiceTypes:@[@"_smb._tcp."]];
     XCTAssertNotNil(discovery);
 
-    discovery.servicesListAddedHandler = ^(NSNetService *service) {
-        XCTAssertNotNil(service);
+    XCTestExpectation *serviceDiscoveredExpectation = [[XCTestExpectation alloc] initWithDescription:@"Check the service was successfully triggered"];
+    discovery.servicesListChangedHandler = ^{
+        [serviceDiscoveredExpectation fulfill];
     };
 
     // Create a dummy service
@@ -48,6 +47,32 @@
     // Expose the protocol conformance of the object so we can trigger a fake service detection
     id<NSNetServiceBrowserDelegate> discoveryDelegate = (id)discovery;
     [discoveryDelegate netServiceBrowser:[[NSNetServiceBrowser alloc] init] didFindService:service moreComing:YES];
+
+    // Test the expextation
+    [self waitForExpectations:@[serviceDiscoveredExpectation] timeout:1.0f];
+}
+
+- (void)testLocalDiscoveryServiceRemoved
+{
+    // Create the object and test to make sure creation succeeded
+    TOFileLocalServiceDiscovery *discovery = [[TOFileLocalServiceDiscovery alloc] initWithSearchServiceTypes:@[@"_smb._tcp."]];
+    XCTAssertNotNil(discovery);
+
+    // Create an expectation so we can test the handler is called properly
+    XCTestExpectation *serviceDiscoveredExpectation = [[XCTestExpectation alloc] initWithDescription:@"Check the service was successfully triggered"];
+    discovery.servicesListChangedHandler = ^{
+        [serviceDiscoveredExpectation fulfill];
+    };
+
+    // Create a dummy service
+    NSNetService *service = [[NSNetService alloc] initWithDomain:@"" type:@"_smb._tcp." name:@"Test"];
+
+    // Expose the protocol conformance of the object so we can trigger a fake service detection
+    id<NSNetServiceBrowserDelegate> discoveryDelegate = (id)discovery;
+    [discoveryDelegate netServiceBrowser:[[NSNetServiceBrowser alloc] init] didRemoveService:service moreComing:NO];
+
+    // Test the expextation
+    [self waitForExpectations:@[serviceDiscoveredExpectation] timeout:1.0f];
 }
 
 @end

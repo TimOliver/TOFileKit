@@ -24,14 +24,26 @@
 
 @interface TOFileLocalServiceDiscovery () <NSNetServiceBrowserDelegate>
 
+// An internal dictionary to uniquely store all of the services.
+@property (nonatomic, strong) NSMutableDictionary *servicesDictionary;
+
 // One service browser per the type we want to scan for.
 @property (nonatomic, strong) NSArray<NSNetServiceBrowser *> *serviceBrowsers;
 
-// A mutable version of the array that we will store the services we get back from Bonjour
-@property (nonatomic, strong, readwrite) NSMutableArray<NSNetService *> *services;
+// A statuc array that we will publicly expose the services we get back from Bonjour
+@property (nonatomic, strong, readwrite) NSArray<NSNetService *> *services;
 
 // Whether the discovery object is actively running or not
 @property (nonatomic, assign, readwrite) BOOL isRunning;
+
+// An dispatch queue that we use to offload generating the services array
+@property (nonatomic, strong) dispatch_queue_t servicesQueue;
+
+// A dispatch queue used to make the services dictionary thread-safe
+@property (nonatomic, strong) dispatch_queue_t serviceDictionaryQueue;
+
+// A timer used to periodically refresh the public services list
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -43,9 +55,27 @@
 {
     if (self = [super init]) {
         _searchServiceTypes = [searchServiceTypes copy];
+        [self commonInit];
     }
 
     return self;
+}
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        [self commonInit];
+    }
+
+    return self;
+}
+
+- (void)commonInit
+{
+    _servicesDictionary = [NSMutableDictionary dictionary];
+    _rateTimeLimit = 0.25f;
+    _servicesQueue = dispatch_queue_create("dev.tim.localServiceDiscovery.servicesQueue", DISPATCH_QUEUE_SERIAL);
+    _serviceDictionaryQueue = dispatch_queue_create("dev.tim.localServiceDiscovery.serviceDictionaryQueue", DISPATCH_QUEUE_CONCURRENT);
 }
 
 #pragma mark - Discovery Control -
@@ -84,7 +114,7 @@
     self.services = nil;
 }
 
-#pragma mark - Internal Browser Management -
+#pragma mark - Service Browser Management -
 
 - (void)prepareServiceBrowsers
 {
@@ -130,43 +160,73 @@
 #pragma mark - Net Service Browser Delegate -
 - (void)netServiceBrowser:(NSNetServiceBrowser *)browser didFindService:(NSNetService *)service moreComing:(BOOL)moreComing
 {
-    // Create an array to store these services on the first time.
-    if (!self.services) {
-        self.services = [NSMutableArray array];
-    }
+    // Add the service to the dictionary.
+    // (Storing it via its hash efficiently ensures no duplicates)
+    dispatch_barrier_async(self.serviceDictionaryQueue, ^{
+        self.servicesDictionary[@(service.hash)] = service;
+    });
 
-    // Skip this service if it's already in the list
-    if ([self.services indexOfObject:service] != NSNotFound) { return; }
-
-    // Add the service to the list
-    [(NSMutableArray *)self.services addObject:service];
-
-    // Alert the added handler block
-    if (self.servicesListAddedHandler) {
-        self.servicesListAddedHandler(service);
+    // If one hasn't been started yet, kickstart a new timer to coalesce all of these service calls
+    if (!self.timer) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:self.rateTimeLimit
+                                                      target:self
+                                                    selector:@selector(servicesTimerDidTrigger)
+                                                    userInfo:nil
+                                                     repeats:NO];
     }
 }
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)browser didRemoveService:(NSNetService *)service moreComing:(BOOL)moreComing
 {
-    if (!self.services) { return; }
+    // Remove the object from the dictionary
+    dispatch_barrier_async(self.serviceDictionaryQueue, ^{
+        [self.servicesDictionary removeObjectForKey:@(service.hash)];
+    });
 
-    // Skip if we never added this service to begin
-    NSUInteger index = [self.services indexOfObject:service];
-    if (index == NSNotFound) { return; }
-
-    // Remove the object from our list
-    [(NSMutableArray *)self.services removeObject:service];
-
-    // If that was the final item, deallocate the array
-    if (self.services.count == 0) {
-        self.services = nil;
+    // If one hasn't been started yet, kickstart a new timer to coalesce all of these service calls
+    if (!self.timer) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:self.rateTimeLimit
+                                                      target:self
+                                                    selector:@selector(servicesTimerDidTrigger)
+                                                    userInfo:nil
+                                                     repeats:NO];
     }
+}
 
-    // Alert the refresh handler block
-    if (self.servicesListRemovedHandler) {
-        self.servicesListRemovedHandler(service);
-    }
+#pragma mark - Service Batch Coalescing -
+
+- (void)servicesTimerDidTrigger
+{
+    // Offload the work to generate a new services list to the background
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(self.servicesQueue, ^{
+        [weakSelf updateServicesList];
+    });
+
+    // Set the timer to nil so we can repeat the process if need be
+    self.timer = nil;
+}
+
+- (void)updateServicesList
+{
+    // Extract all of the services from the array
+    __block NSMutableArray *services = nil;
+    dispatch_sync(self.serviceDictionaryQueue, ^{
+        services = self.servicesDictionary.allValues.mutableCopy;
+    });
+
+    // Sort them all by name
+    NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    [services sortUsingDescriptors:@[nameSortDescriptor]];
+
+    // Update the public facing list from the main thread
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.services = [NSArray arrayWithArray:services];
+
+        if (self.servicesListChangedHandler) {
+            self.servicesListChangedHandler();
+        }
+    });
 }
 
 #pragma mark - Accessors -

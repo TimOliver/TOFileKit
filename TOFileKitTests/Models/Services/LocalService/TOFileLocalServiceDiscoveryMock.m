@@ -35,11 +35,6 @@
     // Reset the array
     self.mockedServices = [NSMutableArray array];
 
-    // Trigger the removed block
-    if (self.servicesListRemovedHandler) {
-        self.servicesListRemovedHandler(nil);
-    }
-
     // Fill the array with the number of services
     for (NSInteger i = 0; i < serviceCount; i++) {
         NSString *name = [NSString stringWithFormat:@"Test %ld", i+1];
@@ -47,8 +42,8 @@
         [self.mockedServices addObject:service];
     }
 
-    if (self.servicesListAddedHandler) {
-        self.servicesListAddedHandler(self.mockedServices.lastObject);
+    if (self.servicesListChangedHandler) {
+        self.servicesListChangedHandler();
     }
 }
 
