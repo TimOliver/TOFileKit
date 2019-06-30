@@ -47,6 +47,7 @@
 		2272DE6922C83FE6008C4453 /* TOFileLocationPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6822C83FE6008C4453 /* TOFileLocationPickerView.m */; };
 		2272DE6D22C85A1D008C4453 /* TOFileTableTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6C22C85A1D008C4453 /* TOFileTableTitleHeaderView.m */; };
 		2272DE7222C89A20008C4453 /* TOFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE7122C89A20008C4453 /* TOFileViewController.m */; };
+		2272DE7722C8FD70008C4453 /* TOFileLocationPickerPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE7622C8FD70008C4453 /* TOFileLocationPickerPresenter.m */; };
 		22992FF12258BC11004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
 		22992FF32258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */; };
 		22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
@@ -152,6 +153,8 @@
 		2272DE6C22C85A1D008C4453 /* TOFileTableTitleHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableTitleHeaderView.m; sourceTree = "<group>"; };
 		2272DE7022C89A20008C4453 /* TOFileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileViewController.h; sourceTree = "<group>"; };
 		2272DE7122C89A20008C4453 /* TOFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileViewController.m; sourceTree = "<group>"; };
+		2272DE7522C8FD70008C4453 /* TOFileLocationPickerPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationPickerPresenter.h; sourceTree = "<group>"; };
+		2272DE7622C8FD70008C4453 /* TOFileLocationPickerPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationPickerPresenter.m; sourceTree = "<group>"; };
 		22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscovery.m; sourceTree = "<group>"; };
 		22992FF02258BC11004AEF16 /* TOFileLocalServiceDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileLocalServiceDiscovery.h; sourceTree = "<group>"; };
 		22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscoveryTests.m; sourceTree = "<group>"; };
@@ -488,6 +491,8 @@
 		2272DE7422C8FC6D008C4453 /* FileLocationPicker */ = {
 			isa = PBXGroup;
 			children = (
+				2272DE7522C8FD70008C4453 /* TOFileLocationPickerPresenter.h */,
+				2272DE7622C8FD70008C4453 /* TOFileLocationPickerPresenter.m */,
 			);
 			path = FileLocationPicker;
 			sourceTree = "<group>";
@@ -497,8 +502,8 @@
 			children = (
 				2272DE7022C89A20008C4453 /* TOFileViewController.h */,
 				2272DE7122C89A20008C4453 /* TOFileViewController.m */,
-				2272DE6322C83A74008C4453 /* FileLocationPicker */,
 				225DB28D220DF2D9003B90D8 /* FileLocations */,
+				2272DE6322C83A74008C4453 /* FileLocationPicker */,
 				225DB28C220DF2CC003B90D8 /* Extended */,
 			);
 			path = Controllers;
@@ -882,6 +887,7 @@
 				22992FF12258BC11004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */,
 				2219B388220E80A300A91505 /* TOFileSeparatorView.m in Sources */,
 				2253F3BC2215D13F006171C6 /* TOFileTableSectionFooterView.m in Sources */,
+				2272DE7722C8FD70008C4453 /* TOFileLocationPickerPresenter.m in Sources */,
 				2272DE6922C83FE6008C4453 /* TOFileLocationPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
