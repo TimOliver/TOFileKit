@@ -46,6 +46,7 @@
 		2272DE6622C83F7C008C4453 /* TOFileLocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6522C83F7C008C4453 /* TOFileLocationPickerViewController.m */; };
 		2272DE6922C83FE6008C4453 /* TOFileLocationPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6822C83FE6008C4453 /* TOFileLocationPickerView.m */; };
 		2272DE6D22C85A1D008C4453 /* TOFileTableTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6C22C85A1D008C4453 /* TOFileTableTitleHeaderView.m */; };
+		2272DE7222C89A20008C4453 /* TOFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE7122C89A20008C4453 /* TOFileViewController.m */; };
 		22992FF12258BC11004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
 		22992FF32258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */; };
 		22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
@@ -149,6 +150,8 @@
 		2272DE6822C83FE6008C4453 /* TOFileLocationPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationPickerView.m; sourceTree = "<group>"; };
 		2272DE6B22C85A1D008C4453 /* TOFileTableTitleHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableTitleHeaderView.h; sourceTree = "<group>"; };
 		2272DE6C22C85A1D008C4453 /* TOFileTableTitleHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableTitleHeaderView.m; sourceTree = "<group>"; };
+		2272DE7022C89A20008C4453 /* TOFileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileViewController.h; sourceTree = "<group>"; };
+		2272DE7122C89A20008C4453 /* TOFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileViewController.m; sourceTree = "<group>"; };
 		22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscovery.m; sourceTree = "<group>"; };
 		22992FF02258BC11004AEF16 /* TOFileLocalServiceDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileLocalServiceDiscovery.h; sourceTree = "<group>"; };
 		22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscoveryTests.m; sourceTree = "<group>"; };
@@ -367,8 +370,8 @@
 		2250017B21D22BF4007EC4EA /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				2252F50A21D9C6B800C6607F /* TOFileLocationsPresenter.h */,
-				2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */,
+				2272DE7422C8FC6D008C4453 /* FileLocationPicker */,
+				2272DE7322C8FC62008C4453 /* FileLocations */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -473,9 +476,27 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		2272DE7322C8FC62008C4453 /* FileLocations */ = {
+			isa = PBXGroup;
+			children = (
+				2252F50A21D9C6B800C6607F /* TOFileLocationsPresenter.h */,
+				2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */,
+			);
+			path = FileLocations;
+			sourceTree = "<group>";
+		};
+		2272DE7422C8FC6D008C4453 /* FileLocationPicker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FileLocationPicker;
+			sourceTree = "<group>";
+		};
 		227ACCFD201C5CB8000E699F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2272DE7022C89A20008C4453 /* TOFileViewController.h */,
+				2272DE7122C89A20008C4453 /* TOFileViewController.m */,
 				2272DE6322C83A74008C4453 /* FileLocationPicker */,
 				225DB28D220DF2D9003B90D8 /* FileLocations */,
 				225DB28C220DF2CC003B90D8 /* Extended */,
@@ -834,6 +855,7 @@
 				22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */,
 				220366C22219126C0070E21A /* TOFileCustomServiceSMB.m in Sources */,
 				2250016021D13F0B007EC4EA /* TOFileLocationList.m in Sources */,
+				2272DE7222C89A20008C4453 /* TOFileViewController.m in Sources */,
 				2250017521D21AE0007EC4EA /* TOFileLocationsViewController.m in Sources */,
 				2252F50C21D9C6B800C6607F /* TOFileLocationsPresenter.m in Sources */,
 				22FC4C811FF8C4700055FDF5 /* main.m in Sources */,
