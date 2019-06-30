@@ -6,11 +6,13 @@
 //  Copyright © 2019 Tim Oliver. All rights reserved.
 //
 
-#import "TOFileLocationPickerViewController.h"
+#import "TOFileConstants.h"
 #import "TOFileCoordinator.h"
-#import "TOFileLocationPickerView.h"
-#import "TORoundedTableView.h"
 #import "TOFileLocationImage.h"
+#import "TOFileLocationPickerPresenter.h"
+#import "TOFileLocationPickerView.h"
+#import "TOFileLocationPickerViewController.h"
+#import "TORoundedTableView.h"
 
 @interface TOFileLocationPickerViewController ()  <UITableViewDelegate, UITableViewDataSource>
 
@@ -23,6 +25,9 @@
 /** A dictionary holding all of the service images we support. */
 @property (nonatomic, strong) NSDictionary *serviceIcons;
 
+/** The view presenter holding all of the display logic for this controller */
+@property (nonatomic, strong) TOFileLocationPickerPresenter *presenter;
+
 @end
 
 @implementation TOFileLocationPickerViewController
@@ -33,6 +38,7 @@
 {
     if (self = [super init]) {
         _fileCoordinator = fileCoordinator;
+        _presenter = [[TOFileLocationPickerPresenter alloc] initWithFileCoordinator:_fileCoordinator];
     }
 
     return self;
@@ -65,6 +71,69 @@
 }
 
 #pragma mark - Table View Data Source -
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return self.presenter.numberOfSections;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.presenter numberOfItemsInSection:section];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Create identifiers for standard cells and the cells that will show the rounded corners
+    static NSString *cellIdentifier     = @"Cell";
+    static NSString *capCellIdentifier  = @"CapCell";
+
+    // Work out if this cell needs the top or bottom corners rounded (Or if the section only has 1 row, both!)
+    BOOL isTop = (indexPath.row == 0);
+    BOOL isBottom = indexPath.row == ([self.presenter numberOfItemsInSection:indexPath.section] - 1);
+
+    // Create a common table cell instance we can configure
+    UITableViewCell *cell = nil;
+
+    // If it's a non-cap cell, dequeue one with the regular identifier
+    if (!isTop && !isBottom) {
+        TORoundedTableViewCell *normalCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (normalCell == nil) {
+            normalCell = [[TORoundedTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        }
+
+        cell = normalCell;
+    }
+    else {
+        // If the cell is indeed one that needs rounded corners, dequeue from the pool of cap cells
+        TORoundedTableViewCapCell *capCell = [tableView dequeueReusableCellWithIdentifier:capCellIdentifier];
+        if (capCell == nil) {
+            capCell = [[TORoundedTableViewCapCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:capCellIdentifier];
+        }
+
+        // Configure the cell to set the appropriate corners as rounded
+        capCell.topCornersRounded = isTop;
+        capCell.bottomCornersRounded = isBottom;
+        cell = capCell;
+    }
+
+    // Add the arrow to the cell
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+    // Configure the cell's label
+    cell.textLabel.text = [self.presenter nameOfItemInSection:indexPath.section atIndex:indexPath.row];
+
+    // Configure the cell's icon
+    TOFileServiceType type = [self.presenter typeOfItemInSection:indexPath.section atIndex:indexPath.row];
+    cell.imageView.image = self.serviceIcons[@(type)];
+
+    // Since we know the background is white, set the label's background to also be white for performance optimizations
+    cell.textLabel.backgroundColor = [UIColor whiteColor];
+    cell.textLabel.opaque = YES;
+
+    // Return the cell
+    return cell;
+}
 
 #pragma mark - Internal Accessors -
 
