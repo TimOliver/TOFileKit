@@ -22,8 +22,14 @@
 
 // Private API and property exposure for the file coordinator class.
 
-#import "TOFileKit.h"
+#import "TOFileCoordinator.h"
 
-@interface TOFileKit (Private)
+@class TOFileService;
+
+@interface TOFileCoordinator (Private)
+
+/** Provided an array of file services types, return a filtered array based on the disallowed ones in `disallowedFileServiceTypes` */
+- (NSArray<TOFileService *> *)filteredServicesArrayWithArray:(NSArray<TOFileService *> *)array;
+
 
 @end
