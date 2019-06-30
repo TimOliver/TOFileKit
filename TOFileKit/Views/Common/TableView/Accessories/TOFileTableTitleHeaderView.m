@@ -95,7 +95,8 @@
 
     // Lay out the title label
     CGRect frame = self.titleLabel.frame;
-    frame.size = [self.titleLabel textRectForBounds:contentBounds limitedToNumberOfLines:0].size;
+    frame.size.width = contentSize.width;
+    frame.size.height = [self.titleLabel textRectForBounds:contentBounds limitedToNumberOfLines:0].size.height;
     frame.origin.x = midX - (frame.size.width * 0.5f);
     frame.origin.y = y;
     self.titleLabel.frame = CGRectIntegral(frame);
@@ -104,7 +105,8 @@
 
     // Lay out the message label
     frame = self.messageLabel.frame;
-    frame.size = [self.messageLabel textRectForBounds:contentBounds limitedToNumberOfLines:0].size;
+    frame.size.width = contentSize.width;
+    frame.size.height = [self.messageLabel textRectForBounds:contentBounds limitedToNumberOfLines:0].size.height;
     frame.origin.x = midX - (frame.size.width * 0.5f);
     frame.origin.y = y;
     self.messageLabel.frame = CGRectIntegral(frame);
