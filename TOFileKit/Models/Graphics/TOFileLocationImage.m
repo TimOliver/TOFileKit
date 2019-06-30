@@ -25,6 +25,17 @@
 
 @implementation TOFileLocationImage
 
++ (NSMapTable *)sharedCache
+{
+    static NSMapTable *sharedCache = nil;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        sharedCache = [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory
+                                            valueOptions:NSPointerFunctionsWeakMemory];
+    });
+    return sharedCache;
+}
+
 + (NSDictionary *)allImagesDictionary
 {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
@@ -36,12 +47,16 @@
 
 + (UIImage *)imageOfType:(TOFileServiceType)type
 {
+    // Ensure a valid value was provided
     if (type < 0 || type >= TOFileServiceTypeCount) { return nil; }
 
-    CGSize size = (CGSize){32.0f, 32.0f};
-    UIImage *image = nil;
+    // Return a cached version if available
+    NSMapTable *sharedCache = [self.class sharedCache];
+    if ([sharedCache objectForKey:@(type)]) { return [sharedCache objectForKey:@(type)]; }
 
-    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+    // Generate image
+    UIImage *image = nil;
+    UIGraphicsBeginImageContextWithOptions((CGSize){32.0f, 32.0f}, NO, 0.0f);
     {
         switch (type) {
             case TOFileServiceTypeDropbox: [TOFileLocationImage drawDropboxIcon]; break;
@@ -57,6 +72,9 @@
         image = UIGraphicsGetImageFromCurrentImageContext();
     }
     UIGraphicsEndImageContext();
+
+    // Save to cache
+    [sharedCache setObject:image forKey:@(type)];
 
     return image;
 }
