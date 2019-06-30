@@ -100,7 +100,7 @@
     NSArray *serviceTypes = @[[TOFileService fileServiceForType:TOFileServiceTypeDropbox],
                              [TOFileService fileServiceForType:TOFileServiceTypeSMB]];
 
-    XCTAssert([coordinator filteredServicesArrayWithArray:serviceTypes].count == 1);
+    XCTAssert([coordinator filteredDisallowedServicesArrayWithArray:serviceTypes].count == 1);
 }
 
 - (void)testFileCoordinatorDealloc

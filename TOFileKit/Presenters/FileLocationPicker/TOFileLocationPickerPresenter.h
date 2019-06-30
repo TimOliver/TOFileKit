@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)nameOfItemInSection:(NSInteger)section atIndex:(NSInteger)index;
 
 /** The service type of the location for the given item */
-- (TOFileServiceType)typeOfItemInIndex:(NSInteger)index section:(NSInteger)section;
+- (TOFileServiceType)typeOfItemInSection:(NSInteger)section atIndex:(NSInteger)index;
 
 /** Create a new instance with the provided file coordinator */
 - (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator;

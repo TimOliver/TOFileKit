@@ -109,7 +109,7 @@ static TOFileCoordinator *_sharedCoordinator = nil;
 
 #pragma mark - Private Methods -
 
-- (NSArray<TOFileService *> *)filteredServicesArrayWithArray:(NSArray<TOFileService *> *)array
+- (NSArray<TOFileService *> *)filteredDisallowedServicesArrayWithArray:(NSArray<TOFileService *> *)array
 {
     if (!self.disallowedFileServiceTypes || self.disallowedFileServiceTypes.count == 0) { return array; }
 
