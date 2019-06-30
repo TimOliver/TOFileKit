@@ -34,7 +34,6 @@
     // Create the table view
     self.tableView = [[TORoundedTableView alloc] initWithFrame:self.frame style:UITableViewStyleGrouped];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.tableView.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
     [self addSubview:self.tableView];
 
     // Create the header view
@@ -46,6 +45,9 @@
     // Size the header view to align with the width of this view and set it to the table
     [self.headerView sizeToFitInWidth:self.frame.size.width];
     self.tableView.tableHeaderView = self.headerView;
+
+    // Set background color after views are created for the accessor to update everything
+    self.backgroundColor = [UIColor colorWithWhite:0.96f alpha:1.0f];
 }
 
 - (void)setFrame:(CGRect)frame
@@ -59,6 +61,14 @@
         [self.headerView sizeToFitInWidth:frame.size.width];
         self.tableView.tableHeaderView = self.headerView;
     }
+}
+
+#pragma mark - Accessors -
+- (void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    [super setBackgroundColor:backgroundColor];
+    self.tableView.backgroundColor = backgroundColor;
+    self.headerView.backgroundColor = backgroundColor;
 }
 
 @end
