@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileLocationsViewController : UIViewController
 
+/* The file coordinator serving as the data source for this controller */
 @property (nonatomic, strong, readonly) TOFileCoordinator *fileCoordinator;
 
 /**

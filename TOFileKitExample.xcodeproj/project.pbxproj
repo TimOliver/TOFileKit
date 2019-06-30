@@ -43,6 +43,9 @@
 		225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */; };
 		225DB295220DF7D8003B90D8 /* TOFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */; };
 		226F316F221D943E006C2CCD /* TOFileCloudServiceCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */; };
+		2272DE6622C83F7C008C4453 /* TOFileLocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6522C83F7C008C4453 /* TOFileLocationPickerViewController.m */; };
+		2272DE6922C83FE6008C4453 /* TOFileLocationPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6822C83FE6008C4453 /* TOFileLocationPickerView.m */; };
+		2272DE6D22C85A1D008C4453 /* TOFileTableTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6C22C85A1D008C4453 /* TOFileTableTitleHeaderView.m */; };
 		22992FF12258BC11004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
 		22992FF32258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */; };
 		22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
@@ -140,6 +143,12 @@
 		225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableViewCell.m; sourceTree = "<group>"; };
 		226F316D221D943E006C2CCD /* TOFileCloudServiceCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileCloudServiceCredentials.h; sourceTree = "<group>"; };
 		226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCloudServiceCredentials.m; sourceTree = "<group>"; };
+		2272DE6422C83F7C008C4453 /* TOFileLocationPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationPickerViewController.h; sourceTree = "<group>"; };
+		2272DE6522C83F7C008C4453 /* TOFileLocationPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationPickerViewController.m; sourceTree = "<group>"; };
+		2272DE6722C83FE6008C4453 /* TOFileLocationPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationPickerView.h; sourceTree = "<group>"; };
+		2272DE6822C83FE6008C4453 /* TOFileLocationPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationPickerView.m; sourceTree = "<group>"; };
+		2272DE6B22C85A1D008C4453 /* TOFileTableTitleHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableTitleHeaderView.h; sourceTree = "<group>"; };
+		2272DE6C22C85A1D008C4453 /* TOFileTableTitleHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableTitleHeaderView.m; sourceTree = "<group>"; };
 		22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscovery.m; sourceTree = "<group>"; };
 		22992FF02258BC11004AEF16 /* TOFileLocalServiceDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileLocalServiceDiscovery.h; sourceTree = "<group>"; };
 		22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscoveryTests.m; sourceTree = "<group>"; };
@@ -350,6 +359,7 @@
 			children = (
 				225DB292220DF734003B90D8 /* Common */,
 				225DB291220DF723003B90D8 /* FileLocations */,
+				2272DE6A22C83FEA008C4453 /* FileLocationPicker */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -421,9 +431,52 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		2272DE6322C83A74008C4453 /* FileLocationPicker */ = {
+			isa = PBXGroup;
+			children = (
+				2272DE6422C83F7C008C4453 /* TOFileLocationPickerViewController.h */,
+				2272DE6522C83F7C008C4453 /* TOFileLocationPickerViewController.m */,
+			);
+			path = FileLocationPicker;
+			sourceTree = "<group>";
+		};
+		2272DE6A22C83FEA008C4453 /* FileLocationPicker */ = {
+			isa = PBXGroup;
+			children = (
+				2272DE6722C83FE6008C4453 /* TOFileLocationPickerView.h */,
+				2272DE6822C83FE6008C4453 /* TOFileLocationPickerView.m */,
+			);
+			path = FileLocationPicker;
+			sourceTree = "<group>";
+		};
+		2272DE6E22C85A27008C4453 /* Accessories */ = {
+			isa = PBXGroup;
+			children = (
+				2219B386220E80A300A91505 /* TOFileSeparatorView.h */,
+				2219B387220E80A300A91505 /* TOFileSeparatorView.m */,
+				2272DE6B22C85A1D008C4453 /* TOFileTableTitleHeaderView.h */,
+				2272DE6C22C85A1D008C4453 /* TOFileTableTitleHeaderView.m */,
+				22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */,
+				22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */,
+				2253F3BA2215D13F006171C6 /* TOFileTableSectionFooterView.h */,
+				2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */,
+			);
+			path = Accessories;
+			sourceTree = "<group>";
+		};
+		2272DE6F22C85A36008C4453 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				225DB293220DF7D8003B90D8 /* TOFileTableViewCell.h */,
+				225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		227ACCFD201C5CB8000E699F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2272DE6322C83A74008C4453 /* FileLocationPicker */,
 				225DB28D220DF2D9003B90D8 /* FileLocations */,
 				225DB28C220DF2CC003B90D8 /* Extended */,
 			);
@@ -478,14 +531,8 @@
 		22BEB31022C4F8C0000BCB1A /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				2219B386220E80A300A91505 /* TOFileSeparatorView.h */,
-				2219B387220E80A300A91505 /* TOFileSeparatorView.m */,
-				225DB293220DF7D8003B90D8 /* TOFileTableViewCell.h */,
-				225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */,
-				22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */,
-				22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */,
-				2253F3BA2215D13F006171C6 /* TOFileTableSectionFooterView.h */,
-				2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */,
+				2272DE6E22C85A27008C4453 /* Accessories */,
+				2272DE6F22C85A36008C4453 /* Cells */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -782,6 +829,7 @@
 				225DB295220DF7D8003B90D8 /* TOFileTableViewCell.m in Sources */,
 				22BEB30F22C4F8BB000BCB1A /* TOFileOnboardingView.m in Sources */,
 				220366C32219126C0070E21A /* TOFileCustomServiceSFTP.m in Sources */,
+				2272DE6622C83F7C008C4453 /* TOFileLocationPickerViewController.m in Sources */,
 				2250015821D0D71E007EC4EA /* TOFileLocation.m in Sources */,
 				22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */,
 				220366C22219126C0070E21A /* TOFileCustomServiceSMB.m in Sources */,
@@ -797,6 +845,7 @@
 				22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */,
 				223EEE992217C40B00BF85B5 /* TOFileLocationImage.m in Sources */,
 				220366BE2219126C0070E21A /* TOFileCloudServiceBox.m in Sources */,
+				2272DE6D22C85A1D008C4453 /* TOFileTableTitleHeaderView.m in Sources */,
 				226F316F221D943E006C2CCD /* TOFileCloudServiceCredentials.m in Sources */,
 				2252F51621D9E8A000C6607F /* TOFileCoordinator.m in Sources */,
 				220366C62219126C0070E21A /* TOFileCustomService.m in Sources */,
@@ -811,6 +860,7 @@
 				22992FF12258BC11004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */,
 				2219B388220E80A300A91505 /* TOFileSeparatorView.m in Sources */,
 				2253F3BC2215D13F006171C6 /* TOFileTableSectionFooterView.m in Sources */,
+				2272DE6922C83FE6008C4453 /* TOFileLocationPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
