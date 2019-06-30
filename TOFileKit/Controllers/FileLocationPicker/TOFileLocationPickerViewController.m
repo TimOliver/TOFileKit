@@ -10,11 +10,18 @@
 #import "TOFileCoordinator.h"
 #import "TOFileLocationPickerView.h"
 #import "TORoundedTableView.h"
+#import "TOFileLocationImage.h"
 
 @interface TOFileLocationPickerViewController ()  <UITableViewDelegate, UITableViewDataSource>
 
+/** The coordinator used to track the state we're displaying */
 @property (nonatomic, strong, readwrite) TOFileCoordinator *fileCoordinator;
+
+/** A convenience method for mapping this view controller's view to our type */
 @property (nonatomic, readonly) TOFileLocationPickerView *pickerView;
+
+/** A dictionary holding all of the service images we support. */
+@property (nonatomic, strong) NSDictionary *serviceIcons;
 
 @end
 
@@ -41,6 +48,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    // Load the service icons
+    self.serviceIcons = [TOFileLocationImage allImagesDictionary];
 
     // Link the table view to this controller
     TORoundedTableView *tableView = self.pickerView.tableView;
