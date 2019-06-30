@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class TORoundedTableView;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TOFileLocationPickerView : UIView
 
-@property (nonatomic, readonly) UITableView *tableView;
+@property (nonatomic, readonly) TORoundedTableView *tableView;
 
 @end
 

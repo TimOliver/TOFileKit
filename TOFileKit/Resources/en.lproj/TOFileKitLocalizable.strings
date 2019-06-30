@@ -3,3 +3,7 @@
 "FileLocations.Empty.Title"     = "No Added Locations Yet";
 "FileLocations.Empty.Message"   = "Start adding locations, such as your Dropbox account, or an SMB server to start downloading files.";
 "FileLocations.AddNewLocation"  = "Add New Location";
+
+/* The File Location Picker View Controller */
+"FileLocationPicker.Intro.Title"    = "Add New Location";
+"FileLocationPicker.Intro.Message"  = "Choose a location and then enter in your account credentials. Your credentials are saved securely on disk, and never leave the device.";

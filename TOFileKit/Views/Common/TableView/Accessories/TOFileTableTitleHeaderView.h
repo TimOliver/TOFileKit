@@ -31,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Create a new instance of the header view with the provided title and message */
 - (instancetype)initWithTitle:(NSString *)title message:(NSString *)message;
 
+/** Resize the view based on the provided width and the height of the text labels */
+- (void)sizeToFitInWidth:(CGFloat)width;
+
 @end
 
 NS_ASSUME_NONNULL_END

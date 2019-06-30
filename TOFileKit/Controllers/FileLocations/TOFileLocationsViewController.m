@@ -122,14 +122,18 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     // Insert or remove the locations section as needed
     self.presenter.localDevicesSectionHiddenHandler = ^(NSInteger section, BOOL hidden) {
         NSIndexSet *sectionIndex = [NSIndexSet indexSetWithIndex:section];
-        if (hidden) { [weakView.tableView deleteSections:sectionIndex withRowAnimation:UITableViewRowAnimationFade]; }
-        else { [weakView.tableView insertSections:sectionIndex withRowAnimation:UITableViewRowAnimationFade]; }
+        [UIView performWithoutAnimation:^{
+            if (hidden) { [weakView.tableView deleteSections:sectionIndex withRowAnimation:UITableViewRowAnimationFade]; }
+            else { [weakView.tableView insertSections:sectionIndex withRowAnimation:UITableViewRowAnimationFade]; }
+        }];
     };
 
     // Reload sections of the table view when the data changes
     self.presenter.refreshSectionHandler = ^(NSInteger section) {
-        [weakView.tableView reloadSections:[NSIndexSet indexSetWithIndex:section]
-                          withRowAnimation:UITableViewRowAnimationFade];
+        [UIView performWithoutAnimation:^{
+            [weakView.tableView reloadSections:[NSIndexSet indexSetWithIndex:section]
+                              withRowAnimation:UITableViewRowAnimationNone];
+        }];
     };
     
     // When the Edit button was tapped

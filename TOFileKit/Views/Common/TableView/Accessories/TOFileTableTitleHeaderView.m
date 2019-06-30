@@ -43,9 +43,6 @@
 
 - (void)commonInit
 {
-    _textSpacing = 5.0f;
-    self.backgroundColor = [UIColor whiteColor];
-
     // Create a dynamic font for the title
     UIFont *titleFont = [UIFont systemFontOfSize:28.0f weight:UIFontWeightBold];
     if (@available(iOS 11.0, *)) {
@@ -70,6 +67,10 @@
     self.messageLabel.textColor = [UIColor blackColor];
     self.messageLabel.text = self.message;
     [self addSubview:self.messageLabel];
+
+    // Common properties setup
+    _textSpacing = 5.0f;
+    self.backgroundColor = [UIColor whiteColor];
 }
 
 #pragma mark - Content Layout -
@@ -134,6 +135,21 @@
 
     // Resize ourselves back to that size
     self.frame = frame;
+}
+
+#pragma mark - Accessors -
+
+- (void)setTitleColor:(UIColor *)titleColor { self.titleLabel.textColor = titleColor; }
+- (UIColor *)titleColor { return self.titleLabel.textColor; }
+
+- (void)setMessageColor:(UIColor *)messageColor { self.messageLabel.textColor = messageColor; }
+- (UIColor *)messageColor { return self.messageLabel.textColor; }
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    [super setBackgroundColor:backgroundColor];
+    self.titleLabel.backgroundColor = backgroundColor;
+    self.messageLabel.backgroundColor = backgroundColor;
 }
 
 @end
