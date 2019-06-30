@@ -41,9 +41,9 @@
     NSString *title = TOFileKitLocalized(@"FileLocationPicker.Intro.Title", bundle);
     NSString *message = TOFileKitLocalized(@"FileLocationPicker.Intro.Message", bundle);
     self.headerView = [[TOFileTableTitleHeaderView alloc] initWithTitle:title message:message];
+    self.headerView.layoutMargins = (UIEdgeInsets){8.0f, 0.0f, 35.0f, 0.0f};
 
     // Size the header view to align with the width of this view and set it to the table
-    [self.headerView sizeToFitInWidth:self.frame.size.width];
     self.tableView.tableHeaderView = self.headerView;
 
     // Set background color after views are created for the accessor to update everything
@@ -58,7 +58,8 @@
     // If the width changed, relayout the header view
     if ((NSInteger)oldWidth != (NSInteger)frame.size.width) {
         self.tableView.tableHeaderView = nil;
-        [self.headerView sizeToFitInWidth:frame.size.width];
+        CGFloat width = frame.size.width - (self.tableView.horizontalInset * 2.0f);
+        [self.headerView sizeToFitInWidth:width];
         self.tableView.tableHeaderView = self.headerView;
     }
 }
