@@ -57,6 +57,7 @@
     self.titleLabel.textColor = [UIColor blackColor];
     self.titleLabel.text = self.title;
     self.titleLabel.backgroundColor = self.backgroundColor;
+    self.titleLabel.numberOfLines = 0;
     [self addSubview:self.titleLabel];
 
     // Create the message label
@@ -66,6 +67,7 @@
     self.messageLabel.backgroundColor = self.backgroundColor;
     self.messageLabel.textColor = [UIColor blackColor];
     self.messageLabel.text = self.message;
+    self.messageLabel.numberOfLines = 0;
     [self addSubview:self.messageLabel];
 
     // Common properties setup
