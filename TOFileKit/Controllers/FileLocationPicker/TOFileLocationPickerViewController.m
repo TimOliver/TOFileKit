@@ -55,6 +55,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // Explicity remove large titles from this interface
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
+    }
+
     // Load the service icons
     self.serviceIcons = [TOFileLocationImage allImagesDictionary];
 
