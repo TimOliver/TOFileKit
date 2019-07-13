@@ -77,9 +77,12 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     // Configure this view
     self.title = NSLocalizedString(@"Download", @"Title for Downloads Controller");
 
+    // Configure navigation bar
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
     if (@available(iOS 11.0, *)) {
-        self.navigationController.navigationBar.prefersLargeTitles = YES;
+        navigationBar.prefersLargeTitles = YES;
     }
+    navigationBar.barTintColor = [UIColor whiteColor];
 
     // Load all of the service icons
     self.serviceIcons = [TOFileLocationImage allImagesDictionary];
