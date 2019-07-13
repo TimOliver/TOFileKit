@@ -30,7 +30,7 @@
 - (instancetype)initWithRootViewController:(UIViewController *)rootViewController
 {
     if (self = [super initWithNavigationBarClass:[TOFileNavigationBar class] toolbarClass:nil]) {
-        self.viewControllers = @[rootViewController];
+        [self pushViewController:rootViewController animated:NO];
     }
 
     return self;
