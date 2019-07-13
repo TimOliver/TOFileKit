@@ -21,28 +21,18 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TOFileNavigationController.h"
-#import "TOFileNavigationBar.h"
 
 @implementation TOFileNavigationController
 
 #pragma mark - View Life Cycle -
 
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController
-{
-    if (self = [super initWithNavigationBarClass:[TOFileNavigationBar class] toolbarClass:nil]) {
-        [self pushViewController:rootViewController animated:NO];
-    }
-
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-//    UINavigationBar *bar = self.navigationBar;
-//    bar.barTintColor = [UIColor whiteColor];
-//    bar.shadowImage = [UIImage new];
+    UINavigationBar *bar = self.navigationBar;
+    bar.barTintColor = [UIColor whiteColor];
+    bar.shadowImage = [UIImage new];
 }
 
 
