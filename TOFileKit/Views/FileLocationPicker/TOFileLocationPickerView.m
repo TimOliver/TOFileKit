@@ -35,7 +35,7 @@
     self.tableView = [[TORoundedTableView alloc] initWithFrame:self.frame style:UITableViewStyleGrouped];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.tableView.maximumWidth = 600.0f;
-    self.tableView.rowHeight = 54.0f;
+    self.tableView.rowHeight = 50.0f;
     [self addSubview:self.tableView];
 
     // Create the header view

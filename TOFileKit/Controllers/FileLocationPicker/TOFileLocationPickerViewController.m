@@ -131,10 +131,11 @@
     // Configure the cell's icon
     TOFileServiceType type = [self.presenter typeOfItemInSection:indexPath.section atIndex:indexPath.row];
     cell.imageView.image = self.serviceIcons[@(type)];
-
-    // Since we know the background is white, set the label's background to also be white for performance optimizations
-    cell.textLabel.backgroundColor = [UIColor whiteColor];
-    cell.textLabel.opaque = YES;
+    
+    // Configure layout margins
+    UIEdgeInsets layoutMargins = cell.layoutMargins;
+    layoutMargins.left = 14.0f;
+    cell.layoutMargins = layoutMargins;
 
     // Return the cell
     return cell;
