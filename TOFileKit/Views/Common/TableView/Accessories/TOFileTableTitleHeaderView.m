@@ -71,7 +71,7 @@
     [self addSubview:self.messageLabel];
 
     // Common properties setup
-    _textSpacing = 5.0f;
+    _textSpacing = 0.0f;
     self.backgroundColor = [UIColor whiteColor];
 }
 
