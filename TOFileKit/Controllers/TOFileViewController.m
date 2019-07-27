@@ -51,8 +51,9 @@
     TOFileNavigationController *pickerNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.locationPickerViewController];
 
     // Configure our split view controller to host these controllers
-    self.preferredPrimaryColumnWidthFraction = 0.4f;
+    self.preferredPrimaryColumnWidthFraction = 0.35f;
     self.minimumPrimaryColumnWidth = 320.0f;
+    self.maximumPrimaryColumnWidth = 415.0f;
     self.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
     self.viewControllers = @[locationsNavigationController, pickerNavigationController];
     self.view.backgroundColor = [UIColor whiteColor];
