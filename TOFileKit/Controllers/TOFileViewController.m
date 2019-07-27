@@ -14,11 +14,8 @@
 
 @interface TOFileViewController ()
 
-@property (nonatomic, strong) UISplitViewController *downloadSplitController;
 @property (nonatomic, strong) TOFileLocationsViewController *locationsController;
 @property (nonatomic, strong) TOFileLocationPickerViewController *locationPickerViewController;
-
-@property (nonatomic, strong) UITableViewController *activityViewController;
 
 @property (nonatomic, strong, readwrite) TOFileCoordinator *fileCoordinator;
 
@@ -30,13 +27,20 @@
 {
     if (self = [super init]) {
         _fileCoordinator = fileCoordinator;
-        [self makeChildControllers];
+        [self commonInit];
+        [self makeChildViewControllers];
     }
 
     return self;
 }
 
-- (void)makeChildControllers
+- (void)commonInit
+{
+    // On iOS 13, force this to still be full screen
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
+}
+
+- (void)makeChildViewControllers
 {
     // Far left column, the locations view controller
     self.locationsController = [[TOFileLocationsViewController alloc] initWithFileCoordinator:_fileCoordinator];
@@ -46,23 +50,12 @@
     self.locationPickerViewController = [[TOFileLocationPickerViewController alloc] initWithFileCoordinator:_fileCoordinator];
     TOFileNavigationController *pickerNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.locationPickerViewController];
 
-    // Create a split view controller to host these controllers
-    self.downloadSplitController = [[UISplitViewController alloc] init];
-    self.downloadSplitController.title = @"Download";
-    self.downloadSplitController.preferredPrimaryColumnWidthFraction = 0.4f;
-    self.downloadSplitController.minimumPrimaryColumnWidth = 320.0f;
-    self.downloadSplitController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
-    self.downloadSplitController.viewControllers = @[locationsNavigationController, pickerNavigationController];
-    self.downloadSplitController.view.backgroundColor = [UIColor whiteColor];
-
-    // Far right column, the activity view controller
-    self.activityViewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
-    self.activityViewController.title = @"Activity";
-    TOFileNavigationController *activityNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.activityViewController];
-
-    // Set us to the split view
-    self.controllers = @[self.downloadSplitController, activityNavigationController];
-    self.separatorLineColor = [UIColor whiteColor];
+    // Configure our split view controller to host these controllers
+    self.preferredPrimaryColumnWidthFraction = 0.4f;
+    self.minimumPrimaryColumnWidth = 320.0f;
+    self.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
+    self.viewControllers = @[locationsNavigationController, pickerNavigationController];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)viewDidLoad {

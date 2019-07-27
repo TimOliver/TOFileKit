@@ -28,7 +28,9 @@
 
 @interface TOFileCoordinator (Private)
 
-/** Provided an array of file services types, return a filtered array based on the disallowed ones in `disallowedFileServiceTypes` */
+/** Provided an array of file services types, return a filtered array
+    based on the disallowed ones in `disallowedFileServiceTypes`
+ */
 - (NSArray<TOFileService *> *)filteredDisallowedServicesArrayWithArray:(NSArray<TOFileService *> *)array;
 
 
