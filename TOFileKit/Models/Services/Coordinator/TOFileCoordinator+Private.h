@@ -24,8 +24,38 @@
 
 #import "TOFileCoordinator.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class TOFileService;
 
+/**
+ A protocol for all objects that work off the data and state provided by
+ a `TOFileCoordinator` object and so one *must* be provided upon creation.
+ */
+@protocol TOFileCoordination <NSObject>
+
+@required
+
+/**
+ Creates a new instance of the assigned class with the provided file coordinator.
+
+ @param fileCoordinator - A file coordinator object that contains all of the current state.
+ */
+- (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator;
+
+@optional
+
+/* The file coordinator serving as the data source for this object. */
+@property (nonatomic, readonly) TOFileCoordinator *fileCoordinator;
+
+@end
+
+// ------------------------------------------------------------------
+
+/**
+ Private methods and properties for `TOFileCoordinator` that are necessary for
+ accessing and transforming the internal state, but not accessible from the public API headers.
+ */
 @interface TOFileCoordinator (Private)
 
 /** Provided an array of file services types, return a filtered array
@@ -33,5 +63,6 @@
  */
 - (NSArray<TOFileService *> *)filteredDisallowedServicesArrayWithArray:(NSArray<TOFileService *> *)array;
 
-
 @end
+
+NS_ASSUME_NONNULL_END

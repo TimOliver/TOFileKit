@@ -22,9 +22,9 @@
 
 #import <Foundation/Foundation.h>
 #import <Realm/Realm.h>
+#import "TOFileCoordinator+Private.h"
 
 @class TOFileLocation;
-@class TOFileCoordinator;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  file locations view controller (As opposed to the presenter, which
  transforms the data here for presentation on the screen).
  */
-@interface TOFileSavedLocationsProvider : NSObject
+@interface TOFileSavedLocationsProvider : NSObject <TOFileCoordination>
 
 /** A Realm collection of all of the locations saved by the user. */
 @property (nonatomic, readonly) id<RLMCollection> locations;
@@ -48,9 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** A block that is called each time the local devices on the network change. */
 @property (nonatomic, copy) void (^localDevicesChangedHandler)(void);
-
-/** Create an instance of the file locations provider using the given file coordinator */
-- (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator;
 
 /** Explicitly trigger the provider to start querying for file locations. */
 - (void)loadLocationsFromDisk;
