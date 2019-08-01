@@ -22,6 +22,21 @@
 
 #import "TOFileRootPresenter.h"
 
+@interface TOFileRootPresenter ()
+
+@property (nonatomic, strong) TOFileCoordinator *fileCoordinator;
+
+@end
+
 @implementation TOFileRootPresenter
+
+- (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator
+{
+    if (self = [super init]) {
+        _fileCoordinator = fileCoordinator;
+    }
+
+    return self;
+}
 
 @end
