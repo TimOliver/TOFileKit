@@ -26,6 +26,8 @@
 
 @implementation TOFileViewController
 
+#pragma mark - Class Creation -
+
 - (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator
 {
     if (self = [super init]) {
@@ -37,6 +39,22 @@
 }
 
 - (void)makeChildControllers
+{
+    // Left side content, a split view controller hosting the list of locations,
+    // and the current location breakdown
+    [self makeSplitViewController];
+
+    // Far right column, the activity view controller
+    self.activityViewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
+    self.activityViewController.title = @"Activity";
+    TOFileNavigationController *activityNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.activityViewController];
+
+    // Set us to the split view
+    self.controllers = @[self.downloadSplitController, activityNavigationController];
+    self.separatorLineColor = [UIColor whiteColor];
+}
+
+- (void)makeSplitViewController
 {
     // Far left column, the locations view controller
     self.locationsController = [[TOFileLocationsViewController alloc] initWithFileCoordinator:_fileCoordinator];
@@ -54,16 +72,9 @@
     self.downloadSplitController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
     self.downloadSplitController.viewControllers = @[locationsNavigationController, pickerNavigationController];
     self.downloadSplitController.view.backgroundColor = [UIColor whiteColor];
-
-    // Far right column, the activity view controller
-    self.activityViewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
-    self.activityViewController.title = @"Activity";
-    TOFileNavigationController *activityNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.activityViewController];
-
-    // Set us to the split view
-    self.controllers = @[self.downloadSplitController, activityNavigationController];
-    self.separatorLineColor = [UIColor whiteColor];
 }
+
+#pragma mark - View Setup -
 
 - (void)viewDidLoad {
     [super viewDidLoad];
