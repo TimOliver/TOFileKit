@@ -43,6 +43,7 @@
 		2253F3BC2215D13F006171C6 /* TOFileTableSectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */; };
 		225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */; };
 		225DB295220DF7D8003B90D8 /* TOFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */; };
+		225EA4F322EC250000A00126 /* TOFileRootPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 225EA4F222EC250000A00126 /* TOFileRootPresenter.m */; };
 		226F316F221D943E006C2CCD /* TOFileCloudServiceCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */; };
 		2272DE6622C83F7C008C4453 /* TOFileLocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6522C83F7C008C4453 /* TOFileLocationPickerViewController.m */; };
 		2272DE6922C83FE6008C4453 /* TOFileLocationPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6822C83FE6008C4453 /* TOFileLocationPickerView.m */; };
@@ -146,6 +147,8 @@
 		225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileNavigationController.m; sourceTree = "<group>"; };
 		225DB293220DF7D8003B90D8 /* TOFileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableViewCell.h; sourceTree = "<group>"; };
 		225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableViewCell.m; sourceTree = "<group>"; };
+		225EA4F122EC250000A00126 /* TOFileRootPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileRootPresenter.h; sourceTree = "<group>"; };
+		225EA4F222EC250000A00126 /* TOFileRootPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileRootPresenter.m; sourceTree = "<group>"; };
 		226F316D221D943E006C2CCD /* TOFileCloudServiceCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileCloudServiceCredentials.h; sourceTree = "<group>"; };
 		226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCloudServiceCredentials.m; sourceTree = "<group>"; };
 		2272DE6422C83F7C008C4453 /* TOFileLocationPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationPickerViewController.h; sourceTree = "<group>"; };
@@ -456,6 +459,15 @@
 				22BEB31022C4F8C0000BCB1A /* TableView */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		225EA4F022EC24DE00A00126 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				225EA4F122EC250000A00126 /* TOFileRootPresenter.h */,
+				225EA4F222EC250000A00126 /* TOFileRootPresenter.m */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 		2272DE6322C83A74008C4453 /* FileLocationPicker */ = {

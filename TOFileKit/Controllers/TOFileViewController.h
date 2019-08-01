@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TOSegmentedTabBarController.h"
 
 @class TOFileCoordinator;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TOFileViewController : TOSegmentedTabBarController
+@interface TOFileViewController : UISplitViewController
 
 @property (nonatomic, readonly) TOFileCoordinator *fileCoordinator;
 

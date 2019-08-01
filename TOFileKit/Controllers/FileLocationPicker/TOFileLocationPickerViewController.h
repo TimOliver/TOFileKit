@@ -7,22 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class TOFileCoordinator;
+#import "TOFileCoordinator+Private.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TOFileLocationPickerViewController : UIViewController
-
-/* The file coordinator serving as the data source for this controller */
-@property (nonatomic, strong, readonly) TOFileCoordinator *fileCoordinator;
-
-/**
- Creates a new instance of the file locations picker controller with the provided file coordinator
-
- @param fileCoordinator - A file coordinator object that contains all of the current locations state.
- */
-- (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator;
+@interface TOFileLocationPickerViewController : UIViewController <TOFileCoordination>
 
 @end
 

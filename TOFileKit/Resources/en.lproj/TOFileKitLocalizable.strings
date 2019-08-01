@@ -6,4 +6,5 @@
 
 /* The File Location Picker View Controller */
 "FileLocationPicker.Intro.Title"    = "Add New Location";
-"FileLocationPicker.Intro.Message"  = "Choose a location and then enter in your account credentials.\nYour credentials are saved securely on disk, and never leave the device.";
+"FileLocationPicker.Intro.Message"  = "Choose a new file location and then enter in your account credentials to log in.";
+"FileLocationPicker.Intro.Privacy"  = "Your credentials are encrypted and saved securely on disk. Aside from logging in, they never leave your device.";

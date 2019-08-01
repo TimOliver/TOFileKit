@@ -21,23 +21,13 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "TOFileCoordinator+Private.h"
 
-@class TOFileCoordinator;
 @class TOFileLocationsPresenter;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TOFileLocationsViewController : UIViewController
-
-/* The file coordinator serving as the data source for this controller */
-@property (nonatomic, strong, readonly) TOFileCoordinator *fileCoordinator;
-
-/**
- Creates a new instance of the file locations controller with the provided file coordinator
-
- @param fileCoordinator - A file coordinator object that contains all of the current locations state.
- */
-- (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator;
+@interface TOFileLocationsViewController : UIViewController <TOFileCoordination>
 
 @end
 

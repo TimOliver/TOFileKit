@@ -8,7 +8,6 @@ target 'TOFileKitExample' do
 
   # UI
   pod 'TODocumentPickerViewController'
-  pod 'TOSegmentedTabBarController'
   pod 'TORoundedButton'
   pod 'TORoundedTableView'
 

@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "TOFileConstants.h"
-
-@class TOFileCoordinator;
+#import "TOFileCoordinator+Private.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TOFileLocationPickerPresenter : NSObject
+@interface TOFileLocationPickerPresenter : NSObject <TOFileCoordination>
 
 /* Number of sections */
 - (NSInteger)numberOfSections;
@@ -26,9 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The service type of the location for the given item */
 - (TOFileServiceType)typeOfItemInSection:(NSInteger)section atIndex:(NSInteger)index;
-
-/** Create a new instance with the provided file coordinator */
-- (instancetype)initWithFileCoordinator:(TOFileCoordinator *)fileCoordinator;
 
 @end
 

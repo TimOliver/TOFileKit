@@ -23,9 +23,9 @@
 #import <Foundation/Foundation.h>
 
 #import "TOFileConstants.h"
+#import "TOFileCoordinator+Private.h"
 
 @class TOFileLocation;
-@class TOFileCoordinator;
 @class TOFileLocalServiceDiscovery;
 @class TOReachability;
 
@@ -38,7 +38,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
     TOFileLocationsPresenterItemTypeAddLocationOnboard // A large special view used for the first time
 };
 
-@interface TOFileLocationsPresenter : NSObject
+@interface TOFileLocationsPresenter : NSObject <TOFileCoordination>
 
 #pragma mark - State Management -
 
