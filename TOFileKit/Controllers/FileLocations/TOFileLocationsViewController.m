@@ -29,6 +29,8 @@
 #import "TOFileLocationImage.h"
 #import "TOFileOnboardingView.h"
 
+#import "UIViewController+TOFileRouting.h"
+
 NSInteger const kTOFileLocationsMaximumLocalServices = 6;
 NSString * const kTOFileLocationsHeaderIdentifier = @"LocationsHeader";
 NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
@@ -238,18 +240,30 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
 - (void)configureOnboardingCell:(TOFileLocationsTableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath
 {
+    TOFileOnboardingView *onboardingView = self.fileLocationsView.onboardingView;
+
     // Set the cell to be empty
     cell.type = TOFileLocationsTableViewCellTypeOnboard;
 
     // Add the onboarding view
-    cell.onboardView = self.fileLocationsView.onboardingView;
+    cell.onboardView = onboardingView;
+
+    // Configure the tap action if it is not already set
+    if (onboardingView.buttonTappedHandler) { return; }
+
+    // When tapped, send a signal to the presenting controller to present the add location dialog
+    __weak typeof(self) weakSelf = self;
+    onboardingView.buttonTappedHandler = ^{
+        [weakSelf to_showViewControllerOfType:TOFileViewControllerTypeAddLocation
+                                   withObject:nil];
+    };
 }
 
 #pragma mark - Table View Delegate -
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    // Hide the separator view in cells at the bottom of the section
+    // Hide the separator view in the last cell at the bottom of the section
     TOFileTableViewCell *fileCell = (TOFileTableViewCell *)cell;
     fileCell.separatorView.hidden = (indexPath.row >= [self.presenter numberOfItemsForSection:indexPath.section] - 1);
 }

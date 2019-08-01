@@ -59,6 +59,7 @@
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.preservesSuperviewLayoutMargins = YES;
     tableView.cellLayoutMarginsFollowReadableWidth = NO;
+    tableView.delaysContentTouches = NO;
     [self addSubview:tableView];
     self.tableView = tableView;
 

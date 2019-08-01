@@ -89,6 +89,7 @@
 - (void)configureOnboardType
 {
     self.accessoryType = UITableViewCellAccessoryNone;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)configureAddType
