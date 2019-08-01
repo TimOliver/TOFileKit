@@ -11,13 +11,20 @@
 #import "TOFileLocationsViewController.h"
 #import "TOFileNavigationController.h"
 #import "TOFileLocationPickerViewController.h"
+#import "TOFileRootPresenter.h"
 
-@interface TOFileViewController ()
+#import "UIViewController+TOFileRouting.h"
 
-@property (nonatomic, strong) TOFileLocationsViewController *locationsController;
+@interface TOFileViewController () <UISplitViewControllerDelegate>
+
+@property (nonatomic, strong) UINavigationController *locationsNavigationController;
+@property (nonatomic, strong) TOFileLocationsViewController *locationsViewController;
+
+@property (nonatomic, strong) UINavigationController *locationPickerNavigationController;
 @property (nonatomic, strong) TOFileLocationPickerViewController *locationPickerViewController;
 
 @property (nonatomic, strong, readwrite) TOFileCoordinator *fileCoordinator;
+@property (nonatomic, strong) TOFileRootPresenter *presenter;
 
 @end
 
@@ -29,6 +36,8 @@
 {
     if (self = [super init]) {
         _fileCoordinator = fileCoordinator;
+        _presenter = [[TOFileRootPresenter alloc] initWithFileCoordinator:_fileCoordinator];
+
         [self commonInit];
         [self makeChildViewControllers];
     }
@@ -44,46 +53,38 @@
 
 - (void)makeChildViewControllers
 {
-    // Left side content, a split view controller hosting the list of locations,
-    // and the current location breakdown
-    [self makeSplitViewController];
-
-    // Far right column, the activity view controller
-    self.activityViewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
-    self.activityViewController.title = @"Activity";
-    TOFileNavigationController *activityNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.activityViewController];
-
-    // Set us to the split view
-    self.controllers = @[self.downloadSplitController, activityNavigationController];
-    self.separatorLineColor = [UIColor whiteColor];
-}
-
-- (void)makeSplitViewController
-{
     // Far left column, the locations view controller
-    self.locationsController = [[TOFileLocationsViewController alloc] initWithFileCoordinator:_fileCoordinator];
-    TOFileNavigationController *locationsNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.locationsController];
+    self.locationsViewController = [[TOFileLocationsViewController alloc] initWithFileCoordinator:_fileCoordinator];
+    self.locationsNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.locationsViewController];
 
     // Middle column, by default the picker view controller
     self.locationPickerViewController = [[TOFileLocationPickerViewController alloc] initWithFileCoordinator:_fileCoordinator];
-    TOFileNavigationController *pickerNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.locationPickerViewController];
+    self.locationPickerNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.locationPickerViewController];
 
     // Configure our split view controller to host these controllers
     self.preferredPrimaryColumnWidthFraction = 0.35f;
     self.minimumPrimaryColumnWidth = 320.0f;
     self.maximumPrimaryColumnWidth = 415.0f;
     self.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
-    self.viewControllers = @[locationsNavigationController, pickerNavigationController];
+    self.delegate = self;
+    self.viewControllers = @[self.locationsNavigationController, self.locationPickerNavigationController];
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
-#pragma mark - View Setup -
+#pragma mark - Split View Controller Delegate -
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-
+- (BOOL)splitViewController:(UISplitViewController *)splitViewController
+            collapseSecondaryViewController:(UIViewController *)secondaryViewController
+                ontoPrimaryViewController:(UIViewController *)primaryViewController
+{
+    return YES;
 }
 
+#pragma mark - View Routing -
+
+- (void)to_showViewControllerOfType:(TOFileViewControllerType)type withObject:(id)object
+{
+    
+}
 
 @end
