@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TOFileLocationPickerViewController : UIViewController <TOFileCoordination>
+@interface TOFileLocationPickerViewController : UIViewController <TOFileCoordinating>
 
 @end
 

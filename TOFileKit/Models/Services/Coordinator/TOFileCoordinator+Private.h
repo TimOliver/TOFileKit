@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
  A protocol for all objects that work off the data and state provided by
  a `TOFileCoordinator` object and so one *must* be provided upon creation.
  */
-@protocol TOFileCoordination <NSObject>
+@protocol TOFileCoordinating <NSObject>
 
 @required
 

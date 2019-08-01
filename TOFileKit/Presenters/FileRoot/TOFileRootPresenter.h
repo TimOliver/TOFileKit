@@ -21,10 +21,14 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "TOFileCoordinator+Private.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TOFileRootPresenter : NSObject
+@interface TOFileRootPresenter : NSObject <TOFileCoordinating>
+
+/** Whether the current presentation is in compact mode (eg iPhone), or full screen. */
+@property (nonatomic, assign) BOOL isCompactPresentation;
 
 @end
 

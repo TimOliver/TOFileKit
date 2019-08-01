@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  file locations view controller (As opposed to the presenter, which
  transforms the data here for presentation on the screen).
  */
-@interface TOFileSavedLocationsProvider : NSObject <TOFileCoordination>
+@interface TOFileSavedLocationsProvider : NSObject <TOFileCoordinating>
 
 /** A Realm collection of all of the locations saved by the user. */
 @property (nonatomic, readonly) id<RLMCollection> locations;

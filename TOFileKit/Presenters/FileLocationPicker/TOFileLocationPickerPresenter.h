@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TOFileLocationPickerPresenter : NSObject <TOFileCoordination>
+@interface TOFileLocationPickerPresenter : NSObject <TOFileCoordinating>
 
 /* Number of sections */
 - (NSInteger)numberOfSections;

@@ -38,7 +38,7 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
     TOFileLocationsPresenterItemTypeAddLocationOnboard // A large special view used for the first time
 };
 
-@interface TOFileLocationsPresenter : NSObject <TOFileCoordination>
+@interface TOFileLocationsPresenter : NSObject <TOFileCoordinating>
 
 #pragma mark - State Management -
 
