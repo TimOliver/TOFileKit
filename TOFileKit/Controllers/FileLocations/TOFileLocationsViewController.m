@@ -150,6 +150,11 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     self.presenter.editingDisabledHandler = ^(BOOL enabled) {
         weakSelf.navigationItem.rightBarButtonItem.enabled = enabled;
     };
+
+    // When a new item is to be shown
+    self.presenter.showItemHandler = ^(TOFileLocationsPresenterItemType type, id object, BOOL animated) {
+        [weakSelf showItemWithType:type object:object animated:animated];
+    };
 }
 
 #pragma mark - View State Management -
@@ -160,6 +165,9 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
     // Perform device discovery while we are on screen
     [self.presenter startScanningForLocalDevices];
+
+    // Work out the first view we should display
+    [self.presenter showInitialItem];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -181,6 +189,25 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     TOFileLocationsView *view = self.fileLocationsView;
     UIBarButtonItem *editingButton = editing ? view.doneButton : view.editButton;
     [self.navigationItem setRightBarButtonItem:editingButton animated:animated];
+}
+
+#pragma mark - Navigation Interaction -
+
+- (void)showItemWithType:(TOFileLocationsPresenterItemType)type
+                  object:(id)object
+                animated:(BOOL)animated
+{
+    // Map the presenter item type to the global view controller type
+    TOFileViewControllerType controllerType = TOFileViewControllerTypeLocation;
+    switch (type) {
+        case TOFileLocationsPresenterItemTypeAddLocation:
+            controllerType = TOFileViewControllerTypeAddLocation;
+            break;
+        default:
+            break;
+    }
+
+    [self to_showViewControllerOfType:controllerType withObject:object animated:animated];
 }
 
 #pragma mark - Table View Data Source -
@@ -255,7 +282,8 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     __weak typeof(self) weakSelf = self;
     onboardingView.buttonTappedHandler = ^{
         [weakSelf to_showViewControllerOfType:TOFileViewControllerTypeAddLocation
-                                   withObject:nil];
+                                   withObject:nil
+                                     animated:YES];
     };
 }
 
