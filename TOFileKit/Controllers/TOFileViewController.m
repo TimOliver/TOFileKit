@@ -136,14 +136,7 @@
     __weak typeof(self) weakSelf = self;
 
     id showItemHandler = ^(TOFileViewControllerType type, id object) {
-        // Work out what type of controller to show
-        UIViewController *viewController = nil;
-        if (type == TOFileViewControllerTypeAddLocation) {
-            viewController = self.locationPickerNavigationController;
-        }
-
-        [weakSelf.splitViewController showDetailViewController:viewController
-                                                        sender:self];
+        [weakSelf showItemWithType:type object:object];
     };
     self.presenter.showItemHandler = showItemHandler;
 }
@@ -198,6 +191,18 @@
 
     // In all other cases, present the new view controller in either size class
     [self.presenter showItemWithType:type object:object];
+}
+
+- (void)showItemWithType:(TOFileViewControllerType)type object:(id)object
+{
+    // Work out what type of controller to show
+    UIViewController *viewController = nil;
+    if (type == TOFileViewControllerTypeAddLocation) {
+        viewController = self.locationPickerNavigationController;
+    }
+
+    [self.splitViewController showDetailViewController:viewController
+                                                    sender:self];
 }
 
 #pragma mark - Interaction -
