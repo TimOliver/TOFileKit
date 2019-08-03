@@ -37,8 +37,9 @@
 @property (nonatomic, strong) UIBarButtonItem *doneButton;
 @property (nonatomic, strong) UIBarButtonItem *downloadsButton;
 
-// Convenience access for the root view
+// Convenience accessors for current state
 @property (nonatomic, readonly) TOFileRootView *rootView;
+@property (nonatomic, readonly) BOOL isCompactPresentation;
 
 @end
 
@@ -81,9 +82,15 @@
     // Bind the toolbar button callbacks
     [self bindToolbarButtonCallbacks];
 
+    // Bind the presenter callbacks
+    [self bindPresenterCallbacks];
+
     // Add the split view controller to the hierachy
     [self addChildViewController:self.splitViewController];
     self.rootView.contentView = self.splitViewController.view;
+
+    // Set the initial state for the presenter
+    self.presenter.isCompactPresentation = self.isCompactPresentation;
 }
 
 - (void)makeChildViewControllers
@@ -103,7 +110,7 @@
     self.splitViewController.maximumPrimaryColumnWidth = 415.0f;
     self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
     self.splitViewController.delegate = self;
-    self.splitViewController.viewControllers = @[self.locationsNavigationController, self.locationPickerNavigationController];
+    self.splitViewController.viewControllers = @[self.locationsNavigationController];
     self.splitViewController.view.backgroundColor = [UIColor whiteColor];
 }
 
@@ -124,6 +131,23 @@
     self.rootView.downloadsButtonTapped = downloadsButtonTapped;
 }
 
+- (void)bindPresenterCallbacks
+{
+    __weak typeof(self) weakSelf = self;
+
+    id showItemHandler = ^(TOFileViewControllerType type, id object) {
+        // Work out what type of controller to show
+        UIViewController *viewController = nil;
+        if (type == TOFileViewControllerTypeAddLocation) {
+            viewController = self.locationPickerNavigationController;
+        }
+
+        [weakSelf.splitViewController showDetailViewController:viewController
+                                                        sender:self];
+    };
+    self.presenter.showItemHandler = showItemHandler;
+}
+
 #pragma mark - View Lifecycle -
 
 - (void)viewDidLayoutSubviews
@@ -142,17 +166,12 @@
 {
     [super traitCollectionDidChange:previousTraitCollection];
 
-    // Full-screen on iPad
-    BOOL isRegular = (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular);
+    // Update the presenter with the new size class
+    self.presenter.isCompactPresentation = self.isCompactPresentation;
 
-    // Set the left locations
+    // Set the left bar button item if in iPad
     UINavigationItem *locationsNavigationItem = self.locationsViewController.navigationItem;
-    locationsNavigationItem.leftBarButtonItem = isRegular ? self.doneButton : nil;
-
-    // Set the right location
-    UIViewController *detailViewController = self.splitViewController.viewControllers.lastObject;
-    UINavigationItem *detailItem = detailViewController.childViewControllers.lastObject.navigationItem;
-    detailItem.rightBarButtonItem = isRegular ? self.downloadsButton : nil;
+    locationsNavigationItem.leftBarButtonItem = self.isCompactPresentation ? self.doneButton : nil;
 }
 
 #pragma mark - Split View Controller Delegate -
@@ -166,9 +185,19 @@
 
 #pragma mark - View Routing -
 
-- (void)to_showViewControllerOfType:(TOFileViewControllerType)type withObject:(id)object
+- (void)to_showViewControllerOfType:(TOFileViewControllerType)type
+                         withObject:(id)object
+                           animated:(BOOL)animated
 {
-    
+    // In this case, animated is only no when presenting initial controllers at the start.
+    // The presenter will hold a reference, and present if we swap out to regular size classes
+    if (!animated) {
+        [self.presenter setInitialViewWithType:type object:object];
+        return;
+    }
+
+    // In all other cases, present the new view controller in either size class
+    [self.presenter showItemWithType:type object:object];
 }
 
 #pragma mark - Interaction -
@@ -207,5 +236,10 @@
 }
 
 - (TOFileRootView *)rootView { return (TOFileRootView *)self.view; }
+
+- (BOOL)isCompactPresentation
+{
+    return (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact);
+}
 
 @end
