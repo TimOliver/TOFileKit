@@ -24,7 +24,12 @@
 
 @interface TOFileRootPresenter ()
 
+// Strong reference to file coordinator
 @property (nonatomic, strong) TOFileCoordinator *fileCoordinator;
+
+// The type of view to display in detail view controller setups
+@property (nonatomic, assign) TOFileViewControllerType initialItemType;
+@property (nonatomic, strong) id initialItemObject;
 
 @end
 
@@ -37,6 +42,29 @@
     }
 
     return self;
+}
+
+- (void)setIsCompactPresentation:(BOOL)isCompactPresentation
+{
+    if (_isCompactPresentation == isCompactPresentation) { return; }
+    _isCompactPresentation = isCompactPresentation;
+    
+}
+
+- (void)setInitialViewWithType:(TOFileViewControllerType)type object:(id)object
+{
+    self.initialItemType = type;
+    self.initialItemObject = object;
+
+    // Show it immediately, if we're not in iPhone display mode
+    if (!self.isCompactPresentation && self.showItemHandler) {
+        self.showItemHandler(type, object);
+    }
+}
+
+- (void)showItemWithType:(TOFileViewControllerType)type object:(id)object
+{
+    
 }
 
 @end
