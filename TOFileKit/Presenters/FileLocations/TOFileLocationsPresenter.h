@@ -62,6 +62,11 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
 /** Called when the editing state was enabled or disabled. (Editing, Animated) */
 @property (nonatomic, copy) void (^isEditingHandler)(BOOL, BOOL);
 
+/** Called when the user or system triggered a new item to be displayed. */
+@property (nonatomic, copy) void (^showItemHandler)(TOFileLocationsPresenterItemType item,
+                                                                        _Nullable id object,
+                                                                            BOOL animated);
+
 #pragma mark - Instance Creation -
 
 /** Create a new instance with the provided file coordinator */
@@ -86,6 +91,12 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterItemType) {
 
 /** Edit Button was tapped */
 - (void)toggleEditing;
+
+/** One of the items was tapped. */
+- (void)didSelectItemAtIndex:(NSInteger)index section:(NSInteger)section;
+
+/** When loading for the first time, show the initial default item. */
+- (void)showInitialItem;
 
 #pragma mark - Current View State Outputs -
 
