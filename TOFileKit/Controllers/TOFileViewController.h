@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TOFileViewController : UISplitViewController
+@interface TOFileViewController : UIViewController
 
 @property (nonatomic, readonly) TOFileCoordinator *fileCoordinator;
 
