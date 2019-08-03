@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TOFileConstants.h"
 
-typedef NS_ENUM(NSInteger, TOFileViewControllerType) {
-    TOFileViewControllerTypeAddLocation,
-    TOFileViewControllerTypeLocation
-};
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,8 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param type The inteded type of view controller to show.
  @param object If the view controller relies on a data source, this can be forwarded with it
+ @param animated Whether the transition should be animated or not. (Not can be used for initial setups)
  */
-- (void)to_showViewControllerOfType:(TOFileViewControllerType)type withObject:(nullable id)object;
+- (void)to_showViewControllerOfType:(TOFileViewControllerType)type
+                         withObject:(nullable id)object
+                           animated:(BOOL)animated;
 
 @end
 

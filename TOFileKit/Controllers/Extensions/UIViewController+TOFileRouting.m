@@ -10,16 +10,18 @@
 
 @implementation UIViewController (TOFileRouting)
 
-- (void)to_showViewControllerOfType:(TOFileViewControllerType)type withObject:(id)object
+- (void)to_showViewControllerOfType:(TOFileViewControllerType)type
+                         withObject:(id)object
+                           animated:(BOOL)animated
 {
     // Navigate up the chain to find a controller that overrides this method
-    UIViewController *viewController = [self targetViewControllerForAction:@selector(to_showViewControllerOfType:withObject:)
+    UIViewController *viewController = [self targetViewControllerForAction:@selector(to_showViewControllerOfType:withObject:animated:)
                                                                     sender:self];
     // View controller must be headless
     if (viewController == nil) { return; }
 
     // Call the method to trigger that view controller to present
-    [viewController to_showViewControllerOfType:type withObject:object];
+    [viewController to_showViewControllerOfType:type withObject:object animated:animated];
 }
 
 @end
