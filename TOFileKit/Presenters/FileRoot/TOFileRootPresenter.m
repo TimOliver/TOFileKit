@@ -27,8 +27,8 @@
 // Strong reference to file coordinator
 @property (nonatomic, strong) TOFileCoordinator *fileCoordinator;
 
-// The type of view to display in detail view controller setups
-@property (nonatomic, assign) TOFileViewControllerType initialItemType;
+// The initial view to show by default (And it's accompanying model)
+@property (nonatomic, strong) NSNumber *initialItemType;
 @property (nonatomic, strong) id initialItemObject;
 
 @end
@@ -46,25 +46,46 @@
 
 - (void)setIsCompactPresentation:(BOOL)isCompactPresentation
 {
+    // Update our state to track compact presentation
     if (_isCompactPresentation == isCompactPresentation) { return; }
     _isCompactPresentation = isCompactPresentation;
-    
-}
 
-- (void)setInitialViewWithType:(TOFileViewControllerType)type object:(id)object
-{
-    self.initialItemType = type;
-    self.initialItemObject = object;
+    // Don't bother continuing if the handler hasn't been set
+    if (!self.showItemHandler) { return; }
 
-    // Show it immediately, if we're not in iPhone display mode
-    if (!self.isCompactPresentation && self.showItemHandler) {
-        self.showItemHandler(type, object);
+    // If we went from compact to regular, show the initial view controller now
+    if (self.initialItemType && !_isCompactPresentation) {
+        self.showItemHandler(self.initialItemType.integerValue, self.initialItemObject, NO);
     }
 }
 
-- (void)showItemWithType:(TOFileViewControllerType)type object:(id)object
+- (void)showItemWithType:(TOFileViewControllerType)type object:(id)object userInitiated:(BOOL)userInitiated
 {
-    
+    // If NOT user initiated, this is part of the view hierarchy setting itself up.
+    // Since we might be on an iPhone, where the detail controller isn't even necessary,
+    // save a reference, but defer setting up that view controller until the trait collection
+    // actually does change.
+
+    if (!userInitiated) {
+        self.initialItemType = @(type);
+        self.initialItemObject = object;
+
+        // Show it immediately, if we're not in iPhone display mode
+        if (!self.isCompactPresentation) {
+            if (self.showItemHandler) { self.showItemHandler(type, object, NO); }
+        }
+
+        return;
+    }
+
+    // If the user initiated this presentation, the initial data can go now
+    self.initialItemType = nil;
+    self.initialItemObject = nil;
+
+    // Show the item
+    BOOL modal = (type == TOFileViewControllerTypeAddLocation && self.isCompactPresentation);
+
+    self.showItemHandler(type, object, modal);
 }
 
 @end

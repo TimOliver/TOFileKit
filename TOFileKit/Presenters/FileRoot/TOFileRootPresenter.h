@@ -29,16 +29,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TOFileRootPresenter : NSObject <TOFileCoordinating>
 
 /** Callback for presenting views for new items when needed */
-@property (nonatomic, copy) void (^showItemHandler)(TOFileViewControllerType type, _Nullable id object);
+@property (nonatomic, copy) void (^showItemHandler)(TOFileViewControllerType type, _Nullable id object, BOOL modal);
 
 /** Whether the current presentation is in compact mode (eg iPhone), or full screen. */
 @property (nonatomic, assign) BOOL isCompactPresentation;
 
-/** Sets an initial detail view type that will be deferred until the screen presents as regular */
-- (void)setInitialViewWithType:(TOFileViewControllerType)type object:(id)object;
-
 /** For all regular interactions, show a child view controller based on the type */
-- (void)showItemWithType:(TOFileViewControllerType)type object:(id)object;
+- (void)showItemWithType:(TOFileViewControllerType)type object:(id)object userInitiated:(BOOL)userInitiated;
 
 @end
 
