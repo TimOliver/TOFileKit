@@ -60,7 +60,7 @@
     _buttonSpacing = 15.0f;
     _buttonHeight = 40.0f;
     self.layoutMargins = (UIEdgeInsets){20.0f, 30.0f, 20.0f, 30.0f};
-
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.backgroundColor = [UIColor clearColor];
 
     // Add background view

@@ -49,3 +49,10 @@ typedef NS_ENUM(NSInteger, TOFileCustomHostServiceType) {
     //TOFileCustomHostServiceWebDAV
 };
 
+typedef NS_ENUM(NSInteger, TOFileViewControllerType) {
+    TOFileViewControllerTypeNone,
+    TOFileViewControllerTypeLocation,
+    TOFileViewControllerTypeLocationSettings,
+    TOFileViewControllerTypeAddLocation,
+    TOFileViewControllerTypeDownloads
+};

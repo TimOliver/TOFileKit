@@ -8,8 +8,8 @@ target 'TOFileKitExample' do
 
   # UI
   pod 'TODocumentPickerViewController'
-  pod 'TOSegmentedTabBarController'
   pod 'TORoundedButton'
+  pod 'TORoundedTableView'
 
   # Networking
   pod 'GoldRaccoon', :git => 'https://github.com/iComics/GoldRaccoon.git'

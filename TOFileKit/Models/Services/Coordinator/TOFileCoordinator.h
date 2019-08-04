@@ -52,8 +52,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, null_resettable) NSURL *temporaryDownloadsFolderURL;
 
 /** If the database is to be encrypted, this string will be the name under which the encryption
- key for the database is stored. If `nil`, the database won't be encrypted.
- (Default is `nil` for debug builds, and `com.appbundle.identifier.files` for release builds)
+    key for the database is stored. If `nil`, the database won't be encrypted.
+    (Default is `nil` for debug builds, and `com.appbundle.identifier.files` for release builds)
  */
 @property (nonatomic, copy, nullable) NSString *encryptionKeyIdentifier;
 
@@ -62,7 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
     */
 @property (nonatomic, readonly) RLMRealmConfiguration *databaseConfiguration;
 
-/** By default, all file service types are on by default, but any of them may be disabled by providing their `TOFileServiceType` value to this array. */
+/** By default, all file service types are on by default,
+    but any of them may be disabled by providing their `TOFileServiceType`
+    value to this array. */
 @property (nonatomic, copy, nullable) NSArray<NSNumber *> *disallowedFileServiceTypes;
 
 /** Shows whether the file coordinator has been started and is currently running or not. */

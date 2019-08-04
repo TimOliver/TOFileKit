@@ -29,6 +29,8 @@
 #import "TOFileLocationImage.h"
 #import "TOFileOnboardingView.h"
 
+#import "UIViewController+TOFileRouting.h"
+
 NSInteger const kTOFileLocationsMaximumLocalServices = 6;
 NSString * const kTOFileLocationsHeaderIdentifier = @"LocationsHeader";
 NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
@@ -77,9 +79,12 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     // Configure this view
     self.title = NSLocalizedString(@"Download", @"Title for Downloads Controller");
 
+    // Configure navigation bar
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
     if (@available(iOS 11.0, *)) {
-        self.navigationController.navigationBar.prefersLargeTitles = YES;
+        navigationBar.prefersLargeTitles = YES;
     }
+    navigationBar.barTintColor = [UIColor whiteColor];
 
     // Load all of the service icons
     self.serviceIcons = [TOFileLocationImage allImagesDictionary];
@@ -122,14 +127,18 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     // Insert or remove the locations section as needed
     self.presenter.localDevicesSectionHiddenHandler = ^(NSInteger section, BOOL hidden) {
         NSIndexSet *sectionIndex = [NSIndexSet indexSetWithIndex:section];
-        if (hidden) { [weakView.tableView deleteSections:sectionIndex withRowAnimation:UITableViewRowAnimationFade]; }
-        else { [weakView.tableView insertSections:sectionIndex withRowAnimation:UITableViewRowAnimationFade]; }
+        [UIView performWithoutAnimation:^{
+            if (hidden) { [weakView.tableView deleteSections:sectionIndex withRowAnimation:UITableViewRowAnimationFade]; }
+            else { [weakView.tableView insertSections:sectionIndex withRowAnimation:UITableViewRowAnimationFade]; }
+        }];
     };
 
     // Reload sections of the table view when the data changes
     self.presenter.refreshSectionHandler = ^(NSInteger section) {
-        [weakView.tableView reloadSections:[NSIndexSet indexSetWithIndex:section]
-                          withRowAnimation:UITableViewRowAnimationFade];
+        [UIView performWithoutAnimation:^{
+            [weakView.tableView reloadSections:[NSIndexSet indexSetWithIndex:section]
+                              withRowAnimation:UITableViewRowAnimationNone];
+        }];
     };
     
     // When the Edit button was tapped
@@ -141,6 +150,11 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     self.presenter.editingDisabledHandler = ^(BOOL enabled) {
         weakSelf.navigationItem.rightBarButtonItem.enabled = enabled;
     };
+
+    // When a new item is to be shown
+    self.presenter.showItemHandler = ^(TOFileLocationsPresenterItemType type, id object, BOOL animated) {
+        [weakSelf showItemWithType:type object:object animated:animated];
+    };
 }
 
 #pragma mark - View State Management -
@@ -151,6 +165,9 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
     // Perform device discovery while we are on screen
     [self.presenter startScanningForLocalDevices];
+
+    // Work out the first view we should display
+    [self.presenter showInitialItem];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -172,6 +189,25 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     TOFileLocationsView *view = self.fileLocationsView;
     UIBarButtonItem *editingButton = editing ? view.doneButton : view.editButton;
     [self.navigationItem setRightBarButtonItem:editingButton animated:animated];
+}
+
+#pragma mark - Navigation Interaction -
+
+- (void)showItemWithType:(TOFileLocationsPresenterItemType)type
+                  object:(id)object
+                animated:(BOOL)animated
+{
+    // Map the presenter item type to the global view controller type
+    TOFileViewControllerType controllerType = TOFileViewControllerTypeLocation;
+    switch (type) {
+        case TOFileLocationsPresenterItemTypeAddLocation:
+            controllerType = TOFileViewControllerTypeAddLocation;
+            break;
+        default:
+            break;
+    }
+
+    [self to_showViewControllerOfType:controllerType withObject:object animated:animated];
 }
 
 #pragma mark - Table View Data Source -
@@ -231,18 +267,31 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
 - (void)configureOnboardingCell:(TOFileLocationsTableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath
 {
+    TOFileOnboardingView *onboardingView = self.fileLocationsView.onboardingView;
+
     // Set the cell to be empty
     cell.type = TOFileLocationsTableViewCellTypeOnboard;
 
     // Add the onboarding view
-    cell.onboardView = self.fileLocationsView.onboardingView;
+    cell.onboardView = onboardingView;
+
+    // Configure the tap action if it is not already set
+    if (onboardingView.buttonTappedHandler) { return; }
+
+    // When tapped, send a signal to the presenting controller to present the add location dialog
+    __weak typeof(self) weakSelf = self;
+    onboardingView.buttonTappedHandler = ^{
+        [weakSelf to_showViewControllerOfType:TOFileViewControllerTypeAddLocation
+                                   withObject:nil
+                                     animated:YES];
+    };
 }
 
 #pragma mark - Table View Delegate -
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    // Hide the separator view in cells at the bottom of the section
+    // Hide the separator view in the last cell at the bottom of the section
     TOFileTableViewCell *fileCell = (TOFileTableViewCell *)cell;
     fileCell.separatorView.hidden = (indexPath.row >= [self.presenter numberOfItemsForSection:indexPath.section] - 1);
 }

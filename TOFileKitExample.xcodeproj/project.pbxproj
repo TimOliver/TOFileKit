@@ -19,6 +19,7 @@
 		220366C62219126C0070E21A /* TOFileCustomService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366BB2219126C0070E21A /* TOFileCustomService.m */; };
 		2207B1FE225E43A600025763 /* TOReachabilityMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 2207B1FD225E43A600025763 /* TOReachabilityMock.m */; };
 		2219B388220E80A300A91505 /* TOFileSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2219B387220E80A300A91505 /* TOFileSeparatorView.m */; };
+		221E4C8722D9909E004EFC47 /* TOFileRootPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E4C8622D9909E004EFC47 /* TOFileRootPresenter.m */; };
 		2224768F21DBC1A90006D852 /* TOTestingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224768D21DBC17E0006D852 /* TOTestingAppDelegate.m */; };
 		222B91BC21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B91BB21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m */; };
 		222B91BE21DB31080057B1D9 /* TOFileCoordinatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B91BD21DB31080057B1D9 /* TOFileCoordinatorTests.m */; };
@@ -39,16 +40,28 @@
 		2252F50C21D9C6B800C6607F /* TOFileLocationsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */; };
 		2252F50F21D9CB6100C6607F /* TOFileSavedLocationsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50E21D9CB6100C6607F /* TOFileSavedLocationsProvider.m */; };
 		2252F51621D9E8A000C6607F /* TOFileCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F51521D9E8A000C6607F /* TOFileCoordinator.m */; };
+		22534C1822F6F01300E81EC1 /* TOFileRootPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22534C1722F6F01300E81EC1 /* TOFileRootPresenterTests.m */; };
+		22534C1922F6F0A800E81EC1 /* TOFileRootPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E4C8622D9909E004EFC47 /* TOFileRootPresenter.m */; };
+		22534C1A22F6F0A800E81EC1 /* TOFileLocationsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */; };
+		22534C1B22F6F0A800E81EC1 /* TOFileLocationPickerPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE7622C8FD70008C4453 /* TOFileLocationPickerPresenter.m */; };
 		2253F3BC2215D13F006171C6 /* TOFileTableSectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */; };
 		225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */; };
 		225DB295220DF7D8003B90D8 /* TOFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */; };
+		225E369E22F5433000A32757 /* TOFileRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225E369D22F5433000A32757 /* TOFileRootView.m */; };
 		226F316F221D943E006C2CCD /* TOFileCloudServiceCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */; };
+		2272DE6622C83F7C008C4453 /* TOFileLocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6522C83F7C008C4453 /* TOFileLocationPickerViewController.m */; };
+		2272DE6922C83FE6008C4453 /* TOFileLocationPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6822C83FE6008C4453 /* TOFileLocationPickerView.m */; };
+		2272DE6D22C85A1D008C4453 /* TOFileTableTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE6C22C85A1D008C4453 /* TOFileTableTitleHeaderView.m */; };
+		2272DE7222C89A20008C4453 /* TOFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE7122C89A20008C4453 /* TOFileViewController.m */; };
+		2272DE7722C8FD70008C4453 /* TOFileLocationPickerPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE7622C8FD70008C4453 /* TOFileLocationPickerPresenter.m */; };
 		22992FF12258BC11004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
 		22992FF32258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */; };
 		22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */; };
 		22BEB30F22C4F8BB000BCB1A /* TOFileOnboardingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BEB30D22C4F8BB000BCB1A /* TOFileOnboardingView.m */; };
 		22BEB31722C50A10000BCB1A /* TOFileKitLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22BEB31922C50A10000BCB1A /* TOFileKitLocalizable.strings */; };
 		22C765FF220FEEBE00A2695B /* TOFileTableSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */; };
+		22DFB6D022F3443300EF4328 /* TOFileOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DFB6CF22F3443300EF4328 /* TOFileOptions.m */; };
+		22DFB6D622F3455B00EF4328 /* UIViewController+TOFileRouting.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DFB6D522F3455B00EF4328 /* UIViewController+TOFileRouting.m */; };
 		22FB5D9721FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */; };
 		22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C721FF8C4700055FDF5 /* TOAppDelegate.m */; };
 		22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC4C751FF8C4700055FDF5 /* TOViewController.m */; };
@@ -96,6 +109,8 @@
 		2207B1FD225E43A600025763 /* TOReachabilityMock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOReachabilityMock.m; sourceTree = "<group>"; };
 		2219B386220E80A300A91505 /* TOFileSeparatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileSeparatorView.h; sourceTree = "<group>"; };
 		2219B387220E80A300A91505 /* TOFileSeparatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileSeparatorView.m; sourceTree = "<group>"; };
+		221E4C8522D9909E004EFC47 /* TOFileRootPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileRootPresenter.h; sourceTree = "<group>"; };
+		221E4C8622D9909E004EFC47 /* TOFileRootPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileRootPresenter.m; sourceTree = "<group>"; };
 		2224768C21DBC17E0006D852 /* TOTestingAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTestingAppDelegate.h; sourceTree = "<group>"; };
 		2224768D21DBC17E0006D852 /* TOTestingAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOTestingAppDelegate.m; sourceTree = "<group>"; };
 		222B91BA21DB2C180057B1D9 /* TOFileDatabaseCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileDatabaseCoordinator.h; sourceTree = "<group>"; };
@@ -131,6 +146,7 @@
 		2252F50E21D9CB6100C6607F /* TOFileSavedLocationsProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileSavedLocationsProvider.m; sourceTree = "<group>"; };
 		2252F51421D9E8A000C6607F /* TOFileCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileCoordinator.h; sourceTree = "<group>"; };
 		2252F51521D9E8A000C6607F /* TOFileCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCoordinator.m; sourceTree = "<group>"; };
+		22534C1722F6F01300E81EC1 /* TOFileRootPresenterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileRootPresenterTests.m; sourceTree = "<group>"; };
 		2253F3BA2215D13F006171C6 /* TOFileTableSectionFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableSectionFooterView.h; sourceTree = "<group>"; };
 		2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableSectionFooterView.m; sourceTree = "<group>"; };
 		225DB28B220DE805003B90D8 /* TOFileCoordinator+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TOFileCoordinator+Private.h"; sourceTree = "<group>"; };
@@ -138,8 +154,20 @@
 		225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileNavigationController.m; sourceTree = "<group>"; };
 		225DB293220DF7D8003B90D8 /* TOFileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableViewCell.h; sourceTree = "<group>"; };
 		225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableViewCell.m; sourceTree = "<group>"; };
+		225E369C22F5433000A32757 /* TOFileRootView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileRootView.h; sourceTree = "<group>"; };
+		225E369D22F5433000A32757 /* TOFileRootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileRootView.m; sourceTree = "<group>"; };
 		226F316D221D943E006C2CCD /* TOFileCloudServiceCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileCloudServiceCredentials.h; sourceTree = "<group>"; };
 		226F316E221D943E006C2CCD /* TOFileCloudServiceCredentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCloudServiceCredentials.m; sourceTree = "<group>"; };
+		2272DE6422C83F7C008C4453 /* TOFileLocationPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationPickerViewController.h; sourceTree = "<group>"; };
+		2272DE6522C83F7C008C4453 /* TOFileLocationPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationPickerViewController.m; sourceTree = "<group>"; };
+		2272DE6722C83FE6008C4453 /* TOFileLocationPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationPickerView.h; sourceTree = "<group>"; };
+		2272DE6822C83FE6008C4453 /* TOFileLocationPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationPickerView.m; sourceTree = "<group>"; };
+		2272DE6B22C85A1D008C4453 /* TOFileTableTitleHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableTitleHeaderView.h; sourceTree = "<group>"; };
+		2272DE6C22C85A1D008C4453 /* TOFileTableTitleHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableTitleHeaderView.m; sourceTree = "<group>"; };
+		2272DE7022C89A20008C4453 /* TOFileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileViewController.h; sourceTree = "<group>"; };
+		2272DE7122C89A20008C4453 /* TOFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileViewController.m; sourceTree = "<group>"; };
+		2272DE7522C8FD70008C4453 /* TOFileLocationPickerPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileLocationPickerPresenter.h; sourceTree = "<group>"; };
+		2272DE7622C8FD70008C4453 /* TOFileLocationPickerPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocationPickerPresenter.m; sourceTree = "<group>"; };
 		22992FEF2258BC11004AEF16 /* TOFileLocalServiceDiscovery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscovery.m; sourceTree = "<group>"; };
 		22992FF02258BC11004AEF16 /* TOFileLocalServiceDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOFileLocalServiceDiscovery.h; sourceTree = "<group>"; };
 		22992FF22258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileLocalServiceDiscoveryTests.m; sourceTree = "<group>"; };
@@ -149,6 +177,10 @@
 		22BEB31B22C50D24000BCB1A /* TOFileUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileUtilities.h; sourceTree = "<group>"; };
 		22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableSectionHeaderView.h; sourceTree = "<group>"; };
 		22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableSectionHeaderView.m; sourceTree = "<group>"; };
+		22DFB6CE22F3443300EF4328 /* TOFileOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileOptions.h; sourceTree = "<group>"; };
+		22DFB6CF22F3443300EF4328 /* TOFileOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileOptions.m; sourceTree = "<group>"; };
+		22DFB6D422F3455B00EF4328 /* UIViewController+TOFileRouting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TOFileRouting.h"; sourceTree = "<group>"; };
+		22DFB6D522F3455B00EF4328 /* UIViewController+TOFileRouting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TOFileRouting.m"; sourceTree = "<group>"; };
 		22FB5D9621FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileDatabaseCoordinatorTests.m; sourceTree = "<group>"; };
 		22FC4C6E1FF8C4700055FDF5 /* TOFileKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOFileKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FC4C711FF8C4700055FDF5 /* TOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOAppDelegate.h; sourceTree = "<group>"; };
@@ -273,6 +305,24 @@
 			path = LibraryMocks;
 			sourceTree = "<group>";
 		};
+		221E4C7F22D980EC004EFC47 /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				22BEB30E22C4F8BB000BCB1A /* TOFileOnboardingView.h */,
+				22BEB30D22C4F8BB000BCB1A /* TOFileOnboardingView.m */,
+			);
+			path = OnboardingView;
+			sourceTree = "<group>";
+		};
+		221E4C8422D99079004EFC47 /* FileRoot */ = {
+			isa = PBXGroup;
+			children = (
+				221E4C8522D9909E004EFC47 /* TOFileRootPresenter.h */,
+				221E4C8622D9909E004EFC47 /* TOFileRootPresenter.m */,
+			);
+			path = FileRoot;
+			sourceTree = "<group>";
+		};
 		222B91B921DB2C180057B1D9 /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +344,7 @@
 		223F441F22619E480055D268 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				22534C1722F6F01300E81EC1 /* TOFileRootPresenterTests.m */,
 				223F442022619EC20055D268 /* TOFileLocationsPresenterTests.m */,
 			);
 			path = Presenters;
@@ -308,6 +359,8 @@
 				2250015F21D13F0B007EC4EA /* TOFileLocationList.m */,
 				2250015321D0D71E007EC4EA /* TOFileDownload.h */,
 				2250015521D0D71E007EC4EA /* TOFileDownload.m */,
+				22DFB6CE22F3443300EF4328 /* TOFileOptions.h */,
+				22DFB6CF22F3443300EF4328 /* TOFileOptions.m */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -349,7 +402,9 @@
 			isa = PBXGroup;
 			children = (
 				225DB292220DF734003B90D8 /* Common */,
+				225E369B22F5431900A32757 /* FileRoot */,
 				225DB291220DF723003B90D8 /* FileLocations */,
+				2272DE6A22C83FEA008C4453 /* FileLocationPicker */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -357,8 +412,9 @@
 		2250017B21D22BF4007EC4EA /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				2252F50A21D9C6B800C6607F /* TOFileLocationsPresenter.h */,
-				2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */,
+				221E4C8422D99079004EFC47 /* FileRoot */,
+				2272DE7322C8FC62008C4453 /* FileLocations */,
+				2272DE7422C8FC6D008C4453 /* FileLocationPicker */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -382,13 +438,13 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		225DB28C220DF2CC003B90D8 /* Extended */ = {
+		225DB28C220DF2CC003B90D8 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				225DB28E220DF2F2003B90D8 /* TOFileNavigationController.h */,
 				225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */,
 			);
-			path = Extended;
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		225DB28D220DF2D9003B90D8 /* FileLocations */ = {
@@ -414,18 +470,90 @@
 		225DB292220DF734003B90D8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				221E4C7F22D980EC004EFC47 /* OnboardingView */,
 				22BEB31022C4F8C0000BCB1A /* TableView */,
-				22BEB30E22C4F8BB000BCB1A /* TOFileOnboardingView.h */,
-				22BEB30D22C4F8BB000BCB1A /* TOFileOnboardingView.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		225E369B22F5431900A32757 /* FileRoot */ = {
+			isa = PBXGroup;
+			children = (
+				225E369C22F5433000A32757 /* TOFileRootView.h */,
+				225E369D22F5433000A32757 /* TOFileRootView.m */,
+			);
+			path = FileRoot;
+			sourceTree = "<group>";
+		};
+		2272DE6322C83A74008C4453 /* FileLocationPicker */ = {
+			isa = PBXGroup;
+			children = (
+				2272DE6422C83F7C008C4453 /* TOFileLocationPickerViewController.h */,
+				2272DE6522C83F7C008C4453 /* TOFileLocationPickerViewController.m */,
+			);
+			path = FileLocationPicker;
+			sourceTree = "<group>";
+		};
+		2272DE6A22C83FEA008C4453 /* FileLocationPicker */ = {
+			isa = PBXGroup;
+			children = (
+				2272DE6722C83FE6008C4453 /* TOFileLocationPickerView.h */,
+				2272DE6822C83FE6008C4453 /* TOFileLocationPickerView.m */,
+			);
+			path = FileLocationPicker;
+			sourceTree = "<group>";
+		};
+		2272DE6E22C85A27008C4453 /* Accessories */ = {
+			isa = PBXGroup;
+			children = (
+				2219B386220E80A300A91505 /* TOFileSeparatorView.h */,
+				2219B387220E80A300A91505 /* TOFileSeparatorView.m */,
+				2272DE6B22C85A1D008C4453 /* TOFileTableTitleHeaderView.h */,
+				2272DE6C22C85A1D008C4453 /* TOFileTableTitleHeaderView.m */,
+				22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */,
+				22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */,
+				2253F3BA2215D13F006171C6 /* TOFileTableSectionFooterView.h */,
+				2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */,
+			);
+			path = Accessories;
+			sourceTree = "<group>";
+		};
+		2272DE6F22C85A36008C4453 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				225DB293220DF7D8003B90D8 /* TOFileTableViewCell.h */,
+				225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2272DE7322C8FC62008C4453 /* FileLocations */ = {
+			isa = PBXGroup;
+			children = (
+				2252F50A21D9C6B800C6607F /* TOFileLocationsPresenter.h */,
+				2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */,
+			);
+			path = FileLocations;
+			sourceTree = "<group>";
+		};
+		2272DE7422C8FC6D008C4453 /* FileLocationPicker */ = {
+			isa = PBXGroup;
+			children = (
+				2272DE7522C8FD70008C4453 /* TOFileLocationPickerPresenter.h */,
+				2272DE7622C8FD70008C4453 /* TOFileLocationPickerPresenter.m */,
+			);
+			path = FileLocationPicker;
 			sourceTree = "<group>";
 		};
 		227ACCFD201C5CB8000E699F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2272DE7022C89A20008C4453 /* TOFileViewController.h */,
+				2272DE7122C89A20008C4453 /* TOFileViewController.m */,
 				225DB28D220DF2D9003B90D8 /* FileLocations */,
-				225DB28C220DF2CC003B90D8 /* Extended */,
+				2272DE6322C83A74008C4453 /* FileLocationPicker */,
+				225DB28C220DF2CC003B90D8 /* Navigation */,
+				22DFB6D322F3453B00EF4328 /* Extensions */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -478,14 +606,8 @@
 		22BEB31022C4F8C0000BCB1A /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				2219B386220E80A300A91505 /* TOFileSeparatorView.h */,
-				2219B387220E80A300A91505 /* TOFileSeparatorView.m */,
-				225DB293220DF7D8003B90D8 /* TOFileTableViewCell.h */,
-				225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */,
-				22C765FD220FEEBE00A2695B /* TOFileTableSectionHeaderView.h */,
-				22C765FE220FEEBE00A2695B /* TOFileTableSectionHeaderView.m */,
-				2253F3BA2215D13F006171C6 /* TOFileTableSectionFooterView.h */,
-				2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */,
+				2272DE6E22C85A27008C4453 /* Accessories */,
+				2272DE6F22C85A36008C4453 /* Cells */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -496,6 +618,15 @@
 				22BEB31922C50A10000BCB1A /* TOFileKitLocalizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		22DFB6D322F3453B00EF4328 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				22DFB6D422F3455B00EF4328 /* UIViewController+TOFileRouting.h */,
+				22DFB6D522F3455B00EF4328 /* UIViewController+TOFileRouting.m */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		22E7C17D201C499500AF8BFE /* TOFileKit */ = {
@@ -603,7 +734,7 @@
 				22FC4C6B1FF8C4700055FDF5 /* Frameworks */,
 				22FC4C6C1FF8C4700055FDF5 /* Resources */,
 				DB420A69A7FFCCF2B988D982 /* [CP] Copy Pods Resources */,
-				08D85EF7DA56BD5B71AC8E73 /* [CP] Embed Pods Frameworks */,
+				D4EF524C56E3AD539BB3BCE3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -674,24 +805,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08D85EF7DA56BD5B71AC8E73 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-frameworks.sh",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer/iOS/RevealServer.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		18F2357B378A94A83DE51DCE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -732,6 +845,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D4EF524C56E3AD539BB3BCE3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-frameworks.sh",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer/iOS/RevealServer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TOFileKitExample/Pods-TOFileKitExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DB420A69A7FFCCF2B988D982 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -766,11 +897,15 @@
 				223F442122619EC20055D268 /* TOFileLocationsPresenterTests.m in Sources */,
 				22FB5D9721FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m in Sources */,
 				2207B1FE225E43A600025763 /* TOReachabilityMock.m in Sources */,
+				22534C1922F6F0A800E81EC1 /* TOFileRootPresenter.m in Sources */,
 				22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */,
+				22534C1822F6F01300E81EC1 /* TOFileRootPresenterTests.m in Sources */,
 				222B91BF21DB31670057B1D9 /* TOFileDatabaseCoordinator.m in Sources */,
 				22992FF32258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m in Sources */,
+				22534C1B22F6F0A800E81EC1 /* TOFileLocationPickerPresenter.m in Sources */,
 				223F44242261A8540055D268 /* TOFileLocalServiceDiscoveryMock.m in Sources */,
 				2224768F21DBC1A90006D852 /* TOTestingAppDelegate.m in Sources */,
+				22534C1A22F6F0A800E81EC1 /* TOFileLocationsPresenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,23 +917,30 @@
 				225DB295220DF7D8003B90D8 /* TOFileTableViewCell.m in Sources */,
 				22BEB30F22C4F8BB000BCB1A /* TOFileOnboardingView.m in Sources */,
 				220366C32219126C0070E21A /* TOFileCustomServiceSFTP.m in Sources */,
+				2272DE6622C83F7C008C4453 /* TOFileLocationPickerViewController.m in Sources */,
 				2250015821D0D71E007EC4EA /* TOFileLocation.m in Sources */,
 				22FC4C761FF8C4700055FDF5 /* TOViewController.m in Sources */,
 				220366C22219126C0070E21A /* TOFileCustomServiceSMB.m in Sources */,
 				2250016021D13F0B007EC4EA /* TOFileLocationList.m in Sources */,
+				2272DE7222C89A20008C4453 /* TOFileViewController.m in Sources */,
 				2250017521D21AE0007EC4EA /* TOFileLocationsViewController.m in Sources */,
 				2252F50C21D9C6B800C6607F /* TOFileLocationsPresenter.m in Sources */,
 				22FC4C811FF8C4700055FDF5 /* main.m in Sources */,
+				221E4C8722D9909E004EFC47 /* TOFileRootPresenter.m in Sources */,
 				2250015721D0D71E007EC4EA /* TOFileDownload.m in Sources */,
 				22C765FF220FEEBE00A2695B /* TOFileTableSectionHeaderView.m in Sources */,
 				222B91BC21DB2C180057B1D9 /* TOFileDatabaseCoordinator.m in Sources */,
 				2250015D21D13EF0007EC4EA /* TOFileKeychainAccess.m in Sources */,
 				223EEE9C2217C6F600BF85B5 /* TOFileLocationsTableViewCell.m in Sources */,
+				225E369E22F5433000A32757 /* TOFileRootView.m in Sources */,
 				22FC4C731FF8C4700055FDF5 /* TOAppDelegate.m in Sources */,
 				223EEE992217C40B00BF85B5 /* TOFileLocationImage.m in Sources */,
+				22DFB6D622F3455B00EF4328 /* UIViewController+TOFileRouting.m in Sources */,
 				220366BE2219126C0070E21A /* TOFileCloudServiceBox.m in Sources */,
+				2272DE6D22C85A1D008C4453 /* TOFileTableTitleHeaderView.m in Sources */,
 				226F316F221D943E006C2CCD /* TOFileCloudServiceCredentials.m in Sources */,
 				2252F51621D9E8A000C6607F /* TOFileCoordinator.m in Sources */,
+				22DFB6D022F3443300EF4328 /* TOFileOptions.m in Sources */,
 				220366C62219126C0070E21A /* TOFileCustomService.m in Sources */,
 				220366C12219126C0070E21A /* TOFileCloudServiceOneDrive.m in Sources */,
 				220366C02219126C0070E21A /* TOFileCloudServiceGoogleDrive.m in Sources */,
@@ -811,6 +953,8 @@
 				22992FF12258BC11004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */,
 				2219B388220E80A300A91505 /* TOFileSeparatorView.m in Sources */,
 				2253F3BC2215D13F006171C6 /* TOFileTableSectionFooterView.m in Sources */,
+				2272DE7722C8FD70008C4453 /* TOFileLocationPickerPresenter.m in Sources */,
+				2272DE6922C83FE6008C4453 /* TOFileLocationPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

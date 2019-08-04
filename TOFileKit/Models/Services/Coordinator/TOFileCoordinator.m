@@ -21,6 +21,8 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TOFileCoordinator.h"
+#import "TOFileCoordinator+Private.h"
+#import "TOFileService.h"
 
 static TOFileCoordinator *_sharedCoordinator = nil;
 
@@ -103,6 +105,19 @@ static TOFileCoordinator *_sharedCoordinator = nil;
     if (self.isRunning == NO) { return; }
     
     self.isRunning = NO;
+}
+
+#pragma mark - Private Methods -
+
+- (NSArray<TOFileService *> *)filteredDisallowedServicesArrayWithArray:(NSArray<TOFileService *> *)array
+{
+    if (!self.disallowedFileServiceTypes || self.disallowedFileServiceTypes.count == 0) { return array; }
+
+    __weak typeof(self) weakSelf = self;
+    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(TOFileService *service, NSDictionary *bindings) {
+        return ([weakSelf.disallowedFileServiceTypes indexOfObject:@(service.serviceType)] != NSNotFound);
+    }];
+    return [array filteredArrayUsingPredicate:predicate];
 }
 
 #pragma mark - Accessors -

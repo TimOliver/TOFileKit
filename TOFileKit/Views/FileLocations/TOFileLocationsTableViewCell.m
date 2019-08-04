@@ -89,6 +89,7 @@
 - (void)configureOnboardType
 {
     self.accessoryType = UITableViewCellAccessoryNone;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)configureAddType
@@ -117,9 +118,9 @@
 }
 
 #pragma mark - View Layout -
-- (void)setNeedsLayout
+- (void)layoutSubviews
 {
-    [super setNeedsLayout];
+    [super layoutSubviews];
 
     UIEdgeInsets margin = self.layoutMargins;
     CGRect bounds = self.bounds;

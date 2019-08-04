@@ -46,6 +46,9 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 /** Used to ensure calls to the table view are done in the right order/number */
 @property (nonatomic, assign) BOOL localDevicesSectionHidden;
 
+/** Used to track showing the first view only on the first time. */
+@property (nonatomic, assign) BOOL hasShownInitialItem;
+
 @end
 
 @implementation TOFileLocationsPresenter
@@ -130,6 +133,22 @@ typedef NS_ENUM(NSInteger, TOFileLocationsPresenterSection) {
 {
     self.editing = !self.editing;
     if (self.isEditingHandler) { self.isEditingHandler(self.editing, YES); }
+}
+
+- (void)showInitialItem
+{
+    // Only do this once
+    if (self.hasShownInitialItem) { return; }
+
+    // TODO: Determine the first item we should show
+
+    if (!self.showItemHandler) { return; }
+
+    // Set animated to NO to indicate this is a 'setup' presentation
+    self.showItemHandler(TOFileLocationsPresenterItemTypeAddLocation, nil, NO);
+
+    // Set the flag so this won't happen again
+    self.hasShownInitialItem = YES;
 }
 
 #pragma mark - Local Device Discovery -

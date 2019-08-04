@@ -22,6 +22,8 @@
 
 #import <XCTest/XCTest.h>
 #import "TOFileCoordinator.h"
+#import "TOFileCoordinator+Private.h"
+#import "TOFileService.h"
 
 @interface TOFileCoordinatorTests : XCTestCase
 @end
@@ -88,6 +90,17 @@
     
     [fileCoordinator stop];
     XCTAssertFalse(fileCoordinator.isRunning);
+}
+
+- (void)testFileCoordinatorDisallowedTypesFilter
+{
+    TOFileCoordinator *coordinator = [[TOFileCoordinator alloc] init];
+    coordinator.disallowedFileServiceTypes = @[@(TOFileServiceTypeDropbox)];
+
+    NSArray *serviceTypes = @[[TOFileService fileServiceForType:TOFileServiceTypeDropbox],
+                             [TOFileService fileServiceForType:TOFileServiceTypeSMB]];
+
+    XCTAssert([coordinator filteredDisallowedServicesArrayWithArray:serviceTypes].count == 1);
 }
 
 - (void)testFileCoordinatorDealloc
