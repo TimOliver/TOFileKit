@@ -231,7 +231,7 @@
     if (!presentingController) { return; }
 
     // Dismiss from view
-    [presentingController dismissViewControllerAnimated:NO completion:^{
+    [self dismissViewControllerAnimated:NO completion:^{
         [self.splitViewController showDetailViewController:presentingController sender:nil];
     }];
 }
@@ -257,6 +257,7 @@
     // Lazy load the locations picker on request
     self.locationPickerViewController = [[TOFileLocationPickerViewController alloc] initWithFileCoordinator:_fileCoordinator];
     _locationPickerNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.locationPickerViewController];
+    _locationPickerNavigationController.modalPresentationStyle = UIModalPresentationOverFullScreen;
     return _locationPickerNavigationController;
 }
 

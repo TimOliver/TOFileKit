@@ -94,9 +94,9 @@
     self.navigationItem.rightBarButtonItem = isCompact ? self.cancelButton : nil;
 
     // As it is hidden, inform our parents that the trait collection changed so it may react
-    if (self.presentingViewController) {
-        [self.presentingViewController traitCollectionDidChange:previousTraitCollection];
-    }
+//    if (self.presentingViewController) {
+//        [self.presentingViewController traitCollectionDidChange:previousTraitCollection];
+//    }
 }
 
 #pragma mark - Table View Data Source -
