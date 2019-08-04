@@ -25,9 +25,11 @@
 
 @interface TOFileOnboardingView ()
 
+// Layout
 @property (nonatomic, assign) CGFloat textSpacing;
 @property (nonatomic, assign) CGFloat buttonSpacing;
 @property (nonatomic, assign) CGFloat buttonHeight;
+@property (nonatomic, assign) BOOL skipButtonLayout;
 
 // Views
 @property (nonatomic, strong) UIView *backgroundView;
@@ -124,13 +126,17 @@
     CGSize contentSize = (CGSize){bounds.size.width - (margins.left + margins.right), CGFLOAT_MAX};
     CGRect contentBounds = (CGRect){CGPointZero, contentSize};
     CGFloat y = margins.top;
+    CGFloat titleLabelHeight = [self.titleLabel textRectForBounds:contentBounds
+                                           limitedToNumberOfLines:0].size.height;
+    CGFloat messageLabelHeight = [self.messageLabel textRectForBounds:contentBounds
+                                               limitedToNumberOfLines:0].size.height;
 
     // Layout the title label
     CGRect frame = self.titleLabel.frame;
     frame.origin.x = margins.left;
     frame.origin.y = y;
     frame.size.width = contentSize.width;
-    frame.size.height = [self.titleLabel textRectForBounds:contentBounds limitedToNumberOfLines:0].size.height;
+    frame.size.height = titleLabelHeight;
     self.titleLabel.frame = CGRectIntegral(frame);
 
     // Increment y
@@ -141,7 +147,7 @@
     frame.origin.x = margins.left;
     frame.origin.y = y;
     frame.size.width = contentSize.width;
-    frame.size.height = [self.messageLabel textRectForBounds:contentBounds limitedToNumberOfLines:0].size.height;
+    frame.size.height = messageLabelHeight;
     self.messageLabel.frame = CGRectIntegral(frame);
 
     // Increment y
@@ -192,7 +198,17 @@
     self.frame = CGRectIntegral(frame);
 }
 
+#pragma mark - Animation -
+
+- (void)setButtonHidden:(BOOL)buttonHidden animated:(BOOL)animated
+{
+
+}
+
 #pragma mark - Accessors -
+
+- (void)setButtonHidden:(BOOL)buttonHidden { [self setButtonHidden:buttonHidden animated:NO]; }
+- (BOOL)buttonHidden { return self.button.hidden; }
 
 - (void)setTitle:(NSString *)title { self.titleLabel.text = title; }
 - (NSString *)title { return self.titleLabel.text; }
