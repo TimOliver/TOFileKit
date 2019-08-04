@@ -49,21 +49,6 @@
     return self;
 }
 
-- (void)setIsCompactPresentation:(BOOL)isCompactPresentation
-{
-    // Update our state to track compact presentation
-    if (_isCompactPresentation == isCompactPresentation) { return; }
-    _isCompactPresentation = isCompactPresentation;
-
-    // Don't bother continuing if the handler hasn't been set
-    if (!self.showItemHandler) { return; }
-
-    // If we went from compact to regular, show the initial view controller now
-    if (self.isInitialItem && !_isCompactPresentation) {
-        self.showItemHandler(self.itemType, self.itemObject);
-    }
-}
-
 #pragma mark - Presenter Input -
 
 - (void)setInitialItem:(TOFileViewControllerType)type modelObject:(id)object
@@ -89,9 +74,7 @@
     self.itemObject = object;
 
     // Make it explicit that the item on display was chosen by the user
-    if (!_isCompactPresentation) {
-        self.isInitialItem = NO;
-    }
+    self.isInitialItem = NO;
 
     // Show the item
     self.showItemHandler(type, object);

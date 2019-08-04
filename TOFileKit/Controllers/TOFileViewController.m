@@ -181,6 +181,12 @@
     return [self.presenter shouldCollapseVisibleItemsForSplitViewController];
 }
 
+- (nullable UIViewController *)splitViewController:(UISplitViewController *)splitViewController
+            separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)primaryViewController
+{
+    return self.locationPickerNavigationController;
+}
+
 #pragma mark - View Routing -
 
 - (void)to_showViewControllerOfType:(TOFileViewControllerType)type
@@ -206,7 +212,8 @@
                 [self showModalLocationPickerViewController];
             }
             else {
-                [self.splitViewController showDetailViewController:self.locationPickerNavigationController sender:nil];
+                [self.splitViewController showDetailViewController:self.locationPickerNavigationController
+                                                            sender:nil];
             }
         break;
         default: break;

@@ -41,10 +41,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) void (^showItemHandler)(TOFileViewControllerType type, _Nullable id object);
 
 /** Set an optional 'initial' item that will only be created and shown when space is available. */
-- (void)setInitialItem:(TOFileViewControllerType)type modelObject:(id)object;
+- (void)setInitialItem:(TOFileViewControllerType)type modelObject:(nullable id)object;
 
 /** For all regular interactions, show a child view controller based on the type. */
-- (void)showItemWithType:(TOFileViewControllerType)type modelObject:(id)object;
+- (void)showItemWithType:(TOFileViewControllerType)type modelObject:(nullable id)object;
 
 /** When collapsing a split controller, determine if the visible controller should be merged. */
 - (BOOL)shouldCollapseVisibleItemsForSplitViewController;

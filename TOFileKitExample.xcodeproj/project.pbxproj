@@ -40,6 +40,10 @@
 		2252F50C21D9C6B800C6607F /* TOFileLocationsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */; };
 		2252F50F21D9CB6100C6607F /* TOFileSavedLocationsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50E21D9CB6100C6607F /* TOFileSavedLocationsProvider.m */; };
 		2252F51621D9E8A000C6607F /* TOFileCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F51521D9E8A000C6607F /* TOFileCoordinator.m */; };
+		22534C1822F6F01300E81EC1 /* TOFileRootPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22534C1722F6F01300E81EC1 /* TOFileRootPresenterTests.m */; };
+		22534C1922F6F0A800E81EC1 /* TOFileRootPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E4C8622D9909E004EFC47 /* TOFileRootPresenter.m */; };
+		22534C1A22F6F0A800E81EC1 /* TOFileLocationsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252F50B21D9C6B800C6607F /* TOFileLocationsPresenter.m */; };
+		22534C1B22F6F0A800E81EC1 /* TOFileLocationPickerPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272DE7622C8FD70008C4453 /* TOFileLocationPickerPresenter.m */; };
 		2253F3BC2215D13F006171C6 /* TOFileTableSectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */; };
 		225DB290220DF2F2003B90D8 /* TOFileNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB28F220DF2F2003B90D8 /* TOFileNavigationController.m */; };
 		225DB295220DF7D8003B90D8 /* TOFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DB294220DF7D8003B90D8 /* TOFileTableViewCell.m */; };
@@ -142,6 +146,7 @@
 		2252F50E21D9CB6100C6607F /* TOFileSavedLocationsProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileSavedLocationsProvider.m; sourceTree = "<group>"; };
 		2252F51421D9E8A000C6607F /* TOFileCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileCoordinator.h; sourceTree = "<group>"; };
 		2252F51521D9E8A000C6607F /* TOFileCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileCoordinator.m; sourceTree = "<group>"; };
+		22534C1722F6F01300E81EC1 /* TOFileRootPresenterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileRootPresenterTests.m; sourceTree = "<group>"; };
 		2253F3BA2215D13F006171C6 /* TOFileTableSectionFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileTableSectionFooterView.h; sourceTree = "<group>"; };
 		2253F3BB2215D13F006171C6 /* TOFileTableSectionFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileTableSectionFooterView.m; sourceTree = "<group>"; };
 		225DB28B220DE805003B90D8 /* TOFileCoordinator+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TOFileCoordinator+Private.h"; sourceTree = "<group>"; };
@@ -339,6 +344,7 @@
 		223F441F22619E480055D268 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				22534C1722F6F01300E81EC1 /* TOFileRootPresenterTests.m */,
 				223F442022619EC20055D268 /* TOFileLocationsPresenterTests.m */,
 			);
 			path = Presenters;
@@ -891,11 +897,15 @@
 				223F442122619EC20055D268 /* TOFileLocationsPresenterTests.m in Sources */,
 				22FB5D9721FDBC3E00377A24 /* TOFileDatabaseCoordinatorTests.m in Sources */,
 				2207B1FE225E43A600025763 /* TOReachabilityMock.m in Sources */,
+				22534C1922F6F0A800E81EC1 /* TOFileRootPresenter.m in Sources */,
 				22992FF52258DC85004AEF16 /* TOFileLocalServiceDiscovery.m in Sources */,
+				22534C1822F6F01300E81EC1 /* TOFileRootPresenterTests.m in Sources */,
 				222B91BF21DB31670057B1D9 /* TOFileDatabaseCoordinator.m in Sources */,
 				22992FF32258DC0C004AEF16 /* TOFileLocalServiceDiscoveryTests.m in Sources */,
+				22534C1B22F6F0A800E81EC1 /* TOFileLocationPickerPresenter.m in Sources */,
 				223F44242261A8540055D268 /* TOFileLocalServiceDiscoveryMock.m in Sources */,
 				2224768F21DBC1A90006D852 /* TOTestingAppDelegate.m in Sources */,
+				22534C1A22F6F0A800E81EC1 /* TOFileLocationsPresenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
