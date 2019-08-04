@@ -28,6 +28,9 @@
 /** The view presenter holding all of the display logic for this controller */
 @property (nonatomic, strong) TOFileLocationPickerPresenter *presenter;
 
+/** A cancel button shown only in compact display modes */
+@property (nonatomic, strong) UIBarButtonItem *cancelButton;
+
 @end
 
 @implementation TOFileLocationPickerViewController
@@ -67,12 +70,28 @@
     TORoundedTableView *tableView = self.pickerView.tableView;
     tableView.delegate = self;
     tableView.dataSource = self;
+
+    // Create the cancel button
+    self.cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                      target:self
+                                                                      action:@selector(cancelButtonTapped:)];
 }
+
+#pragma mark - View Life Cycle -
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.barTintColor = self.pickerView.backgroundColor;
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
+{
+    [super traitCollectionDidChange:previousTraitCollection];
+
+    // Add the cancel button in compact size classes
+    BOOL isCompact = self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact;
+    self.navigationItem.rightBarButtonItem = isCompact ? self.cancelButton : nil;
 }
 
 #pragma mark - Table View Data Source -
@@ -139,6 +158,13 @@
 
     // Return the cell
     return cell;
+}
+
+#pragma mark - Interaction -
+
+- (void)cancelButtonTapped:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Internal Accessors -
