@@ -99,10 +99,6 @@
     self.locationsViewController = [[TOFileLocationsViewController alloc] initWithFileCoordinator:_fileCoordinator];
     self.locationsNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.locationsViewController];
 
-    // Middle column, by default the picker view controller
-    self.locationPickerViewController = [[TOFileLocationPickerViewController alloc] initWithFileCoordinator:_fileCoordinator];
-    self.locationPickerNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.locationPickerViewController];
-
     // Configure our split view controller to host these controllers
     self.splitViewController = [[UISplitViewController alloc] init];
     self.splitViewController.preferredPrimaryColumnWidthFraction = 0.35f;
@@ -135,8 +131,8 @@
 {
     __weak typeof(self) weakSelf = self;
 
-    id showItemHandler = ^(TOFileViewControllerType type, id object) {
-        [weakSelf showItemWithType:type object:object];
+    id showItemHandler = ^(TOFileViewControllerType type, id object, BOOL modal) {
+        [weakSelf showItemWithType:type object:object modal:modal];
     };
     self.presenter.showItemHandler = showItemHandler;
 }
@@ -164,7 +160,7 @@
 
     // Set the left bar button item if in iPad
     UINavigationItem *locationsNavigationItem = self.locationsViewController.navigationItem;
-    locationsNavigationItem.leftBarButtonItem = self.isCompactPresentation ? self.doneButton : nil;
+    locationsNavigationItem.leftBarButtonItem = !self.isCompactPresentation ? self.doneButton : nil;
 }
 
 #pragma mark - Split View Controller Delegate -
@@ -182,18 +178,11 @@
                          withObject:(id)object
                            animated:(BOOL)animated
 {
-    // In this case, animated is only no when presenting initial controllers at the start.
-    // The presenter will hold a reference, and present if we swap out to regular size classes
-    if (!animated) {
-        [self.presenter setInitialViewWithType:type object:object];
-        return;
-    }
-
-    // In all other cases, present the new view controller in either size class
-    [self.presenter showItemWithType:type object:object];
+    // Forward to the presenter that we need to display a detail controller
+    [self.presenter showItemWithType:type object:object userInitiated:animated];
 }
 
-- (void)showItemWithType:(TOFileViewControllerType)type object:(id)object
+- (void)showItemWithType:(TOFileViewControllerType)type object:(id)object modal:(BOOL)modal
 {
     // Work out what type of controller to show
     UIViewController *viewController = nil;
@@ -201,8 +190,14 @@
         viewController = self.locationPickerNavigationController;
     }
 
-    [self.splitViewController showDetailViewController:viewController
-                                                    sender:self];
+    // Present the view controller either as a component of the split controller, or as a modal popup
+    if (modal) {
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
+    else {
+        [self.splitViewController showDetailViewController:viewController
+                                                        sender:self];
+    }
 }
 
 #pragma mark - Interaction -
@@ -218,6 +213,16 @@
 }
 
 #pragma mark - Convenience Accessors -
+
+- (UINavigationController *)locationPickerNavigationController
+{
+    if (_locationPickerNavigationController) { return _locationPickerNavigationController; }
+
+    // Lazy load the locations picker on request
+    self.locationPickerViewController = [[TOFileLocationPickerViewController alloc] initWithFileCoordinator:_fileCoordinator];
+    _locationPickerNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.locationPickerViewController];
+    return _locationPickerNavigationController;
+}
 
 - (UIBarButtonItem *)doneButton
 {
