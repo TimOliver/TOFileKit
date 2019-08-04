@@ -131,6 +131,11 @@
     CGFloat messageLabelHeight = [self.messageLabel textRectForBounds:contentBounds
                                                limitedToNumberOfLines:0].size.height;
 
+    if (self.skipButtonLayout) {
+        CGFloat totalTextHeight = titleLabelHeight + messageLabelHeight + self.textSpacing;
+        y = (bounds.size.height - totalTextHeight) * 0.5f;
+    }
+
     // Layout the title label
     CGRect frame = self.titleLabel.frame;
     frame.origin.x = margins.left;
@@ -150,14 +155,11 @@
     frame.size.height = messageLabelHeight;
     self.messageLabel.frame = CGRectIntegral(frame);
 
-    // Increment y
-    y = CGRectGetMaxY(frame) + self.buttonSpacing;
-
-    // Layout the button
+    // Layout the button along the bottom, independent of the text
     frame = self.button.frame;
     frame.size.width = MIN(contentSize.width, self.button.minimumWidth + 80);
     frame.size.height = _buttonHeight;
-    frame.origin.y = y;
+    frame.origin.y = bounds.size.height - (margins.bottom + _buttonHeight);
     frame.origin.x = CGRectGetMidX(bounds) - (frame.size.width * 0.5f);
     self.button.frame = CGRectIntegral(frame);
 }
@@ -202,7 +204,27 @@
 
 - (void)setButtonHidden:(BOOL)buttonHidden animated:(BOOL)animated
 {
+    if (buttonHidden == self.button.hidden) { return; }
 
+    if (!animated) {
+        self.button.hidden = buttonHidden;
+        self.skipButtonLayout = buttonHidden;
+        [self setNeedsLayout];
+        return;
+    }
+
+    self.button.hidden = NO;
+    self.button.alpha = buttonHidden ? 1.0f : 0.0f;
+    self.skipButtonLayout = buttonHidden;
+    [self setNeedsLayout];
+
+    [UIView animateWithDuration:0.5f animations:^{
+        self.button.alpha = buttonHidden ? 0.0f : 1.0f;
+        [self layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        self.button.hidden = buttonHidden;
+        self.button.alpha = 1.0f;
+    }];
 }
 
 #pragma mark - Accessors -
