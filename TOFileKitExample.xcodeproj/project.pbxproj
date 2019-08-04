@@ -407,8 +407,8 @@
 			isa = PBXGroup;
 			children = (
 				221E4C8422D99079004EFC47 /* FileRoot */,
-				2272DE7422C8FC6D008C4453 /* FileLocationPicker */,
 				2272DE7322C8FC62008C4453 /* FileLocations */,
+				2272DE7422C8FC6D008C4453 /* FileLocationPicker */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";

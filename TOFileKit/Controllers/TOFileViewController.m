@@ -29,6 +29,10 @@
 @property (nonatomic, strong) UINavigationController *locationPickerNavigationController;
 @property (nonatomic, strong) TOFileLocationPickerViewController *locationPickerViewController;
 
+// In compact, create a second, modal copy of the location picker
+@property (nonatomic, strong) UINavigationController *modalLocationPickerNavigationController;
+@property (nonatomic, strong) TOFileLocationPickerViewController *modalLocationPickerViewController;
+
 // Data manipulation and state tracking
 @property (nonatomic, strong, readwrite) TOFileCoordinator *fileCoordinator;
 @property (nonatomic, strong) TOFileRootPresenter *presenter;
@@ -131,15 +135,10 @@
 {
     __weak typeof(self) weakSelf = self;
 
-    id showItemHandler = ^(TOFileViewControllerType type, id object, BOOL modal) {
-        [weakSelf showItemWithType:type object:object modal:modal];
+    id showItemHandler = ^(TOFileViewControllerType type, id object) {
+        [weakSelf showItemWithType:type object:object];
     };
     self.presenter.showItemHandler = showItemHandler;
-
-    id moveToModalHandler = ^(BOOL modal) {
-        [weakSelf reconfigureCurrentItemsForModalPresentation:modal];
-    };
-    self.presenter.moveItemToModalHandler = moveToModalHandler;
 }
 
 #pragma mark - View Lifecycle -
@@ -166,6 +165,11 @@
     // Set the left bar button item if in iPad
     UINavigationItem *locationsNavigationItem = self.locationsViewController.navigationItem;
     locationsNavigationItem.leftBarButtonItem = !self.isCompactPresentation ? self.doneButton : nil;
+
+    // If we were presenting a modal location picker, remove it
+    if (!self.isCompactPresentation && self.modalLocationPickerNavigationController) {
+        [self dismissModalLocationPickerViewController];
+    }
 }
 
 #pragma mark - Split View Controller Delegate -
@@ -184,56 +188,45 @@
                            animated:(BOOL)animated
 {
     // Forward to the presenter that we need to display a detail controller
-    [self.presenter showItemWithType:type object:object userInitiated:animated];
-}
-
-- (void)showItemWithType:(TOFileViewControllerType)type object:(id)object modal:(BOOL)modal
-{
-    // Work out what type of controller to show
-    UIViewController *viewController = nil;
-    if (type == TOFileViewControllerTypeAddLocation) {
-        viewController = self.locationPickerNavigationController;
-    }
-
-    // Present the view controller either as a component of the split controller, or as a modal popup
-    if (modal) {
-        [self presentViewController:viewController animated:YES completion:nil];
+    if (!animated) {
+        // An initial item that will be retained and shown when needed
+        [self.presenter setInitialItem:type modelObject:object];
     }
     else {
-        [self.splitViewController showDetailViewController:viewController
-                                                        sender:self];
+        // A user initiated push
+        [self.presenter showItemWithType:type modelObject:object];
     }
 }
 
-- (void)reconfigureCurrentItemsForModalPresentation:(BOOL)modal
+- (void)showItemWithType:(TOFileViewControllerType)type object:(id)object
 {
-    // For transitioning to a modal presentation
-    if (modal) {
-        if (self.splitViewController.viewControllers.count < 2) { return; }
-
-        // Get a copy of the visible controllers
-        NSMutableArray *controllers = [self.splitViewController.viewControllers mutableCopy];
-
-        // Extract the one to be made modal
-        UIViewController *modalController = controllers.lastObject;
-        [controllers removeObject:modalController];
-
-        // Remove it from the split view controller
-        self.splitViewController.viewControllers = controllers;
-
-        // Present it
-        [self presentViewController:modalController animated:NO completion:nil];
-        return;
+    switch (type) {
+        case TOFileViewControllerTypeAddLocation:
+            if (self.isCompactPresentation) {
+                [self showModalLocationPickerViewController];
+            }
+            else {
+                [self.splitViewController showDetailViewController:self.locationPickerNavigationController sender:nil];
+            }
+        break;
+        default: break;
     }
+}
 
-    // For collapsing back to the split controller
-    UIViewController *presentingController = self.presentedViewController;
-    if (!presentingController) { return; }
+- (void)showModalLocationPickerViewController
+{
+    self.modalLocationPickerViewController = [[TOFileLocationPickerViewController alloc] initWithFileCoordinator:_fileCoordinator];
+    self.modalLocationPickerNavigationController = [[TOFileNavigationController alloc] initWithRootViewController:self.modalLocationPickerViewController];
+    self.modalLocationPickerNavigationController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:self.modalLocationPickerNavigationController animated:YES completion:nil];
+}
 
-    // Dismiss from view
-    [self dismissViewControllerAnimated:NO completion:^{
-        [self.splitViewController showDetailViewController:presentingController sender:nil];
-    }];
+- (void)dismissModalLocationPickerViewController
+{
+    self.modalLocationPickerNavigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.modalLocationPickerNavigationController dismissViewControllerAnimated:YES completion:nil];
+    self.modalLocationPickerNavigationController = nil;
+    self.modalLocationPickerViewController = nil;
 }
 
 #pragma mark - Interaction -

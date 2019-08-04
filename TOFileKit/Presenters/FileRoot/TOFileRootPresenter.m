@@ -42,6 +42,8 @@
 {
     if (self = [super init]) {
         _fileCoordinator = fileCoordinator;
+        _isInitialItem = YES;
+        _itemType = TOFileViewControllerTypeAddLocation;
     }
 
     return self;
@@ -58,54 +60,48 @@
 
     // If we went from compact to regular, show the initial view controller now
     if (self.isInitialItem && !_isCompactPresentation) {
-        self.showItemHandler(self.itemType, self.itemObject, NO);
-    }
-
-    // Once we have user initiated displays, start doing modal transitions
-    if (self.isInitialItem) { return; }
-
-    // Check if we need to do a modal transition
-    if (self.moveItemToModalHandler) {
-        BOOL presentAsModal = [self typeShouldBeDisplayedInModal:self.itemType];
-        self.moveItemToModalHandler(presentAsModal);
+        self.showItemHandler(self.itemType, self.itemObject);
     }
 }
 
 #pragma mark - Presenter Input -
 
-- (void)showItemWithType:(TOFileViewControllerType)type object:(id)object userInitiated:(BOOL)userInitiated
+- (void)setInitialItem:(TOFileViewControllerType)type modelObject:(id)object
 {
-    self.itemType = type;
-    self.itemObject = object;
-
     // If NOT user initiated, this is part of the view hierarchy setting itself up.
     // Since we might be on an iPhone, where the detail controller isn't even necessary,
     // save a reference, but defer setting up that view controller until the trait collection
     // actually does change to one where we need it.
 
-    if (!userInitiated) {
-        self.isInitialItem = YES;
+    self.isInitialItem = YES;
+    self.itemType = type;
+    self.itemObject = object;
 
-        // Show it immediately, if we're not in iPhone display mode
-        if (!self.isCompactPresentation) {
-            if (self.showItemHandler) { self.showItemHandler(type, object, NO); }
-        }
-
-        return;
+    // Show it immediately, if we're not in iPhone display mode
+    if (!self.isCompactPresentation) {
+        if (self.showItemHandler) { self.showItemHandler(type, object); }
     }
+}
+
+- (void)showItemWithType:(TOFileViewControllerType)type modelObject:(id)object
+{
+    self.itemType = type;
+    self.itemObject = object;
 
     // Make it explicit that the item on display was chosen by the user
-    self.isInitialItem = NO;
+    if (!_isCompactPresentation) {
+        self.isInitialItem = NO;
+    }
 
     // Show the item
-    self.showItemHandler(type, object, [self typeShouldBeDisplayedInModal:type]);
+    self.showItemHandler(type, object);
 }
 
 #pragma mark - Presenter Output -
 
 - (BOOL)shouldCollapseVisibleItemsForSplitViewController
 {
-    return self.isInitialItem;
+    return self.isInitialItem || self.itemType == TOFileViewControllerTypeAddLocation;
 }
 
 #pragma mark - State Tracking -

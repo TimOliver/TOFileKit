@@ -37,20 +37,16 @@ NS_ASSUME_NONNULL_BEGIN
 /** Whether the current presentation is in compact mode (eg iPhone), or full screen. */
 @property (nonatomic, assign) BOOL isCompactPresentation;
 
-/** Callback for presenting views for new items when needed */
-@property (nonatomic, copy) void (^showItemHandler)(TOFileViewControllerType type,
-                                                        _Nullable id object,
-                                                                BOOL modal);
+/** Callback for presenting views for new items when needed. */
+@property (nonatomic, copy) void (^showItemHandler)(TOFileViewControllerType type, _Nullable id object);
 
-/** Callback when it's necessary to reconfigure an item to show as modal. */
-@property (nonatomic, copy) void (^moveItemToModalHandler)(BOOL modal);
+/** Set an optional 'initial' item that will only be created and shown when space is available. */
+- (void)setInitialItem:(TOFileViewControllerType)type modelObject:(id)object;
 
-/** For all regular interactions, show a child view controller based on the type */
-- (void)showItemWithType:(TOFileViewControllerType)type
-                  object:(id)object
-           userInitiated:(BOOL)userInitiated;
+/** For all regular interactions, show a child view controller based on the type. */
+- (void)showItemWithType:(TOFileViewControllerType)type modelObject:(id)object;
 
-/** When collapsing a split controller, determine if the visible controller should be merged */
+/** When collapsing a split controller, determine if the visible controller should be merged. */
 - (BOOL)shouldCollapseVisibleItemsForSplitViewController;
 
 @end
