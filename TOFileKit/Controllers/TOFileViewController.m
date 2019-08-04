@@ -135,6 +135,11 @@
         [weakSelf showItemWithType:type object:object modal:modal];
     };
     self.presenter.showItemHandler = showItemHandler;
+
+    id moveToModalHandler = ^(BOOL modal) {
+        [weakSelf reconfigureCurrentItemsForModalPresentation:modal];
+    };
+    self.presenter.moveItemToModalHandler = moveToModalHandler;
 }
 
 #pragma mark - View Lifecycle -
@@ -169,7 +174,7 @@
             collapseSecondaryViewController:(UIViewController *)secondaryViewController
                 ontoPrimaryViewController:(UIViewController *)primaryViewController
 {
-    return YES;
+    return [self.presenter shouldCollapseVisibleItemsForSplitViewController];
 }
 
 #pragma mark - View Routing -
@@ -198,6 +203,37 @@
         [self.splitViewController showDetailViewController:viewController
                                                         sender:self];
     }
+}
+
+- (void)reconfigureCurrentItemsForModalPresentation:(BOOL)modal
+{
+    // For transitioning to a modal presentation
+    if (modal) {
+        if (self.splitViewController.viewControllers.count < 2) { return; }
+
+        // Get a copy of the visible controllers
+        NSMutableArray *controllers = [self.splitViewController.viewControllers mutableCopy];
+
+        // Extract the one to be made modal
+        UIViewController *modalController = controllers.lastObject;
+        [controllers removeObject:modalController];
+
+        // Remove it from the split view controller
+        self.splitViewController.viewControllers = controllers;
+
+        // Present it
+        [self presentViewController:modalController animated:NO completion:nil];
+        return;
+    }
+
+    // For collapsing back to the split controller
+    UIViewController *presentingController = self.presentedViewController;
+    if (!presentingController) { return; }
+
+    // Dismiss from view
+    [presentingController dismissViewControllerAnimated:NO completion:^{
+        [self.splitViewController showDetailViewController:presentingController sender:nil];
+    }];
 }
 
 #pragma mark - Interaction -
