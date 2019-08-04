@@ -50,6 +50,9 @@ typedef NS_ENUM(NSInteger, TOFileCustomHostServiceType) {
 };
 
 typedef NS_ENUM(NSInteger, TOFileViewControllerType) {
+    TOFileViewControllerTypeNone,
+    TOFileViewControllerTypeLocation,
+    TOFileViewControllerTypeLocationSettings,
     TOFileViewControllerTypeAddLocation,
-    TOFileViewControllerTypeLocation
+    TOFileViewControllerTypeDownloads
 };
