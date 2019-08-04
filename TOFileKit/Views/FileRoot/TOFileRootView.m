@@ -58,6 +58,12 @@ static const CGFloat kTOFileRootTabBarHeightCompact = 30.0f;
     self.toolbar.items = @[self.doneButton, spacingItem, self.downloadsButton];
 }
 
+- (void)didMoveToSuperview
+{
+    [super didMoveToSuperview];
+    self.toolbarHidden = (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular);
+}
+
 #pragma mark - View Layout -
 
 - (void)layoutSubviews
