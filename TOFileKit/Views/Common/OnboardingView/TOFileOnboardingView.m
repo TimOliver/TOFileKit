@@ -25,9 +25,11 @@
 
 @interface TOFileOnboardingView ()
 
+// Layout
 @property (nonatomic, assign) CGFloat textSpacing;
 @property (nonatomic, assign) CGFloat buttonSpacing;
 @property (nonatomic, assign) CGFloat buttonHeight;
+@property (nonatomic, assign) BOOL skipButtonLayout;
 
 // Views
 @property (nonatomic, strong) UIView *backgroundView;
@@ -124,13 +126,22 @@
     CGSize contentSize = (CGSize){bounds.size.width - (margins.left + margins.right), CGFLOAT_MAX};
     CGRect contentBounds = (CGRect){CGPointZero, contentSize};
     CGFloat y = margins.top;
+    CGFloat titleLabelHeight = [self.titleLabel textRectForBounds:contentBounds
+                                           limitedToNumberOfLines:0].size.height;
+    CGFloat messageLabelHeight = [self.messageLabel textRectForBounds:contentBounds
+                                               limitedToNumberOfLines:0].size.height;
+
+    if (self.skipButtonLayout) {
+        CGFloat totalTextHeight = titleLabelHeight + messageLabelHeight + self.textSpacing;
+        y = (bounds.size.height - totalTextHeight) * 0.5f;
+    }
 
     // Layout the title label
     CGRect frame = self.titleLabel.frame;
     frame.origin.x = margins.left;
     frame.origin.y = y;
     frame.size.width = contentSize.width;
-    frame.size.height = [self.titleLabel textRectForBounds:contentBounds limitedToNumberOfLines:0].size.height;
+    frame.size.height = titleLabelHeight;
     self.titleLabel.frame = CGRectIntegral(frame);
 
     // Increment y
@@ -141,17 +152,14 @@
     frame.origin.x = margins.left;
     frame.origin.y = y;
     frame.size.width = contentSize.width;
-    frame.size.height = [self.messageLabel textRectForBounds:contentBounds limitedToNumberOfLines:0].size.height;
+    frame.size.height = messageLabelHeight;
     self.messageLabel.frame = CGRectIntegral(frame);
 
-    // Increment y
-    y = CGRectGetMaxY(frame) + self.buttonSpacing;
-
-    // Layout the button
+    // Layout the button along the bottom, independent of the text
     frame = self.button.frame;
     frame.size.width = MIN(contentSize.width, self.button.minimumWidth + 80);
     frame.size.height = _buttonHeight;
-    frame.origin.y = y;
+    frame.origin.y = bounds.size.height - (margins.bottom + _buttonHeight);
     frame.origin.x = CGRectGetMidX(bounds) - (frame.size.width * 0.5f);
     self.button.frame = CGRectIntegral(frame);
 }
@@ -192,7 +200,37 @@
     self.frame = CGRectIntegral(frame);
 }
 
+#pragma mark - Animation -
+
+- (void)setButtonHidden:(BOOL)buttonHidden animated:(BOOL)animated
+{
+    if (buttonHidden == self.button.hidden) { return; }
+
+    if (!animated) {
+        self.button.hidden = buttonHidden;
+        self.skipButtonLayout = buttonHidden;
+        [self setNeedsLayout];
+        return;
+    }
+
+    self.button.hidden = NO;
+    self.button.alpha = buttonHidden ? 1.0f : 0.0f;
+    self.skipButtonLayout = buttonHidden;
+    [self setNeedsLayout];
+
+    [UIView animateWithDuration:0.5f animations:^{
+        self.button.alpha = buttonHidden ? 0.0f : 1.0f;
+        [self layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        self.button.hidden = buttonHidden;
+        self.button.alpha = 1.0f;
+    }];
+}
+
 #pragma mark - Accessors -
+
+- (void)setButtonHidden:(BOOL)buttonHidden { [self setButtonHidden:buttonHidden animated:NO]; }
+- (BOOL)buttonHidden { return self.button.hidden; }
 
 - (void)setTitle:(NSString *)title { self.titleLabel.text = title; }
 - (NSString *)title { return self.titleLabel.text; }

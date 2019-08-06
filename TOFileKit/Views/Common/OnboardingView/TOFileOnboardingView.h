@@ -46,8 +46,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** Set the color of the title and the message text */
 @property (nonatomic, strong) UIColor *textColor;
 
+/** Set the button to hidden or not */
+@property (nonatomic, assign) BOOL buttonHidden;
+
 /** Create a new instance of an onboarding view with the provided title and message */
 - (instancetype)initWithTitle:(NSString *)title message:(NSString *)message;
+
+/** Hide the button with a crossfade animation. */
+- (void)setButtonHidden:(BOOL)buttonHidden animated:(BOOL)animated;
 
 /** Resize the onboarding view vertically to accomodate the content given the provided width. */
 - (void)sizeToFitWidth:(CGFloat)width;
