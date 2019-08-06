@@ -30,6 +30,7 @@
 #import "TOFileOnboardingView.h"
 
 #import "UIViewController+TOFileRouting.h"
+#import "UIViewController+TOFileSizeClasses.h"
 
 NSInteger const kTOFileLocationsMaximumLocalServices = 6;
 NSString * const kTOFileLocationsHeaderIdentifier = @"LocationsHeader";
@@ -48,6 +49,9 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 
 /** A dictionary of all of the icons for the file services */
 @property (nonatomic, strong) NSDictionary *serviceIcons;
+
+/** The last selected index by the user. (nil indicates they tapped "Add Location") */
+@property (nonatomic, strong) NSIndexPath *lastSelectedIndexPath;
 
 @end
 
@@ -191,6 +195,15 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     [self.navigationItem setRightBarButtonItem:editingButton animated:animated];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+
+    // When moving between traits, update the visibility of the "Add Location" button.
+    // It should always be visible in compact, and only visible in regular if we haven't set it
+    [self updateAddLocationButtonForOnboardingView:nil animated:NO];
+}
+
 #pragma mark - Navigation Interaction -
 
 - (void)showItemWithType:(TOFileLocationsPresenterItemType)type
@@ -275,6 +288,10 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
     // Add the onboarding view
     cell.onboardView = onboardingView;
 
+    // Show or hide the button depending on if it is selected
+
+    [self updateAddLocationButtonForOnboardingView:onboardingView animated:NO];
+
     // Configure the tap action if it is not already set
     if (onboardingView.buttonTappedHandler) { return; }
 
@@ -285,6 +302,24 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
                                    withObject:nil
                                      animated:YES];
     };
+}
+
+- (void)updateAddLocationButtonForOnboardingView:(TOFileOnboardingView *)onboardingView animated:(BOOL)animated
+{
+    // Get the cell if we didn't have it supplied
+    if (onboardingView == nil) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        TOFileLocationsPresenterItemType itemType = [self.presenter itemTypeForIndex:indexPath.row inSection:indexPath.section];
+        if (itemType != TOFileLocationsPresenterItemTypeAddLocationOnboard) { return; }
+        TOFileLocationsTableViewCell *cell = [self.fileLocationsView.tableView cellForRowAtIndexPath:indexPath];
+        onboardingView = (TOFileOnboardingView *)cell.onboardView;
+    }
+
+    // Always visible in compact mode
+    BOOL buttonHidden = !self.splitViewController.collapsed;
+    // Hide if it's selected in regular mode
+    buttonHidden = buttonHidden && self.lastSelectedIndexPath == nil;
+    [onboardingView setButtonHidden:buttonHidden animated:animated];
 }
 
 #pragma mark - Table View Delegate -
@@ -329,6 +364,8 @@ NSString * const kTOFileLocationsFooterIdentifier = @"LocationsFooter";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    self.lastSelectedIndexPath = indexPath;
+    [self updateAddLocationButtonForOnboardingView:nil animated:YES];
 }
 
 #pragma mark - Convenience Accessors -

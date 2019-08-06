@@ -18,6 +18,7 @@
 		220366C52219126C0070E21A /* TOFileCustomServiceFTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366BA2219126C0070E21A /* TOFileCustomServiceFTP.m */; };
 		220366C62219126C0070E21A /* TOFileCustomService.m in Sources */ = {isa = PBXBuildFile; fileRef = 220366BB2219126C0070E21A /* TOFileCustomService.m */; };
 		2207B1FE225E43A600025763 /* TOReachabilityMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 2207B1FD225E43A600025763 /* TOReachabilityMock.m */; };
+		221079C422F9CC040020F611 /* UIViewController+TOFileSizeClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 221079C322F9CC040020F611 /* UIViewController+TOFileSizeClasses.m */; };
 		2219B388220E80A300A91505 /* TOFileSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2219B387220E80A300A91505 /* TOFileSeparatorView.m */; };
 		221E4C8722D9909E004EFC47 /* TOFileRootPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E4C8622D9909E004EFC47 /* TOFileRootPresenter.m */; };
 		2224768F21DBC1A90006D852 /* TOTestingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224768D21DBC17E0006D852 /* TOTestingAppDelegate.m */; };
@@ -107,6 +108,8 @@
 		220366BB2219126C0070E21A /* TOFileCustomService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOFileCustomService.m; sourceTree = "<group>"; };
 		2207B1FC225E43A600025763 /* TOReachabilityMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOReachabilityMock.h; sourceTree = "<group>"; };
 		2207B1FD225E43A600025763 /* TOReachabilityMock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOReachabilityMock.m; sourceTree = "<group>"; };
+		221079C222F9CC040020F611 /* UIViewController+TOFileSizeClasses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TOFileSizeClasses.h"; sourceTree = "<group>"; };
+		221079C322F9CC040020F611 /* UIViewController+TOFileSizeClasses.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TOFileSizeClasses.m"; sourceTree = "<group>"; };
 		2219B386220E80A300A91505 /* TOFileSeparatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileSeparatorView.h; sourceTree = "<group>"; };
 		2219B387220E80A300A91505 /* TOFileSeparatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOFileSeparatorView.m; sourceTree = "<group>"; };
 		221E4C8522D9909E004EFC47 /* TOFileRootPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOFileRootPresenter.h; sourceTree = "<group>"; };
@@ -625,6 +628,8 @@
 			children = (
 				22DFB6D422F3455B00EF4328 /* UIViewController+TOFileRouting.h */,
 				22DFB6D522F3455B00EF4328 /* UIViewController+TOFileRouting.m */,
+				221079C222F9CC040020F611 /* UIViewController+TOFileSizeClasses.h */,
+				221079C322F9CC040020F611 /* UIViewController+TOFileSizeClasses.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -954,6 +959,7 @@
 				2219B388220E80A300A91505 /* TOFileSeparatorView.m in Sources */,
 				2253F3BC2215D13F006171C6 /* TOFileTableSectionFooterView.m in Sources */,
 				2272DE7722C8FD70008C4453 /* TOFileLocationPickerPresenter.m in Sources */,
+				221079C422F9CC040020F611 /* UIViewController+TOFileSizeClasses.m in Sources */,
 				2272DE6922C83FE6008C4453 /* TOFileLocationPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
